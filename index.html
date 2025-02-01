@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo de la tienda">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="carrito">
+            <a href="cart.html">🛒 (<span id="contador-carrito">0</span>)</a>
+        </div>
+    </header>
+
+    <!-- Sección Inicio -->
+    <section id="inicio">
+        <div class="banner">
+            <img src="images/banner.jpg" alt="Ofertas especiales">
+            <a href="#servicios" class="btn">Ver Ofertas</a>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi">
+        <h2>Sobre Mí</h2>
+        <div class="contenido">
+            <img src="images/sobre-mi.jpg" alt="Sobre mí">
+            <p>Somos una empresa comprometida con la calidad y el servicio al cliente. Nuestra misión es ofrecer los mejores productos al mejor precio.</p>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios">
+        <h2>Nuestros Productos</h2>
+        <div class="filtros">
+            <button class="filtro-btn active" data-categoria="todas">Todas</button>
+            <button class="filtro-btn" data-categoria="electrodomesticos">Electrodomésticos</button>
+            <button class="filtro-btn" data-categoria="alimentos">Alimentos</button>
+            <button class="filtro-btn" data-categoria="aseo">Aseo</button>
+        </div>
+        <div class="productos-container" id="productos"></div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form>
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <textarea placeholder="Mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+        <a href="https://wa.me/tunumerodewhatsapp" class="whatsapp-btn">💬 WhatsApp</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="enlaces">
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre-mi">Sobre Mí</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+        <div class="redes-sociales">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+        </div>
+        <p>&copy; 2023 Mi Tienda Online</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
