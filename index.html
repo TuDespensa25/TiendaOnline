@@ -26,13 +26,17 @@
         </div>
     </header>
 
-    <!-- Sección Inicio -->
-    <section id="inicio">
-        <div class="banner">
-            <img src="images/banner.jpg" alt="Ofertas especiales">
-            <a href="#servicios" class="btn">Ver Ofertas</a>
-        </div>
-    </section>
+   <!-- Sección Inicio -->
+<section id="inicio">
+    <div class="banner">
+        <picture>
+            <source media="(max-width: 768px)" srcset="images/banner-mobile.jpg">
+            <source media="(min-width: 769px)" srcset="images/banner.jpg">
+            <img src="images/banner.jpg" alt="Ofertas especiales" loading="lazy">
+        </picture>
+        <a href="#servicios" class="btn">Ver Ofertas</a>
+    </div>
+</section>
 
     <!-- Sección Sobre Mí -->
     <section id="sobre-mi">
