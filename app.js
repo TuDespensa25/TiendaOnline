@@ -32,22 +32,26 @@ function renderizarProductos(categoria = "todas") {
     const productosContainer = document.getElementById("productos");
     if (!productosContainer) return; // Si no existe, salir
 
-    productosContainer.innerHTML = "";
-
+    const fragment = document.createDocumentFragment(); // Crear un fragmento
     const productosFiltrados = categoria === "todas" ? productos : productos.filter(producto => producto.categoria === categoria);
 
     productosFiltrados.forEach(producto => {
         const productoHTML = `
             <div class="producto" data-categoria="${producto.categoria}">
                 <div class="etiqueta-categoria ${producto.categoria}">${producto.categoria}</div>
-                <img src="${producto.imagen}" alt="${producto.nombre}">
+                <img src="${producto.imagen}" alt="${producto.nombre}" loading="lazy">
                 <h3>${producto.nombre}</h3>
                 <p>$${producto.precio}</p>
                 <button onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
             </div>
         `;
-        productosContainer.innerHTML += productoHTML;
+        const div = document.createElement("div");
+        div.innerHTML = productoHTML;
+        fragment.appendChild(div.firstElementChild); // Agregar al fragmento
     });
+
+    productosContainer.innerHTML = ""; // Limpiar contenedor
+    productosContainer.appendChild(fragment); // Agregar todo de una vez
 }
 
 // Función para agregar productos al carrito
@@ -151,6 +155,7 @@ function enviarPedidoPorWhatsapp() {
     const url = `https://wa.me/tunumerodewhatsapp?text=Hola,%20quiero%20hacer%20el%20siguiente%20pedido:%0A${mensaje}%0ATotal:%20$${total.toFixed(2)}`;
     window.open(url, '_blank');
 }
+
 // Función para redirigir a la página principal
 function redirigirAPaginaPrincipal() {
     window.location.href = "index.html";
@@ -175,32 +180,9 @@ document.addEventListener("DOMContentLoaded", () => {
         pedirWhatsappBtn.addEventListener("click", enviarPedidoPorWhatsapp);
     }
 
-    // Evento para el botón "Seguir Comprando"
     const seguirComprandoBtn = document.getElementById("seguir-comprando");
     if (seguirComprandoBtn) {
         seguirComprandoBtn.addEventListener("click", redirigirAPaginaPrincipal);
-    }
-
-    renderizarCarrito();
-});
-
-// Event listeners
-document.addEventListener("DOMContentLoaded", () => {
-    cargarCarritoDesdeLocalStorage();
-    renderizarProductos();
-
-    const filtros = document.querySelectorAll(".filtro-btn");
-    filtros.forEach(filtro => {
-        filtro.addEventListener("click", () => {
-            filtros.forEach(f => f.classList.remove("active"));
-            filtro.classList.add("active");
-            renderizarProductos(filtro.dataset.categoria);
-        });
-    });
-
-    const pedirWhatsappBtn = document.getElementById("pedir-whatsapp");
-    if (pedirWhatsappBtn) {
-        pedirWhatsappBtn.addEventListener("click", enviarPedidoPorWhatsapp);
     }
 
     renderizarCarrito();

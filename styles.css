@@ -3,8 +3,8 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: #c2e1e7;
-    color: #1c1a1a;
+    background: #f9f9f9;
+    color: #333;
 }
 
 header {
@@ -12,7 +12,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: #139ac0;
+    background: #4CAF50;
     color: white;
 }
 
@@ -38,7 +38,7 @@ nav ul li a {
 }
 
 .carrito a {
-    color: rgb(255, 255, 255);
+    color: white;
     text-decoration: none;
     font-size: 1.2em;
 }
@@ -115,28 +115,61 @@ section {
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
-.etiqueta-categoria {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.8em;
-    color: white;
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
-
-.electrodomesticos { background: #2196F3; }
-.alimentos { background: #4CAF50; }
-.aseo { background: #9C27B0; }
 
 .producto img {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
+
+.producto h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.producto p {
+    font-size: 1.1em;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.producto button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.producto button:hover {
+    background: #45a049;
+}
+
+.etiqueta-categoria {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.electrodomesticos { background: #2196F3; }
+.alimentos { background: #4CAF50; }
+.aseo { background: #9C27B0; }
 
 /* Contacto */
 form {
@@ -316,6 +349,7 @@ footer a {
 #pedir-whatsapp:hover {
     background: #128C7E;
 }
+
 #seguir-comprando {
     background: #4CAF50;
     color: white;
@@ -333,4 +367,72 @@ footer a {
 
 #seguir-comprando:hover {
     background: #45a049;
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .banner img {
+        height: 200px;
+    }
+
+    .banner .btn {
+        bottom: 10px;
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    #sobre-mi .contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #sobre-mi img {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+
+    .productos-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .producto img {
+        height: 120px;
+    }
+
+    .producto h3 {
+        font-size: 1em;
+    }
+
+    .producto p {
+        font-size: 0.9em;
+    }
+
+    .producto button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    footer .enlaces, footer .redes-sociales {
+        flex-direction: column;
+    }
+
+    footer a {
+        margin: 5px 0;
+    }
 }
