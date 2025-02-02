@@ -110,7 +110,6 @@ function renderizarProductos(categoria = "todas") {
     productosContainer.appendChild(fragment); // Agregar todo de una vez
 }
 
-// Función para agregar productos al carrito
 function agregarAlCarrito(id) {
     const producto = productos.find(p => p.id === id);
     const productoEnCarrito = carrito.find(p => p.id === id);
@@ -121,11 +120,24 @@ function agregarAlCarrito(id) {
         carrito.push({ ...producto, cantidad: 1 });
     }
 
+    // Mostrar mensaje emergente
+    mostrarMensaje(`¡${producto.nombre} agregado al carrito!`);
+
     actualizarContadorCarrito();
     guardarCarritoEnLocalStorage();
 }
 
-// Función para actualizar el contador del carrito
+function mostrarMensaje(mensaje) {
+    const mensajeElemento = document.createElement("div");
+    mensajeElemento.className = "mensaje-carrito";
+    mensajeElemento.textContent = mensaje;
+    document.body.appendChild(mensajeElemento);
+
+    // Eliminar el mensaje después de 2 segundos
+    setTimeout(() => {
+        mensajeElemento.remove();
+    }, 2000);
+}
 function actualizarContadorCarrito() {
     contadorCarrito = carrito.reduce((total, producto) => total + producto.cantidad, 0);
     const contadorElemento = document.getElementById("contador-carrito");
@@ -208,7 +220,7 @@ function eliminarDelCarrito(id) {
 function enviarPedidoPorWhatsapp() {
     const mensaje = carrito.map(p => `${p.nombre} - ${p.cantidad} x $${p.precio}`).join("%0A");
     const total = carrito.reduce((total, producto) => total + producto.precio * producto.cantidad, 0);
-    const url = `https://wa.me/tunumerodewhatsapp?text=Hola,%20quiero%20hacer%20el%20siguiente%20pedido:%0A${mensaje}%0ATotal:%20$${total.toFixed(2)}`;
+    const url = `https://wa.me/+5354066204,text=Hola,%20quiero%20hacer%20el%20siguiente%20pedido:%0A${mensaje}%0ATotal:%20$${total.toFixed(2)}`;
     window.open(url, '_blank');
 }
 
