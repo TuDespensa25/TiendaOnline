@@ -39,29 +39,39 @@ nav ul li a {
 }
 
 .carrito a {
-    color: white;
+    color: rgb(148, 8, 8);
     text-decoration: none;
     font-size: 1.2em;
 }
 
-@media (max-width: 768px) {
-    header {
-        flex-wrap: wrap;
-    }
 
-    nav ul {
-        justify-content: center;
-        width: 100%;
-        padding: 10px 0;
-    }
-
-    .carrito {
-        width: 100%;
-        text-align: center;
-        margin-top: 10px;
-    }
+.carrito a {
+    color: rgb(5, 5, 5);
+    text-decoration: none;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
 }
 
+.carrito a .fas {
+    font-size: 1.5em;
+    margin-right: 5px;
+}
+
+.contador-carrito {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /* Estilos del banner */
 .banner {
