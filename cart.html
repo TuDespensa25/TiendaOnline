@@ -1,26 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
-    <div class="container">
-        <h1><i class="fas fa-shopping-cart"></i> Tu Carrito</h1>
-
-        <div id="items-carrito"></div>
-        <div class="total">
-            <h3>Total: $<span id="total-pedido">0</span></h3>
-            <button id="pedir-whatsapp"> Enviar Pedido por WhatsApp</button>
-            <!-- Botón de Seguir Comprando con icono de carrito -->
-            <button id="seguir-comprando"><i class="fas fa-shopping-cart"></i>  Seguir Comprando</button>
-        </div>
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.png" alt="Logo de la tienda"></a>
     </div>
-    
+    <nav>
+      <ul>
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="index.html#sobre-mi">Sobre Mí</a></li>
+        <li><a href="index.html#servicios">Productos</a></li>
+      </ul>
+    </nav>
+    <div class="carrito">
+      <a href="cart.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="contador-carrito" class="contador-carrito">0</span>
+      </a>
+    </div>
+  </header>
 
-    <script src="app.js"></script>
+  <main>
+    <div class="container">
+      <h1><i class="fas fa-shopping-cart"></i> Tu Carrito</h1>
+      <div id="items-carrito"></div>
+      <div class="total">
+        <h3>Total: $<span id="total-pedido">0</span></h3>
+        <button id="pedir-whatsapp"><i class="fab fa-whatsapp"></i>Enviar Pedido por WhatsApp</button>
+        <button id="seguir-comprando"><i class="fas fa-shopping-cart"></i> Seguir Comprando</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="redes-sociales">
+      <a href="https://www.facebook.com/tuDespensa.25" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/tuDespensa.25" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/5354066204" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2025 Mi Tienda Online</p>
+  </footer>
+
+  <script src="app.js" defer></script>
 </body>
 </html>
