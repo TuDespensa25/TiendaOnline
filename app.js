@@ -4,7 +4,7 @@ const productos = [
         id: 1,
         nombre: "Tv Milexus 55 pulgadas",
         precio: 450,
-        categoria: "electrodomesticos",
+        categoria: "Electrodomésticos",
         imagen: "images/55.jpg"
     },
     {
@@ -13,7 +13,7 @@ const productos = [
         precio: 60,
         imagen: "images/ventilador.jpg",
         description: "Ventilador tipo ciclón Milexus",
-        categoria: "electrodomesticos"
+        categoria: "Electrodomésticos"
     },
     {
         id: 61,
@@ -67,14 +67,14 @@ const productos = [
         id: 2,
         nombre: "Producto 2",
         precio: 50,
-        categoria: "alimentos",
+        categoria: "Alimentos",
         imagen: "images/producto2.jpg"
     },
     {
         id: 3,
         nombre: "Producto 3",
         precio: 30,
-        categoria: "aseo",
+        categoria: "Aseo",
         imagen: "images/producto3.jpg"
     }
 ];

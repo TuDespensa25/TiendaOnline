@@ -139,7 +139,6 @@ section {
     text-align: center;
     margin-bottom: 20px;
 }
-
 .filtro-btn {
     padding: 10px 20px;
     margin: 0 5px;
@@ -169,12 +168,12 @@ section {
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    width: 100%; /* Ocupa todo el ancho disponible */
-    height: auto; /* Altura automática */
+    width: 250px; /* Ancho fijo */
+    height: 350px; /* Alto fijo */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
+    overflow: hidden; /* Evita que el contenido se desborde */
 }
 
 .producto:hover {
@@ -184,8 +183,8 @@ section {
 
 .producto img {
     width: 100%;
-    height: 150px;
-    object-fit: cover;
+    height: 150px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Ajusta la imagen sin distorsionarla */
     border-radius: 8px;
     margin-bottom: 10px;
 }
@@ -229,9 +228,9 @@ section {
     margin-bottom: 10px;
 }
 
-.electrodomesticos { background: #2196F3; }
-.alimentos { background: #4CAF50; }
-.aseo { background: #9C27B0; }
+.Electrodomésticos{ background: #2196F3; }
+.Alimentos { background: #4CAF50; }
+.Aseo { background: #9C27B0; }
 
 /* Footer */
 footer {
@@ -433,16 +432,21 @@ footer a {
         margin-bottom: 20px;
     }
 
-    .productos-container {
-        grid-template-columns: 1fr; /* Una sola columna en móviles */
-        gap: 15px;
-        padding: 0 10px;
-    }
-
-    .producto {
-        width: 100%;
-        height: auto;
-        padding: 10px;
+    @media (max-width: 768px) {
+        .productos-container {
+            display: flex;
+            flex-direction: column; /* Una columna en móviles */
+            align-items: center; /* Centrar los productos */
+            gap: 15px; /* Espacio entre productos */
+            padding: 0 10px; /* Añadir padding para evitar que toquen los bordes */
+        }
+    
+        .producto {
+            width: 90%; /* Ancho casi completo */
+            max-width: 300px; /* Máximo ancho para evitar que se estiren demasiado */
+            height: auto; /* Altura automática */
+            padding: 10px; /* Reducir el padding para móviles */
+        }
     }
 
     .producto img {
