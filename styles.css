@@ -414,3 +414,53 @@ footer {
         align-items: center;
     }
 }
+.caja {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white; /* Asegura que el texto sea visible */
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Agrega imágenes de fondo específicas para cada caja */
+.caja:nth-child(1) {
+    background-image: url('images/caja1.png'); 
+}
+.caja:nth-child(2) {
+    background-image: url('images/caja2.png'); 
+}
+.caja:nth-child(3) {
+    background-image: url('images/caja3.png'); 
+}
+
+/* Crea un efecto de superposición oscura para mejorar la legibilidad */
+.caja::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Oscurece la imagen de fondo */
+    z-index: 1;
+}
+
+/* Ajusta el contenido de la caja para que se mantenga encima de la superposición */
+.caja h3,
+.caja p {
+    position: relative;
+    z-index: 2;
+}
+
+/* Efecto hover para dar dinamismo */
+.caja:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
