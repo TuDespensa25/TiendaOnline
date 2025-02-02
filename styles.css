@@ -37,10 +37,36 @@ nav ul li a {
     font-weight: bold;
 }
 
+.carrito {
+    position: relative;
+}
+
 .carrito a {
-    color: white;
+    color: rgb(5, 5, 5);
     text-decoration: none;
     font-size: 1.2em;
+    display: flex;
+    align-items: center;
+}
+
+.carrito a .fas {
+    font-size: 1.5em;
+    margin-right: 5px;
+}
+
+.contador-carrito {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Estilos del banner */
@@ -63,7 +89,7 @@ nav ul li a {
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
-    background: #4CAF50;
+    background: #160279;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -208,46 +234,13 @@ section {
 .alimentos { background: #4CAF50; }
 .aseo { background: #9C27B0; }
 
-/* Contacto */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 500px;
-    margin: 0 auto;
-}
 
-form input, form textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form button {
-    padding: 10px;
-    background: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.whatsapp-btn {
-    display: block;
-    text-align: center;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background: #25D366;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background: #333;
+    background: #0f85b4;
     color: white;
 }
 
@@ -266,7 +259,7 @@ footer a {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background: white;
+    background: rgb(20, 144, 240);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -285,7 +278,7 @@ footer a {
 }
 
 .item-carrito:hover {
-    background: #f5f5f5;
+    background: #4104ba;
 }
 
 .item-carrito img {
@@ -318,8 +311,8 @@ footer a {
 }
 
 .contador-cantidad button {
-    background: #4CAF50;
-    color: white;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
     border: none;
     width: 30px;
     height: 30px;
@@ -332,7 +325,7 @@ footer a {
 }
 
 .contador-cantidad button:hover {
-    background: #45a049;
+    background: #5b08b4;
 }
 
 .contador-cantidad input {
@@ -344,7 +337,7 @@ footer a {
 }
 
 .eliminar-item {
-    background: #ff4d4d;
+    background: transparent;
     color: white;
     border: none;
     width: 30px;
@@ -388,7 +381,7 @@ footer a {
 }
 
 #seguir-comprando {
-    background: #4CAF50;
+    background: #1e0780;
     color: white;
     border: none;
     padding: 15px 30px;

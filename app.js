@@ -2,10 +2,66 @@
 const productos = [
     {
         id: 1,
-        nombre: "Producto 1",
-        precio: 100,
+        nombre: "Tv Milexus 55 pulgadas",
+        precio: 450,
         categoria: "electrodomesticos",
-        imagen: "images/producto1.jpg"
+        imagen: "images/55.jpg"
+    },
+    {
+        id: 2,
+        nombre: "Ventilador de pedestal",
+        precio: 60,
+        imagen: "images/ventilador.jpg",
+        description: "Ventilador tipo ciclón Milexus",
+        categoria: "electrodomesticos"
+    },
+    {
+        id: 61,
+        name: "Split milexus ",
+        price: 380,
+        image: "split.jpg",
+        description: "Milexus 1200 btu",
+        category: "De Electrodomésticos"
+    },
+    {
+        id: 62,
+        name: "Frezeer  ",
+        price: 350,
+        image: "nevera.jpg",
+        description: "Milexus 5pies ",
+        category: "De Electrodomésticos"
+    },
+    {
+        id:63,
+        name: "Tv de 32",
+        price: 260,
+        image: "32.jpg",
+        description: "Tv inteligente 32 pulgadas",
+        category: "De Electrodomésticos"
+    },
+    {
+        id: 64,
+        name: "Tv de 55  ",
+        price: 450,
+        image: "55.jpg",
+        description: "Tv inteligente Milexus 55 pulgadas",
+        category: "De Electrodomésticos"
+    },
+    {
+        id: 65,
+        name: "Batidora Milexus ",
+        price: 45,
+        image: "batidora.jpg",
+        description: "Batidora 2 en 1 (+ moledor de sazones)",
+        category: "De Electrodomésticos"
+    },
+    {
+        id: 66,
+        name: " Cefetera Milexus ",
+        price: 45,
+        image: "cafetera.jpg",
+        description: "Cafetera Electrica de 6 tazas",
+        category: "De Electrodomésticos"
     },
     {
         id: 2,
