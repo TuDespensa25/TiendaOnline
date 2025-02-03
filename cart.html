@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carrito de Compras</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- En producción se recomienda incluir integrity y crossorigin -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
   <header>
-    
     <nav>
       <ul>
         <li><a href="index.html#inicio">Inicio</a></li>
@@ -31,7 +31,7 @@
       <div id="items-carrito"></div>
       <div class="total">
         <h3>Total: $<span id="total-pedido">0</span></h3>
-        <button id="pedir-whatsapp"></i>Procesar Pedido </button>
+        <button id="pedir-whatsapp">Procesar Pedido</button>
         <button id="seguir-comprando"><i class="fas fa-shopping-cart"></i> Seguir Comprando</button>
       </div>
     </div>
@@ -46,65 +46,36 @@
     <p>&copy; 2025 Mi Tienda Online</p>
   </footer>
 
-  <script src="app.js" defer></script>
   <!-- Modal para procesar pedido -->
-<div id="modal-pedido" class="modal">
-  <div class="modal-contenido">
-    <span class="cerrar-modal">&times;</span>
-    <h2>Procesar Pedido</h2>
-    <form id="formulario-pedido">
-      <label for="nombre">Nombre Completo:</label>
-      <input type="text" id="nombre" name="nombre" required>
-
-      <label for="direccion">Dirección:</label>
-      <input type="text" id="direccion" name="direccion" required>
-
-      <label for="telefono">Número de Teléfono:</label>
-      <input type="tel" id="telefono" name="telefono" required>
-
-      <label for="nota">Nota (opcional):</label>
-      <textarea id="nota" name="nota" rows="3"></textarea>
-
-      <label for="metodo-pago">Método de Pago:</label>
-      <select id="metodo-pago" name="metodo-pago" required>
-        <option value="Efectivo">Efectivo</option>
-        <option value="Transferencia">Transferencia Bancaria</option>
-        <option value="Tarjeta">Tarjeta de Crédito/Débito</option>
-      </select>
-
-      <button type="submit" class="btn-continuar">Continuar</button>
-    </form>
-  </div>
-</div>
-
-</body>
-<!-- Modal para procesar pedido -->
-<div id="modal-pedido" class="modal">
+  <div id="modal-pedido" class="modal">
     <div class="modal-contenido">
       <span class="cerrar-modal">&times;</span>
       <h2>Procesar Pedido</h2>
       <form id="formulario-pedido">
         <label for="nombre">Nombre Completo:</label>
         <input type="text" id="nombre" name="nombre" required>
-  
+
         <label for="direccion">Dirección:</label>
         <input type="text" id="direccion" name="direccion" required>
-  
+
         <label for="telefono">Número de Teléfono:</label>
         <input type="tel" id="telefono" name="telefono" required>
-  
+
         <label for="nota">Nota (opcional):</label>
         <textarea id="nota" name="nota" rows="3"></textarea>
-  
+
         <label for="metodo-pago">Método de Pago:</label>
         <select id="metodo-pago" name="metodo-pago" required>
           <option value="Efectivo">Efectivo</option>
           <option value="Transferencia">Transferencia Bancaria</option>
           <option value="Tarjeta">Tarjeta de Crédito/Débito</option>
         </select>
-  
+
         <button type="submit" class="btn-continuar">Continuar</button>
       </form>
     </div>
   </div>
+
+  <script src="app.js" defer></script>
+</body>
 </html>

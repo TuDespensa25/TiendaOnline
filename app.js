@@ -7,7 +7,8 @@ const productos = [
     nombre: "Tv Milexus 55 pulgadas",
     precio: 450,
     categoria: "Electrodomésticos",
-    imagen: "images/55.jpg"
+    imagen: "images/55.jpg",
+    description: "Tv inteligente Milexus 55 pulgadas"
   },
   {
     id: 2,
@@ -81,12 +82,12 @@ const productos = [
   }
 ];
 
-// Variables globales y caching de algunos elementos
+// Variables globales y caching de elementos
 let carrito = [];
 const productosContainer = document.getElementById("productos");
 const contadorCarritoElem = document.getElementById("contador-carrito");
 
-// Función para renderizar productos
+// Renderiza los productos en index.html
 function renderizarProductos(categoria = "todas") {
   if (!productosContainer) return;
   const fragment = document.createDocumentFragment();
@@ -112,7 +113,7 @@ function renderizarProductos(categoria = "todas") {
   productosContainer.appendChild(fragment);
 }
 
-// Agregar producto al carrito
+// Agrega producto al carrito
 function agregarAlCarrito(id) {
   const producto = productos.find(p => p.id === id);
   if (!producto) return;
@@ -127,7 +128,7 @@ function agregarAlCarrito(id) {
   guardarCarritoEnLocalStorage();
 }
 
-// Mostrar mensaje emergente
+// Muestra mensaje emergente
 function mostrarMensaje(msg) {
   const mensajeElem = document.createElement("div");
   mensajeElem.className = "mensaje-carrito";
@@ -136,13 +137,13 @@ function mostrarMensaje(msg) {
   setTimeout(() => mensajeElem.remove(), 2000);
 }
 
-// Actualizar contador del carrito
+// Actualiza el contador del carrito
 function actualizarContadorCarrito() {
   const total = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
   if (contadorCarritoElem) contadorCarritoElem.textContent = total;
 }
 
-// Guardar y cargar carrito en localStorage
+// Guarda y carga el carrito desde localStorage
 function guardarCarritoEnLocalStorage() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
@@ -154,7 +155,7 @@ function cargarCarritoDesdeLocalStorage() {
   }
 }
 
-// Renderizar carrito en cart.html
+// Renderiza el carrito en cart.html
 function renderizarCarrito() {
   const itemsCarrito = document.getElementById("items-carrito");
   if (!itemsCarrito) return;
@@ -183,7 +184,7 @@ function renderizarCarrito() {
   if (totalElem) totalElem.textContent = totalPedido.toFixed(2);
 }
 
-// Cambiar cantidad de un producto en el carrito
+// Cambia la cantidad de un producto en el carrito
 function cambiarCantidad(id, delta) {
   const prod = carrito.find(p => p.id === id);
   if (!prod) return;
@@ -196,16 +197,62 @@ function cambiarCantidad(id, delta) {
   actualizarContadorCarrito();
 }
 
-// Eliminar producto del carrito
+// Elimina un producto del carrito
 function eliminarDelCarrito(id) {
   carrito = carrito.filter(p => p.id !== id);
   guardarCarritoEnLocalStorage();
   renderizarCarrito();
   actualizarContadorCarrito();
 }
-// Redirigir a la página principal
+
+// Redirige a index.html
 function redirigirAPaginaPrincipal() {
   window.location.href = "index.html";
+}
+
+// Envía el pedido por WhatsApp y vacía el carrito
+function enviarPedidoPorWhatsapp() {
+  const nombre = document.getElementById("nombre").value;
+  const direccion = document.getElementById("direccion").value;
+  const telefono = document.getElementById("telefono").value;
+  const nota = document.getElementById("nota").value;
+  const metodoPago = document.getElementById("metodo-pago").value;
+
+  let mensaje = `Hola, quiero hacer el siguiente pedido:\n\n`;
+  mensaje += `*Nombre:* ${nombre}\n`;
+  mensaje += `*Dirección:* ${direccion}\n`;
+  mensaje += `*Teléfono:* ${telefono}\n`;
+  mensaje += `*Método de Pago:* ${metodoPago}\n`;
+  mensaje += `*Nota:* ${nota || "Ninguna"}\n\n`;
+  mensaje += `*Productos:*\n`;
+  carrito.forEach(prod => {
+    mensaje += `${prod.nombre} - ${prod.cantidad} x $${prod.precio}\n`;
+  });
+  const total = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
+  mensaje += `\n*Total:* $${total.toFixed(2)}`;
+
+  const mensajeCodificado = encodeURIComponent(mensaje);
+  const urlWhatsapp = `https://wa.me/+5354066204?text=${mensajeCodificado}`;
+  window.open(urlWhatsapp, "_blank");
+
+  cerrarModalPedido();
+  vaciarCarrito();
+}
+
+// Vacía el carrito y actualiza la interfaz y el localStorage
+function vaciarCarrito() {
+  carrito = [];
+  guardarCarritoEnLocalStorage();
+  actualizarContadorCarrito();
+  if (document.getElementById("items-carrito")) {
+    renderizarCarrito();
+  }
+}
+
+// Cierra el modal
+function cerrarModalPedido() {
+  const modal = document.getElementById("modal-pedido");
+  if (modal) modal.style.display = "none";
 }
 
 // Event delegation para elementos dinámicos
@@ -222,6 +269,20 @@ document.addEventListener("click", (e) => {
   if (e.target.matches(".eliminar-item")) {
     const id = parseInt(e.target.dataset.id, 10);
     eliminarDelCarrito(id);
+  }
+  if (e.target.matches("#seguir-comprando")) {
+    redirigirAPaginaPrincipal();
+  }
+  if (e.target.matches(".cerrar-modal")) {
+    cerrarModalPedido();
+  }
+});
+
+// Cierra el modal al hacer clic fuera de su contenido
+window.addEventListener("click", (e) => {
+  const modal = document.getElementById("modal-pedido");
+  if (modal && e.target === modal) {
+    cerrarModalPedido();
   }
 });
 
@@ -246,77 +307,31 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("items-carrito")) {
     renderizarCarrito();
     const btnWhatsapp = document.getElementById("pedir-whatsapp");
-    if (btnWhatsapp) btnWhatsapp.addEventListener("click", enviarPedidoPorWhatsapp);
-    const btnSeguir = document.getElementById("seguir-comprando");
-    if (btnSeguir) btnSeguir.addEventListener("click", redirigirAPaginaPrincipal);
+    if (btnWhatsapp) {
+      btnWhatsapp.addEventListener("click", (e) => {
+        e.preventDefault();
+        const modal = document.getElementById("modal-pedido");
+        if (modal) modal.style.display = "flex";
+      });
+    }
+    const formularioPedido = document.getElementById("formulario-pedido");
+    if (formularioPedido) {
+      formularioPedido.addEventListener("submit", (e) => {
+        e.preventDefault();
+        enviarPedidoPorWhatsapp();
+      });
+    }
   }
-});
-// Abrir modal al hacer clic en "Procesar Pedido"
-const btnProcesarPedido = document.getElementById("pedir-whatsapp");
-const modal = document.getElementById("modal-pedido");
-const cerrarModal = document.querySelector(".cerrar-modal");
 
-if (btnProcesarPedido) {
-  btnProcesarPedido.addEventListener("click", (e) => {
-    e.preventDefault(); // Evita que el botón recargue la página
-    modal.style.display = "flex"; // Muestra el modal
-  });
-}
-
-// Cerrar modal al hacer clic en la "X"
-if (cerrarModal) {
-  cerrarModal.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-}
-
-// Cerrar modal al hacer clic fuera del contenido
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-});
-
-// Enviar pedido por WhatsApp al enviar el formulario
-const formularioPedido = document.getElementById("formulario-pedido");
-
-if (formularioPedido) {
-  formularioPedido.addEventListener("submit", (e) => {
-    e.preventDefault(); // Evita que el formulario se envíe
-
-    // Obtener los datos del formulario
-    const nombre = document.getElementById("nombre").value;
-    const direccion = document.getElementById("direccion").value;
-    const telefono = document.getElementById("telefono").value;
-    const nota = document.getElementById("nota").value;
-    const metodoPago = document.getElementById("metodo-pago").value;
-
-    // Crear el mensaje para WhatsApp
-    let mensaje = `Hola, quiero hacer el siguiente pedido:\n\n`;
-    mensaje += `*Nombre:* ${nombre}\n`;
-    mensaje += `*Dirección:* ${direccion}\n`;
-    mensaje += `*Teléfono:* ${telefono}\n`;
-    mensaje += `*Método de Pago:* ${metodoPago}\n`;
-    mensaje += `*Nota:* ${nota || "Ninguna"}\n\n`;
-    mensaje += `*Productos:*\n`;
-
-    // Agregar los productos del carrito al mensaje
-    carrito.forEach((prod) => {
-      mensaje += `${prod.nombre} - ${prod.cantidad} x $${prod.precio}\n`;
+  // Validación del input de teléfono
+  const telefonoInput = document.getElementById("telefono");
+  if (telefonoInput) {
+    telefonoInput.addEventListener("input", () => {
+      if (!/^\d*$/.test(telefonoInput.value)) {
+        telefonoInput.setCustomValidity("Solo se permiten números.");
+      } else {
+        telefonoInput.setCustomValidity("");
+      }
     });
-
-    // Calcular el total
-    const total = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
-    mensaje += `\n*Total:* $${total.toFixed(2)}`;
-
-    // Codificar el mensaje para la URL de WhatsApp
-    const mensajeCodificado = encodeURIComponent(mensaje);
-
-    // Abrir WhatsApp con el mensaje
-    const urlWhatsapp = `https://wa.me/+5354066204?text=${mensajeCodificado}`;
-    window.open(urlWhatsapp, "_blank");
-
-    // Cerrar el modal
-    modal.style.display = "none";
-  });
-}
+  }
+});

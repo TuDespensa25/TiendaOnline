@@ -1,5 +1,15 @@
-/* Reset básico y box-sizing */
-* {
+/* Variables CSS */
+:root {
+    --color-primario: #2397df;
+    --color-secundario: #4CAF50;
+    --color-terciario: #9C27B0;
+    --color-blanco: #ffffff;
+    --color-texto: #333;
+    --color-fondo: #f9f9f9;
+  }
+  
+  /* Reset básico y box-sizing */
+  * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -8,14 +18,14 @@
   /* Estilos Generales */
   body {
     font-family: 'Arial', sans-serif;
-    background: #f9f9f9;
-    color: #333;
+    background: var(--color-fondo);
+    color: var(--color-texto);
   }
   
   /* Header y Footer */
   header, footer {
-    background: #2397df;
-    color: white;
+    background: var(--color-primario);
+    color: var(--color-blanco);
     padding: 20px;
   }
   header {
@@ -23,9 +33,6 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-  }
-  header .logo img {
-    height: 50px;
   }
   nav ul {
     list-style: none;
@@ -36,7 +43,7 @@
     margin: 0 15px;
   }
   nav ul li a {
-    color: white;
+    color: var(--color-blanco);
     text-decoration: none;
     font-weight: bold;
   }
@@ -44,7 +51,7 @@
     position: relative;
   }
   .carrito a {
-    color: white;
+    color: var(--color-blanco);
     text-decoration: none;
     font-size: 1.2em;
     display: flex;
@@ -59,7 +66,7 @@
     top: -8px;
     right: -8px;
     background: #e60000;
-    color: white;
+    color: var(--color-blanco);
     border-radius: 50%;
     padding: 2px 6px;
     font-size: 0.8em;
@@ -84,7 +91,7 @@
     transform: translateX(-50%);
     padding: 10px 20px;
     background: #160279;
-    color: white;
+    color: var(--color-blanco);
     text-decoration: none;
     border-radius: 5px;
     z-index: 1;
@@ -98,12 +105,12 @@
     z-index: 1;
   }
   .redes-sociales-banner a {
-    color: white;
+    color: var(--color-blanco);
     font-size: 1.5em;
     transition: color 0.3s;
   }
   .redes-sociales-banner a:hover {
-    color: #4CAF50;
+    color: var(--color-secundario);
   }
   
   /* Secciones y Main */
@@ -113,15 +120,137 @@
   section {
     padding: 40px 0;
   }
-  #sobre-mi .contenido {
+  #sobre-mi {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  #sobre-mi p {
+    margin: 20px 0;
+  }
+  
+  /* Cajas informativas */
+  .cajas-informativas {
     display: flex;
-    align-items: center;
+    justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    margin-top: 20px;
   }
-  #sobre-mi img {
-    width: 200px;
+  .caja {
+    /* Se mantiene la estructura pero se agregan propiedades para adaptar la imagen */
+    padding: 20px;
     border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Propiedades para la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+  }
+  .caja h3 {
+    color: var(--color-primario);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+  }
+  .caja p {
+    color: var(--color-texto);
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+  }
+  .caja:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  /* Agrega imágenes de fondo específicas para cada caja */
+  .caja:nth-child(1) {
+    background-image: url('images/caja1.png'); 
+  }
+  .caja:nth-child(2) {
+    background-image: url('images/caja2.png'); 
+  }
+  .caja:nth-child(3) {
+    background-image: url('images/caja3.png'); 
+  }
+  /* Superposición oscura para mejorar la legibilidad */
+  .caja::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-contenido {
+    background: var(--color-blanco);
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  .cerrar-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .cerrar-modal:hover {
+    color: #e60000;
+  }
+  #formulario-pedido label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+  }
+  #formulario-pedido input,
+  #formulario-pedido textarea,
+  #formulario-pedido select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  #formulario-pedido textarea {
+    resize: vertical;
+  }
+  .btn-continuar {
+    background: var(--color-secundario);
+    color: var(--color-blanco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background 0.3s;
+  }
+  .btn-continuar:hover {
+    background: #128C7E;
   }
   
   /* Filtros y Productos */
@@ -136,13 +265,13 @@
     border-radius: 20px;
     cursor: pointer;
     background: #eee;
-    color: #333;
+    color: var(--color-texto);
     transition: background 0.3s;
   }
   .filtro-btn.active,
   .filtro-btn:hover {
-    background: #4CAF50;
-    color: white;
+    background: var(--color-secundario);
+    color: var(--color-blanco);
   }
   .productos-container {
     display: grid;
@@ -151,7 +280,7 @@
     padding: 0 10px;
   }
   .producto {
-    background: white;
+    background: var(--color-blanco);
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -160,10 +289,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 250px; /* Ancho fijo */
-    height: 400px; /* Alto fijo */
-    margin: 0 auto; /* Centrar la caja si es necesario */
-}
+    width: 250px;
+    height: 400px;
+    margin: 0 auto;
+  }
   .producto:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
@@ -184,12 +313,12 @@
   }
   .producto p {
     font-size: 1.1em;
-    color: #4CAF50;
+    color: var(--color-secundario);
     font-weight: bold;
   }
   .producto button {
-    background: #4CAF50;
-    color: white;
+    background: var(--color-secundario);
+    color: var(--color-blanco);
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -205,7 +334,7 @@
     padding: 5px 10px;
     border-radius: 15px;
     font-size: 0.8em;
-    color: white;
+    color: var(--color-blanco);
     margin-bottom: 10px;
   }
   .Electrodomésticos { background: #2196F3; }
@@ -217,7 +346,7 @@
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background: #ffffff;
+    background: var(--color-blanco);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
@@ -248,7 +377,7 @@
   .item-info h4 {
     margin: 0;
     font-size: 1.1em;
-    color: #333;
+    color: var(--color-texto);
   }
   .item-info p {
     margin: 5px 0;
@@ -260,8 +389,8 @@
     gap: 10px;
   }
   .contador-cantidad button {
-    background: #fff;
-    color: #000;
+    background: var(--color-blanco);
+    color: var(--color-texto);
     border: none;
     width: 30px;
     height: 30px;
@@ -301,7 +430,7 @@
   #pedir-whatsapp,
   #seguir-comprando {
     background: #25D366;
-    color: white;
+    color: var(--color-blanco);
     border: none;
     padding: 15px 30px;
     border-radius: 25px;
@@ -315,7 +444,7 @@
     background: #128C7E;
   }
   #seguir-comprando {
-    background: #2397df;
+    background: var(--color-primario);
   }
   #seguir-comprando:hover {
     background: #45a049;
@@ -326,8 +455,8 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #4CAF50;
-    color: white;
+    background: var(--color-secundario);
+    color: var(--color-blanco);
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -351,190 +480,18 @@
     .banner img {
       max-height: 200px;
     }
-    #sobre-mi .contenido {
+    #sobre-mi, .cajas-informativas {
       flex-direction: column;
       text-align: center;
-    }
-    #sobre-mi img {
-      width: 100%;
-      max-width: 300px;
     }
     .productos-container {
       grid-template-columns: 1fr;
     }
   }
-  /* Centrar el contenido del footer */
-footer {
-    text-align: center;  /* Centra el contenido */
-    padding: 20px;
-    background: #2397df;
-    color: white;
-  }
-  #sobre-mi {
+  footer {
     text-align: center;
-    padding: 50px 20px;
-    background: var(--color-fondo);
-}
-
-.cajas-informativas {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.caja {
-    background: var(--color-blanco);
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.caja h3 {
-    color: var(--color-primario);
-    margin-bottom: 10px;
-}
-
-.caja p {
-    color: var(--color-texto);
-    font-size: 14px;
-}
-
-.caja:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* Ajustes para dispositivos móviles */
-@media (max-width: 900px) {
-    .cajas-informativas {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-.caja {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white; /* Asegura que el texto sea visible */
-    padding: 40px 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Agrega imágenes de fondo específicas para cada caja */
-.caja:nth-child(1) {
-    background-image: url('images/caja1.png'); 
-}
-.caja:nth-child(2) {
-    background-image: url('images/caja2.png'); 
-}
-.caja:nth-child(3) {
-    background-image: url('images/caja3.png'); 
-}
-
-/* Crea un efecto de superposición oscura para mejorar la legibilidad */
-.caja::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Oscurece la imagen de fondo */
-    z-index: 1;
-}
-
-/* Ajusta el contenido de la caja para que se mantenga encima de la superposición */
-.caja h3,
-.caja p {
-    position: relative;
-    z-index: 2;
-}
-
-/* Efecto hover para dar dinamismo */
-.caja:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
-}
-/* Estilos para el modal */
-.modal {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
-    justify-content: center;
-    align-items: center;
+    background: var(--color-primario);
+    color: var(--color-blanco);
   }
   
-  .modal-contenido {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
-  }
-  
-  .cerrar-modal {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  .cerrar-modal:hover {
-    color: #e60000;
-  }
-  
-  #formulario-pedido label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-  }
-  
-  #formulario-pedido input,
-  #formulario-pedido textarea,
-  #formulario-pedido select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  #formulario-pedido textarea {
-    resize: vertical;
-  }
-  
-  .btn-continuar {
-    background: #25D366;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    transition: background 0.3s;
-  }
-  
-  .btn-continuar:hover {
-    background: #128C7E;
-  }
