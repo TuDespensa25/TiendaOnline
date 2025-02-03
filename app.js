@@ -1,5 +1,8 @@
 "use strict";
 
+// Tasa de cambio: 1 USD equivale a 24.0 CUP (ajusta según necesites)
+const tasaCambio = 24.0;
+
 // Datos de productos
 const productos = [
   {
@@ -87,6 +90,11 @@ let carrito = [];
 const productosContainer = document.getElementById("productos");
 const contadorCarritoElem = document.getElementById("contador-carrito");
 
+// Función que retorna el total en USD (sin conversión)
+function calcularTotalUSD() {
+  return carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
+}
+
 // Renderiza los productos en index.html
 function renderizarProductos(categoria = "todas") {
   if (!productosContainer) return;
@@ -104,7 +112,7 @@ function renderizarProductos(categoria = "todas") {
       <div class="etiqueta-categoria ${prod.categoria}">${prod.categoria}</div>
       <img src="${prod.imagen}" alt="${prod.nombre}" loading="lazy">
       <h3>${prod.nombre}</h3>
-      <p>$${prod.precio}</p>
+      <p>USD ${prod.precio.toFixed(2)}</p>
       <button data-id="${prod.id}" class="btn-agregar">Agregar al carrito</button>
     `;
     fragment.appendChild(div);
@@ -160,7 +168,7 @@ function renderizarCarrito() {
   const itemsCarrito = document.getElementById("items-carrito");
   if (!itemsCarrito) return;
   itemsCarrito.innerHTML = "";
-  let totalPedido = 0;
+  const totalUSD = calcularTotalUSD();
   carrito.forEach(prod => {
     const div = document.createElement("div");
     div.className = "item-carrito";
@@ -168,7 +176,7 @@ function renderizarCarrito() {
       <img src="${prod.imagen}" alt="${prod.nombre}">
       <div class="item-info">
         <h4>${prod.nombre}</h4>
-        <p>$${prod.precio} x ${prod.cantidad}</p>
+        <p>USD ${prod.precio.toFixed(2)} x ${prod.cantidad}</p>
       </div>
       <div class="contador-cantidad">
         <button class="btn-cambiar" data-id="${prod.id}" data-delta="-1">-</button>
@@ -178,10 +186,19 @@ function renderizarCarrito() {
       <button class="eliminar-item" data-id="${prod.id}">🗑️</button>
     `;
     itemsCarrito.appendChild(div);
-    totalPedido += prod.precio * prod.cantidad;
   });
+
+  // Actualiza el total según el método de pago seleccionado (si existe)
   const totalElem = document.getElementById("total-pedido");
-  if (totalElem) totalElem.textContent = totalPedido.toFixed(2);
+  let totalTexto;
+  const metodoSelect = document.getElementById("metodo-pago");
+  if (metodoSelect && metodoSelect.value === "Pago en CUP") {
+    const totalCUP = totalUSD * tasaCambio;
+    totalTexto = 'CUP ' + totalCUP.toFixed(2);
+  } else {
+    totalTexto = 'USD ' + totalUSD.toFixed(2);
+  }
+  if (totalElem) totalElem.textContent = totalTexto;
 }
 
 // Cambia la cantidad de un producto en el carrito
@@ -217,7 +234,17 @@ function enviarPedidoPorWhatsapp() {
   const telefono = document.getElementById("telefono").value;
   const nota = document.getElementById("nota").value;
   const metodoPago = document.getElementById("metodo-pago").value;
-
+  
+  const totalUSD = calcularTotalUSD();
+  let totalTexto, totalMensaje;
+  if (metodoPago === "Pago en CUP") {
+    totalMensaje = totalUSD * tasaCambio;
+    totalTexto = 'CUP ' + totalMensaje.toFixed(2);
+  } else {
+    totalMensaje = totalUSD;
+    totalTexto = 'USD ' + totalMensaje.toFixed(2);
+  }
+  
   let mensaje = `Hola, quiero hacer el siguiente pedido:\n\n`;
   mensaje += `*Nombre:* ${nombre}\n`;
   mensaje += `*Dirección:* ${direccion}\n`;
@@ -226,10 +253,9 @@ function enviarPedidoPorWhatsapp() {
   mensaje += `*Nota:* ${nota || "Ninguna"}\n\n`;
   mensaje += `*Productos:*\n`;
   carrito.forEach(prod => {
-    mensaje += `${prod.nombre} - ${prod.cantidad} x $${prod.precio}\n`;
+    mensaje += `${prod.nombre} - ${prod.cantidad} x USD ${prod.precio.toFixed(2)}\n`;
   });
-  const total = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
-  mensaje += `\n*Total:* $${total.toFixed(2)}`;
+  mensaje += `\n*Total:* ${metodoPago === "Pago en CUP" ? 'CUP ' : 'USD '}${totalMensaje.toFixed(2)}`;
 
   const mensajeCodificado = encodeURIComponent(mensaje);
   const urlWhatsapp = `https://wa.me/+5354066204?text=${mensajeCodificado}`;
@@ -278,6 +304,11 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// Actualiza el total en el carrito si se cambia el método de pago
+function actualizarTotalSegunMetodo() {
+  renderizarCarrito();
+}
+
 // Cierra el modal al hacer clic fuera de su contenido
 window.addEventListener("click", (e) => {
   const modal = document.getElementById("modal-pedido");
@@ -320,6 +351,11 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         enviarPedidoPorWhatsapp();
       });
+    }
+    // Si el selector de método de pago existe, actualizar el total al cambiarlo
+    const metodoSelect = document.getElementById("metodo-pago");
+    if (metodoSelect) {
+      metodoSelect.addEventListener("change", actualizarTotalSegunMetodo);
     }
   }
 

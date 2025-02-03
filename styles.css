@@ -137,7 +137,7 @@
     margin-top: 20px;
   }
   .caja {
-    /* Se mantiene la estructura pero se agregan propiedades para adaptar la imagen */
+    /* Estructura base con imagen de fondo adaptada */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -146,18 +146,19 @@
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Propiedades para la imagen de fondo */
     background-size: cover;
     background-position: center;
   }
   .caja h3 {
-    color: var(--color-primario);
+    /* Texto en blanco */
+    color: var(--color-blanco);
     margin-bottom: 10px;
     position: relative;
     z-index: 2;
   }
   .caja p {
-    color: var(--color-texto);
+    /* Texto en blanco */
+    color: var(--color-blanco);
     font-size: 14px;
     position: relative;
     z-index: 2;
@@ -166,7 +167,7 @@
     transform: translateY(-5px);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
   }
-  /* Agrega imágenes de fondo específicas para cada caja */
+  /* Imágenes de fondo para cada caja */
   .caja:nth-child(1) {
     background-image: url('images/caja1.png'); 
   }
@@ -176,7 +177,7 @@
   .caja:nth-child(3) {
     background-image: url('images/caja3.png'); 
   }
-  /* Superposición oscura para mejorar la legibilidad */
+  /* Overlay modificado para mayor brillo (menos oscuro) */
   .caja::before {
     content: "";
     position: absolute;
@@ -184,7 +185,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.3);
     z-index: 1;
   }
   
