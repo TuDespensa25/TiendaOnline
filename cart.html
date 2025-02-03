@@ -9,9 +9,7 @@
 </head>
 <body>
   <header>
-    <div class="logo">
-      <a href="index.html"><img src="images/logo.png" alt="Logo de la tienda"></a>
-    </div>
+    
     <nav>
       <ul>
         <li><a href="index.html#inicio">Inicio</a></li>
@@ -33,7 +31,7 @@
       <div id="items-carrito"></div>
       <div class="total">
         <h3>Total: $<span id="total-pedido">0</span></h3>
-        <button id="pedir-whatsapp"><i class="fab fa-whatsapp"></i>Enviar Pedido por WhatsApp</button>
+        <button id="pedir-whatsapp"></i>Procesar Pedido </button>
         <button id="seguir-comprando"><i class="fas fa-shopping-cart"></i> Seguir Comprando</button>
       </div>
     </div>
@@ -49,5 +47,64 @@
   </footer>
 
   <script src="app.js" defer></script>
+  <!-- Modal para procesar pedido -->
+<div id="modal-pedido" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar-modal">&times;</span>
+    <h2>Procesar Pedido</h2>
+    <form id="formulario-pedido">
+      <label for="nombre">Nombre Completo:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" name="direccion" required>
+
+      <label for="telefono">Número de Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" required>
+
+      <label for="nota">Nota (opcional):</label>
+      <textarea id="nota" name="nota" rows="3"></textarea>
+
+      <label for="metodo-pago">Método de Pago:</label>
+      <select id="metodo-pago" name="metodo-pago" required>
+        <option value="Efectivo">Efectivo</option>
+        <option value="Transferencia">Transferencia Bancaria</option>
+        <option value="Tarjeta">Tarjeta de Crédito/Débito</option>
+      </select>
+
+      <button type="submit" class="btn-continuar">Continuar</button>
+    </form>
+  </div>
+</div>
+
 </body>
+<!-- Modal para procesar pedido -->
+<div id="modal-pedido" class="modal">
+    <div class="modal-contenido">
+      <span class="cerrar-modal">&times;</span>
+      <h2>Procesar Pedido</h2>
+      <form id="formulario-pedido">
+        <label for="nombre">Nombre Completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+  
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required>
+  
+        <label for="telefono">Número de Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+  
+        <label for="nota">Nota (opcional):</label>
+        <textarea id="nota" name="nota" rows="3"></textarea>
+  
+        <label for="metodo-pago">Método de Pago:</label>
+        <select id="metodo-pago" name="metodo-pago" required>
+          <option value="Efectivo">Efectivo</option>
+          <option value="Transferencia">Transferencia Bancaria</option>
+          <option value="Tarjeta">Tarjeta de Crédito/Débito</option>
+        </select>
+  
+        <button type="submit" class="btn-continuar">Continuar</button>
+      </form>
+    </div>
+  </div>
 </html>
