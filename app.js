@@ -1,10 +1,11 @@
 "use strict";
 
-// Tasa de cambio: 1 USD equivale a 24.0 CUP (ajusta según necesites)
-const tasaCambio = 24.0;
+// Tasa de cambio: 1 USD equivale a 340.0 CUP (ajusta según necesites)
+const tasaCambio = 340.0;
 
-// Datos de productos
+// Datos de productos y servicios
 const productos = [
+  // Productos
   {
     id: 1,
     nombre: "Tv Milexus 55 pulgadas",
@@ -82,12 +83,30 @@ const productos = [
     precio: 30,
     categoria: "Aseo",
     imagen: "images/producto3.jpg"
+  },
+  // Servicios (subcategoría)
+  {
+    id: 100,
+    nombre: "Consultoría Tecnológica",
+    precio: 0,
+    categoria: "Servicios",
+    imagen: "images/consultoria.jpg",
+    description: "Asesoría y consultoría en tecnología para tu negocio."
+  },
+  {
+    id: 101,
+    nombre: "Instalación de Equipos",
+    precio: 0,
+    categoria: "Servicios",
+    imagen: "images/instalacion.jpg",
+    description: "Instalación profesional de equipos electrónicos."
   }
 ];
 
 // Variables globales y caching de elementos
 let carrito = [];
-const productosContainer = document.getElementById("productos");
+// Actualizamos el id del contenedor de productos al nuevo "productos-container"
+const productosContainer = document.getElementById("productos-container");
 const contadorCarritoElem = document.getElementById("contador-carrito");
 
 // Función que retorna el total en USD (sin conversión)
@@ -108,13 +127,24 @@ function renderizarProductos(categoria = "todas") {
     div.className = "producto";
     div.dataset.id = prod.id;
     div.dataset.categoria = prod.categoria;
-    div.innerHTML = `
-      <div class="etiqueta-categoria ${prod.categoria}">${prod.categoria}</div>
-      <img src="${prod.imagen}" alt="${prod.nombre}" loading="lazy">
-      <h3>${prod.nombre}</h3>
-      <p>USD ${prod.precio.toFixed(2)}</p>
-      <button data-id="${prod.id}" class="btn-agregar">Agregar al carrito</button>
-    `;
+    
+    if (prod.categoria === "Servicios") {
+      div.innerHTML = `
+        <div class="etiqueta-categoria ${prod.categoria}">${prod.categoria}</div>
+        <img src="${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+        <h3>${prod.nombre}</h3>
+        <p>${prod.description || ""}</p>
+        <a href="https://wa.me/+5354066204?text=${encodeURIComponent("Me interesa una cotización para " + prod.nombre)}" target="_blank" class="btn-cotizacion">Cotización del Servicio</a>
+      `;
+    } else {
+      div.innerHTML = `
+        <div class="etiqueta-categoria ${prod.categoria}">${prod.categoria}</div>
+        <img src="${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+        <h3>${prod.nombre}</h3>
+        <p>USD ${prod.precio.toFixed(2)}</p>
+        <button data-id="${prod.id}" class="btn-agregar">Agregar al carrito</button>
+      `;
+    }
     fragment.appendChild(div);
   });
   productosContainer.innerHTML = "";

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda Online</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- En producción se recomienda incluir integrity y crossorigin -->
+  <!-- Font Awesome para iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
@@ -14,7 +14,8 @@
       <ul>
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#sobre-mi">Sobre Mí</a></li>
-        <li><a href="#servicios">Productos</a></li>
+        <li><a href="#info-servicios">Servicios</a></li>
+        <li><a href="#productos">Productos</a></li>
       </ul>
     </nav>
     <div class="carrito">
@@ -34,17 +35,11 @@
           <source media="(min-width: 769px)" srcset="images/banner.jpg">
           <img src="images/banner.jpg" alt="Ofertas especiales" loading="lazy">
         </picture>
-        <a href="#servicios" class="btn">Ver Ofertas</a>
+        <a href="#productos" class="btn">Ver Ofertas</a>
         <div class="redes-sociales-banner">
-          <a href="https://www.facebook.com/tuDespensa.25" target="_blank" aria-label="Facebook">
-            <i class="fab fa-facebook"></i>
-          </a>
-          <a href="https://www.instagram.com/tuDespensa.25" target="_blank" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://wa.me/5354066204" target="_blank" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-          </a>
+          <a href="https://www.facebook.com/tuDespensa.25" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/tuDespensa.25" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5354066204" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
     </section>
@@ -69,30 +64,35 @@
       </div>
     </section>
 
-    <!-- Sección Productos -->
-    <section id="servicios">
+    <!-- Sección Informativa de Servicios (solo informativo) -->
+    <section id="info-servicios">
+      <h2>Nuestros Servicios</h2>
+      <p>
+        Además de ofrecer productos de calidad, brindamos servicios especializados para satisfacer tus necesidades.
+        Consulta nuestras opciones de consultoría, instalación y mantenimiento.
+      </p>
+    </section>
+
+    <!-- Sección Productos con menú de Categorías -->
+    <section id="productos">
       <h2>Nuestros Productos</h2>
+      <!-- Menú de Categorías (fuera del contenedor informativo) -->
       <div class="filtros">
         <button class="filtro-btn active" data-categoria="todas">Todas</button>
         <button class="filtro-btn" data-categoria="Electrodomésticos">Electrodomésticos</button>
         <button class="filtro-btn" data-categoria="Alimentos">Alimentos</button>
         <button class="filtro-btn" data-categoria="Aseo">Aseo</button>
+        <button class="filtro-btn" data-categoria="Servicios">Servicios</button>
       </div>
-      <div class="productos-container" id="productos"></div>
+      <div class="productos-container" id="productos-container"></div>
     </section>
   </main>
 
   <footer>
     <div class="redes-sociales">
-      <a href="https://www.facebook.com/tuDespensa.25" target="_blank">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://www.instagram.com/tuDespensa.25" target="_blank">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://wa.me/5354066204" target="_blank" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-      </a>
+      <a href="https://www.facebook.com/tuDespensa.25" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/tuDespensa.25" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/5354066204" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     </div>
     <p>&copy; 2025 Mi Tienda Online</p>
   </footer>
