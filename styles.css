@@ -23,44 +23,63 @@ body {
 }
 
 /* Header y Footer */
-header, footer {
-  background: var(--color-primario);
-  color: var(--color-blanco);
-  padding: 20px;
+.site-header {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
 }
-header {
+
+/* Top-bar: fondo claro, iconos alineados a la derecha */
+.top-bar {
+  background-color: #f7f7f7;
+  padding: 5px 20px;
+  text-align: right;
+}
+
+.top-bar .social-icons a,
+.top-bar .social-icons button {
+  color: #333;
+  margin-left: 10px;
+  font-size: 1.1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Main-header: distribución en tres columnas: logo, menú y carrito */
+.main-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px 20px;
 }
-nav ul {
+
+.main-header .logo img {
+  max-height: 60px;
+}
+
+.main-nav ul {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 }
-nav ul li {
+
+.main-nav ul li {
   margin: 0 15px;
 }
-nav ul li a {
-  color: var(--color-blanco);
+
+.main-nav ul li a {
   text-decoration: none;
+  color: #333;
   font-weight: bold;
 }
-.carrito {
+
+.header-cart a {
+  color: #333;
   position: relative;
 }
-.carrito a {
-  color: var(--color-blanco);
-  text-decoration: none;
-  font-size: 1.2em;
-  display: flex;
-  align-items: center;
-}
-.carrito a .fas {
-  font-size: 1.5em;
-  margin-right: 5px;
-}
+
+/* Contador de carrito */
 .contador-carrito {
   position: absolute;
   top: -8px;
@@ -78,12 +97,14 @@ nav ul li a {
   text-align: center;
   overflow: hidden;
 }
+
 .banner img {
   width: 100%;
   height: auto;
   max-height: 400px;
   object-fit: cover;
 }
+
 .banner .btn {
   position: absolute;
   bottom: 20px;
@@ -96,34 +117,87 @@ nav ul li a {
   border-radius: 5px;
   z-index: 1;
 }
+
+/* Redes sociales en el banner */
 .redes-sociales-banner {
   position: absolute;
   bottom: 20px;
   left: 20px;
   display: flex;
-  gap: 15px;
+  align-items: center;
+  gap: 10px;
   z-index: 1;
 }
+
 .redes-sociales-banner a {
   color: var(--color-blanco);
   font-size: 1.5em;
   transition: color 0.3s;
 }
+
 .redes-sociales-banner a:hover {
   color: var(--color-secundario);
+}
+
+/* Botón de Compartir */
+.share-btn {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-left: 10px;
+}
+
+/* Para que el botón de compartir en el menú de filtros tenga la misma apariencia */
+.filtros .share-btn {
+  color: #333;
+  margin-left: 10px;
+  font-size: 1.1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Contenedor de la imagen para posicionar el descuento sobre ella */
+.img-container {
+  position: relative;
+}
+
+.img-container img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Ajusta la posición del cartel de descuento para que aparezca sobre la imagen */
+.discount-label {
+  background: #ff9800;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 5px;
+  z-index: 2;
 }
 
 /* Secciones y Main */
 main {
   padding: 20px;
 }
+
 section {
   padding: 40px 0;
 }
+
 #sobre-mi {
   text-align: center;
   padding: 50px 20px;
 }
+
 #sobre-mi p {
   margin: 20px 0;
 }
@@ -136,6 +210,7 @@ section {
   flex-wrap: wrap;
   margin-top: 20px;
 }
+
 .caja {
   padding: 20px;
   border-radius: 10px;
@@ -148,31 +223,38 @@ section {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .caja h3 {
   color: var(--color-blanco);
   margin-bottom: 10px;
   position: relative;
   z-index: 2;
 }
+
 .caja p {
   color: var(--color-blanco);
   font-size: 14px;
   position: relative;
   z-index: 2;
 }
+
 .caja:hover {
   transform: translateY(-5px);
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
 }
+
 .caja:nth-child(1) {
   background-image: url('images/caja1.png');
 }
+
 .caja:nth-child(2) {
   background-image: url('images/caja2.png');
 }
+
 .caja:nth-child(3) {
   background-image: url('images/caja3.png');
 }
+
 .caja::before {
   content: "";
   position: absolute;
@@ -190,108 +272,39 @@ section {
   background-color: #e9ecef;
   text-align: center;
 }
+
 #info-servicios h2 {
   margin-bottom: 20px;
 }
+
 #info-servicios p {
   font-size: 1.1em;
   color: var(--color-texto);
 }
+
 #info-servicios h3 {
   margin: 20px 0 10px;
 }
 
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-}
-.modal-contenido {
-  background: var(--color-blanco);
-  padding: 20px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
-.cerrar-modal {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-}
-.cerrar-modal:hover {
-  color: #e60000;
-}
-#formulario-pedido label {
-  display: block;
-  margin: 10px 0 5px;
-  font-weight: bold;
-}
-#formulario-pedido input,
-#formulario-pedido textarea,
-#formulario-pedido select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-#formulario-pedido textarea {
-  resize: vertical;
-}
-.btn-continuar {
-  background: var(--color-secundario);
-  color: var(--color-blanco);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  width: 100%;
-  transition: background 0.3s;
-}
-.btn-continuar:hover {
-  background: #128C7E;
+/* Sección Ofertas */
+#ofertas {
+  text-align: center;
 }
 
-/* Filtros y Productos */
-.filtros {
-  text-align: center;
+#ofertas h2 {
   margin-bottom: 20px;
 }
-.filtro-btn {
-  padding: 10px 20px;
-  margin: 0 5px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  background: #eee;
-  color: var(--color-texto);
-  transition: background 0.3s;
-}
-.filtro-btn.active,
-.filtro-btn:hover {
-  background: var(--color-secundario);
-  color: var(--color-blanco);
-}
-.productos-container {
+
+/* Estilos para las cajas de producto */
+.productos-container,
+.ofertas-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   padding: 0 10px;
 }
+
+/* Producto */
 .producto {
   background: var(--color-blanco);
   border-radius: 10px;
@@ -305,18 +318,14 @@ section {
   width: 250px;
   height: 400px;
   margin: 0 auto;
+  position: relative;
 }
+
 .producto:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
-.producto img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
+
 .producto h3 {
   font-size: 1.2em;
   margin: 10px 0;
@@ -324,11 +333,26 @@ section {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Precio sin descuento */
 .producto p {
   font-size: 1.1em;
   color: var(--color-secundario);
   font-weight: bold;
 }
+
+/* Precio original tachado y precio nuevo */
+.precio-original {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.9em;
+}
+.precio-nuevo {
+  color: var(--color-secundario);
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
 .producto button {
   background: var(--color-secundario);
   color: var(--color-blanco);
@@ -339,9 +363,11 @@ section {
   transition: background 0.3s;
   width: 100%;
 }
+
 .producto button:hover {
   background: #45a049;
 }
+
 .etiqueta-categoria {
   display: inline-block;
   padding: 5px 10px;
@@ -350,10 +376,11 @@ section {
   color: var(--color-blanco);
   margin-bottom: 10px;
 }
+
 .Electrodomésticos { background: #2196F3; }
-.Alimentos { background: #4CAF50; }
-.Aseo { background: #9C27B0; }
-.Servicios { background: #ff9800; } /* Color para la categoría Servicios */
+.Alimentos/Cárnicos { background: #4CAF50; }
+.Del Hogar { background: #9C27B0; }
+.Servicios { background: #ff9800; }
 
 /* Carrito (cart.html) */
 .container {
@@ -364,9 +391,11 @@ section {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
 #items-carrito {
   margin: 20px 0;
 }
+
 .item-carrito {
   display: flex;
   align-items: center;
@@ -375,9 +404,11 @@ section {
   border-bottom: 1px solid #eee;
   transition: background 0.3s;
 }
+
 .item-carrito:hover {
   background: #f1f1f1;
 }
+
 .item-carrito img {
   width: 60px;
   height: 60px;
@@ -385,23 +416,28 @@ section {
   border-radius: 8px;
   margin-right: 15px;
 }
+
 .item-info {
   flex-grow: 1;
 }
+
 .item-info h4 {
   margin: 0;
   font-size: 1.1em;
   color: var(--color-texto);
 }
+
 .item-info p {
   margin: 5px 0;
   color: #777;
 }
+
 .contador-cantidad {
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
 .contador-cantidad button {
   background: var(--color-blanco);
   color: var(--color-texto);
@@ -412,9 +448,11 @@ section {
   cursor: pointer;
   transition: background 0.3s;
 }
+
 .contador-cantidad button:hover {
   background: #ccc;
 }
+
 .contador-cantidad input {
   width: 50px;
   text-align: center;
@@ -422,6 +460,7 @@ section {
   border-radius: 5px;
   padding: 5px;
 }
+
 .eliminar-item {
   background: transparent;
   color: #e60000;
@@ -432,15 +471,18 @@ section {
   cursor: pointer;
   transition: background 0.3s;
 }
+
 .eliminar-item:hover {
   background: #fdd;
 }
+
 .total {
   text-align: right;
   margin-top: 20px;
   padding-top: 20px;
   border-top: 2px solid #eee;
 }
+
 #pedir-whatsapp,
 #seguir-comprando {
   background: #25D366;
@@ -454,12 +496,15 @@ section {
   margin: 20px auto;
   display: block;
 }
+
 #pedir-whatsapp:hover {
   background: #128C7E;
 }
+
 #seguir-comprando {
   background: var(--color-primario);
 }
+
 #seguir-comprando:hover {
   background: #45a049;
 }
@@ -477,6 +522,7 @@ section {
   z-index: 1000;
   animation: slideIn 0.5s ease-out;
 }
+
 @keyframes slideIn {
   from { transform: translateX(100%); }
   to { transform: translateX(0); }
@@ -484,11 +530,11 @@ section {
 
 /* Responsive */
 @media (max-width: 768px) {
-  nav ul {
+  .main-nav ul {
     flex-direction: column;
     text-align: center;
   }
-  nav ul li {
+  .main-nav ul li {
     margin: 10px 0;
   }
   .banner img {
@@ -498,10 +544,12 @@ section {
     flex-direction: column;
     text-align: center;
   }
-  .productos-container {
+  .productos-container,
+  .ofertas-container {
     grid-template-columns: 1fr;
   }
 }
+
 footer {
   text-align: center;
   padding: 20px;

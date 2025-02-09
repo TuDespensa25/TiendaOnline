@@ -3,29 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carrito de Compras</title>
+  <title>Carrito de Compras - TuDespensa.25</title>
   <link rel="stylesheet" href="styles.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html#inicio">Inicio</a></li>
-        <li><a href="index.html#sobre-mi">Sobre Mí</a></li>
-        <li><a href="index.html#info-servicios">Servicios</a></li>
-        <li><a href="index.html#productos">Productos</a></li>
-      </ul>
-    </nav>
-    <div class="carrito">
-      <a href="cart.html">
-        <i class="fas fa-shopping-cart"></i>
-        <span id="contador-carrito" class="contador-carrito">0</span>
-      </a>
+  <!-- Header con top-bar y main-header -->
+  <header class="site-header">
+    <!-- Top-bar -->
+    <div class="top-bar">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/tuDespensa.25" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/tuDespensa.25" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5354066204" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <button class="share-btn" onclick="sharePage()" aria-label="Compartir Página"><i class="fas fa-share-alt"></i></button>
+      </div>
+    </div>
+    <!-- Main-header -->
+    <div class="main-header">
+      <div class="logo">
+        <a href="index.html"><img src="images/logo.png" alt="Logo de TuDespensa.25"></a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#sobre-mi">Sobre Mí</a></li>
+          <li><a href="index.html#info-servicios">Servicios</a></li>
+          <li><a href="index.html#productos">Productos</a></li>
+        </ul>
+      </nav>
+      <div class="header-cart">
+        <a href="cart.html">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="contador-carrito" class="contador-carrito">0</span>
+        </a>
+      </div>
     </div>
   </header>
-
+  
   <main>
     <div class="container">
       <h1><i class="fas fa-shopping-cart"></i> Tu Carrito</h1>
@@ -37,16 +53,17 @@
       </div>
     </div>
   </main>
-
+  
   <footer>
     <div class="redes-sociales">
-      <a href="https://www.facebook.com/tuDespensa.25" target="_blank"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/tuDespensa.25" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/tuDespensa.25" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/tuDespensa.25" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="https://wa.me/5354066204" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <button class="share-btn" onclick="sharePage()" aria-label="Compartir Página"><i class="fas fa-share-alt"></i></button>
     </div>
     <p>&copy; 2025 Mi Tienda Online</p>
   </footer>
-
+  
   <!-- Modal para procesar pedido -->
   <div id="modal-pedido" class="modal">
     <div class="modal-contenido">
@@ -55,28 +72,28 @@
       <form id="formulario-pedido">
         <label for="nombre">Nombre Completo:</label>
         <input type="text" id="nombre" name="nombre" required>
-
+        
         <label for="direccion">Dirección:</label>
         <input type="text" id="direccion" name="direccion" required>
-
+        
         <label for="telefono">Número de Teléfono:</label>
         <input type="tel" id="telefono" name="telefono" required>
-
+        
         <label for="nota">Nota (opcional):</label>
         <textarea id="nota" name="nota" rows="3"></textarea>
-
+        
         <label for="metodo-pago">Método de Pago:</label>
         <select id="metodo-pago" name="metodo-pago" required>
           <option value="Efectivo">Efectivo</option>
           <option value="Transferencia">Transferencia Bancaria</option>
           <option value="Tarjeta">Tarjeta de Crédito/Débito</option>
         </select>
-
+        
         <button type="submit" class="btn-continuar">Continuar</button>
       </form>
     </div>
   </div>
-
+  
   <script src="app.js" defer></script>
 </body>
 </html>
