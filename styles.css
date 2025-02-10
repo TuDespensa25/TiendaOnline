@@ -369,18 +369,24 @@ section {
 }
 
 .etiqueta-categoria {
-  display: inline-block;
+  background-color: #f0f0f0;
   padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 0.8em;
-  color: var(--color-blanco);
-  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
 }
 
-.Electrodomésticos { background: #2196F3; }
-.Alimentos/Cárnicos { background: #4CAF50; }
-.Del Hogar { background: #9C27B0; }
+.De-Electrodom-sticos { background: #2196F3; }
+.Alimentos-C-rnicos { background: #4CAF50; }
+.Alimentos-Del-Agro { background: #4CAF50; }
+.Alimentos-L-quidos { background: #9C27B0; }
+.Alimentos-Del-Confi { background: #9C27B0; }
+.Alimentos-Otros { background: #9C27B0; }
+.Alimentos-L-cteos { background: #9C27B0; }
 .Servicios { background: #ff9800; }
+.Del-Hogar { background: #2196F3; }
 
 /* Carrito (cart.html) */
 .container {
@@ -555,4 +561,15 @@ footer {
   padding: 20px;
   background: var(--color-primario);
   color: var(--color-blanco);
+}
+.discount-label {
+  background: #f01717;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 5px;
+  z-index: 2;
 }

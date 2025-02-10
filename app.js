@@ -28,7 +28,7 @@ const productos = [
         precio: 58,
         imagen: "pollocaja.jpg",
         description: "caja de 40 lb",
-        categoria: "Cárnicos"
+        categoria: "Alimentos/Cárnicos"
     },
     {
         id: 4,
@@ -36,7 +36,7 @@ const productos = [
         precio: 5.20,
         imagen: "lomo.jpg",
         description: "x Lb Importado",
-        categoria: "Cárnicos"
+        categoria:"Alimentos/Cárnicos"
     },
     {
         id: 5,
@@ -44,7 +44,7 @@ const productos = [
         precio: 19,
         imagen: "masas.jpg",
         description: "bolsa sellada al vacio de 4lb",
-        categoria: "Cárnicos"
+        categoria: "Alimentos/Cárnicos"
     },
     {
         id: 6,
@@ -52,7 +52,7 @@ const productos = [
         precio: 10.5,
         imagen: "bistec.jpg",
         description: "bandeja de bistec sellada al vacio 2.2 lb",
-        categoria: "Cárnicos"
+        categoria: "Alimentos/Cárnicos"
     },
     {
         id: 7,
@@ -60,7 +60,7 @@ const productos = [
         precio: 1.6,
         imagen: "pollo.jpg",
         description: "Bolsa sellada segun pedido",
-        categoria: "Cárnicos"
+        categoria: "Alimentos/Cárnicos"
     },
     {
         id: 8,
@@ -68,7 +68,7 @@ const productos = [
         precio: 3.50,
         imagen: "vicky.jpg",
         description: "tubo sellado segun pedido",
-        categoria: "Cárnicos"
+        categoria: "Alimentos/Cárnicos"
     },
     {
         id: 9,
@@ -76,7 +76,8 @@ const productos = [
         precio: 6.5,
         imagen: "ahumado.jpg",
         description: "porcionado y sellado x lb según pedido",
-        categoria: "Cárnicos"
+        categoria: "Alimentos/Cárnicos",
+        descuento: 25,
     },
     {
         id: 10,
@@ -84,7 +85,7 @@ const productos = [
         precio: 8,
         imagen: "ahumado.jpg",
         description: "bandeja sellada al vacio de 1.2 lb lasqueado",
-        categoria: "Cárnicos"
+        categoria: "Alimentos/Cárnicos"
     },
     {
         id: 11,
@@ -92,7 +93,7 @@ const productos = [
         precio: 5.20,
         imagen: "pechuga.jpg",
         description: "x Lb de bistec de pechuga sellada",
-        categoria: "Cárnicos"
+        categoria: "Alimentos/Cárnicos"
     },
     {
         id: 12,
@@ -100,7 +101,7 @@ const productos = [
         precio: 4.00,
         imagen: "embuchado.jpg",
         description: "Porción sellada según peso requerido por el cliente",
-        categoria: "Cárnicos"
+        categoria: "Alimentos/Cárnicos"
     },
     {
         id: 13,
@@ -108,7 +109,7 @@ const productos = [
         precio: 2.50,
         imagen: "picadillo.jpg",
         description: "unidad de 400 gr",
-        categoria: "Cárnicos"
+        categoria: "Alimentos/Cárnicos"
     },
     {
         id: 14,
@@ -116,7 +117,7 @@ const productos = [
         precio: 2.80,
         imagen: "perritos.jpg",
         description: "paquete de 12 unidades",
-        categoria: "Cárnicos"
+        categoria: "Alimentos/Cárnicos"
     },
     {
         id: 15,
@@ -124,7 +125,7 @@ const productos = [
         precio: 3.60,
         imagen: "vela.jpg",
         description: "x lb porcion sellada segun pedido del cliente",
-        categoria: "Cárnicos"
+        categoria: "Alimentos/Cárnicos"
     },
     {
         id: 16,
@@ -132,16 +133,16 @@ const productos = [
         precio: 13,
         imagen: "atun.jpg",
         description: "Lata de 1 Kg en aceite",
-        categoria: "Cárnicos"
+        categoria: "Alimentos/Cárnicos"
     },
-    // Líquidos
+    // Alimentos/Líquidos
     {
         id: 17,
         nombre: "Cerveza Cristal",
         precio: 22,
         imagen: "cristal.jpg",
         description: "Caja de 24 uds",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
     {
         id: 18,
@@ -149,7 +150,7 @@ const productos = [
         precio: 22,
         imagen: "bucanero.jpg",
         description: "Caja de 24 uds",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
     {
         id: 19,
@@ -157,7 +158,7 @@ const productos = [
         precio: 18,
         imagen: "timber.jpg",
         description: "Caja de 24 uds",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
     {
         id: 20,
@@ -165,7 +166,7 @@ const productos = [
         precio: 5,
         imagen: "acantus.jpg",
         description: "Rosado, tinto, Blanco",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
     {
         id: 21,
@@ -173,7 +174,7 @@ const productos = [
         precio: 10,
         imagen: "espumoso.jpg",
         description: "Varons d Valls 750 ml",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
     {
         id: 22,
@@ -181,7 +182,7 @@ const productos = [
         precio: 7.70,
         imagen: "3años.jpg",
         description: "Añejo 3 años 750 ml",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
     {
         id: 23,
@@ -189,7 +190,7 @@ const productos = [
         precio: 6.50,
         imagen: "guajira.jpg",
         description: "Blister de 6 uds de 500 ml",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
     {
         id: 24,
@@ -197,7 +198,7 @@ const productos = [
         precio: 14.40,
         imagen: "200ml.jfif",
         description: "Caja de 24 uds de 200 ml",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
     {
         id: 25,
@@ -205,7 +206,7 @@ const productos = [
         precio: 1.60,
         imagen: "naranja.jpg",
         description: "Jugo La estancia Sabor Naranja 1 L",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
     {
         id: 26,
@@ -213,7 +214,7 @@ const productos = [
         precio: 6.50,
         imagen: "multifrutas.jpg",
         description: "Blister de 6 uds 330 ml Multifrutas de lata",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
     {
         id: 27,
@@ -221,7 +222,7 @@ const productos = [
         precio: 18,
         imagen: "morena.jpg",
         description: "Caja de 24 uds",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
     {
         id: 28,
@@ -229,7 +230,7 @@ const productos = [
         precio: 1,
         imagen: "refrescolata.jpg",
         description: "Lata 330 ml",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
     {
         id: 29,
@@ -237,7 +238,7 @@ const productos = [
         precio: 1.90,
         imagen: "1.5lt.jpg",
         description: "Pomo de 1.5 Lt",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
     {
         id: 30,
@@ -245,16 +246,16 @@ const productos = [
         precio: 6.90,
         imagen: "aroma.jpg",
         description: "Paquete de 250 gr",
-        categoria: "Líquidos"
+        categoria: "Alimentos/Líquidos"
     },
-    // Pastas, Aderezos y Aceites
+    // "Alimentos/Otros"
     {
         id: 31,
         nombre: "pasta de tomate Sabrosísimo",
         precio: 3.20,
         imagen: "800gr.jpg",
         description: "Pasta doble concentrado 800 gr",
-        categoria: "Pastas, Aderezos y Aceites"
+        categoria: "Alimentos/Otros"
     },
     {
         id: 32,
@@ -262,7 +263,7 @@ const productos = [
         precio: 5.99,
         imagen: "vima.jpg",
         description: "Tomates frescos de huerta",
-        categoria: "Pastas, Aderezos y Aceites"
+        categoria: "Alimentos/Otros"
     },
     {
         id: 33,
@@ -270,7 +271,7 @@ const productos = [
         precio: 6.50,
         imagen: "mayonesa.jpg",
         description: "Pomo de 450 gr",
-        categoria: "Pastas, Aderezos y Aceites"
+        categoria:"Alimentos/Otros"
     },
     {
         id: 34,
@@ -278,7 +279,7 @@ const productos = [
         precio: 5.8,
         imagen: "bocadito.jpg",
         description: "Pomo de 450 gr",
-        categoria: "Pastas, Aderezos y Aceites"
+        categoria: "Alimentos/Otros"
     },
     {
         id: 35,
@@ -286,7 +287,7 @@ const productos = [
         precio: 1.55,
         imagen: "spaguetis.jpg",
         description: "Bolsa de 500 gr",
-        categoria: "Pastas, Aderezos y Aceites"
+        categoria: "Alimentos/Otros"
     },
     {
         id: 36,
@@ -294,7 +295,7 @@ const productos = [
         precio: 1.55,
         imagen: "coditos.jpg",
         description: "Bolsa de 500 gr",
-        categoria: "Pastas, Aderezos y Aceites"
+        categoria: "Alimentos/Otros"
     },
     {
         id: 37,
@@ -302,7 +303,7 @@ const productos = [
         precio: 1.90,
         imagen: "fideos.jpg",
         description: "bolsa de 500 gr",
-        categoria: "Pastas, Aderezos y Aceites"
+        categoria: "Alimentos/Otros"
     },
     {
         id: 38,
@@ -310,7 +311,7 @@ const productos = [
         precio: 1.50,
         imagen: "sopa.jpg",
         description: "Sabor pollo sobre 75 gr",
-        categoria: "Pastas, Aderezos y Aceites"
+        categoria: "Alimentos/Otros"
     },
     {
         id: 39,
@@ -318,7 +319,7 @@ const productos = [
         precio: 2.80,
         imagen: "aceite.jpg",
         description: "Botella de 900 ml",
-        categoria: "Pastas, Aderezos y Aceites"
+        categoria:"Alimentos/Otros"
     },
     {
         id: 40,
@@ -326,7 +327,7 @@ const productos = [
         precio: 12,
         imagen: "huevo.jpg",
         description: "30 uds frescos",
-        categoria: "Pastas, Aderezos y Aceites"
+        categoria: "Alimentos/Otros"
     },
     // Lácteos
     {
@@ -335,7 +336,7 @@ const productos = [
         precio: 13.5,
         imagen: "queso.jpg",
         description: "Porción de 1 kg sellado",
-        categoria: "Lácteos"
+        categoria:"Alimentos/Lácteos"
     },
     {
         id: 42,
@@ -343,7 +344,7 @@ const productos = [
         precio: 15,
         imagen: "yogurt.jpg",
         description: "Cubeta de 4L",
-        categoria: "Lácteos"
+        categoria: "Alimentos/Lácteos"
     },
     {
         id: 43,
@@ -351,7 +352,7 @@ const productos = [
         precio: 4.20,
         imagen: "crema.jpg",
         description: "Pote de 300 gr",
-        categoria: "Lácteos"
+        categoria: "Alimentos/Lácteos"
     },
     {
         id: 44,
@@ -359,7 +360,7 @@ const productos = [
         precio: 12,
         imagen: "helado.jpg",
         description: "Caja de 4L",
-        categoria: "Lácteos"
+        categoria: "Alimentos/Lácteos"
     },
     {
         id: 45,
@@ -367,7 +368,7 @@ const productos = [
         precio: 10,
         imagen: "lechepolvo.jpg",
         description: "Bolsa de 1 kg",
-        categoria: "Lácteos"
+        categoria: "Alimentos/Lácteos"
     },
     {
         id: 46,
@@ -375,7 +376,7 @@ const productos = [
         precio: 1.90,
         imagen: "condensada.jpg",
         description: "Lata con abre fácil",
-        categoria: "Lácteos"
+        categoria: "Alimentos/Lácteos"
     },
     // Del Agro
     {
@@ -384,15 +385,16 @@ const productos = [
         precio: 4.7,
         imagen: "ajo.jpg",
         description: "Bolsa de 10 cabezas",
-        categoria: "Del Agro"
-    },
-    {
+        categoria: "Alimentos/Del Agro"
+    }, 
+        {
+
         id: 48,
         nombre: "Malanga",
         precio: 4.20,
         imagen: "malanga.jpg",
         description: "bolsa de 5 lb",
-        categoria: "Del Agro"
+        categoria: "Alimentos/Del Agro"
     },
     {
         id: 49,
@@ -400,7 +402,7 @@ const productos = [
         precio: 4.20,
         imagen: "cebolla.jpg",
         description: "bolsa de 20 uds",
-        categoria: "Del Agro"
+        categoria: "Alimentos/Del Agro"
     },
     {
         id: 50,
@@ -408,7 +410,7 @@ const productos = [
         precio: 7.40,
         imagen: "tomates.jpg",
         description: "bolsa de 5 lb",
-        categoria: "Del Agro"
+        categoria: "Alimentos/Del Agro"
     },
     {
         id: 51,
@@ -416,7 +418,7 @@ const productos = [
         precio: 1.70,
         imagen: "col.jpg",
         description: "bolsa con 1 unidad sellada",
-        categoria: "Del Agro"
+        categoria: "Alimentos/Del Agro"
     },
     {
         id: 52,
@@ -424,7 +426,7 @@ const productos = [
         precio: 2.40,
         imagen: "boniato.jpg",
         description: "bolsa de 5 lb",
-        categoria: "Del Agro"
+        categoria: "Alimentos/Del Agro"
     },
     // Del Hogar
     {
@@ -563,7 +565,8 @@ const productos = [
         precio: 3.20,
         imagen: "chocobiscuit.jpg",
         description: "18 gr",
-        categoria: "Del Confi"
+        categoria: "Alimentos/Del Confi",
+        descuento: 15,
     },
     {
         id: 70,
@@ -571,15 +574,15 @@ const productos = [
         precio: 3.20,
         imagen: "bolitas.jpg",
         description: "bolsa de 500 gr",
-        categoria: "Del Confi"
+        categoria: "Alimentos/Del Confi"
     },
     {
         id: 71,
-        nombre: "Best CHocolate",
+        nombre: "Best Chocolate",
         precio: 3.20,
         imagen: "conitos.jpg",
         description: "Pomo de conitos 595 gr",
-        categoria: "Del Confi"
+        categoria: "Alimentos/Del Confi"
     },
     {
         id: 72,
@@ -587,7 +590,7 @@ const productos = [
         precio: 3.20,
         imagen: "kidi.jpg",
         description: "Paquete de 12 uds",
-        categoria: "Del Confi"
+        categoria: "Alimentos/Del Confi"
     },
     {
         id: 73,
@@ -595,7 +598,7 @@ const productos = [
         precio: 3.20,
         imagen: "soda.jpg",
         description: "Paquete de 8 uds",
-        categoria: "Del Confi"
+        categoria: "Alimentos/Del Confi"
     },
     // Producto adicional (De Electrodomésticos)
     {
@@ -632,17 +635,17 @@ function renderizarProductos(categoria = "todas") {
         div.dataset.id = prod.id;
         div.dataset.categoria = prod.categoria;
 
-        // Para servicios se muestra una tarjeta distinta
+        const categoriaSinBarra = prod.categoria.replace(/[^a-zA-Z0-9]/g, '-'); // <--- Lógica de limpieza consistente
+
         if (prod.categoria === "Servicios") {
             div.innerHTML = `
-                <div class="etiqueta-categoria ${prod.categoria}">${prod.categoria}</div>
+                <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
                 <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
                 <h3>${prod.nombre}</h3>
                 <p>${prod.description || ""}</p>
                 <a href="https://wa.me/+5354066204?text=${encodeURIComponent("Me interesa una cotización para " + prod.nombre)}" target="_blank" class="btn-cotizacion">Cotización del Servicio</a>
             `;
         } else {
-            // Si se desea aplicar descuentos, aquí se podría verificar una propiedad "descuento"
             if (prod.descuento && prod.descuento > 0) {
                 const descuento = prod.descuento;
                 const precioOriginal = prod.precio;
@@ -652,7 +655,7 @@ function renderizarProductos(categoria = "todas") {
                         <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
                         <div class="discount-label">Descuento ${descuento}%</div>
                     </div>
-                    <div class="etiqueta-categoria ${prod.categoria}">${prod.categoria}</div>
+                    <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
                     <h3>${prod.nombre}</h3>
                     <p class="precio-original">USD ${precioOriginal.toFixed(2)}</p>
                     <p class="precio-nuevo">USD ${precioNuevo.toFixed(2)}</p>
@@ -660,7 +663,7 @@ function renderizarProductos(categoria = "todas") {
                 `;
             } else {
                 div.innerHTML = `
-                    <div class="etiqueta-categoria ${prod.categoria}">${prod.categoria}</div>
+                    <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
                     <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
                     <h3>${prod.nombre}</h3>
                     <p>USD ${prod.precio.toFixed(2)}</p>
@@ -670,11 +673,11 @@ function renderizarProductos(categoria = "todas") {
         }
         fragment.appendChild(div);
     });
+
     productosContainer.innerHTML = "";
     productosContainer.appendChild(fragment);
 }
 
-// Renderiza las ofertas (productos con descuento) en la sección Ofertas
 function renderizarOfertas() {
     const ofertasContainer = document.querySelector(".ofertas-container");
     if (!ofertasContainer) return;
@@ -687,12 +690,15 @@ function renderizarOfertas() {
         const descuento = prod.descuento;
         const precioOriginal = prod.precio;
         const precioNuevo = precioOriginal * (1 - descuento / 100);
+
+        const categoriaSinBarra = prod.categoria.replace(/[^a-zA-Z0-9]/g, '-'); // <--- Lógica de limpieza consistente
+
         div.innerHTML = `
             <div class="img-container">
                 <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
                 <div class="discount-label">Descuento ${descuento}%</div>
             </div>
-            <div class="etiqueta-categoria ${prod.categoria}">${prod.categoria}</div>
+            <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
             <h3>${prod.nombre}</h3>
             <p class="precio-original">USD ${precioOriginal.toFixed(2)}</p>
             <p class="precio-nuevo">USD ${precioNuevo.toFixed(2)}</p>
@@ -703,7 +709,6 @@ function renderizarOfertas() {
     ofertasContainer.innerHTML = "";
     ofertasContainer.appendChild(fragment);
 }
-
 // Agrega producto al carrito
 function agregarAlCarrito(id) {
     const producto = productos.find(p => p.id === id);
@@ -940,8 +945,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (btnWhatsapp) {
             btnWhatsapp.addEventListener("click", (e) => {
                 e.preventDefault();
-                const modal = document.getElementById("modal-pedido");
-                if (modal) modal.style.display = "flex";
+                // Abrir cart.html en una nueva ventana
+                window.open('cart.html?pedido=true', '_blank');
             });
         }
         const formularioPedido = document.getElementById("formulario-pedido");

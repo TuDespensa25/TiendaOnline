@@ -9,25 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <!-- Header con top-bar y main-header -->
-  <header class="site-header">
-    <!-- Top-bar: redes sociales y botón de compartir -->
-    <div class="top-bar">
-      <div class="social-icons">
-        <a href="https://www.facebook.com/tuDespensa.25" target="_blank" aria-label="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com/tuDespensa.25" target="_blank" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://wa.me/+5354066204" target="_blank" aria-label="WhatsApp">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-        <button class="share-btn" onclick="sharePage()" aria-label="Compartir Página">
-          <i class="fas fa-share-alt"></i>
-        </button>
-      </div>
-    </div>
+  
     <!-- Main-header: logo, menú y carrito -->
     <div class="main-header">
       <div class="logo">
@@ -122,13 +104,15 @@
         <button class="filtro-btn active" data-categoria="todas">Todas</button>
         <button class="filtro-btn" data-categoria="De Electrodomésticos">De Electrodomésticos</button>
         <button class="filtro-btn" data-categoria="Alimentos/Cárnicos">Alimentos/Cárnicos</button>
-        <button class="filtro-btn" data-categoria="Del Confi">Del Confi</button>
-        <button class="filtro-btn" data-categoria="Aseo">Aseo</button>
+        <button class="filtro-btn" data-categoria="Alimentos/Lácteos">Alimentos/Lácteos</button>
+        <button class="filtro-btn" data-categoria="Alimentos/Líquidos">Alimentos/Líquidos</button>
+        <button class="filtro-btn" data-categoria="Alimentos/Del Confi">Alimentos/Del Confi</button>
+        <button class="filtro-btn" data-categoria="Alimentos/Del Agro">Alimentos/Del Agro</button>
+        <button class="filtro-btn" data-categoria="Alimentos/Otros">"Alimentos/Otros"</button>
+        <button class="filtro-btn" data-categoria="Del Hogar">Del Hogar</button>
         <button class="filtro-btn" data-categoria="Servicios">Servicios</button>
         <!-- Botón de compartir en el menú de filtrado -->
-        <button class="share-btn" onclick="sharePage()" aria-label="Compartir Página">
-          <i class="fas fa-share-alt"></i>
-        </button>
+        
       </div>
       <div class="productos-container" id="productos-container"></div>
     </section>
@@ -149,7 +133,7 @@
         <i class="fas fa-share-alt"></i>
       </button>
     </div>
-    <p>&copy; 2025 Mi Tienda Online</p>
+    <p>&copy; 2025 @TuDespensa.25</p>
   </footer>
   
   <script src="app.js" defer></script>
