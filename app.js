@@ -713,12 +713,20 @@ function renderizarOfertas() {
 function agregarAlCarrito(id) {
     const producto = productos.find(p => p.id === id);
     if (!producto) return;
+
+    let precioCarrito = producto.precio; // Precio original
+
+    if (producto.descuento && producto.descuento > 0) {
+        precioCarrito = producto.precio * (1 - producto.descuento / 100); // Precio con descuento
+    }
+
     const enCarrito = carrito.find(p => p.id === id);
     if (enCarrito) {
         enCarrito.cantidad++;
     } else {
-        carrito.push({ ...producto, cantidad: 1 });
+        carrito.push({ ...producto, precio: precioCarrito, cantidad: 1 }); // Guardar precio con descuento
     }
+
     mostrarMensaje(`¡${producto.nombre} agregado al carrito!`);
     actualizarContadorCarrito();
     guardarCarritoEnLocalStorage();
