@@ -21,7 +21,21 @@ body {
   background: var(--color-fondo);
   color: var(--color-texto);
 }
+.btn-compartir {
+  background: transparent;
+  border: none;
+  color: var(--color-blanco);
+  cursor: pointer;
+  font-size: 1.2em;
+  margin: 0 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: color 0.3s;
+}
 
+.btn-compartir:hover {
+  color: var(--color-secundario);
+}
 /* Header y Footer */
 .site-header {
   width: 100%;
@@ -130,20 +144,19 @@ body {
 }
 
 .redes-sociales-banner a {
-  color: var(--color-blanco);
-  font-size: 1.5em;
-  transition: color 0.3s;
+  /* color: var(--color-blanco); */
+    /* font-size: 1.5em; */
+    /* transition: color 0.3s; */
 }
 
 .redes-sociales-banner a:hover {
-  color: var(--color-secundario);
+ /* color: var(--color-secundario); */
 }
-
 /* Botón de Compartir */
 .share-btn {
-  background: transparent;
-  border: none;
-  color: inherit;
+  background: transparent; 
+     border: none; 
+  color: white;
   cursor: pointer;
   font-size: 1.2em;
   margin-left: 10px;
@@ -151,7 +164,7 @@ body {
 
 /* Para que el botón de compartir en el menú de filtros tenga la misma apariencia */
 .filtros .share-btn {
-  color: #333;
+ /* color: #333; */
   margin-left: 10px;
   font-size: 1.1em;
   background: none;
@@ -617,7 +630,7 @@ section {
 footer {
   text-align: center;
   padding: 20px;
-  background: var(--color-primario);
+  background-color: #000000;
   color: var(--color-blanco);
 }
 .discount-label {
