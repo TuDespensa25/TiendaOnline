@@ -154,12 +154,9 @@ body {
 }
 /* Botón de Compartir */
 .share-btn {
-  background: transparent; 
-     border: none; 
-  color: white;
-  cursor: pointer;
-  font-size: 1.2em;
-  margin-left: 10px;
+  /* color: var(--color-blanco); */
+    /* font-size: 1.5em; */
+    /* transition: color 0.3s; */
 }
 
 /* Para que el botón de compartir en el menú de filtros tenga la misma apariencia */
@@ -167,9 +164,7 @@ body {
  /* color: #333; */
   margin-left: 10px;
   font-size: 1.1em;
-  background: none;
-  border: none;
-  cursor: pointer;
+ 
 }
 
 /* Contenedor de la imagen para posicionar el descuento sobre ella */
@@ -625,6 +620,23 @@ section {
   .ofertas-container {
     grid-template-columns: 1fr;
   }
+  /* ESTILOS AÑADIDOS PARA BOTONES DE COMPARTIR EN MÓVIL */
+   /* ... otros estilos para móvil ... */
+    .redes-sociales-banner {
+        bottom: 20px;
+        left: 10px;
+        right: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .redes-sociales-banner a { /* Estilos simplificados */
+        font-size: 0.8em;
+        padding: 3px 6px;
+        margin-right: 0.1em; /* Ajusta este valor si es necesario */
+    }
 }
 
 footer {
