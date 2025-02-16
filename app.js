@@ -386,9 +386,8 @@ const productos = [
         imagen: "ajo.jpg",
         description: "Bolsa de 10 cabezas",
         categoria: "Alimentos/Del Agro"
-    }, 
-        {
-
+    },
+    {
         id: 48,
         nombre: "Malanga",
         precio: 4.20,
@@ -822,42 +821,85 @@ function redirigirAPaginaPrincipal() {
     window.location.href = "index.html";
 }
 
-// Envía el pedido por WhatsApp y vacía el carrito
+function validarFormulario() {
+    const nombre = document.getElementById("nombre").value;
+    const direccion = document.getElementById("direccion").value;
+    const telefono = document.getElementById("telefono").value;
+
+    if (!nombre || !direccion || !telefono) {
+        alert("Por favor, complete todos los campos.");
+        return false;
+    }
+
+    if (!/^\d{10}$/.test(telefono)) { // Expresión regular para validar número de teléfono de 10 dígitos
+        alert("El número de teléfono no es válido. Debe tener 10 dígitos.");
+        return false;
+    }
+
+    return true;
+}
+
+// Envía el pedido por WhatsApp y vacía el carrito con el formato solicitado
 function enviarPedidoPorWhatsapp() {
     const nombre = document.getElementById("nombre").value;
     const direccion = document.getElementById("direccion").value;
     const telefono = document.getElementById("telefono").value;
-    const nota = document.getElementById("nota").value;
     const metodoPago = document.getElementById("metodo-pago").value;
-    
+
     const totalUSD = calcularTotalUSD();
-    let totalTexto, totalMensaje;
-    if (metodoPago === "Pago en CUP") {
+    let totalMensaje;
+    let moneda;
+    if (metodoPago.indexOf("CUP") !== -1) {
         totalMensaje = totalUSD * tasaCambio;
-        totalTexto = 'CUP ' + totalMensaje.toFixed(2);
+        moneda = "CUP";
     } else {
         totalMensaje = totalUSD;
-        totalTexto = 'USD ' + totalMensaje.toFixed(2);
+        moneda = "USD";
     }
-    
-    let mensaje = `Hola, quiero hacer el siguiente pedido:\n\n`;
-    mensaje += `*Nombre:* ${nombre}\n`;
-    mensaje += `*Dirección:* ${direccion}\n`;
-    mensaje += `*Teléfono:* ${telefono}\n`;
-    mensaje += `*Método de Pago:* ${metodoPago}\n`;
-    mensaje += `*Nota:* ${nota || "Ninguna"}\n\n`;
-    mensaje += `*Productos:*\n`;
+    const totalTexto = totalMensaje.toFixed(2) + " " + moneda;
+
+    let mensaje = `🛒 Nuevo Pedido\n\n`;
+    mensaje += `👤 Datos del Cliente:\n\n`;
+    mensaje += `• Nombre: ${nombre}\n`;
+    mensaje += `• Teléfono: ${telefono}\n`;
+    mensaje += `• Dirección: ${direccion}\n`;
+    mensaje += `• Método de Pago: ${metodoPago}\n\n`;
+    mensaje += `💳 Información de Pago:\n`;
+    mensaje += `Total a pagar: ${totalTexto}\n`;
+    mensaje += `Por favor realice la transferencia y envíe el comprobante por este medio.\n\n`;
+    mensaje += `🛍 Productos:\n\n`;
     carrito.forEach(prod => {
-        mensaje += `${prod.nombre} - ${prod.cantidad} x USD ${prod.precio.toFixed(2)}\n`;
+        let productTotal = prod.cantidad * prod.precio;
+        if (moneda === "CUP") {
+            productTotal *= tasaCambio;
+        }
+        mensaje += `• ${prod.cantidad}x ${prod.nombre} - ${productTotal.toFixed(2)} ${moneda}\n`;
     });
-    mensaje += `\n*Total:* ${metodoPago === "Pago en CUP" ? 'CUP ' : 'USD '}${totalMensaje.toFixed(2)}`;
+    mensaje += `\n💰 Total a Pagar: ${totalTexto} de 24 a 48 horas pedido completado`;
 
-    const mensajeCodificado = encodeURIComponent(mensaje);
-    const urlWhatsapp = `https://wa.me/+5354066204?text=${mensajeCodificado}`;
-    window.open(urlWhatsapp, "_blank");
+    try {
+        const mensajeCodificado = encodeURIComponent(mensaje);
+        const urlWhatsapp = `https://wa.me/+5354066204?text=${mensajeCodificado}`;
+        window.open(urlWhatsapp, "_blank");
 
-    cerrarModalPedido();
-    vaciarCarrito();
+        alert("¡Pedido enviado correctamente! Gracias por su compra.");
+        cerrarModalPedido();
+        vaciarCarrito();
+        limpiarFormulario();
+    } catch (error) {
+        console.error("Error al enviar el pedido:", error);
+        alert("Hubo un error al procesar su pedido. Por favor, intente de nuevo.");
+    }
+}
+
+function limpiarFormulario() {
+    document.getElementById("nombre").value = "";
+    document.getElementById("direccion").value = "";
+    document.getElementById("telefono").value = "";
+    // Si existe un campo "nota", se puede limpiar también:
+    if (document.getElementById("nota")) {
+        document.getElementById("nota").value = "";
+    }
 }
 
 // Vacía el carrito y actualiza la interfaz y el localStorage
@@ -960,7 +1002,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (formularioPedido) {
             formularioPedido.addEventListener("submit", (e) => {
                 e.preventDefault();
-                enviarPedidoPorWhatsapp();
+                if (validarFormulario()) {
+                    enviarPedidoPorWhatsapp();
+                }
             });
         }
         // Actualiza el total al cambiar método de pago

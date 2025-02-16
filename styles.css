@@ -693,3 +693,70 @@ footer {
 .boton-flotante-categorias:hover {
   opacity: 1; /* Opacidad completa al pasar el ratón */
 }
+/* Estilos para el modal */
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto; /* Ajustamos el margen */
+  padding: 30px; /* Ajustamos el padding */
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.modal-content textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.modal-content button {
+  background-color: #007bff; /* Azul */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3; /* Azul más oscuro */
+}
+
+.cerrar-modal {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.cerrar-modal:hover {
+  color: #333;
+}
