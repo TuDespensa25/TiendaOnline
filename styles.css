@@ -656,3 +656,40 @@ footer {
   border-radius: 5px;
   z-index: 2;
 }
+.boton-flotante-categorias {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff; /* Color de fondo */
+  color: white; /* Color de texto */
+  padding: 10px;
+  border-radius: 50%; /* Forma circular */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+.boton-flotante-whatsapp {
+  position: fixed;
+  bottom: 80px; /* Ajusta la posición vertical */
+  right: 20px;
+  background-color: #25d366; /* Color de fondo de WhatsApp */
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 1000;
+}
+.boton-flotante-categorias {
+  position: fixed; /* Posición fija en la pantalla */
+  bottom: 20px; /* Margen inferior */
+  right: 20px; /* Margen derecho */
+  background-color: #007bff; /* Color de fondo */
+  color: white; /* Color de texto */
+  padding: 10px; /* Espacio interno */
+  border-radius: 50%; /* Forma circular */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  display: none; /* Oculto inicialmente */
+  opacity: 0.8; /* Opacidad */
+  transition: opacity 0.3s ease; /* Transición suave de opacidad */
+}
+
+.boton-flotante-categorias:hover {
+  opacity: 1; /* Opacidad completa al pasar el ratón */
+}
