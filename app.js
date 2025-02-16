@@ -831,8 +831,8 @@ function validarFormulario() {
         return false;
     }
 
-    if (!/^\d{10}$/.test(telefono)) { // Expresión regular para validar número de teléfono de 10 dígitos
-        alert("El número de teléfono no es válido. Debe tener 10 dígitos.");
+    if (!/^\d{8}$/.test(telefono)) { // Expresión regular para validar número de teléfono de 8 dígitos
+        alert("El número de teléfono no es válido. Debe tener 8 dígitos.");
         return false;
     }
 

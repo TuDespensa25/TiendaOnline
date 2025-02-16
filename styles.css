@@ -277,8 +277,13 @@ section {
 /* Sección Informativa de Servicios */
 #info-servicios {
   padding: 40px 20px;
-  background-color: #e9ecef;
+  background-color: #020b14;
+  background-image: url('images/servicios.png'); /* Ruta de la imagen */
+  background-size: cover; /* Ajusta la imagen para cubrir toda la sección */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
   text-align: center;
+  color: rgb(18, 17, 17); /* Ajusta el color del texto si es necesario */
 }
 
 #info-servicios h2 {
@@ -294,15 +299,25 @@ section {
   margin: 20px 0 10px;
 }
 
+
 /* Sección Ofertas */
 #ofertas {
   text-align: center;
 }
 
 #ofertas h2 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 2.8rem;
+  color: #39e8e8;
+  position: relative;
+  display: inline-block;
+  animation: brillo 2s ease-in-out infinite;
 }
 
+@keyframes brillo {
+  0%, 100% { text-shadow: 0 0 10px rgba(120, 97, 206, 0.7); }
+  50% { text-shadow: 0 0 20px rgba(255,215,0,0.9), 0 0 30px rgba(255,215,0,0.5); }
+}
 /* Estilos para las cajas de producto */
 .productos-container,
 .ofertas-container {
