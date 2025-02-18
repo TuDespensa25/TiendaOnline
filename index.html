@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  
-    <!-- Main-header: logo, menú y carrito -->
+  <!-- Header: logo, menú y carrito -->
+  <header class="site-header">
     <div class="main-header">
       <div class="logo">
         <a href="index.html">
@@ -22,7 +22,7 @@
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#sobre-mi">Sobre Mí</a></li>
           <li><a href="#info-servicios">Servicios</a></li>
-          <!-- La nueva sección Ofertas se mostrará más abajo -->
+          <!-- La sección Ofertas se mostrará más abajo -->
           <li><a href="#productos">Productos</a></li>
         </ul>
       </nav>
@@ -45,10 +45,10 @@
           <source media="(min-width: 1025px)" srcset="images/banner.jpg">
           <img src="images/banner.jpg" alt="Ofertas especiales" loading="lazy">
         </picture>
-        <a  href="#productos" class="btn">Ver Ofertas</a>
+        <a href="#productos" class="btn">Ver Ofertas</a>
         <div class="redes-sociales-banner">
           <a class="btn-compartir" href="https://www.facebook.com/tuDespensa.25" target="_blank" aria-label="Facebook">
-            <i class="fab fa-facebook fa-facebook-f"></i>
+            <i class="fab fa-facebook-f"></i>
           </a>
           <a class="btn-compartir" href="https://www.instagram.com/tuDespensa.25" target="_blank" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
@@ -56,9 +56,6 @@
           <a class="btn-compartir" href="https://wa.me/+5354066204" target="_blank" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
           </a>
-          
-        </button>
-          </button>
         </div>
       </div>
     </section>
@@ -92,7 +89,7 @@
       </p>
     </section>
     
-    <!-- Nueva Sección Ofertas -->
+    <!-- Sección Ofertas -->
     <section id="ofertas">
       <h2>🔥 Ofertas 🔥</h2>
       <div class="ofertas-container"></div>
@@ -112,23 +109,22 @@
         <button class="filtro-btn Alimentos-Otros" data-categoria="Alimentos/Otros">Alimentos/Otros</button>
         <button class="filtro-btn Del-Hogar" data-categoria="Del Hogar">Del Hogar</button>
         <button class="filtro-btn Servicios" data-categoria="Servicios">Servicios</button>
-        </div>
-        <!-- Botón de compartir en el menú de filtrado -->
-        
       </div>
       <div class="productos-container" id="productos-container"></div>
       <div class="descripcion-flotante"></div>
-    </div>
     </section>
   </main>
+  
   <div class="boton-flotante-whatsapp">
     <a href="https://wa.me/NUMERO_DE_TELEFONO" target="_blank">
-        <i class="fab fa-whatsapp"></i> </a>
-</div>
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
   <div class="boton-flotante-categorias">
     <a href="#productos">
-        <i class="fas fa-list"></i> </a>
-</div>
+      <i class="fas fa-list"></i>
+    </a>
+  </div>
   
   <footer>
     <div class="redes-sociales">
@@ -143,7 +139,6 @@
       </a>
       <button class="share-btn btn-compartir" onclick="sharePage()" aria-label="Compartir Página">
         <i class="fas fa-share-alt"></i>
-    </button>
       </button>
     </div>
     <p>&copy; 2025 @TuDespensa.25</p>
@@ -152,14 +147,12 @@
   <script src="app.js" defer></script>
   <script src="script.js"></script>
   <!-- Modal para mostrar la descripción del producto -->
-<div id="modal-descripcion" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h3 class="modal-nombre"></h3>
-    <p class="modal-descripcion"></p>
+  <div id="modal-descripcion" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 class="modal-nombre"></h3>
+      <p class="modal-descripcion"></p>
+    </div>
   </div>
-</div>
-
-</body>
 </body>
 </html>
