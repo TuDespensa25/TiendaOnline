@@ -1,11 +1,11 @@
 /* Variables CSS */
 :root {
-  --color-primario: #2397df;
-  --color-secundario: #4CAF50;
-  --color-terciario: #9C27B0;
-  --color-blanco: #ffffff;
-  --color-texto: #333;
-  --color-fondo: #f9f9f9;
+  --color-primario: #1d1d2c;
+  --color-secundario: #2c8780;
+  --color-terciario: #b2cac9;
+  --color-blanco: #e8f2f5;
+  --color-texto: #1d1d2c;
+  --color-fondo: #e8f2f5;
 }
 
 /* Reset básico y box-sizing */

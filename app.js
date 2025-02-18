@@ -36,7 +36,7 @@ const productos = [
     precio: 5.20,
     imagen: "lomo.jpg",
     description: "x Lb Importado",
-    categoria:"Alimentos/Cárnicos"
+    categoria: "Alimentos/Cárnicos"
   },
   {
     id: 5,
@@ -271,7 +271,7 @@ const productos = [
     precio: 6.50,
     imagen: "mayonesa.jpg",
     description: "Pomo de 450 gr",
-    categoria:"Alimentos/Otros"
+    categoria: "Alimentos/Otros"
   },
   {
     id: 34,
@@ -319,7 +319,7 @@ const productos = [
     precio: 2.80,
     imagen: "aceite.jpg",
     description: "Botella de 900 ml",
-    categoria:"Alimentos/Otros"
+    categoria: "Alimentos/Otros"
   },
   {
     id: 40,
@@ -336,7 +336,7 @@ const productos = [
     precio: 13.5,
     imagen: "queso.jpg",
     description: "Porción de 1 kg sellado",
-    categoria:"Alimentos/Lácteos"
+    categoria: "Alimentos/Lácteos"
   },
   {
     id: 42,
@@ -621,10 +621,9 @@ function calcularTotalUSD() {
 
 /**
  * RENDERIZAR PRODUCTOS
- * - Muestra el nombre, la categoría y la imagen.
- * - Si tiene descuento, se muestra el precio original TACHADO y el precio nuevo.
- * - Si no tiene descuento, solo un precio.
- * - SE ELIMINA la descripción en la tarjeta (para que solo aparezca en el modal).
+ * Se muestran: imagen, nombre, categoría y precios.
+ * En caso de descuento, se muestra el precio original tachado y el nuevo precio.
+ * La descripción no se muestra en la tarjeta, solo se usará en el modal.
  */
 function renderizarProductos(categoria = "todas") {
   if (!productosContainer) return;
@@ -638,21 +637,17 @@ function renderizarProductos(categoria = "todas") {
     div.className = "producto";
     div.dataset.id = prod.id;
     div.dataset.categoria = prod.categoria;
-
     const categoriaSinBarra = prod.categoria.replace(/[^a-zA-Z0-9]/g, '-');
 
-    // Caso especial: Servicios
     if (prod.categoria === "Servicios") {
       div.innerHTML = `
         <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
         <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
         <h3>${prod.nombre}</h3>
-        <!-- Aquí NO se muestra la descripción -->
         <a href="https://wa.me/+5354066204?text=${encodeURIComponent("Me interesa una cotización para " + prod.nombre)}" 
            target="_blank" class="btn-cotizacion">Cotización del Servicio</a>
       `;
     } else {
-      // Productos con descuento
       if (prod.descuento && prod.descuento > 0) {
         const descuento = prod.descuento;
         const precioOriginal = prod.precio;
@@ -664,19 +659,15 @@ function renderizarProductos(categoria = "todas") {
           </div>
           <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
           <h3>${prod.nombre}</h3>
-          <!-- Precio original TACHADO -->
           <p class="precio-original">USD ${precioOriginal.toFixed(2)}</p>
-          <!-- Precio con descuento -->
           <p class="precio-nuevo">USD ${precioNuevo.toFixed(2)}</p>
           <button data-id="${prod.id}" class="btn-agregar">Agregar al carrito</button>
         `;
       } else {
-        // Productos sin descuento
         div.innerHTML = `
           <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
           <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
           <h3>${prod.nombre}</h3>
-          <!-- Se quita la descripción de la tarjeta -->
           <p class="precio-nuevo">USD ${prod.precio.toFixed(2)}</p>
           <button data-id="${prod.id}" class="btn-agregar">Agregar al carrito</button>
         `;
@@ -689,13 +680,12 @@ function renderizarProductos(categoria = "todas") {
   productosContainer.appendChild(fragment);
 }
 
-// Renderiza la sección de ofertas
+// Renderiza la sección de ofertas (productos con descuento)
 function renderizarOfertas() {
   const ofertasContainer = document.querySelector(".ofertas-container");
   if (!ofertasContainer) return;
   const ofertas = productos.filter(p => p.descuento && p.descuento > 0);
   const fragment = document.createDocumentFragment();
-
   ofertas.forEach(prod => {
     const div = document.createElement("div");
     div.className = "producto";
@@ -703,7 +693,6 @@ function renderizarOfertas() {
     const precioOriginal = prod.precio;
     const precioNuevo = precioOriginal * (1 - descuento / 100);
     const categoriaSinBarra = prod.categoria.replace(/[^a-zA-Z0-9]/g, '-');
-
     div.innerHTML = `
       <div class="img-container">
           <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
@@ -725,19 +714,16 @@ function renderizarOfertas() {
 function agregarAlCarrito(id) {
   const producto = productos.find(p => p.id === id);
   if (!producto) return;
-
   let precioCarrito = producto.precio;
   if (producto.descuento && producto.descuento > 0) {
     precioCarrito = producto.precio * (1 - producto.descuento / 100);
   }
-
   const enCarrito = carrito.find(p => p.id === id);
   if (enCarrito) {
     enCarrito.cantidad++;
   } else {
     carrito.push({ ...producto, precio: precioCarrito, cantidad: 1 });
   }
-
   mostrarMensaje(`¡${producto.nombre} agregado al carrito!`);
   actualizarContadorCarrito();
   guardarCarritoEnLocalStorage();
@@ -800,8 +786,6 @@ function renderizarCarrito() {
     `;
     itemsCarrito.appendChild(div);
   });
-
-  // Actualiza el total según el método de pago seleccionado (si existe)
   const totalElem = document.getElementById("total-pedido");
   let totalTexto;
   const metodoSelect = document.getElementById("metodo-pago");
@@ -844,27 +828,23 @@ function validarFormulario() {
   const nombre = document.getElementById("nombre").value;
   const direccion = document.getElementById("direccion").value;
   const telefono = document.getElementById("telefono").value;
-
   if (!nombre || !direccion || !telefono) {
     alert("Por favor, complete todos los campos.");
     return false;
   }
-
   if (!/^\d{8}$/.test(telefono)) {
     alert("El número de teléfono no es válido. Debe tener 8 dígitos.");
     return false;
   }
-
   return true;
 }
 
-// Envía el pedido por WhatsApp y vacía el carrito con el formato solicitado
+// Envía el pedido por WhatsApp y vacía el carrito
 function enviarPedidoPorWhatsapp() {
   const nombre = document.getElementById("nombre").value;
   const direccion = document.getElementById("direccion").value;
   const telefono = document.getElementById("telefono").value;
   const metodoPago = document.getElementById("metodo-pago").value;
-
   const totalUSD = calcularTotalUSD();
   let totalMensaje;
   let moneda;
@@ -876,7 +856,6 @@ function enviarPedidoPorWhatsapp() {
     moneda = "USD";
   }
   const totalTexto = totalMensaje.toFixed(2) + " " + moneda;
-
   let mensaje = `🛒 Nuevo Pedido\n\n`;
   mensaje += `👤 Datos del Cliente:\n\n`;
   mensaje += `• Nombre: ${nombre}\n`;
@@ -895,12 +874,10 @@ function enviarPedidoPorWhatsapp() {
     mensaje += `• ${prod.cantidad}x ${prod.nombre} - ${productTotal.toFixed(2)} ${moneda}\n`;
   });
   mensaje += `\n💰 Total a Pagar: ${totalTexto} de 24 a 48 horas pedido completado`;
-
   try {
     const mensajeCodificado = encodeURIComponent(mensaje);
     const urlWhatsapp = `https://wa.me/+5354066204?text=${mensajeCodificado}`;
     window.open(urlWhatsapp, "_blank");
-
     alert("¡Pedido enviado correctamente! Gracias por su compra.");
     cerrarModalPedido();
     vaciarCarrito();
@@ -920,7 +897,7 @@ function limpiarFormulario() {
   }
 }
 
-// Vacía el carrito y actualiza la interfaz y el localStorage
+// Vacía el carrito y actualiza la interfaz y localStorage
 function vaciarCarrito() {
   carrito = [];
   guardarCarritoEnLocalStorage();
@@ -936,38 +913,33 @@ function cerrarModalPedido() {
   if (modal) modal.style.display = "none";
 }
 
-// ---------------------------
-// Modal para mostrar descripción del producto
-// ---------------------------
+// Modal para mostrar la descripción del producto
 function mostrarDescripcionProducto(producto) {
   const modal = document.getElementById("modal-descripcion");
   const modalNombre = modal.querySelector(".modal-nombre");
   const modalDescripcion = modal.querySelector(".modal-descripcion");
-
   modalNombre.textContent = producto.nombre;
   modalDescripcion.textContent = producto.description;
-
   modal.style.display = "block";
 }
 
-// ---------------------------
 // Event delegation
-// ---------------------------
 document.addEventListener("click", (e) => {
-  // Si se hace clic en el botón "Agregar al carrito", se evita mostrar el modal
-  if (e.target.closest(".btn-agregar")) return;
-
-  // Si se hace clic en cualquier parte de un producto, se muestra el modal
+  // Si se hace clic en "Agregar al carrito", se llama a agregarAlCarrito y se detiene el resto
+  if (e.target.matches(".btn-agregar")) {
+    const id = parseInt(e.target.dataset.id, 10);
+    agregarAlCarrito(id);
+    return;
+  }
+  // Si se hace clic en alguna parte de la tarjeta de producto, muestra el modal con descripción
   const productoDiv = e.target.closest(".producto");
   if (productoDiv) {
     const prodId = parseInt(productoDiv.dataset.id, 10);
-    const producto = productos.find((p) => p.id === prodId);
+    const producto = productos.find(p => p.id === prodId);
     if (producto) {
       mostrarDescripcionProducto(producto);
     }
   }
-
-  // Otros manejadores de eventos
   if (e.target.matches(".btn-cambiar")) {
     const id = parseInt(e.target.dataset.id, 10);
     const delta = parseInt(e.target.dataset.delta, 10);
@@ -985,12 +957,12 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Cerrar el modal de descripción al hacer clic en la "x"
+// Cerrar modal de descripción al hacer clic en la "x"
 document.querySelector("#modal-descripcion .close").addEventListener("click", () => {
   document.getElementById("modal-descripcion").style.display = "none";
 });
 
-// Cerrar el modal de descripción si se hace clic fuera del contenido
+// Cerrar modal de descripción si se hace clic fuera del contenido
 window.addEventListener("click", (e) => {
   const modal = document.getElementById("modal-descripcion");
   if (modal && e.target === modal) {
@@ -998,12 +970,12 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// Actualiza el total en el carrito si se cambia el método de pago
+// Actualiza el total si cambia el método de pago
 function actualizarTotalSegunMetodo() {
   renderizarCarrito();
 }
 
-// Cerrar el modal de pedido si se hace clic fuera de su contenido
+// Cierra el modal de pedido si se hace clic fuera de su contenido
 window.addEventListener("click", (e) => {
   const modalPedido = document.getElementById("modal-pedido");
   if (modalPedido && e.target === modalPedido) {
@@ -1011,9 +983,7 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// ---------------------------
 // Compartir la página (Web Share API)
-// ---------------------------
 function sharePage() {
   if (navigator.share) {
     navigator.share({
@@ -1021,19 +991,16 @@ function sharePage() {
       url: window.location.href
     })
     .then(() => console.log("Página compartida exitosamente"))
-    .catch((error) => console.error("Error al compartir:", error));
+    .catch(error => console.error("Error al compartir:", error));
   } else {
     alert("La función de compartir no es soportada en este navegador.");
   }
 }
 
-// ---------------------------
 // Inicialización
-// ---------------------------
 document.addEventListener("DOMContentLoaded", () => {
   cargarCarritoDesdeLocalStorage();
-
-  // Si estamos en index.html
+  // En index.html
   if (productosContainer) {
     renderizarProductos();
     const filtros = document.querySelectorAll(".filtro-btn");
@@ -1044,11 +1011,9 @@ document.addEventListener("DOMContentLoaded", () => {
         renderizarProductos(btn.dataset.categoria);
       });
     });
-    // Renderiza la sección de ofertas
     renderizarOfertas();
   }
-
-  // Si estamos en cart.html
+  // En cart.html
   if (document.getElementById("items-carrito")) {
     renderizarCarrito();
     const btnWhatsapp = document.getElementById("pedir-whatsapp");
@@ -1072,7 +1037,6 @@ document.addEventListener("DOMContentLoaded", () => {
       metodoSelect.addEventListener("change", actualizarTotalSegunMetodo);
     }
   }
-
   // Validación del input de teléfono (solo números)
   const telefonoInput = document.getElementById("telefono");
   if (telefonoInput) {
