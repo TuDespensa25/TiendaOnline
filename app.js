@@ -262,7 +262,7 @@ const productos = [
       id: 32,
       nombre: "Pasta de tomate Vima",
       precio: 5.99,
-      imagen: "vima.jpg",
+      imagen: "vima.svg",
       description: "Tomates frescos de huerta",
       categoria: "Alimentos/Otros"
     },
@@ -270,7 +270,7 @@ const productos = [
       id: 33,
       nombre: "Mayonesa Celorio",
       precio: 6.50,
-      imagen: "mayonesa.jpg",
+      imagen: "mayonesa.svg",
       description: "Pomo de 450 gr",
       categoria: "Alimentos/Otros"
     },
@@ -506,7 +506,7 @@ const productos = [
       id: 62,
       nombre: "Ventilador de pedestal",
       precio: 60,
-      imagen: "ventilador.jpg",
+      imagen: "ventilador.svg",
       description: "Ventilador tipo ciclón Milexus",
       categoria: "De Electrodomésticos"
     },
@@ -514,7 +514,7 @@ const productos = [
       id: 63,
       nombre: "Split milexus",
       precio: 380,
-      imagen: "split.jpg",
+      imagen: "split.svg",
       description: "Milexus 1200 btu",
       categoria: "De Electrodomésticos"
     },
@@ -522,7 +522,7 @@ const productos = [
       id: 64,
       nombre: "Frezeer",
       precio: 350,
-      imagen: "nevera.jpg",
+      imagen: "nevera.svg",
       description: "Milexus 5pies",
       categoria: "De Electrodomésticos"
     },
@@ -530,7 +530,7 @@ const productos = [
       id: 65,
       nombre: "Tv de 32",
       precio: 260,
-      imagen: "32.jpg",
+      imagen: "32.svg",
       description: "Tv inteligente 32 pulgadas",
       categoria: "De Electrodomésticos"
     },
@@ -538,7 +538,7 @@ const productos = [
       id: 66,
       nombre: "Tv de 55",
       precio: 450,
-      imagen: "55.jpg",
+      imagen: "55.svg",
       description: "Tv inteligente Milexus 55 pulgadas",
       categoria: "De Electrodomésticos"
     },
@@ -546,7 +546,7 @@ const productos = [
       id: 67,
       nombre: "Batidora Milexus",
       precio: 45,
-      imagen: "batidora.jpg",
+      imagen: "batidora.svg",
       description: "Batidora 2 en 1 (+ moledor de sazones)",
       categoria: "De Electrodomésticos"
     },
@@ -554,7 +554,7 @@ const productos = [
       id: 68,
       nombre: "Cefetera Milexus",
       precio: 45,
-      imagen: "cafetera.jpg",
+      imagen: "cafetera.svg",
       description: "Cafetera Electrica de 6 tazas",
       categoria: "De Electrodomésticos"
     },
@@ -600,14 +600,7 @@ const productos = [
       description: "Paquete de 8 uds",
       categoria: "Alimentos/Del Confi"
     },
-    {
-      id: 74,
-      nombre: "Generador Eléctrico",
-      precio: 350,
-      imagen: "pulsarr.jpg",
-      description: "Generador eléctrico Pulsar 1200 w",
-      categoria: "De Electrodomésticos"
-    }
+    
   ];
 
 // Variables globales y caching de elementos
