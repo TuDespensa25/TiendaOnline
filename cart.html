@@ -7,10 +7,9 @@
   <link rel="stylesheet" href="styles.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <!-- Regla para ocultar el modal por defecto -->
   <style>
     .modal {
-      display: none; /* Oculto por defecto */
+      display: none;
       position: fixed;
       z-index: 9999;
       left: 0;
@@ -38,18 +37,23 @@
   </style>
 </head>
 <body>
-  <!-- Header con top-bar y main-header -->
   <header class="site-header">
-    <!-- Top-bar -->
     <div class="top-bar">
       <div class="social-icons">
-        <a class="btn-compartir" href="https://www.facebook.com/tuDespensa.25" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a class="btn-compartir" href="https://www.instagram.com/tuDespensa.25" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a class="btn-compartir" href="https://wa.me/5354066204" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <button class="share-btn" onclick="sharePage()" aria-label="Compartir Página"><i class="fas fa-share-alt"></i></button>
+        <a class="btn-compartir" href="https://www.facebook.com/tuDespensa.25" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="btn-compartir" href="https://www.instagram.com/tuDespensa.25" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a class="btn-compartir" href="https://wa.me/5354066204" target="_blank" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <button class="share-btn" onclick="sharePage()" aria-label="Compartir Página">
+          <i class="fas fa-share-alt"></i>
+        </button>
       </div>
     </div>
-    <!-- Main-header -->
     <div class="main-header">
       <div class="logo">
         <a href="index.html"><img src="images/logo.svg" alt="Logo de TuDespensa.25"></a>
@@ -77,18 +81,25 @@
       <div id="items-carrito"></div>
       <div class="total">
         <h3>Total: <span id="total-pedido">USD 0.00</span></h3>
-        <!-- Botón para abrir el modal de procesar pedido -->
         <button id="pedir-whatsapp">Procesar Pedido</button>
-        <button id="seguir-comprando"><i class="fas fa-shopping-cart"></i> Seguir Comprando</button>
+        <button id="seguir-comprando">
+          <i class="fas fa-shopping-cart"></i> Seguir Comprando
+        </button>
       </div>
     </div>
   </main>
   
   <footer>
     <div class="redes-sociales">
-      <a class="btn-compartir" href="https://www.facebook.com/tuDespensa.25" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a class="btn-compartir" href="https://www.instagram.com/tuDespensa.25" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a class="btn-compartir" href="https://wa.me/5354066204" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a class="btn-compartir" href="https://www.facebook.com/tuDespensa.25" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a class="btn-compartir" href="https://www.instagram.com/tuDespensa.25" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a class="btn-compartir" href="https://wa.me/5354066204" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
       <button class="share-btn btn-compartir" onclick="sharePage()" aria-label="Compartir Página">
         <i class="fas fa-share-alt"></i>
       </button>
@@ -115,10 +126,12 @@
         <textarea id="nota" name="nota" rows="3"></textarea>
         
         <label for="metodo-pago">Método de Pago:</label>
+        <!-- Se han agregado las opciones de pago solicitadas -->
         <select id="metodo-pago" name="metodo-pago" required>
-          <option value="Efectivo">Efectivo</option>
-          <option value="Transferencia">Transferencia Bancaria</option>
-          <option value="Tarjeta">Tarjeta de Crédito/Débito</option>
+          <option value="Zelle">Zelle</option>
+          <option value="Transferencia en CUP">Transferencia en CUP</option>
+          <option value="USD Efectivo">USD Efectivo</option>
+          <option value="CUP Efectivo">CUP Efectivo</option>
         </select>
         
         <button type="submit" class="btn-continuar">Continuar</button>
