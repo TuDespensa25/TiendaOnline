@@ -47,7 +47,7 @@ const productos = [
     description: "Lomo de cerdo x Lb Importado",
     categoria: "Alimentos/Cárnicos"
   },
-  {
+  /*{
     id: 5,
     nombre: "Masas de Cerdo",
     precio: 19,
@@ -62,7 +62,7 @@ const productos = [
     imagen: "bistec.svg",
     description: "Bandeja de bistec sellada al vacio 2.2 lb",
     categoria: "Alimentos/Cárnicos"
-  },
+  },*/
   {
     id: 8,
     nombre: "Jamon vicky",
@@ -80,14 +80,14 @@ const productos = [
     categoria: "Alimentos/Cárnicos",
     descuento: 25,
   },
-  {
+  /*{
     id: 10,
     nombre: "Lomo Ahumado",
     precio: 8,
     imagen: "ahumado.svg",
     description: "bandeja sellada al vacio de 1.2 lb lasqueado",
     categoria: "Alimentos/Cárnicos"
-  },
+  },*/                                                                                                          
   {
     id: 11,
     nombre: "Pechuga de pollo",
@@ -120,14 +120,14 @@ const productos = [
     description: "paquete de 12 unidades",
     categoria: "Alimentos/Cárnicos"
   },
-  {
+  /*{
     id: 15,
     nombre: "Chorizo Tipo vela",
     precio: 3.20,
     imagen: "vela.svg",
     description: "x lb porcion sellada segun pedido del cliente",
     categoria: "Alimentos/Cárnicos"
-  },
+  },*/
   {
     id: 16,
     nombre: "Atún",
@@ -185,14 +185,14 @@ const productos = [
     description: "Añejo 3 años 750 ml",
     categoria: "Alimentos/Líquidos"
   },
-  {
+  /*{
     id: 23,
     nombre: "Malta Guajira",
     precio: 6.50,
     imagen: "guajira.svg",
     description: "Blister de 6 uds de 500 ml",
     categoria: "Alimentos/Líquidos"
-  },
+  },*/
   {
     id: 24,
     nombre: "Jugo",
@@ -258,7 +258,7 @@ const productos = [
     description: "Pasta doble concentrado 800 gr",
     categoria: "Alimentos/Otros"
   },
-  {
+  /*{
     id: 32,
     nombre: "Pasta de tomate Vima",
     precio: 5.99,
@@ -281,7 +281,7 @@ const productos = [
     imagen: "bocadito.svg",
     description: "Pomo de 450 gr",
     categoria: "Alimentos/Otros"
-  },
+  },*/
   {
     id: 35,
     nombre: "Spaguetis",
