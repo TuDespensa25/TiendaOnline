@@ -132,7 +132,7 @@ const productos = [
     id: 16,
     nombre: "Atún",
     precio: 13,
-    imagen: "atun.svg",
+    imagen: "atun.png",
     description: "Lata de 1 Kg en aceite",
     categoria: "Alimentos/Cárnicos"
   },
@@ -506,7 +506,7 @@ const productos = [
     id: 62,
     nombre: "Ventilador de pedestal",
     precio: 60,
-    imagen: "ventilador.svg",
+    imagen: "ventilador.png",
     description: "Ventilador tipo ciclón Milexus",
     categoria: "De Electrodomésticos"
   },
@@ -514,7 +514,7 @@ const productos = [
     id: 63,
     nombre: "Split milexus",
     precio: 380,
-    imagen: "split.svg",
+    imagen: "split.png",
     description: "Milexus 1200 btu",
     categoria: "De Electrodomésticos"
   },
@@ -522,7 +522,7 @@ const productos = [
     id: 64,
     nombre: "Frezeer",
     precio: 350,
-    imagen: "nevera.svg",
+    imagen: "nevera.png",
     description: "Milexus 5pies",
     categoria: "De Electrodomésticos"
   },
@@ -530,7 +530,7 @@ const productos = [
     id: 65,
     nombre: "Tv de 32",
     precio: 260,
-    imagen: "32.svg",
+    imagen: "32.png",
     description: "Tv inteligente 32 pulgadas",
     categoria: "De Electrodomésticos"
   },
@@ -538,7 +538,7 @@ const productos = [
     id: 66,
     nombre: "Tv de 55",
     precio: 450,
-    imagen: "55.svg",
+    imagen: "55.png",
     description: "Tv inteligente Milexus 55 pulgadas",
     categoria: "De Electrodomésticos"
   },
@@ -546,7 +546,7 @@ const productos = [
     id: 67,
     nombre: "Batidora Milexus",
     precio: 45,
-    imagen: "batidora.svg",
+    imagen: "batidora.png",
     description: "Batidora 2 en 1 (+ moledor de sazones)",
     categoria: "De Electrodomésticos"
   },
@@ -554,7 +554,7 @@ const productos = [
     id: 68,
     nombre: "Cefetera Milexus",
     precio: 45,
-    imagen: "cafetera.svg",
+    imagen: "cafetera.png",
     description: "Cafetera Electrica de 6 tazas",
     categoria: "De Electrodomésticos"
   },
