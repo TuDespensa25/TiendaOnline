@@ -874,68 +874,104 @@ function redirigirAPaginaPrincipal() {
 }
 
 function validarFormulario() {
-  const nombre = document.getElementById("nombre").value;
-  const direccion = document.getElementById("direccion").value;
-  const telefono = document.getElementById("telefono").value;
-  if (!nombre || !direccion || !telefono) {
-    alert("Por favor, complete todos los campos.");
+  const nombreComprador = document.getElementById("nombre-comprador").value;
+  const emailComprador = document.getElementById("email-comprador").value;
+  const telefonoComprador = document.getElementById("telefono-comprador").value;
+  const direccionEntrega = document.getElementById("direccion-entrega").value;
+
+  if (!nombreComprador || !emailComprador || !telefonoComprador || !direccionEntrega) {
+    alert("Por favor, complete todos los campos obligatorios.");
     return false;
   }
-  if (!/^\d{8}$/.test(telefono)) {
-    alert("El número de teléfono no es válido. Debe tener 8 dígitos.");
+
+  // Validación del número de teléfono (WhatsApp)
+  if (!/^\d{8,9}$/.test(telefonoComprador)) {
+    alert("El número de teléfono no es válido. Debe tener 8 o 9 dígitos.");
     return false;
   }
+
+  // Validación del correo electrónico (opcional)
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailComprador)) {
+    alert("El correo electrónico no es válido.");
+    return false;
+  }
+
   return true;
 }
 
 // Envía el pedido por WhatsApp y vacía el carrito con el formato solicitado
 function enviarPedidoPorWhatsapp() {
-  const nombre = document.getElementById("nombre").value;
-  const direccion = document.getElementById("direccion").value;
-  const telefono = document.getElementById("telefono").value;
-  const metodoPago = document.getElementById("metodo-pago").value;
-  const totalUSD = calcularTotalUSD();
+  if (!validarFormulario()) {
+    return; // Detener si la validación falla
+  }
+
+  const nombreComprador = document.getElementById("nombre-comprador").value;
+  const emailComprador = document.getElementById("email-comprador").value;
+  const telefonoComprador = document.getElementById("telefono-comprador").value;
+  const direccionEntrega = document.getElementById("direccion-entrega").value;
+  const nota = document.getElementById("nota").value;
+  const nombreBeneficiario = document.getElementById("nombre-beneficiario").value;
+  const telefonoBeneficiario = document.getElementById("telefono-beneficiario").value;
+  const metodoPago = document.getElementById("metodo-pago").value; // Asegúrate de tener este campo en tu modal
+  const totalUSD = calcularTotalUSD(); // Asumo que tienes esta función
+
   let totalMensaje;
   let moneda;
   if (metodoPago.indexOf("CUP") !== -1) {
-    totalMensaje = totalUSD * tasaCambio;
+    totalMensaje = totalUSD * tasaCambio; // Asumo que tienes tasaCambio
     moneda = "CUP";
   } else {
     totalMensaje = totalUSD;
     moneda = "USD";
   }
   const totalTexto = totalMensaje.toFixed(2) + " " + moneda;
-  
-  let mensaje = `🛒 Nuevo Pedido\n\n`;
-  mensaje += `👤 Datos del Cliente:\n\n`;
-  mensaje += `• Nombre: ${nombre}\n`;
-  mensaje += `• Teléfono: ${telefono}\n`;
-  mensaje += `• Dirección: ${direccion}\n`;
+
+  let mensaje = ` Nuevo Pedido\n\n`;
+  mensaje += ` Datos del Comprador:\n\n`;
+  mensaje += `• Nombre: ${nombreComprador}\n`;
+  mensaje += `• Email: ${emailComprador}\n`;
+  mensaje += `• Teléfono: ${telefonoComprador}\n\n`;
+
+  if (nombreBeneficiario && telefonoBeneficiario) {
+    mensaje += ` Datos del Beneficiario:\n\n`;
+    mensaje += `• Nombre: ${nombreBeneficiario}\n`;
+    mensaje += `• Teléfono: ${telefonoBeneficiario}\n\n`;
+  }
+
+  mensaje += ` Información de Envío:\n\n`;
+  mensaje += `• Dirección: ${direccionEntrega}\n`;
+  if (nota) {
+    mensaje += `• Nota: ${nota}\n`;
+  }
   mensaje += `• Método de Pago: ${metodoPago}\n\n`;
+
   // Incluir el vendedor si existe
   const vendedor = localStorage.getItem("vendedor");
   if (vendedor) {
-    mensaje += `🔗 Vendedor: ${vendedor}\n\n`;
+    mensaje += ` Vendedor: ${vendedor}\n\n`;
   }
-  mensaje += `💳 Información de Pago:\n`;
+
+  mensaje += ` Información de Pago:\n`;
   mensaje += `Total a pagar: ${totalTexto}\n`;
-  mensaje += `Por favor realice la transferencia y envíe el comprobante por este medio.\n\n`;
-  mensaje += `🛍 Productos:\n\n`;
-  carrito.forEach(prod => {
+  mensaje += `Por favor realice la transferencia a este contacto +1 (305) 528-1255 Ivan Martinez y envíe el comprobante por este medio.\n\n`;
+  mensaje += ` Productos:\n\n`;
+  carrito.forEach(prod => { // Asumo que tienes carrito y tasaCambio
     let productTotal = prod.cantidad * prod.precio;
     if (moneda === "CUP") {
       productTotal *= tasaCambio;
     }
     mensaje += `• ${prod.cantidad}x ${prod.nombre} - ${productTotal.toFixed(2)} ${moneda}\n`;
   });
-  mensaje += `\n💰 Total a Pagar: ${totalTexto} de 24 a 48 horas pedido completado`;
+  mensaje += `\n Total a Pagar: ${totalTexto} de 24 a 48 horas pedido completado`;
+
   try {
     const mensajeCodificado = encodeURIComponent(mensaje);
     const urlWhatsapp = `https://wa.me/5353933247?text=${mensajeCodificado}`;
     window.open(urlWhatsapp, "_blank");
     alert("¡Pedido enviado correctamente! Gracias por su compra.");
-    cerrarModalPedido();
-    vaciarCarrito();
+    cerrarModalPedido(); // Asumo que tienes esta función
+    vaciarCarrito(); // Asumo que tienes esta función
     limpiarFormulario();
   } catch (error) {
     console.error("Error al enviar el pedido:", error);
@@ -944,9 +980,12 @@ function enviarPedidoPorWhatsapp() {
 }
 
 function limpiarFormulario() {
-  document.getElementById("nombre").value = "";
-  document.getElementById("direccion").value = "";
-  document.getElementById("telefono").value = "";
+  document.getElementById("nombre-comprador").value = "";
+  document.getElementById("email-comprador").value = "";
+  document.getElementById("telefono-comprador").value = "";
+  document.getElementById("direccion-entrega").value = "";
+  document.getElementById("nombre-beneficiario").value = "";
+  document.getElementById("telefono-beneficiario").value = "";
   if (document.getElementById("nota")) {
     document.getElementById("nota").value = "";
   }

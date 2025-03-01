@@ -113,18 +113,29 @@
       <span class="cerrar-modal">&times;</span>
       <h2>Procesar Pedido</h2>
       <form id="formulario-pedido">
-        <label for="nombre">Nombre Completo:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        
-        <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion" required>
-        
-        <label for="telefono">Número de Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required>
-        
+        <h3>Información del Comprador</h3>
+        <label for="nombre-comprador">Nombre Completo:</label>
+        <input type="text" id="nombre-comprador" name="nombre-comprador" required>
+  
+        <label for="email-comprador">Correo Electrónico:</label>
+        <input type="email" id="email-comprador" name="email-comprador" required>
+  
+        <label for="telefono-comprador">Número de Teléfono:</label>
+        <input type="tel" id="telefono-comprador" name="telefono-comprador" required>
+  
+        <h3>Información del Beneficiario </h3>
+        <label for="nombre-beneficiario">Nombre Completo:</label>
+        <input type="text" id="nombre-beneficiario" name="nombre-beneficiario">
+  
+        <label for="telefono-beneficiario">Número de Teléfono:</label>
+        <input type="tel" id="telefono-beneficiario" name="telefono-beneficiario">
+  
+        <h3>Información de Envío</h3>
+        <label for="direccion-entrega">Dirección de Entrega:</label>
+        <input type="text" id="direccion-entrega" name="direccion-entrega" required>
+  
         <label for="nota">Nota (opcional):</label>
         <textarea id="nota" name="nota" rows="3"></textarea>
-        
         <label for="metodo-pago">Método de Pago:</label>
         <!-- Se han agregado las opciones de pago solicitadas -->
         <select id="metodo-pago" name="metodo-pago" required>
