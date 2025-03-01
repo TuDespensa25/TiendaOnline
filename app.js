@@ -19,7 +19,7 @@ const productos = [
     id: 1,
     nombre: " Cerdo al corte ",
     precio: 3.80,
-    imagen: "pierna.svg",
+    imagen: "pierna.png",
     description: "Pierna de cerdo, paleta según disponibilidad",
     categoria: "Alimentos/Cárnicos"
   },
@@ -27,7 +27,7 @@ const productos = [
     id: 2,
     nombre: "Caja de Pollo",
     precio: 52,
-    imagen: "pollocaja.svg",
+    imagen: "pollocaja.png",
     description: "caja de 40 lb de muslo y contramuslo 4 paquetes de 10 lb",
     categoria: "Alimentos/Cárnicos"
   },
@@ -35,7 +35,7 @@ const productos = [
     id: 3,
     nombre: "Paquete de pollo 10 lb ",
     precio: 13,
-    imagen: "pollopqte.svg",
+    imagen: "pollopqte.png",
     description: "paquete de 10 lb de muslo y contra muslo",
     categoria: "Alimentos/Cárnicos"
   },
@@ -43,7 +43,7 @@ const productos = [
     id: 4,
     nombre: "Lomo de cerdo deshuesado",
     precio: 5.20,
-    imagen: "lomo.svg",
+    imagen: "lomo.png",
     description: "Lomo de cerdo x Lb Importado",
     categoria: "Alimentos/Cárnicos"
   },
@@ -67,7 +67,7 @@ const productos = [
     id: 8,
     nombre: "Jamon vicky",
     precio: 3.20,
-    imagen: "vicky.svg",
+    imagen: "vicky.png",
     description: "por lb sellado al vacio ",
     categoria: "Alimentos/Cárnicos"
   },
@@ -75,7 +75,7 @@ const productos = [
     id: 9,
     nombre: "Lomo ahumado",
     precio: 6.5,
-    imagen: "ahumado.svg",
+    imagen: "ahumado.png",
     description: "porcionado y sellado x lb según pedido",
     categoria: "Alimentos/Cárnicos",
     descuento: 25,
@@ -92,7 +92,7 @@ const productos = [
     id: 11,
     nombre: "Pechuga de pollo",
     precio: 5.20,
-    imagen: "pechuga.svg",
+    imagen: "pechuga.png",
     description: "x Lb de bistec de pechuga sellada",
     categoria: "Alimentos/Cárnicos"
   },
@@ -100,7 +100,7 @@ const productos = [
     id: 12,
     nombre: "Jamón Embuchado",
     precio: 4.00,
-    imagen: "embuchado.svg",
+    imagen: "embuchado.png",
     description: "Porción sellada según peso requerido por el cliente",
     categoria: "Alimentos/Cárnicos"
   },
@@ -108,7 +108,7 @@ const productos = [
     id: 13,
     nombre: "Picadillo Mixto",
     precio: 2.40,
-    imagen: "picadillo.svg",
+    imagen: "picadillo.png",
     description: "unidad de 400 gr",
     categoria: "Alimentos/Cárnicos"
   },
@@ -116,7 +116,7 @@ const productos = [
     id: 14,
     nombre: "Salchichas",
     precio: 2.80,
-    imagen: "perritos.svg",
+    imagen: "perritos.png",
     description: "paquete de 12 unidades",
     categoria: "Alimentos/Cárnicos"
   },
@@ -141,7 +141,7 @@ const productos = [
     id: 17,
     nombre: "Cerveza Cristal",
     precio: 22,
-    imagen: "cristal.svg",
+    imagen: "cristal.png",
     description: "Caja de 24 uds",
     categoria: "Alimentos/Líquidos"
   },
@@ -149,7 +149,7 @@ const productos = [
     id: 18,
     nombre: "Cerveza Bucanero",
     precio: 22,
-    imagen: "bucanero.svg",
+    imagen: "bucanero.png",
     description: "Caja de 24 uds",
     categoria: "Alimentos/Líquidos"
   },
@@ -157,7 +157,7 @@ const productos = [
     id: 19,
     nombre: "Cerveza Economica",
     precio: 18,
-    imagen: "timber.svg",
+    imagen: "timber.png",
     description: "Caja de 24 uds",
     categoria: "Alimentos/Líquidos"
   },
@@ -165,7 +165,7 @@ const productos = [
     id: 20,
     nombre: "Vino Acantus",
     precio: 5,
-    imagen: "acantus.svg",
+    imagen: "acantus.png",
     description: "Botella de vino rosado, tinto o Blanco",
     categoria: "Alimentos/Líquidos"
   },
@@ -173,7 +173,7 @@ const productos = [
     id: 21,
     nombre: "Vino Espumoso",
     precio: 10,
-    imagen: "espumoso.svg",
+    imagen: "espumoso.png",
     description: "botella de vino espumoso Varons d Valls 750 ml",
     categoria: "Alimentos/Líquidos"
   },
@@ -181,7 +181,7 @@ const productos = [
     id: 22,
     nombre: "Ron Habana Club",
     precio: 7.70,
-    imagen: "3años.svg",
+    imagen: "3años.png",
     description: "Añejo 3 años 750 ml",
     categoria: "Alimentos/Líquidos"
   },
@@ -197,7 +197,7 @@ const productos = [
     id: 24,
     nombre: "Jugo",
     precio: 14.40,
-    imagen: "200ml.svg",
+    imagen: "200ml.png",
     description: "Caja de 24 uds de 200 ml",
     categoria: "Alimentos/Líquidos"
   },
@@ -205,7 +205,7 @@ const productos = [
     id: 25,
     nombre: "Jugo",
     precio: 1.60,
-    imagen: "naranja.svg",
+    imagen: "naranja.png",
     description: "Jugo La estancia Sabor Naranja 1 L",
     categoria: "Alimentos/Líquidos"
   },
@@ -213,7 +213,7 @@ const productos = [
     id: 26,
     nombre: "Jugo",
     precio: 6.50,
-    imagen: "multifrutas.svg",
+    imagen: "multifrutas.png",
     description: "Blister de 6 uds 330 ml Multifrutas de lata",
     categoria: "Alimentos/Líquidos"
   },
@@ -221,7 +221,7 @@ const productos = [
     id: 27,
     nombre: "Malta Morena",
     precio: 18,
-    imagen: "morena.svg",
+    imagen: "morena.png",
     description: "Caja de 24 uds",
     categoria: "Alimentos/Líquidos"
   },
@@ -229,7 +229,7 @@ const productos = [
     id: 28,
     nombre: "Refresco",
     precio: 1,
-    imagen: "refrescolata.svg",
+    imagen: "refrescolata.png",
     description: "Lata 330 ml",
     categoria: "Alimentos/Líquidos"
   },
@@ -237,7 +237,7 @@ const productos = [
     id: 29,
     nombre: "Refresco",
     precio: 1.90,
-    imagen: "1.5lt.svg",
+    imagen: "1.5lt.png",
     description: "Pomo de 1.5 Lt",
     categoria: "Alimentos/Líquidos"
   },
@@ -245,7 +245,7 @@ const productos = [
     id: 30,
     nombre: "Café",
     precio: 6.90,
-    imagen: "aroma.svg",
+    imagen: "aroma.png",
     description: "Paquete de 250 gr",
     categoria: "Alimentos/Líquidos"
   },
@@ -254,7 +254,7 @@ const productos = [
     id: 31,
     nombre: "pasta de tomate Sabrosísimo",
     precio: 3.20,
-    imagen: "800gr.svg",
+    imagen: "800gr.png",
     description: "Pasta doble concentrado 800 gr",
     categoria: "Alimentos/Otros"
   },
@@ -286,7 +286,7 @@ const productos = [
     id: 35,
     nombre: "Spaguetis",
     precio: 1.55,
-    imagen: "spaguetis.svg",
+    imagen: "spaguetis.png",
     description: "Bolsa de 500 gr",
     categoria: "Alimentos/Otros"
   },
@@ -294,31 +294,79 @@ const productos = [
     id: 36,
     nombre: "Codito",
     precio: 1.55,
-    imagen: "coditos.svg",
+    imagen: "codito.png",
     description: "Bolsa de 500 gr",
+    categoria: "Alimentos/Otros"
+  },
+  {
+    id: 37,
+    nombre: "Azucar Blanca",
+    precio: 1.90,
+    imagen: "azucar1kg.png",
+    description: "bolsa de 1 kg",
+    categoria: "Alimentos/Otros"
+  },
+  {
+    id: 37,
+    nombre: "Frijol Negro ",
+    precio: 1.90,
+    imagen: "frijol5lb.png",
+    description: "bolsa de 5 Lb",
+    categoria: "Alimentos/Otros"
+  },
+  {
+    id: 37,
+    nombre: "Frijol Negro ",
+    precio: 1.90,
+    imagen: "frijol1kg.png",
+    description: "bolsa de 1 kg",
+    categoria: "Alimentos/Otros"
+  },
+  {
+    id: 37,
+    nombre: "Frijol Colorado ",
+    precio: 1.90,
+    imagen: "colorados5lb.png",
+    description: "bolsa de 5 Lb",
+    categoria: "Alimentos/Otros"
+  },
+  {
+    id: 37,
+    nombre: "Sal Iodada ",
+    precio: 1.90,
+    imagen: "sal.png",
+    description: "bolsa de 1 Lb",
+    categoria: "Alimentos/Otros"
+  },
+  {
+    id: 37,
+    nombre: "Arroz Brasileño",
+    precio: 1.90,
+    imagen: "arroz1kg.png",
+    description: "bolsa de 1 kg",
     categoria: "Alimentos/Otros"
   },
   {
     id: 37,
     nombre: "Fideos",
     precio: 1.90,
-    imagen: "fideos.svg",
+    imagen: "fideos.png",
     description: "bolsa de 500 gr",
     categoria: "Alimentos/Otros"
   },
-  {
+ /*{
     id: 38,
     nombre: "Sopa Intantanea",
     precio: 1.50,
-    imagen: "sopa.svg",
+    imagen: "sopa.png",
     description: "Sabor pollo sobre 75 gr",
     categoria: "Alimentos/Otros"
-  },
+  },*/
   {
     id: 39,
     nombre: "Aceite de girasol",
     precio: 2.80,
-    imagen: "aceite.svg",
+    imagen: "aceite.png",
     description: "Botella de 900 ml",
     categoria: "Alimentos/Otros"
   },
@@ -326,7 +374,7 @@ const productos = [
     id: 40,
     nombre: "Cartón de huevos",
     precio: 10,
-    imagen: "huevo.svg",
+    imagen: "huevo.png",
     description: "30 uds frescos 100 % orgánicos",
     categoria: "Alimentos/Otros"
   },
@@ -335,7 +383,7 @@ const productos = [
     id: 41,
     nombre: "Queso Gouda",
     precio: 13.5,
-    imagen: "queso.svg",
+    imagen: "queso.png",
     description: "Porción de 1 kg sellado",
     categoria: "Alimentos/Lácteos"
   },
@@ -343,7 +391,7 @@ const productos = [
     id: 42,
     nombre: "Yogurt Probiótico",
     precio: 15,
-    imagen: "yogurt.svg",
+    imagen: "yogurt.png",
     description: "Cubeta de 4L",
     categoria: "Alimentos/Lácteos"
   },
@@ -351,7 +399,7 @@ const productos = [
     id: 43,
     nombre: "Queso Crema",
     precio: 4.20,
-    imagen: "crema.svg",
+    imagen: "crema.png",
     description: "Pote de 300 gr",
     categoria: "Alimentos/Lácteos"
   },
@@ -359,7 +407,7 @@ const productos = [
     id: 44,
     nombre: "Helado",
     precio: 12,
-    imagen: "helado.svg",
+    imagen: "helado.png",
     description: "Caja de 4L",
     categoria: "Alimentos/Lácteos"
   },
@@ -367,7 +415,7 @@ const productos = [
     id: 45,
     nombre: "Leche en Polvo",
     precio: 10,
-    imagen: "lechepolvo.svg",
+    imagen: "lechepolvo.png",
     description: "Bolsa de 1 kg",
     categoria: "Alimentos/Lácteos"
   },
@@ -375,7 +423,7 @@ const productos = [
     id: 46,
     nombre: "Leche Condensada",
     precio: 1.90,
-    imagen: "condensada.svg",
+    imagen: "condensada.png",
     description: "Lata con abre fácil",
     categoria: "Alimentos/Lácteos"
   },
@@ -384,7 +432,7 @@ const productos = [
     id: 47,
     nombre: "Ajo",
     precio: 4.7,
-    imagen: "ajo.svg",
+    imagen: "ajo.png",
     description: "Bolsa de 10 cabezas",
     categoria: "Alimentos/Del Agro"
   },
@@ -392,7 +440,7 @@ const productos = [
     id: 48,
     nombre: "Malanga",
     precio: 4.20,
-    imagen: "malanga.svg",
+    imagen: "malanga.png",
     description: "bolsa de 5 lb",
     categoria: "Alimentos/Del Agro"
   },
@@ -400,7 +448,7 @@ const productos = [
     id: 49,
     nombre: "cebolla",
     precio: 4.20,
-    imagen: "cebolla.svg",
+    imagen: "cebolla.png",
     description: "bolsa de 20 uds",
     categoria: "Alimentos/Del Agro"
   },
@@ -408,11 +456,11 @@ const productos = [
     id: 50,
     nombre: "Tomate",
     precio: 7.40,
-    imagen: "tomates.svg",
+    imagen: "tomates.png",
     description: "bolsa de 5 lb",
     categoria: "Alimentos/Del Agro"
   },
-  {
+ /*{
     id: 51,
     nombre: "Col",
     precio: 1.70,
@@ -427,13 +475,13 @@ const productos = [
     imagen: "boniato.svg",
     description: "bolsa de 5 lb",
     categoria: "Alimentos/Del Agro"
-  },
+  },*/
   // Del Hogar
   {
     id: 53,
     nombre: "Frazada de limpiar suelo",
     precio: 2.4,
-    imagen: "frazada.svg",
+    imagen: "frazada.png",
     description: "2 unidad",
     categoria: "Del Hogar"
   },
@@ -441,7 +489,7 @@ const productos = [
     id: 54,
     nombre: "Detergente para ropa",
     precio: 5.2,
-    imagen: "4en1.svg",
+    imagen: "4en1.png",
     description: "Pomo de 1 L",
     categoria: "Del Hogar"
   },
@@ -449,7 +497,7 @@ const productos = [
     id: 55,
     nombre: "Detergente polvo Multiuso",
     precio: 2.4,
-    imagen: "detergente.svg",
+    imagen: "detergente.png",
     description: "bolsa de 500 gr",
     categoria: "Del Hogar"
   },
@@ -457,7 +505,7 @@ const productos = [
     id: 56,
     nombre: "Jabon De Olor",
     precio: 1.2,
-    imagen: "jabon.svg",
+    imagen: "jabon.png",
     description: "por unidades",
     categoria: "Del Hogar"
   },
@@ -465,7 +513,7 @@ const productos = [
     id: 57,
     nombre: "Papel Higienico",
     precio: 2.2,
-    imagen: "papel.svg",
+    imagen: "papel.png",
     description: "bolsa con 4 unidad sellada",
     categoria: "Del Hogar"
   },
@@ -473,7 +521,7 @@ const productos = [
     id: 58,
     nombre: "Perlas de olor para ropa",
     precio: 3.5,
-    imagen: "perlas.svg",
+    imagen: "perlas.png",
     description: "frasco de 200 gr",
     categoria: "Del Hogar"
   },
@@ -481,7 +529,7 @@ const productos = [
     id: 59,
     nombre: "Suavizante para ropa",
     precio: 6,
-    imagen: "suavizante.svg",
+    imagen: "suavizante.png",
     description: "Pomo de 1 lt",
     categoria: "Del Hogar"
   },
@@ -489,7 +537,7 @@ const productos = [
     id: 60,
     nombre: "Toallitas humedas multiuso premiun",
     precio: 3.8,
-    imagen: "toallas.svg",
+    imagen: "toallas.png",
     description: "Paquete de 120 udst",
     categoria: "Del Hogar"
   },
@@ -497,7 +545,7 @@ const productos = [
     id: 61,
     nombre: "Pastillas de inodoro",
     precio: 2.40,
-    imagen: "pastillas.svg",
+    imagen: "pastillas.png",
     description: "4 uds",
     categoria: "Del Hogar"
   },
@@ -563,7 +611,7 @@ const productos = [
     id: 69,
     nombre: "Choco Biscuit",
     precio: 3.20,
-    imagen: "chocobiscuit.svg",
+    imagen: "chocobiscuit.png",
     description: "18 gr",
     categoria: "Alimentos/Del Confi",
     descuento: 15,
@@ -572,7 +620,7 @@ const productos = [
     id: 70,
     nombre: "Bolita de chocolate",
     precio: 3.20,
-    imagen: "bolitas.svg",
+    imagen: "bolitas.png",
     description: "bolsa de 500 gr",
     categoria: "Alimentos/Del Confi"
   },
@@ -580,7 +628,7 @@ const productos = [
     id: 71,
     nombre: "Best Chocolate",
     precio: 3.20,
-    imagen: "conitos.svg",
+    imagen: "conitos.png",
     description: "Pomo de conitos 595 gr",
     categoria: "Alimentos/Del Confi"
   },
@@ -588,7 +636,7 @@ const productos = [
     id: 72,
     nombre: "Galletas kidi vai vai",
     precio: 3.20,
-    imagen: "kidi.svg",
+    imagen: "kidi.png",
     description: "Paquete de 12 uds",
     categoria: "Alimentos/Del Confi"
   },
@@ -596,7 +644,7 @@ const productos = [
     id: 73,
     nombre: "Galletas Soda",
     precio: 3.20,
-    imagen: "soda.svg",
+    imagen: "soda.png",
     description: "Paquete de 8 uds",
     categoria: "Alimentos/Del Confi"
   },
