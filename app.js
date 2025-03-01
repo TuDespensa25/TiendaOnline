@@ -692,7 +692,7 @@ function renderizarProductos(categoria = "todas") {
         <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
         <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
         <h3>${prod.nombre}</h3>
-        <a href="https://wa.me/+5354066204?text=${encodeURIComponent("Me interesa una cotización para " + prod.nombre)}" 
+        <a href="https://wa.me/5353933247?text=${encodeURIComponent("Me interesa una cotización para " + prod.nombre)}" 
            target="_blank" class="btn-cotizacion">Cotización del Servicio</a>
       `;
     } else {
@@ -931,7 +931,7 @@ function enviarPedidoPorWhatsapp() {
   mensaje += `\n💰 Total a Pagar: ${totalTexto} de 24 a 48 horas pedido completado`;
   try {
     const mensajeCodificado = encodeURIComponent(mensaje);
-    const urlWhatsapp = `https://wa.me/+5354066204?text=${mensajeCodificado}`;
+    const urlWhatsapp = `https://wa.me/5353933247?text=${mensajeCodificado}`;
     window.open(urlWhatsapp, "_blank");
     alert("¡Pedido enviado correctamente! Gracias por su compra.");
     cerrarModalPedido();
