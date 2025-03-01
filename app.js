@@ -20,7 +20,7 @@ const productos = [
     nombre: " Cerdo al corte ",
     precio: 3.80,
     imagen: "pierna.png",
-    description: "Pierna de cerdo, paleta según disponibilidad",
+    description: "Pierna de cerdo o paleta según disponibilidad x Lb",
     categoria: "Alimentos/Cárnicos"
   },
   {
@@ -42,7 +42,7 @@ const productos = [
   {
     id: 4,
     nombre: "Lomo de cerdo deshuesado",
-    precio: 5.20,
+    precio: 4.30,
     imagen: "lomo.png",
     description: "Lomo de cerdo x Lb Importado",
     categoria: "Alimentos/Cárnicos"
@@ -74,7 +74,7 @@ const productos = [
   {
     id: 9,
     nombre: "Lomo ahumado",
-    precio: 6.5,
+    precio: 5.2,
     imagen: "ahumado.png",
     description: "porcionado y sellado x lb según pedido",
     categoria: "Alimentos/Cárnicos",
@@ -106,7 +106,7 @@ const productos = [
   },
   {
     id: 13,
-    nombre: "Picadillo Mixto",
+    nombre: "Picadillo de pollo",
     precio: 2.40,
     imagen: "picadillo.png",
     description: "unidad de 400 gr",
@@ -115,7 +115,7 @@ const productos = [
   {
     id: 14,
     nombre: "Salchichas",
-    precio: 2.80,
+    precio: 1.90,
     imagen: "perritos.png",
     description: "paquete de 12 unidades",
     categoria: "Alimentos/Cárnicos"
@@ -137,9 +137,9 @@ const productos = [
     categoria: "Alimentos/Cárnicos"
   },
   {
-    id: 16,
+    id: 101,
     nombre: "Hamburguesas Mixtas",
-    precio: 13,
+    precio: 2.3,
     imagen: "Hamburguesas.png",
     description: "Bolsa de 5 Hamburguesas de 90 gr cada una", 
     categoria: "Alimentos/Cárnicos"
@@ -164,7 +164,7 @@ const productos = [
   {
     id: 19,
     nombre: "Cerveza Economica",
-    precio: 18,
+    precio: 20,
     imagen: "timber.png",
     description: "Caja de 24 uds",
     categoria: "Alimentos/Líquidos"
@@ -236,7 +236,7 @@ const productos = [
   {
     id: 28,
     nombre: "Refresco",
-    precio: 1,
+    precio: 0.75,
     imagen: "refrescolata.png",
     description: "Lata 330 ml",
     categoria: "Alimentos/Líquidos"
@@ -252,7 +252,7 @@ const productos = [
   {
     id: 30,
     nombre: "Café",
-    precio: 6.90,
+    precio: 5.5,
     imagen: "aroma.png",
     description: "Paquete de 250 gr",
     categoria: "Alimentos/Líquidos"
@@ -261,7 +261,7 @@ const productos = [
   {
     id: 31,
     nombre: "pasta de tomate Sabrosísimo",
-    precio: 3.20,
+    precio: 3.50,
     imagen: "800gr.png",
     description: "Pasta doble concentrado 800 gr",
     categoria: "Alimentos/Otros"
@@ -309,55 +309,55 @@ const productos = [
   {
     id: 37,
     nombre: "Azucar Blanca",
-    precio: 1.90,
+    precio: 2,
     imagen: "azucar1kg.png",
     description: "bolsa de 1 kg",
     categoria: "Alimentos/Otros"
   },
   {
-    id: 37,
+    id: 38,
     nombre: "Frijol Negro ",
-    precio: 1.90,
+    precio: 8,
     imagen: "frijol5lb.png",
     description: "bolsa de 5 Lb",
     categoria: "Alimentos/Otros"
   },
   {
-    id: 37,
+    id: 39,
     nombre: "Frijol Negro ",
-    precio: 1.90,
+    precio: 3.2,
     imagen: "frijol1kg.png",
     description: "bolsa de 1 kg",
     categoria: "Alimentos/Otros"
   },
   {
-    id: 37,
+    id: 40,
     nombre: "Frijol Colorado ",
-    precio: 1.90,
+    precio: 8,
     imagen: "colorados5lb.png",
     description: "bolsa de 5 Lb",
     categoria: "Alimentos/Otros"
   },
   {
-    id: 37,
+    id: 41,
     nombre: "Sal Iodada ",
-    precio: 1.90,
+    precio: 0.5,
     imagen: "sal.png",
     description: "bolsa de 1 Lb",
     categoria: "Alimentos/Otros"
   },
   {
-    id: 37,
+    id: 42,
     nombre: "Arroz Brasileño",
-    precio: 1.90,
+    precio: 2.2,
     imagen: "arroz1kg.png",
     description: "bolsa de 1 kg",
     categoria: "Alimentos/Otros"
   },
   {
-    id: 37,
+    id: 43,
     nombre: "Fideos",
-    precio: 1.90,
+    precio: 1.80,
     imagen: "fideos.png",
     description: "bolsa de 500 gr",
     categoria: "Alimentos/Otros"
@@ -371,17 +371,17 @@ const productos = [
     categoria: "Alimentos/Otros"
   },*/
   {
-    id: 39,
+    id: 44,
     nombre: "Aceite de girasol",
-    precio: 2.80,
+    precio: 3.2,
     imagen: "aceite.png",
-    description: "Botella de 900 ml",
+    description: "Botella de 1l",
     categoria: "Alimentos/Otros"
   },
   {
-    id: 40,
+    id: 45,
     nombre: "Cartón de huevos",
-    precio: 10,
+    precio: 8.80,
     imagen: "huevo.png",
     description: "30 uds frescos 100 % orgánicos",
     categoria: "Alimentos/Otros"
@@ -420,7 +420,7 @@ const productos = [
     categoria: "Alimentos/Lácteos"
   },*/
   {
-    id: 45,
+    id: 100,
     nombre: "Leche en Polvo",
     precio: 10,
     imagen: "lechepolvo.png",
@@ -447,7 +447,7 @@ const productos = [
   {
     id: 48,
     nombre: "Malanga",
-    precio: 4.20,
+    precio: 3,
     imagen: "malanga.png",
     description: "bolsa de 5 lb",
     categoria: "Alimentos/Del Agro"
@@ -455,9 +455,9 @@ const productos = [
   {
     id: 49,
     nombre: "cebolla",
-    precio: 4.20,
+    precio: 3.30,
     imagen: "cebolla.png",
-    description: "bolsa de 20 uds",
+    description: "bolsa de 2.5 lb aproximadamente ",
     categoria: "Alimentos/Del Agro"
   },
   {
