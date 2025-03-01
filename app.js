@@ -91,9 +91,9 @@ const productos = [
   {
     id: 11,
     nombre: "Pechuga de pollo",
-    precio: 5.20,
+    precio: 18,
     imagen: "pechuga.png",
-    description: "x Lb de bistec de pechuga sellada",
+    description: "Paquete de 2 kg",
     categoria: "Alimentos/Cárnicos"
   },
   {
@@ -101,7 +101,7 @@ const productos = [
     nombre: "Jamón Embuchado",
     precio: 4.00,
     imagen: "embuchado.png",
-    description: "Porción sellada según peso requerido por el cliente",
+    description: "Porción sellada según peso requerido por el cliente x Lb",
     categoria: "Alimentos/Cárnicos"
   },
   {
@@ -140,7 +140,7 @@ const productos = [
     id: 101,
     nombre: "Hamburguesas Mixtas",
     precio: 2.3,
-    imagen: "Hamburguesas.png",
+    imagen: "hamburguesas.png",
     description: "Bolsa de 5 Hamburguesas de 90 gr cada una", 
     categoria: "Alimentos/Cárnicos"
   },
