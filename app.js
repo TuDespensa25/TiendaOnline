@@ -78,7 +78,7 @@ const productos = [
     imagen: "ahumado.png",
     description: "porcionado y sellado x lb según pedido",
     categoria: "Alimentos/Cárnicos",
-    descuento: 25,
+    
   },
   /*{
     id: 10,
@@ -622,7 +622,7 @@ const productos = [
     imagen: "chocobiscuit.png",
     description: "18 gr",
     categoria: "Alimentos/Del Confi",
-    descuento: 15,
+    
   },
   {
     id: 70,
