@@ -136,6 +136,14 @@ const productos = [
     description: "Lata de 1 Kg en aceite",
     categoria: "Alimentos/Cárnicos"
   },
+  {
+    id: 16,
+    nombre: "Hamburguesas Mixtas",
+    precio: 13,
+    imagen: "Hamburguesas.png",
+    description: "Bolsa de 5 Hamburguesas de 90 gr cada una", 
+    categoria: "Alimentos/Cárnicos"
+  },
   // Alimentos/Líquidos
   {
     id: 17,
@@ -233,14 +241,14 @@ const productos = [
     description: "Lata 330 ml",
     categoria: "Alimentos/Líquidos"
   },
-  {
+  /*{
     id: 29,
     nombre: "Refresco",
     precio: 1.90,
     imagen: "1.5lt.png",
     description: "Pomo de 1.5 Lt",
     categoria: "Alimentos/Líquidos"
-  },
+  },*/
   {
     id: 30,
     nombre: "Café",
@@ -379,7 +387,7 @@ const productos = [
     categoria: "Alimentos/Otros"
   },
   // Lácteos
-  {
+  /*{
     id: 41,
     nombre: "Queso Gouda",
     precio: 13.5,
@@ -410,7 +418,7 @@ const productos = [
     imagen: "helado.png",
     description: "Caja de 4L",
     categoria: "Alimentos/Lácteos"
-  },
+  },*/
   {
     id: 45,
     nombre: "Leche en Polvo",
@@ -454,10 +462,10 @@ const productos = [
   },
   {
     id: 50,
-    nombre: "Tomate",
-    precio: 7.40,
-    imagen: "tomates.png",
-    description: "bolsa de 5 lb",
+    nombre: "Papas frescas",
+    precio: 8.40,
+    imagen: "papas.png",
+    description: "Bolsa de 5 lb frescas",
     categoria: "Alimentos/Del Agro"
   },
  /*{
@@ -628,7 +636,7 @@ const productos = [
     id: 71,
     nombre: "Best Chocolate",
     precio: 3.20,
-    imagen: "conitos.png",
+    imagen: "conito.png",
     description: "Pomo de conitos 595 gr",
     categoria: "Alimentos/Del Confi"
   },
