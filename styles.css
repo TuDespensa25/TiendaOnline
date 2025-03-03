@@ -814,3 +814,35 @@ footer {
 .close:focus {
   color: #000;
 }
+#productos-recientes h2 {
+  text-align: center; /* Centra el texto */
+  font-size: 2.5em; /* Aumenta el tamaño de la letra (puedes ajustar el valor) */
+  font-weight: bold; /* Hace la letra más gruesa */
+  color: #333; /* Cambia el color del texto (puedes ajustar el color) */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas (opcional) */
+  margin-bottom: 20px; /* Agrega un margen inferior para separarlo de los productos */
+  letter-spacing: 2px; /* Aumenta el espaciado entre letras (opcional) */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Agrega una sombra al texto (opcional) */
+}
+#productos h2 {
+  text-align: center; /* Centra el texto */
+  font-size: 2.5em; /* Aumenta el tamaño de la letra (puedes ajustar el valor) */
+  font-weight: bold; /* Hace la letra más gruesa */
+  color: #333; /* Cambia el color del texto (puedes ajustar el color) */
+  text-transform: uppercase; /* Convierte el texto a mayúsculas (opcional) */
+  margin-bottom: 20px; /* Agrega un margen inferior para separarlo de los productos */
+  letter-spacing: 2px; /* Aumenta el espaciado entre letras (opcional) */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Agrega una sombra al texto (opcional) */
+}
+.productos-recientes-container {
+  display: flex; /* Habilita flexbox para organizar los productos en fila */
+  flex-wrap: nowrap; /* Evita que los productos se envuelvan a la siguiente línea */
+  overflow-x: auto; /* Agrega una barra de desplazamiento horizontal si los productos no caben */
+  -webkit-overflow-scrolling: touch; /* Mejora el desplazamiento en dispositivos móviles (opcional) */
+  padding: 20px; /* Agrega un poco de espacio alrededor de los productos */
+}
+
+#productos-recientes .producto {
+  flex: 0 0 auto; /* Evita que los productos se estiren para llenar el contenedor */
+  margin: 0 10px; /* Agrega un margen horizontal entre los productos */
+}

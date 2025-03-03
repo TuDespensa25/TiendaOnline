@@ -15,21 +15,22 @@ function capturarVendedor() {
 // Lista de productos adaptada y clasificada
 const productos = [
   // Alimentos/Cárnicos
-  {
+  /*{
     id: 1,
     nombre: " Cerdo al corte ",
     precio: 3.80,
     imagen: "pierna.png",
     description: "Pierna de cerdo o paleta según disponibilidad x Lb",
     categoria: "Alimentos/Cárnicos"
-  },
+  },*/
   {
     id: 2,
     nombre: "Caja de Pollo",
     precio: 52,
     imagen: "pollocaja.png",
     description: "caja de 40 lb de muslo y contramuslo 4 paquetes de 10 lb",
-    categoria: "Alimentos/Cárnicos"
+    categoria: "Alimentos/Cárnicos",
+     reciente: 0,
   },
   {
     id: 3,
@@ -42,10 +43,11 @@ const productos = [
   {
     id: 4,
     nombre: "Lomo de cerdo deshuesado",
-    precio: 4.30,
+    precio: 12,
     imagen: "lomo.png",
-    description: "Lomo de cerdo x Lb Importado",
-    categoria: "Alimentos/Cárnicos"
+    description: "Lomo de cerdo Importado sellado en bolsa de 4 lb ",
+    categoria: "Alimentos/Cárnicos",
+
   },
   /*{
     id: 5,
@@ -66,18 +68,19 @@ const productos = [
   {
     id: 8,
     nombre: "Jamon vicky",
-    precio: 3.20,
+    precio: 9.20,
     imagen: "vicky.png",
-    description: "por lb sellado al vacio ",
+    description: "Porción de 3  lb sellado al vacio ",
     categoria: "Alimentos/Cárnicos"
   },
   {
     id: 9,
     nombre: "Lomo ahumado",
-    precio: 5.2,
+    precio: 12,
     imagen: "ahumado.png",
-    description: "porcionado y sellado x lb según pedido",
+    description: "porcionado y sellado en 2 lb ",
     categoria: "Alimentos/Cárnicos",
+    descuento:10
     
   },
   /*{
@@ -99,9 +102,9 @@ const productos = [
   {
     id: 12,
     nombre: "Jamón Embuchado",
-    precio: 4.00,
+    precio: 12.00,
     imagen: "embuchado.png",
-    description: "Porción sellada según peso requerido por el cliente x Lb",
+    description: "Porción sellada de 3 Lb",
     categoria: "Alimentos/Cárnicos"
   },
   {
@@ -240,6 +243,15 @@ const productos = [
     imagen: "refrescolata.png",
     description: "Lata 330 ml",
     categoria: "Alimentos/Líquidos"
+  },
+  {
+    id: 202,
+    nombre: "Refresco Zuko",
+    precio: 3.6,
+    imagen: "zuko.png",
+    description: "Caja de 8 sobres",
+    categoria: "Alimentos/Líquidos",
+    reciente:1,
   },
   /*{
     id: 29,
@@ -386,6 +398,15 @@ const productos = [
     description: "30 uds frescos 100 % orgánicos",
     categoria: "Alimentos/Otros"
   },
+  {
+    id: 201,
+    nombre: "Gelatina ",
+    precio: 1.10,
+    imagen: "gelatina.png",
+    description: "Bolsa de gelatina 75 gr ",
+    categoria: "Alimentos/Otros",
+    reciente:1,
+  },
   // Lácteos
   /*{
     id: 41,
@@ -410,15 +431,16 @@ const productos = [
     imagen: "crema.png",
     description: "Pote de 300 gr",
     categoria: "Alimentos/Lácteos"
-  },
+  },*/
   {
     id: 44,
     nombre: "Helado",
     precio: 12,
     imagen: "helado.png",
     description: "Caja de 4L",
-    categoria: "Alimentos/Lácteos"
-  },*/
+    categoria: "Alimentos/Lácteos",
+    descuento: 10
+  },
   {
     id: 100,
     nombre: "Leche en Polvo",
@@ -435,6 +457,7 @@ const productos = [
     description: "Lata con abre fácil",
     categoria: "Alimentos/Lácteos"
   },
+ 
   // Del Agro
   {
     id: 47,
@@ -759,6 +782,34 @@ function renderizarOfertas() {
   ofertasContainer.appendChild(fragment);
 }
 
+function renderizarProductosRecientes() {
+  const productosRecientesContainer = document.querySelector(
+    "#productos-recientes .productos-recientes-container"
+  );
+  if (!productosRecientesContainer) return;
+
+  const productosRecientes = productos.filter((p) => p.reciente === 1);
+  const fragment = document.createDocumentFragment();
+
+  productosRecientes.forEach((prod) => {
+    const div = document.createElement("div");
+    div.className = "producto";
+    const categoriaSinBarra = prod.categoria.replace(/[^a-zA-Z0-9]/g, "-");
+
+    div.innerHTML = `
+      <div class="img-container">
+        <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+      </div>
+      <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
+      <h3>${prod.nombre}</h3>
+      <p class="precio">USD ${prod.precio.toFixed(2)}</p>
+      <button data-id="${prod.id}" class="btn-agregar">Agregar al carrito</button>
+    `;
+    fragment.appendChild(div);
+  });
+  productosRecientesContainer.innerHTML = "";
+  productosRecientesContainer.appendChild(fragment);
+}
 // Agrega producto al carrito
 function agregarAlCarrito(id) {
   const producto = productos.find(p => p.id === id);
@@ -885,7 +936,7 @@ function validarFormulario() {
   }
 
   // Validación del número de teléfono (WhatsApp)
-  if (!/^\d{8,9}$/.test(telefonoComprador)) {
+  if (!/^\d{8,9,10}$/.test(telefonoComprador)) {
     alert("El número de teléfono no es válido. Debe tener 8 o 9 dígitos.");
     return false;
   }
@@ -954,7 +1005,7 @@ function enviarPedidoPorWhatsapp() {
 
   mensaje += ` Información de Pago:\n`;
   mensaje += `Total a pagar: ${totalTexto}\n`;
-  mensaje += `Por favor realice la transferencia a este contacto +1 (305) 528-1255 Ivan Martinez y envíe el comprobante por este medio.\n\n`;
+  mensaje += `Por favor realice la transferencia a este contacto +1 (305) 528-1255Ivan Martinez y envíe el comprobante por este medio.\n\n`;
   mensaje += ` Productos:\n\n`;
   carrito.forEach(prod => { // Asumo que tienes carrito y tasaCambio
     let productTotal = prod.cantidad * prod.precio;
@@ -1144,3 +1195,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+renderizarOfertas();
+renderizarProductosRecientes(); // Llamar a la función para productos recientes.
