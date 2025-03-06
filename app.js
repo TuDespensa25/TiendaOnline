@@ -937,7 +937,7 @@ function validarFormulario() {
 
   // Validación del número de teléfono (WhatsApp)
   if (!/^\d{8,9,10}$/.test(telefonoComprador)) {
-    alert("El número de teléfono no es válido. Debe tener 8 o 9 dígitos.");
+    alert("El número de teléfono no es válido. Debe tener 8 o 9 o 10 dígitos.");
     return false;
   }
 
