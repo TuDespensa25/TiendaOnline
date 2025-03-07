@@ -31,6 +31,7 @@ const productos = [
     description: "caja de 40 lb de muslo y contramuslo 4 paquetes de 10 lb",
     categoria: "Alimentos/Cárnicos",
      reciente: 0,
+     descuento: 10,
   },
   {
     id: 3,
@@ -433,7 +434,7 @@ const productos = [
     categoria: "Alimentos/Lácteos"
   },*/
   {
-    id: 44,
+    id: 404,
     nombre: "Helado",
     precio: 12,
     imagen: "helado.png",
@@ -760,6 +761,7 @@ function renderizarOfertas() {
   ofertas.forEach(prod => {
     const div = document.createElement("div");
     div.className = "producto";
+    div.dataset.id = prod.id; // Asigna el id del producto
     const descuento = prod.descuento;
     const precioOriginal = prod.precio;
     const precioNuevo = precioOriginal * (1 - descuento / 100);
@@ -794,6 +796,7 @@ function renderizarProductosRecientes() {
   productosRecientes.forEach((prod) => {
     const div = document.createElement("div");
     div.className = "producto";
+    div.dataset.id = prod.id; // Asigna el id del producto
     const categoriaSinBarra = prod.categoria.replace(/[^a-zA-Z0-9]/g, "-");
 
     div.innerHTML = `
@@ -936,7 +939,7 @@ function validarFormulario() {
   }
 
   // Validación del número de teléfono (WhatsApp)
-  if (!/^\d{8,9,10}$/.test(telefonoComprador)) {
+  if (!/^\d{8,10}$/.test(telefonoComprador)) {
     alert("El número de teléfono no es válido. Debe tener 8 o 9 o 10 dígitos.");
     return false;
   }
