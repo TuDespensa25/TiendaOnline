@@ -22,6 +22,11 @@ document.querySelectorAll('.btn-add-to-cart').forEach(button => {
 // Función para inicializar el contador
 function startTimer(id, endTime) {
   const timer = document.getElementById(id);
+  if (!timer) {
+      console.error(`Elemento con ID ${id} no encontrado.`);
+      return;
+  }
+
   const daysSpan = timer.querySelector('.days');
   const hoursSpan = timer.querySelector('.hours');
   const minutesSpan = timer.querySelector('.minutes');
@@ -52,22 +57,24 @@ function startTimer(id, endTime) {
   updateTimer(); // Ejecutar inmediatamente
 }
 
-// Fechas de finalización para cada combo (en milisegundos)
-const now = new Date().getTime(); // Fecha y hora actual
+// Iniciar los relojes cuando el DOM esté cargado
+document.addEventListener('DOMContentLoaded', () => {
+  const now = new Date().getTime(); // Fecha y hora actual
 
-// Combo Verano: 2 días a partir de ahora
-const endTime1 = now + (2 * 24 * 60 * 60 * 1000); // 2 días en milisegundos
+  // Combo Verano: 2 días a partir de ahora
+  const endTime1 = now + (2 * 24 * 60 * 60 * 1000); // 2 días en milisegundos
 
-// Combo Invierno: Fecha fija (por ejemplo, 15 de noviembre de 2023)
-const endTime2 = new Date("2023-11-15T23:59:59").getTime();
+  // Combo Invierno: Fecha futura (por ejemplo, 15 de noviembre de 2024)
+  const endTime2 = new Date("2024-11-15T23:59:59").getTime();
 
-// Combo Primavera: Fecha fija (por ejemplo, 20 de octubre de 2023)
-const endTime3 = new Date("2023-10-20T23:59:59").getTime();
+  // Combo Primavera: Fecha futura (por ejemplo, 20 de octubre de 2024)
+  const endTime3 = new Date("2024-10-20T23:59:59").getTime();
 
-// Iniciar los contadores
-startTimer("timer1", endTime1);
-startTimer("timer2", endTime2);
-startTimer("timer3", endTime3);
+  // Iniciar los contadores
+  startTimer("timer1", endTime1);
+  startTimer("timer2", endTime2);
+  startTimer("timer3", endTime3);
+});
 // Función para agregar un producto al carrito
 function agregarAlCarrito(nombre, precio) {
   // Obtener el carrito actual desde localStorage

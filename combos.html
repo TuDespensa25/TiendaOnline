@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Combos Temporales - Tu Despensa25</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style-combos.css"> <!-- Estilos específicos para combos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="style-combos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -36,62 +36,26 @@
         <h1 class="combos-title">Combos Temporales 🎁</h1>
         <p class="combos-description">Descubre nuestras ofertas especiales por tiempo limitado.</p>
         <div class="productos-recientes-container">
-          <!-- Combo 1 -->
-<div class="producto" data-descripcion="Incluye frutas de temporada, bebidas refrescantes y snacks saludables.">
-    <img src="images/helado.png" alt="Combo Verano" class="combo-image">
-    <div class="combo-content">
-        <h3 class="combo-name">Combo Verano</h3>
-        <p class="combo-price">$25.99</p>
-        <div class="combo-timer">
-            <p>Tiempo restante:</p>
-            <div class="timer" id="timer1">
-                <span class="days">00</span>d :
-                <span class="hours">00</span>h :
-                <span class="minutes">00</span>m :
-                <span class="seconds">00</span>s
+            <!-- Combo 1 -->
+            <div class="producto" data-descripcion="Incluye frutas de temporada, bebidas refrescantes y snacks saludables.">
+                <img src="images/helado.png" alt="Combo Verano" class="combo-image">
+                <div class="combo-content">
+                    <h3 class="combo-name">Combo Verano</h3>
+                    <p class="combo-price">25.99</p>
+                    <div class="combo-timer">
+                        <p>Tiempo restante:</p>
+                        <div class="timer" id="timer1">
+                            <span class="days">00</span>d :
+                            <span class="hours">00</span>h :
+                            <span class="minutes">00</span>m :
+                            <span class="seconds">00</span>s
+                        </div>
+                    </div>
+                    <button class="btn-add-to-cart" data-nombre="Combo Verano" data-precio="25.99">Añadir al carrito</button>
+                </div>
             </div>
+            <!-- Combo 2 y Combo 3 (similar a Combo 1) -->
         </div>
-        <button class="btn-add-to-cart" data-nombre="Combo Verano" data-precio="25.99">Añadir al carrito</button>
-    </div>
-</div>
-
-<!-- Combo 2 -->
-<div class="producto" data-descripcion="Incluye sopas calientes, bebidas calientes y snacks energéticos.">
-    <img src="imagenes/combo-invierno.jpg" alt="Combo Invierno" class="combo-image">
-    <div class="combo-content">
-        <h3 class="combo-name">Combo Invierno</h3>
-        <p class="combo-price">$30.99</p>
-        <div class="combo-timer">
-            <p>Tiempo restante:</p>
-            <div class="timer" id="timer2">
-                <span class="days">00</span>d :
-                <span class="hours">00</span>h :
-                <span class="minutes">00</span>m :
-                <span class="seconds">00</span>s
-            </div>
-        </div>
-        <button class="btn-add-to-cart" data-nombre="Combo Invierno" data-precio="30.99">Añadir al carrito</button>
-    </div>
-</div>
-
-<!-- Combo 3 -->
-<div class="producto" data-descripcion="Incluye ensaladas frescas, bebidas naturales y snacks ligeros.">
-    <img src="imagenes/combo-primavera.jpg" alt="Combo Primavera" class="combo-image">
-    <div class="combo-content">
-        <h3 class="combo-name">Combo Primavera</h3>
-        <p class="combo-price">$20.99</p>
-        <div class="combo-timer">
-            <p>Tiempo restante:</p>
-            <div class="timer" id="timer3">
-                <span class="days">00</span>d :
-                <span class="hours">00</span>h :
-                <span class="minutes">00</span>m :
-                <span class="seconds">00</span>s
-            </div>
-        </div>
-        <button class="btn-add-to-cart" data-nombre="Combo Primavera" data-precio="20.99">Añadir al carrito</button>
-    </div>
-</div>
     </main>
 
     <!-- Footer -->
@@ -110,90 +74,23 @@
         <p>&copy; 2025 @TuDespensa.25</p>
     </footer>
 
-    <!-- Modal para la descripción del producto -->
-    <div id="modal-descripcion" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3 class="modal-nombre"></h3>
-            <p class="modal-descripcion"></p>
-        </div>
-    </div>
-
     <!-- Scripts -->
-    <script>
-        // Selecciona todos los productos
-        const productos = document.querySelectorAll('.producto');
-
-        // Selecciona el modal y sus elementos
-        const modal = document.getElementById('modal-descripcion');
-        const modalNombre = document.querySelector('.modal-nombre');
-        const modalDescripcion = document.querySelector('.modal-descripcion');
-        const closeModal = document.querySelector('.close');
-
-        // Función para abrir el modal
-        function abrirModal(nombre, descripcion) {
-            modalNombre.textContent = nombre;
-            modalDescripcion.textContent = descripcion;
-            modal.style.display = 'block';
-        }
-
-        // Función para cerrar el modal
-        function cerrarModal() {
-            modal.style.display = 'none';
-        }
-
-        // Asigna el evento de clic a cada producto
-        productos.forEach((producto) => {
-            producto.addEventListener('click', (event) => {
-                // Evita que el modal se abra si se hace clic en el botón "Añadir al carrito"
-                if (event.target.classList.contains('btn-add-to-cart')) {
-                    return; // No hagas nada si se hace clic en el botón
-                }
-
-                const nombre = producto.querySelector('h3').textContent;
-                const descripcion = producto.getAttribute('data-descripcion'); // Obtiene la descripción del atributo
-                abrirModal(nombre, descripcion);
-            });
-        });
-
-        // Cierra el modal al hacer clic en la "X"
-        closeModal.addEventListener('click', cerrarModal);
-
-        // Cierra el modal al hacer clic fuera del contenido
-        window.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                cerrarModal();
-            }
-        });
-    </script>
     <script>
         // Función para agregar un producto al carrito
         function agregarAlCarrito(nombre, precio) {
-            // Obtener el carrito actual desde localStorage
             let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-            // Crear un objeto para el producto
             const producto = {
                 nombre: nombre,
-                precio: parseFloat(precio.replace('$', '')), // Convertir a número
-                cantidad: 1, // Cantidad inicial
+                precio: parseFloat(precio),
+                cantidad: 1,
             };
-
-            // Verificar si el producto ya está en el carrito
             const productoExistente = carrito.find((item) => item.nombre === nombre);
-
             if (productoExistente) {
-                // Si ya existe, incrementar la cantidad
                 productoExistente.cantidad += 1;
             } else {
-                // Si no existe, agregarlo al carrito
                 carrito.push(producto);
             }
-
-            // Guardar el carrito actualizado en localStorage
             localStorage.setItem('carrito', JSON.stringify(carrito));
-
-            // Actualizar el contador del carrito
             actualizarContadorCarrito();
         }
 
@@ -203,17 +100,20 @@
             const contador = document.getElementById('contador-carrito');
             if (contador) {
                 contador.textContent = carrito.reduce((total, item) => total + item.cantidad, 0);
-
             }
         }
-        document.querySelectorAll('.btn-agregar').forEach((boton) => {
-  boton.addEventListener('click', (event) => {
-    const id = parseInt(boton.dataset.id, 10); // Obtén el ID del producto
-    agregarAlCarrito(id); // Llama a la función para agregar al carrito
-  });
-});
 
-        
+        // Asignar evento click a los botones de "Añadir al carrito"
+        document.querySelectorAll('.btn-add-to-cart').forEach((boton) => {
+            boton.addEventListener('click', () => {
+                const nombre = boton.getAttribute('data-nombre');
+                const precio = boton.getAttribute('data-precio');
+                agregarAlCarrito(nombre, precio);
+            });
+        });
+
+        // Actualizar el contador del carrito al cargar la página
+        document.addEventListener('DOMContentLoaded', actualizarContadorCarrito);
     </script>
 </body>
 </html>
