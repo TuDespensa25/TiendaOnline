@@ -37,11 +37,11 @@
         <p class="combos-description">Descubre nuestras ofertas especiales por tiempo limitado.</p>
         <div class="productos-recientes-container">
             <!-- Combo 1 -->
-            <div class="producto" data-descripcion="Incluye frutas de temporada, bebidas refrescantes y snacks saludables.">
-                <img src="images/helado.png" alt="Combo Verano" class="combo-image">
+            <div class="producto" data-descripcion="Incluye 12 Jugos de 200 ml, 1 Jugo de 1 L, 10 jabones de baño, 3 Gelatinas. 5 Fideos. 6 Malta Morena, 2 leches Condensada.">
+                <img src="images/combo1.png" alt="Combo Verano" class="combo-image">
                 <div class="combo-content">
-                    <h3 class="combo-name">Combo Verano</h3>
-                    <p class="combo-price">25.99</p>
+                    <h3 class="combo-name">Combo Adulto Mayor</h3>
+                    <p class="combo-price">34.99</p>
                     <div class="combo-timer">
                         <p>Tiempo restante:</p>
                         <div class="timer" id="timer1">
@@ -74,15 +74,24 @@
         <p>&copy; 2025 @TuDespensa.25</p>
     </footer>
 
+    <!-- Modal para la descripción del producto -->
+    <div id="modal-descripcion" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 class="modal-nombre"></h3>
+            <p class="modal-descripcion"></p>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script>
         // Lista de combos (similar a la lista de productos en app.js)
         const combos = [
             {
                 id: 1001,
-                nombre: "Combo Verano",
-                precio: 25.99,
-                imagen: "helado.png",
+                nombre: "Combo del Adulto Mayor",
+                precio: 34.99,
+                imagen: "combo1.png",
                 description: "Incluye frutas de temporada, bebidas refrescantes y snacks saludables.",
                 categoria: "Combos",
                 tiempoLimite: 24 * 60 * 60 * 1000, // 24 horas en milisegundos
@@ -161,6 +170,32 @@
             }, 1000);
         }
 
+        // Función para mostrar la descripción del producto en el modal
+        function mostrarDescripcion(nombre, descripcion) {
+            const modal = document.getElementById("modal-descripcion");
+            const modalNombre = modal.querySelector(".modal-nombre");
+            const modalDescripcion = modal.querySelector(".modal-descripcion");
+
+            modalNombre.textContent = nombre;
+            modalDescripcion.textContent = descripcion;
+            modal.style.display = "block";
+        }
+
+        // Cerrar el modal al hacer clic en la "X"
+        const closeModal = document.querySelector("#modal-descripcion .close");
+        closeModal.addEventListener("click", () => {
+            const modal = document.getElementById("modal-descripcion");
+            modal.style.display = "none";
+        });
+
+        // Cerrar el modal al hacer clic fuera del contenido
+        window.addEventListener("click", (event) => {
+            const modal = document.getElementById("modal-descripcion");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
         // Asignar evento click a los botones de "Añadir al carrito"
         document.addEventListener('DOMContentLoaded', () => {
             const botonesAgregar = document.querySelectorAll('.btn-add-to-cart');
@@ -179,6 +214,21 @@
                 // Asignar evento de clic al botón
                 boton.addEventListener('click', () => {
                     agregarAlCarrito(id);
+                });
+            });
+
+            // Mostrar la descripción del combo al hacer clic en el producto
+            const productos = document.querySelectorAll('.producto');
+            productos.forEach((producto) => {
+                producto.addEventListener('click', (event) => {
+                    // Evitar que el modal se abra si se hace clic en el botón "Añadir al carrito"
+                    if (event.target.classList.contains('btn-add-to-cart')) {
+                        return;
+                    }
+
+                    const nombre = producto.querySelector('.combo-name').textContent;
+                    const descripcion = producto.getAttribute('data-descripcion');
+                    mostrarDescripcion(nombre, descripcion);
                 });
             });
 
