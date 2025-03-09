@@ -286,16 +286,16 @@ const productos = [
     imagen: "vima.svg",
     description: "Tomates frescos de huerta",
     categoria: "Alimentos/Otros"
-  },
+  },*/
   {
     id: 33,
     nombre: "Mayonesa Celorio",
-    precio: 6.50,
-    imagen: "mayonesa.svg",
-    description: "Pomo de 450 gr",
+    precio: 5.10,
+    imagen: "mayonesa.png",
+    description: "Pomo de 500 gr",
     categoria: "Alimentos/Otros"
   },
-  {
+ /* {
     id: 34,
     nombre: "Pasta de Bocadito Aldaketa",
     precio: 5.8,

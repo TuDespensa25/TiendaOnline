@@ -51,7 +51,7 @@
                             <span class="seconds">00</span>s
                         </div>
                     </div>
-                    <button class="btn-add-to-cart" data-nombre="Combo Verano" data-precio="25.99">Añadir al carrito</button>
+                    <button class="btn-add-to-cart" data-id="1001">Añadir al carrito</button>
                 </div>
             </div>
             <!-- Combo 2 y Combo 3 (similar a Combo 1) -->
@@ -76,44 +76,115 @@
 
     <!-- Scripts -->
     <script>
+        // Lista de combos (similar a la lista de productos en app.js)
+        const combos = [
+            {
+                id: 1001,
+                nombre: "Combo Verano",
+                precio: 25.99,
+                imagen: "helado.png",
+                description: "Incluye frutas de temporada, bebidas refrescantes y snacks saludables.",
+                categoria: "Combos",
+                tiempoLimite: 24 * 60 * 60 * 1000, // 24 horas en milisegundos
+            },
+            // Agrega más combos aquí...
+        ];
+
+        // Variables globales y caching de elementos
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        const contadorCarritoElem = document.getElementById("contador-carrito");
+
         // Función para agregar un producto al carrito
-        function agregarAlCarrito(nombre, precio) {
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const producto = {
-                nombre: nombre,
-                precio: parseFloat(precio),
-                cantidad: 1,
-            };
-            const productoExistente = carrito.find((item) => item.nombre === nombre);
-            if (productoExistente) {
-                productoExistente.cantidad += 1;
+        function agregarAlCarrito(id) {
+            const producto = combos.find(p => p.id === id);
+            if (!producto) return;
+            const enCarrito = carrito.find(p => p.id === id);
+            if (enCarrito) {
+                enCarrito.cantidad++;
             } else {
-                carrito.push(producto);
+                carrito.push({ ...producto, cantidad: 1 });
             }
-            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarMensaje(`¡${producto.nombre} agregado al carrito!`);
             actualizarContadorCarrito();
+            guardarCarritoEnLocalStorage();
         }
 
-        // Función para actualizar el contador del carrito
+        // Muestra mensaje emergente
+        function mostrarMensaje(msg) {
+            const mensajeElem = document.createElement("div");
+            mensajeElem.className = "mensaje-carrito";
+            mensajeElem.textContent = msg;
+            document.body.appendChild(mensajeElem);
+            setTimeout(() => mensajeElem.remove(), 2000);
+        }
+
+        // Actualiza el contador del carrito
         function actualizarContadorCarrito() {
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const contador = document.getElementById('contador-carrito');
-            if (contador) {
-                contador.textContent = carrito.reduce((total, item) => total + item.cantidad, 0);
-            }
+            const total = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
+            if (contadorCarritoElem) contadorCarritoElem.textContent = total;
+        }
+
+        // Guarda el carrito en localStorage
+        function guardarCarritoEnLocalStorage() {
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+        }
+
+        // Función para iniciar el contador de tiempo
+        function iniciarContador(tiempoLimite, timerElem, boton) {
+            const fechaLimite = new Date().getTime() + tiempoLimite;
+
+            // Guardar la fecha límite en localStorage
+            localStorage.setItem(`fechaLimite_${boton.dataset.id}`, fechaLimite);
+
+            const intervalo = setInterval(() => {
+                const ahora = new Date().getTime();
+                const tiempoRestante = fechaLimite - ahora;
+
+                if (tiempoRestante <= 0) {
+                    clearInterval(intervalo);
+                    timerElem.innerHTML = "¡Oferta expirada!";
+                    boton.disabled = true;
+                    return;
+                }
+
+                const dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
+
+                timerElem.innerHTML = `
+                    <span class="days">${dias}</span>d :
+                    <span class="hours">${horas}</span>h :
+                    <span class="minutes">${minutos}</span>m :
+                    <span class="seconds">${segundos}</span>s
+                `;
+            }, 1000);
         }
 
         // Asignar evento click a los botones de "Añadir al carrito"
-        document.querySelectorAll('.btn-add-to-cart').forEach((boton) => {
-            boton.addEventListener('click', () => {
-                const nombre = boton.getAttribute('data-nombre');
-                const precio = boton.getAttribute('data-precio');
-                agregarAlCarrito(nombre, precio);
-            });
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const botonesAgregar = document.querySelectorAll('.btn-add-to-cart');
+            botonesAgregar.forEach((boton) => {
+                const id = parseInt(boton.dataset.id, 10);
+                const combo = combos.find(p => p.id === id);
+                const timerElem = boton.closest('.combo-content').querySelector('.timer');
 
-        // Actualizar el contador del carrito al cargar la página
-        document.addEventListener('DOMContentLoaded', actualizarContadorCarrito);
+                // Verificar si ya hay una fecha límite guardada
+                const fechaLimiteGuardada = localStorage.getItem(`fechaLimite_${id}`);
+                const fechaLimite = fechaLimiteGuardada ? parseInt(fechaLimiteGuardada, 10) : new Date().getTime() + combo.tiempoLimite;
+
+                // Iniciar el contador
+                iniciarContador(fechaLimite - new Date().getTime(), timerElem, boton);
+
+                // Asignar evento de clic al botón
+                boton.addEventListener('click', () => {
+                    agregarAlCarrito(id);
+                });
+            });
+
+            // Actualizar el contador del carrito al cargar la página
+            actualizarContadorCarrito();
+        });
     </script>
 </body>
 </html>
