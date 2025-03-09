@@ -318,16 +318,17 @@ section {
   0%, 100% { text-shadow: 0 0 10px rgba(120, 97, 206, 0.7); }
   50% { text-shadow: 0 0 20px rgba(255,215,0,0.9), 0 0 30px rgba(255,215,0,0.5); }
 }
-/* Estilos para las cajas de producto */
-.productos-container,
-.ofertas-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 0 10px;
+/* Estilos para el contenedor de productos */
+.productos-container {
+  display: flex; /* Cambia de grid a flex */
+  flex-wrap: nowrap; /* Evita que los productos se envuelvan a la siguiente línea */
+  overflow-x: auto; /* Permite el desplazamiento horizontal */
+  -webkit-overflow-scrolling: touch; /* Mejora el desplazamiento en dispositivos móviles */
+  gap: 20px; /* Espacio entre productos */
+  padding: 20px; /* Espacio interno */
 }
 
-/* Producto */
+/* Estilos para cada producto */
 .producto {
   background: var(--color-blanco);
   border-radius: 10px;
@@ -338,15 +339,15 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 250px;
-  height: 400px;
-  margin: 0 auto;
-  position: relative;
+  width: 250px; /* Ancho fijo para cada producto */
+  height: 400px; /* Altura fija para cada producto */
+  flex: 0 0 auto; /* Evita que los productos se estiren */
+  margin: 0 10px; /* Espacio entre productos */
 }
 
 .producto:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .producto h3 {
@@ -845,4 +846,141 @@ footer {
 #productos-recientes .producto {
   flex: 0 0 auto; /* Evita que los productos se estiren para llenar el contenedor */
   margin: 0 10px; /* Agrega un margen horizontal entre los productos */
+}
+#testimonios {
+  background-color: #f8f8f8;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.testimonios-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.testimonio {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+}
+
+.testimonio .comentario {
+  font-style: italic;
+  color: #555;
+}
+
+.testimonio h4 {
+  margin-top: 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Estilos para el contenedor de ofertas */
+#ofertas {
+  text-align: center;
+  padding: 40px 0;
+}
+
+/* Contenedor del carrusel de ofertas */
+.ofertas-container {
+  display: flex;
+  flex-wrap: nowrap; /* Evita que los productos se envuelvan a la siguiente línea */
+  overflow-x: auto; /* Permite el desplazamiento horizontal */
+  -webkit-overflow-scrolling: touch; /* Mejora el desplazamiento en dispositivos móviles */
+  gap: 20px; /* Espacio entre productos */
+  padding: 20px; /* Espacio interno */
+}
+
+/* Estilos para el carrusel (contiene los productos) */
+.carrusel {
+  display: flex;
+  gap: 20px; /* Espacio entre productos */
+  transition: transform 0.5s ease-in-out; /* Animación suave al mover el carrusel */
+}
+
+/* Estilos para los productos dentro del carrusel */
+.carrusel .producto {
+  flex: 0 0 auto; /* Evita que los productos se estiren */
+  width: 250px; /* Ancho fijo para cada producto */
+  background: var(--color-blanco);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.carrusel .producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carrusel .producto h3 {
+  font-size: 1.2em;
+  margin: 10px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carrusel .producto p {
+  font-size: 1.1em;
+  color: var(--color-secundario);
+  font-weight: bold;
+}
+
+.carrusel .producto button {
+  background: var(--color-secundario);
+  color: var(--color-blanco);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+.carrusel .producto button:hover {
+  background: #45a049;
+}
+/* Estilos para el modal */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+}
+
+.modal-content {
+  background-color: var(--color-blanco);
+  margin: 10% auto; /* Centra el modal verticalmente */
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--color-texto);
+}
+
+.close:hover {
+  color: var(--color-secundario);
 }
