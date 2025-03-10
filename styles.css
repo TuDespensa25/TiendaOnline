@@ -984,3 +984,21 @@ footer {
 .close:hover {
   color: var(--color-secundario);
 }
+/* Estilos para pantallas grandes (por defecto) */
+.main-nav ul {
+  display: flex; /* Muestra los enlaces en línea */
+  justify-content: flex-start; /* Alinea los enlaces a la izquierda */
+}
+
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) { /* Ajusta el ancho según tus necesidades */
+  .main-nav ul {
+      flex-direction: column; /* Apila los enlaces verticalmente */
+      align-items: center; /* Centra los enlaces horizontalmente */
+  }
+
+  .main-nav li {
+      text-align: center; /* Centra el texto dentro de cada enlace */
+      width: 100%; /* Opcional: para que los enlaces ocupen todo el ancho */
+  }
+}
