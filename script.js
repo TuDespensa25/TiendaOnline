@@ -155,11 +155,12 @@ app.post('/procesar-pedido', (req, res) => {
         res.status(404).send("Código de vendedor no encontrado.");
     }
 });
-// Función para enviar el mensaje a través de Twilio (WhatsApp)
+/// Función para enviar el mensaje a través de Twilio (WhatsApp)
 const Twilio = require('twilio');
-const accountSid = 'tu_account_sid';  // Obtén esto de Twilio
-const authToken = 'tu_auth_token';  // Obtén esto de Twilio
+const accountSid = 'AC58e6bac95ac4806921c850092dbd4817';  // Asegúrate de poner las comillas alrededor del SID
+const authToken = 'e653db12ecf127fac5f6663293af62c6';  // Asegúrate de poner las comillas alrededor del Token
 const client = new Twilio(accountSid, authToken);
+
 
 function enviarWhatsApp(numero, mensaje) {
     client.messages.create({

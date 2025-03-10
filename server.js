@@ -4,9 +4,9 @@ const fs = require('fs');
 const csvParser = require('csv-parser');
 const app = express();
 
-// Configuración de Twilio
-const accountSid = 'tu_account_sid';  // Obtén esto de Twilio
-const authToken = 'tu_auth_token';  // Obtén esto de Twilio
+/// Configuración de Twilio
+const accountSid = 'AC58e6bac95ac4806921c850092dbd4817';  // Asegúrate de poner las comillas alrededor del SID
+const authToken = 'e653db12ecf127fac5f6663293af62c6';  // Asegúrate de poner las comillas alrededor del Token
 const client = new Twilio(accountSid, authToken);
 
 // Middleware para parsear JSON
