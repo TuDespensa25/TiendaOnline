@@ -672,7 +672,7 @@ footer {
   border-radius: 5px;
   z-index: 2;
 }
-.boton-flotante-categorias {
+.boton-flotante-carrito {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -692,7 +692,7 @@ footer {
   border-radius: 50%;
   z-index: 1000;
 }
-.boton-flotante-categorias {
+.boton--categorias {
   position: fixed; /* Posición fija en la pantalla */
   bottom: 20px; /* Margen inferior */
   right: 20px; /* Margen derecho */
@@ -706,7 +706,7 @@ footer {
   transition: opacity 0.3s ease; /* Transición suave de opacidad */
 }
 
-.boton-flotante-categorias:hover {
+.boton-flotante-carrito:hover {
   opacity: 1; /* Opacidad completa al pasar el ratón */
 }
 /* Estilos para el modal */

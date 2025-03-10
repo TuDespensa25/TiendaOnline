@@ -1,13 +1,19 @@
-window.addEventListener('scroll', () => {
-    const productosSection = document.getElementById('productos');
-    const botonFlotante = document.querySelector('.boton-flotante-categorias');
-    if (productosSection.getBoundingClientRect().top <= window.innerHeight &&
-        productosSection.getBoundingClientRect().bottom >= 0) {
-      botonFlotante.style.display = 'block';
-    } else {
-      botonFlotante.style.display = 'none';
-    }
-  });
+document.addEventListener("DOMContentLoaded", function () {
+  const contadorCarrito = document.getElementById('contador-carrito');
+  const contadorCarritoFlotante = document.getElementById('contador-carrito-flotante');
+
+  function actualizarContadorCarrito() {
+      const cantidad = parseInt(contadorCarrito.textContent) || 0;
+      contadorCarritoFlotante.textContent = cantidad;
+  }
+
+  // Llama a la función al cargar la página y cada vez que el contador principal cambie
+  actualizarContadorCarrito();
+
+  // Observa los cambios en el contador principal y actualiza el flotante
+  const observer = new MutationObserver(actualizarContadorCarrito);
+  observer.observe(contadorCarrito, { childList: true, subtree: true });
+});
   // En script.js o app.js
 document.querySelectorAll('.btn-add-to-cart').forEach(button => {
   button.addEventListener('click', () => {
@@ -126,3 +132,4 @@ document.addEventListener('DOMContentLoaded', () => {
   // Actualizar el contador del carrito al cargar la página
   actualizarContadorCarrito();
 });
+

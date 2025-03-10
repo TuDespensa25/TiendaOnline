@@ -293,7 +293,9 @@ const productos = [
     precio: 5.10,
     imagen: "mayonesa.png",
     description: "Pomo de 500 gr",
-    categoria: "Alimentos/Otros"
+    categoria: "Alimentos/Otros",
+    reciente:1,
+
   },
  /* {
     id: 34,
