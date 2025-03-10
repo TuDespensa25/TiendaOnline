@@ -132,4 +132,42 @@ document.addEventListener('DOMContentLoaded', () => {
   // Actualizar el contador del carrito al cargar la página
   actualizarContadorCarrito();
 });
+// Cargar los vendedores desde el archivo CSV
+const vendedores = fs.readFileSync('vendedores.csv', 'utf8')
+    .split('\n')
+    .map(line => {
+        const [codigo, whatsapp] = line.split(',');
+        return { codigo, whatsapp };
+    });
+
+// Ruta para procesar el pedido
+app.post('/procesar-pedido', (req, res) => {
+    const { codigoVendedor, cliente } = req.body;
+
+    const vendedor = vendedores.find(v => v.codigo === codigoVendedor);
+
+    if (vendedor) {
+        // Enviar el mensaje predeterminado al WhatsApp del vendedor
+        const mensaje = `¡Hola! Se ha registrado un posible cliente recomendado: ${cliente}.`;
+        enviarWhatsApp(vendedor.whatsapp, mensaje);
+        res.send("Pedido procesado y mensaje enviado.");
+    } else {
+        res.status(404).send("Código de vendedor no encontrado.");
+    }
+});
+// Función para enviar el mensaje a través de Twilio (WhatsApp)
+const Twilio = require('twilio');
+const accountSid = 'tu_account_sid';  // Obtén esto de Twilio
+const authToken = 'tu_auth_token';  // Obtén esto de Twilio
+const client = new Twilio(accountSid, authToken);
+
+function enviarWhatsApp(numero, mensaje) {
+    client.messages.create({
+        body: mensaje,
+        from: 'whatsapp:+1415XXXXXXX',  // Número de WhatsApp de Twilio
+        to: `whatsapp:${numero}`  // Número de WhatsApp del vendedor
+    })
+    .then(message => console.log("Mensaje enviado:", message.sid))
+    .catch(error => console.error("Error al enviar el mensaje:", error));
+}
 
