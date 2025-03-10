@@ -164,7 +164,7 @@ const client = new Twilio(accountSid, authToken);
 function enviarWhatsApp(numero, mensaje) {
     client.messages.create({
         body: mensaje,
-        from: 'whatsapp:+1415XXXXXXX',  // Número de WhatsApp de Twilio
+        from: 'whatsapp:+5354066204',  // Número de WhatsApp de Twilio
         to: `whatsapp:${numero}`  // Número de WhatsApp del vendedor
     })
     .then(message => console.log("Mensaje enviado:", message.sid))
