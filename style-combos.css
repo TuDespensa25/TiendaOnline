@@ -45,6 +45,15 @@ body {
     height: 50px; /* Ajusta el tamaño del logo */
 }
 
+/* Menú Hamburguesa para Móviles */
+.menu-toggle {
+    display: none; /* Oculta el botón en desktop */
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
 .main-nav ul {
     display: flex;
     list-style: none;
@@ -109,14 +118,13 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Contenedor deslizante */
+/* Contenedor de combos responsivo */
 .productos-recientes-container {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 20px;
+    flex-wrap: wrap; /* Cambia a wrap para móviles */
+    justify-content: center;
     gap: 20px;
+    padding: 20px;
 }
 
 /* Estilos de las tarjetas de combos */
@@ -130,8 +138,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 250px;
-    height: 400px;
+    width: 100%; /* Ocupa todo el ancho en móviles */
+    max-width: 250px; /* Limita el ancho máximo */
+    height: auto; /* Altura automática */
     margin: 0 10px;
     position: relative;
 }
@@ -278,4 +287,50 @@ footer p {
 
 .close:hover {
     color: var(--color-secundario);
+}
+
+/* Media Queries para Móviles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Muestra el botón en móviles */
+    }
+
+    .main-nav ul {
+        display: none; /* Oculta el menú por defecto en móviles */
+        flex-direction: column;
+        align-items: center;
+        background-color: #ffffff;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-nav.active ul {
+        display: flex; /* Muestra el menú cuando está activo */
+    }
+
+    .main-nav li {
+        margin: 0.5rem 0;
+    }
+
+    .combos-container {
+        padding: 1rem;
+    }
+
+    .combos-title {
+        font-size: 2rem;
+    }
+
+    .combos-description {
+        font-size: 1rem;
+    }
+
+    .producto {
+        width: 100%;
+        max-width: none;
+        margin: 10px 0;
+    }
 }
