@@ -1010,7 +1010,7 @@ function enviarPedidoPorWhatsapp() {
 
   mensaje += ` Información de Pago:\n`;
   mensaje += `Total a pagar: ${totalTexto}\n`;
-  mensaje += `Por favor realice la transferencia a este contacto +1 (305) 528-1255Ivan Martinez y envíe el comprobante por este medio.\n\n`;
+  mensaje += `Por favor en minutos recibirá la cuenta a transferir realice la transferencia  y envíe el comprobante por este medio.\n\n`;
   mensaje += ` Productos:\n\n`;
   carrito.forEach(prod => { // Asumo que tienes carrito y tasaCambio
     let productTotal = prod.cantidad * prod.precio;
@@ -1019,7 +1019,7 @@ function enviarPedidoPorWhatsapp() {
     }
     mensaje += `• ${prod.cantidad}x ${prod.nombre} - ${productTotal.toFixed(2)} ${moneda}\n`;
   });
-  mensaje += `\n Total a Pagar: ${totalTexto} de 24 a 48 horas pedido completado`;
+  mensaje += `\n Total a Pagar: ${totalTexto} de 24 a 48 horas pedido completado, Siempre trataremos q sea en el día`;
 
   try {
     const mensajeCodificado = encodeURIComponent(mensaje);

@@ -52,6 +52,7 @@ body {
     border: none;
     font-size: 24px;
     cursor: pointer;
+    color: var(--color-texto);
 }
 
 .main-nav ul {
@@ -332,5 +333,19 @@ footer p {
         width: 100%;
         max-width: none;
         margin: 10px 0;
+    }
+
+    /* Ajustes para el footer en móviles */
+    .redes-sociales {
+        flex-direction: column; /* Apila los íconos verticalmente */
+        gap: 0.5rem;
+    }
+
+    .btn-compartir {
+        font-size: 1em; /* Reduce el tamaño de los íconos */
+    }
+
+    footer p {
+        font-size: 0.8rem; /* Reduce el tamaño del texto */
     }
 }
