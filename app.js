@@ -74,7 +74,7 @@ const productos = [
     description: "Porción de 3  lb sellado al vacio ",
     categoria: "Alimentos/Cárnicos"
   },
-  {
+  /*{
     id: 9,
     nombre: "Lomo ahumado",
     precio: 12,
@@ -84,7 +84,7 @@ const productos = [
     descuento:10
     
   },
-  /*{
+  {
     id: 10,
     nombre: "Lomo Ahumado",
     precio: 8,
@@ -140,14 +140,14 @@ const productos = [
     description: "Lata de 1 Kg en aceite",
     categoria: "Alimentos/Cárnicos"
   },
-  {
+  /*{
     id: 101,
     nombre: "Hamburguesas Mixtas",
     precio: 2.3,
     imagen: "hamburguesas.png",
     description: "Bolsa de 5 Hamburguesas de 90 gr cada una", 
     categoria: "Alimentos/Cárnicos"
-  },
+  },*/
   // Alimentos/Líquidos
   {
     id: 17,
