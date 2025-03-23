@@ -39,7 +39,8 @@ const productos = [
     precio: 13,
     imagen: "pollopqte.png",
     description: "paquete de 10 lb de muslo y contra muslo",
-    categoria: "Alimentos/Cárnicos"
+    categoria: "Alimentos/Cárnicos",
+    descuento: 8,
   },
   {
     id: 4,
@@ -122,7 +123,8 @@ const productos = [
     precio: 1.90,
     imagen: "perritos.png",
     description: "paquete de 12 unidades",
-    categoria: "Alimentos/Cárnicos"
+    categoria: "Alimentos/Cárnicos",
+    descuento: 7,
   },
   /*{
     id: 15,
@@ -311,7 +313,8 @@ const productos = [
     precio: 1.55,
     imagen: "spaguetis.png",
     description: "Bolsa de 500 gr",
-    categoria: "Alimentos/Otros"
+    categoria: "Alimentos/Otros",
+    descuento: 10,
   },
   {
     id: 36,
@@ -319,7 +322,8 @@ const productos = [
     precio: 1.55,
     imagen: "codito.png",
     description: "Bolsa de 500 gr",
-    categoria: "Alimentos/Otros"
+    categoria: "Alimentos/Otros",
+    descuento: 10,
   },
   {
     id: 37,
@@ -351,7 +355,8 @@ const productos = [
     precio: 8,
     imagen: "colorados5lb.png",
     description: "bolsa de 5 Lb",
-    categoria: "Alimentos/Otros"
+    categoria: "Alimentos/Otros",
+    descuento: 10,
   },
   {
     id: 41,
@@ -375,7 +380,8 @@ const productos = [
     precio: 1.80,
     imagen: "fideos.png",
     description: "bolsa de 500 gr",
-    categoria: "Alimentos/Otros"
+    categoria: "Alimentos/Otros",
+    descuento: 10,
   },
  /*{
     id: 38,
@@ -492,7 +498,8 @@ const productos = [
     precio: 8.40,
     imagen: "papas.png",
     description: "Bolsa de 5 lb frescas",
-    categoria: "Alimentos/Del Agro"
+    categoria: "Alimentos/Del Agro",
+    descuento: 20,
   },
  /*{
     id: 51,
@@ -541,7 +548,8 @@ const productos = [
     precio: 1.2,
     imagen: "jabon.png",
     description: "por unidades",
-    categoria: "Del Hogar"
+    categoria: "Del Hogar",
+    descuento: 20,
   },
   {
     id: 57,
