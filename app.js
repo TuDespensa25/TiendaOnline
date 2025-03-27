@@ -499,7 +499,7 @@ const productos = [
     imagen: "papas.png",
     description: "Bolsa de 5 lb frescas",
     categoria: "Alimentos/Del Agro",
-    descuento: 20,
+    descuento: 40,
   },
  /*{
     id: 51,
