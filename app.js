@@ -15,14 +15,14 @@ function capturarVendedor() {
 // Lista de productos adaptada y clasificada
 const productos = [
   // Alimentos/Cárnicos
-  /*{
+  {
     id: 1,
-    nombre: " Cerdo al corte ",
-    precio: 3.80,
-    imagen: "pierna.png",
-    description: "Pierna de cerdo o paleta según disponibilidad x Lb",
-    categoria: "Alimentos/Cárnicos"
-  },*/
+    nombre: " Compra Arroz LLeva Regalo gratis  ",
+    precio: 22,
+    imagen: "arrozjabon.png",
+    description: "10 Kg de Arroz (22 Lb) + 2 jabones de 100 gr",
+    categoria: "Alimentos/Otros"
+  },
   {
     id: 2,
     nombre: "Caja de Pollo",
@@ -394,7 +394,7 @@ const productos = [
   {
     id: 44,
     nombre: "Aceite de girasol",
-    precio: 3.2,
+    precio: 3.4,
     imagen: "aceite.png",
     description: "Botella de 1l",
     categoria: "Alimentos/Otros"
