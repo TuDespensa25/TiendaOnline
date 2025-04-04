@@ -3,6 +3,131 @@
 // Tasa de cambio: 1 USD equivale a 340.0 CUP (ajusta según necesites)
 const tasaCambio = 340.0;
 
+// Ubicaciones disponibles
+const ubicaciones = {
+  provincias: {
+    "Artemisa": {
+      id: 1,
+      municipios: {
+        "Bahía Honda": 1,
+        "San Cristóbal": 2,
+        "Candelaria": 3,
+        "Artemisa": 4,
+        "Alquízar": 5,
+        "Güira de Melena": 6,
+        "San Antonio de los Baños": 7,
+        "Bauta": 8,
+        "Caimito": 9,
+        "Guanajay": 10,
+        "Mariel": 11,
+      }
+    },
+    "Pinar Del Río": {
+      id: 2,
+      municipios: {
+        "Los Palacios": 12,
+        "Consolación": 13,
+      }
+    },
+  },
+  provinciaSeleccionada: null,
+  municipioSeleccionado: null
+};
+
+// Función para mostrar el modal de selección de provincia
+function mostrarModalProvincias() {
+  const modal = document.createElement('div');
+  modal.id = 'modal-provincias';
+  modal.className = 'modal';
+  modal.style.display = 'block';
+  
+  let options = '<option value="">Seleccione una provincia</option>';
+  for (const provincia in ubicaciones.provincias) {
+    options += `<option value="${provincia}">${provincia}</option>`;
+  }
+  
+  modal.innerHTML = `
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Seleccione su provincia</h3>
+      <select id="select-provincia" class="form-select">
+        ${options}
+      </select>
+      <button id="confirmar-provincia" class="btn-confirmar">Confirmar</button>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  
+  // Eventos para el modal de provincias
+  document.getElementById('select-provincia').addEventListener('change', (e) => {
+    ubicaciones.provinciaSeleccionada = e.target.value;
+  });
+  
+  document.getElementById('confirmar-provincia').addEventListener('click', () => {
+    if (ubicaciones.provinciaSeleccionada) {
+      modal.style.display = 'none';
+      mostrarModalMunicipios();
+    } else {
+      alert('Por favor seleccione una provincia');
+    }
+  });
+  
+  modal.querySelector('.close').addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+}
+
+// Función para mostrar el modal de selección de municipio
+function mostrarModalMunicipios() {
+  const modal = document.createElement('div');
+  modal.id = 'modal-municipios';
+  modal.className = 'modal';
+  modal.style.display = 'block';
+  
+  const provincia = ubicaciones.provinciaSeleccionada;
+  let options = '<option value="">Seleccione un municipio</option>';
+  
+  for (const municipio in ubicaciones.provincias[provincia].municipios) {
+    const idMunicipio = ubicaciones.provincias[provincia].municipios[municipio];
+    options += `<option value="${idMunicipio}">${municipio}</option>`;
+  }
+  
+  modal.innerHTML = `
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Seleccione su municipio en ${provincia}</h3>
+      <select id="select-municipio" class="form-select">
+        ${options}
+      </select>
+      <button id="confirmar-municipio" class="btn-confirmar">Confirmar</button>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+  
+  // Eventos para el modal de municipios
+  document.getElementById('select-municipio').addEventListener('change', (e) => {
+    ubicaciones.municipioSeleccionado = parseInt(e.target.value);
+  });
+  
+  document.getElementById('confirmar-municipio').addEventListener('click', () => {
+    if (ubicaciones.municipioSeleccionado) {
+      modal.style.display = 'none';
+      localStorage.setItem('municipioSeleccionado', ubicaciones.municipioSeleccionado);
+      renderizarProductos();
+      renderizarOfertas();
+      renderizarProductosRecientes();
+    } else {
+      alert('Por favor seleccione un municipio');
+    }
+  });
+  
+  modal.querySelector('.close').addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+}
+
 // Función para capturar el parámetro 'ref' (vendedor) de la URL y almacenarlo
 function capturarVendedor() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -12,17 +137,18 @@ function capturarVendedor() {
   }
 }
 
-// Lista de productos adaptada y clasificada
+// Lista de productos (solo un ejemplo, añade el resto de tus productos siguiendo este formato)
 const productos = [
-  // Alimentos/Cárnicos
-  {
+  // Ejemplo de producto con atributo municipios
+  
+  /*{
     id: 1,
-    nombre: " Compra Arroz LLeva Regalo gratis  ",
-    precio: 22,
-    imagen: "arrozjabon.png",
-    description: "10 Kg de Arroz (22 Lb) + 2 jabones de 100 gr",
-    categoria: "Alimentos/Otros"
-  },
+    nombre: " Cerdo al corte ",
+    precio: 3.80,
+    imagen: "pierna.png",
+    description: "Pierna de cerdo o paleta según disponibilidad x Lb",
+    categoria: "Alimentos/Cárnicos"
+  },*/
   {
     id: 2,
     nombre: "Caja de Pollo",
@@ -32,6 +158,7 @@ const productos = [
     categoria: "Alimentos/Cárnicos",
      reciente: 0,
      descuento: 10,
+     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 3,
@@ -40,7 +167,7 @@ const productos = [
     imagen: "pollopqte.png",
     description: "paquete de 10 lb de muslo y contra muslo",
     categoria: "Alimentos/Cárnicos",
-    descuento: 8,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 4,
@@ -49,6 +176,7 @@ const productos = [
     imagen: "lomo.png",
     description: "Lomo de cerdo Importado sellado en bolsa de 4 lb ",
     categoria: "Alimentos/Cárnicos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
   },
   /*{
@@ -73,19 +201,21 @@ const productos = [
     precio: 9.20,
     imagen: "vicky.png",
     description: "Porción de 3  lb sellado al vacio ",
-    categoria: "Alimentos/Cárnicos"
+    categoria: "Alimentos/Cárnicos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
-  /*{
+ /* {
     id: 9,
     nombre: "Lomo ahumado",
     precio: 12,
     imagen: "ahumado.png",
     description: "porcionado y sellado en 2 lb ",
     categoria: "Alimentos/Cárnicos",
-    descuento:10
+    descuento:10,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
     
   },
-  {
+  /*{
     id: 10,
     nombre: "Lomo Ahumado",
     precio: 8,
@@ -99,7 +229,8 @@ const productos = [
     precio: 18,
     imagen: "pechuga.png",
     description: "Paquete de 2 kg",
-    categoria: "Alimentos/Cárnicos"
+    categoria: "Alimentos/Cárnicos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 12,
@@ -107,7 +238,8 @@ const productos = [
     precio: 12.00,
     imagen: "embuchado.png",
     description: "Porción sellada de 3 Lb",
-    categoria: "Alimentos/Cárnicos"
+    categoria: "Alimentos/Cárnicos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 13,
@@ -115,7 +247,8 @@ const productos = [
     precio: 2.40,
     imagen: "picadillo.png",
     description: "unidad de 400 gr",
-    categoria: "Alimentos/Cárnicos"
+    categoria: "Alimentos/Cárnicos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 14,
@@ -124,7 +257,7 @@ const productos = [
     imagen: "perritos.png",
     description: "paquete de 12 unidades",
     categoria: "Alimentos/Cárnicos",
-    descuento: 7,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   /*{
     id: 15,
@@ -140,16 +273,18 @@ const productos = [
     precio: 13,
     imagen: "atun.png",
     description: "Lata de 1 Kg en aceite",
-    categoria: "Alimentos/Cárnicos"
+    categoria: "Alimentos/Cárnicos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
-  /*{
+  {
     id: 101,
     nombre: "Hamburguesas Mixtas",
     precio: 2.3,
     imagen: "hamburguesas.png",
     description: "Bolsa de 5 Hamburguesas de 90 gr cada una", 
-    categoria: "Alimentos/Cárnicos"
-  },*/
+    categoria: "Alimentos/Cárnicos",
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
   // Alimentos/Líquidos
   {
     id: 17,
@@ -157,7 +292,8 @@ const productos = [
     precio: 22,
     imagen: "cristal.png",
     description: "Caja de 24 uds",
-    categoria: "Alimentos/Líquidos"
+    categoria: "Alimentos/Líquidos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 18,
@@ -165,7 +301,8 @@ const productos = [
     precio: 22,
     imagen: "bucanero.png",
     description: "Caja de 24 uds",
-    categoria: "Alimentos/Líquidos"
+    categoria: "Alimentos/Líquidos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 19,
@@ -173,7 +310,8 @@ const productos = [
     precio: 20,
     imagen: "timber.png",
     description: "Caja de 24 uds",
-    categoria: "Alimentos/Líquidos"
+    categoria: "Alimentos/Líquidos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 20,
@@ -181,7 +319,8 @@ const productos = [
     precio: 5,
     imagen: "acantus.png",
     description: "Botella de vino rosado, tinto o Blanco",
-    categoria: "Alimentos/Líquidos"
+    categoria: "Alimentos/Líquidos",
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, ]
   },
   {
     id: 21,
@@ -189,7 +328,8 @@ const productos = [
     precio: 10,
     imagen: "espumoso.png",
     description: "botella de vino espumoso Varons d Valls 750 ml",
-    categoria: "Alimentos/Líquidos"
+    categoria: "Alimentos/Líquidos",
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
   },
   {
     id: 22,
@@ -197,23 +337,26 @@ const productos = [
     precio: 7.70,
     imagen: "3años.png",
     description: "Añejo 3 años 750 ml",
-    categoria: "Alimentos/Líquidos"
+    categoria: "Alimentos/Líquidos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
-  /*{
+  {
     id: 23,
     nombre: "Malta Guajira",
     precio: 6.50,
     imagen: "guajira.svg",
     description: "Blister de 6 uds de 500 ml",
-    categoria: "Alimentos/Líquidos"
-  },*/
+    categoria: "Alimentos/Líquidos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },
   {
     id: 24,
     nombre: "Jugo",
     precio: 14.40,
     imagen: "200ml.png",
     description: "Caja de 24 uds de 200 ml",
-    categoria: "Alimentos/Líquidos"
+    categoria: "Alimentos/Líquidos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 25,
@@ -221,7 +364,8 @@ const productos = [
     precio: 1.60,
     imagen: "naranja.png",
     description: "Jugo La estancia Sabor Naranja 1 L",
-    categoria: "Alimentos/Líquidos"
+    categoria: "Alimentos/Líquidos",
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
   },
   {
     id: 26,
@@ -229,7 +373,8 @@ const productos = [
     precio: 6.50,
     imagen: "multifrutas.png",
     description: "Blister de 6 uds 330 ml Multifrutas de lata",
-    categoria: "Alimentos/Líquidos"
+    categoria: "Alimentos/Líquidos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 27,
@@ -237,7 +382,8 @@ const productos = [
     precio: 18,
     imagen: "morena.png",
     description: "Caja de 24 uds",
-    categoria: "Alimentos/Líquidos"
+    categoria: "Alimentos/Líquidos",
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11]
   },
   {
     id: 28,
@@ -245,7 +391,8 @@ const productos = [
     precio: 0.75,
     imagen: "refrescolata.png",
     description: "Lata 330 ml",
-    categoria: "Alimentos/Líquidos"
+    categoria: "Alimentos/Líquidos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 202,
@@ -255,22 +402,25 @@ const productos = [
     description: "Caja de 8 sobres",
     categoria: "Alimentos/Líquidos",
     reciente:1,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
-  /*{
+  {
     id: 29,
     nombre: "Refresco",
     precio: 1.90,
     imagen: "1.5lt.png",
-    description: "Pomo de 1.5 Lt",
-    categoria: "Alimentos/Líquidos"
-  },*/
+    description: "Pomo de 2 Lt",
+    categoria: "Alimentos/Líquidos",
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11],
+  },
   {
     id: 30,
     nombre: "Café",
     precio: 5.5,
     imagen: "aroma.png",
     description: "Paquete de 250 gr",
-    categoria: "Alimentos/Líquidos"
+    categoria: "Alimentos/Líquidos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   // Alimentos/Otros
   {
@@ -279,7 +429,8 @@ const productos = [
     precio: 3.50,
     imagen: "800gr.png",
     description: "Pasta doble concentrado 800 gr",
-    categoria: "Alimentos/Otros"
+    categoria: "Alimentos/Otros",
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
   },
   /*{
     id: 32,
@@ -292,14 +443,14 @@ const productos = [
   {
     id: 33,
     nombre: "Mayonesa Celorio",
-    precio: 5.10,
+    precio: 6.50,
     imagen: "mayonesa.png",
-    description: "Pomo de 500 gr",
+    description: "Pomo de 450 gr",
     categoria: "Alimentos/Otros",
     reciente:1,
-
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
   },
- /* {
+  /*{
     id: 34,
     nombre: "Pasta de Bocadito Aldaketa",
     precio: 5.8,
@@ -314,7 +465,7 @@ const productos = [
     imagen: "spaguetis.png",
     description: "Bolsa de 500 gr",
     categoria: "Alimentos/Otros",
-    descuento: 10,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 36,
@@ -323,7 +474,7 @@ const productos = [
     imagen: "codito.png",
     description: "Bolsa de 500 gr",
     categoria: "Alimentos/Otros",
-    descuento: 10,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 37,
@@ -331,7 +482,8 @@ const productos = [
     precio: 2,
     imagen: "azucar1kg.png",
     description: "bolsa de 1 kg",
-    categoria: "Alimentos/Otros"
+    categoria: "Alimentos/Otros",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 38,
@@ -339,7 +491,8 @@ const productos = [
     precio: 8,
     imagen: "frijol5lb.png",
     description: "bolsa de 5 Lb",
-    categoria: "Alimentos/Otros"
+    categoria: "Alimentos/Otros",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 39,
@@ -347,7 +500,8 @@ const productos = [
     precio: 3.2,
     imagen: "frijol1kg.png",
     description: "bolsa de 1 kg",
-    categoria: "Alimentos/Otros"
+    categoria: "Alimentos/Otros",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 40,
@@ -356,7 +510,7 @@ const productos = [
     imagen: "colorados5lb.png",
     description: "bolsa de 5 Lb",
     categoria: "Alimentos/Otros",
-    descuento: 10,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 41,
@@ -364,7 +518,8 @@ const productos = [
     precio: 0.5,
     imagen: "sal.png",
     description: "bolsa de 1 Lb",
-    categoria: "Alimentos/Otros"
+    categoria: "Alimentos/Otros",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 42,
@@ -372,7 +527,8 @@ const productos = [
     precio: 2.2,
     imagen: "arroz1kg.png",
     description: "bolsa de 1 kg",
-    categoria: "Alimentos/Otros"
+    categoria: "Alimentos/Otros",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 43,
@@ -381,7 +537,7 @@ const productos = [
     imagen: "fideos.png",
     description: "bolsa de 500 gr",
     categoria: "Alimentos/Otros",
-    descuento: 10,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
  /*{
     id: 38,
@@ -390,22 +546,24 @@ const productos = [
     imagen: "sopa.png",
     description: "Sabor pollo sobre 75 gr",
     categoria: "Alimentos/Otros"
-  },*/
+  },
   {
     id: 44,
     nombre: "Aceite de girasol",
-    precio: 3.4,
+    precio: 3.2,
     imagen: "aceite.png",
     description: "Botella de 1l",
-    categoria: "Alimentos/Otros"
-  },
+    categoria: "Alimentos/Otros",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },*/
   {
     id: 45,
     nombre: "Cartón de huevos",
     precio: 8.80,
     imagen: "huevo.png",
     description: "30 uds frescos 100 % orgánicos",
-    categoria: "Alimentos/Otros"
+    categoria: "Alimentos/Otros",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 201,
@@ -415,6 +573,7 @@ const productos = [
     description: "Bolsa de gelatina 75 gr ",
     categoria: "Alimentos/Otros",
     reciente:1,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   // Lácteos
   /*{
@@ -424,7 +583,7 @@ const productos = [
     imagen: "queso.png",
     description: "Porción de 1 kg sellado",
     categoria: "Alimentos/Lácteos"
-  },
+  },*/
   {
     id: 42,
     nombre: "Yogurt Probiótico",
@@ -433,7 +592,7 @@ const productos = [
     description: "Cubeta de 4L",
     categoria: "Alimentos/Lácteos"
   },
-  {
+ /* {
     id: 43,
     nombre: "Queso Crema",
     precio: 4.20,
@@ -448,7 +607,8 @@ const productos = [
     imagen: "helado.png",
     description: "Caja de 4L",
     categoria: "Alimentos/Lácteos",
-    descuento: 10
+    descuento: 10,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 100,
@@ -456,7 +616,8 @@ const productos = [
     precio: 10,
     imagen: "lechepolvo.png",
     description: "Bolsa de 1 kg",
-    categoria: "Alimentos/Lácteos"
+    categoria: "Alimentos/Lácteos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 46,
@@ -464,7 +625,8 @@ const productos = [
     precio: 1.90,
     imagen: "condensada.png",
     description: "Lata con abre fácil",
-    categoria: "Alimentos/Lácteos"
+    categoria: "Alimentos/Lácteos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
  
   // Del Agro
@@ -474,7 +636,8 @@ const productos = [
     precio: 4.7,
     imagen: "ajo.png",
     description: "Bolsa de 10 cabezas",
-    categoria: "Alimentos/Del Agro"
+    categoria: "Alimentos/Del Agro",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 48,
@@ -482,7 +645,8 @@ const productos = [
     precio: 3,
     imagen: "malanga.png",
     description: "bolsa de 5 lb",
-    categoria: "Alimentos/Del Agro"
+    categoria: "Alimentos/Del Agro",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 49,
@@ -490,7 +654,8 @@ const productos = [
     precio: 3.30,
     imagen: "cebolla.png",
     description: "bolsa de 2.5 lb aproximadamente ",
-    categoria: "Alimentos/Del Agro"
+    categoria: "Alimentos/Del Agro",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 50,
@@ -499,7 +664,8 @@ const productos = [
     imagen: "papas.png",
     description: "Bolsa de 5 lb frescas",
     categoria: "Alimentos/Del Agro",
-    descuento: 40,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    descuento: 40, 
   },
  /*{
     id: 51,
@@ -524,7 +690,8 @@ const productos = [
     precio: 2.4,
     imagen: "frazada.png",
     description: "2 unidad",
-    categoria: "Del Hogar"
+    categoria: "Del Hogar",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 54,
@@ -532,7 +699,8 @@ const productos = [
     precio: 5.2,
     imagen: "4en1.png",
     description: "Pomo de 1 L",
-    categoria: "Del Hogar"
+    categoria: "Del Hogar",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 55,
@@ -540,7 +708,8 @@ const productos = [
     precio: 2.4,
     imagen: "detergente.png",
     description: "bolsa de 500 gr",
-    categoria: "Del Hogar"
+    categoria: "Del Hogar",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 56,
@@ -549,7 +718,8 @@ const productos = [
     imagen: "jabon.png",
     description: "por unidades",
     categoria: "Del Hogar",
-    descuento: 20,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    descuento : 30, 
   },
   {
     id: 57,
@@ -557,7 +727,8 @@ const productos = [
     precio: 2.2,
     imagen: "papel.png",
     description: "bolsa con 4 unidad sellada",
-    categoria: "Del Hogar"
+    categoria: "Del Hogar",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 58,
@@ -565,7 +736,8 @@ const productos = [
     precio: 3.5,
     imagen: "perlas.png",
     description: "frasco de 200 gr",
-    categoria: "Del Hogar"
+    categoria: "Del Hogar",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 59,
@@ -573,7 +745,8 @@ const productos = [
     precio: 6,
     imagen: "suavizante.png",
     description: "Pomo de 1 lt",
-    categoria: "Del Hogar"
+    categoria: "Del Hogar",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 60,
@@ -581,7 +754,8 @@ const productos = [
     precio: 3.8,
     imagen: "toallas.png",
     description: "Paquete de 120 udst",
-    categoria: "Del Hogar"
+    categoria: "Del Hogar",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 61,
@@ -589,7 +763,8 @@ const productos = [
     precio: 2.40,
     imagen: "pastillas.png",
     description: "4 uds",
-    categoria: "Del Hogar"
+    categoria: "Del Hogar",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   // De Electrodomésticos
   {
@@ -598,7 +773,8 @@ const productos = [
     precio: 60,
     imagen: "ventilador.png",
     description: "Ventilador tipo ciclón Milexus",
-    categoria: "De Electrodomésticos"
+    categoria: "De Electrodomésticos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 63,
@@ -606,7 +782,8 @@ const productos = [
     precio: 380,
     imagen: "split.png",
     description: "Milexus 1200 btu",
-    categoria: "De Electrodomésticos"
+    categoria: "De Electrodomésticos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 64,
@@ -614,7 +791,8 @@ const productos = [
     precio: 350,
     imagen: "nevera.png",
     description: "Milexus 5pies",
-    categoria: "De Electrodomésticos"
+    categoria: "De Electrodomésticos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 65,
@@ -622,23 +800,26 @@ const productos = [
     precio: 260,
     imagen: "32.png",
     description: "Tv inteligente 32 pulgadas",
-    categoria: "De Electrodomésticos"
+    categoria: "De Electrodomésticos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
-  {
+  /*{
     id: 66,
     nombre: "Tv de 55",
     precio: 450,
     imagen: "55.png",
     description: "Tv inteligente Milexus 55 pulgadas",
-    categoria: "De Electrodomésticos"
-  },
+    categoria: "De Electrodomésticos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },*/
   {
     id: 67,
     nombre: "Batidora Milexus",
     precio: 45,
     imagen: "batidora.png",
     description: "Batidora 2 en 1 (+ moledor de sazones)",
-    categoria: "De Electrodomésticos"
+    categoria: "De Electrodomésticos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
     id: 68,
@@ -646,7 +827,8 @@ const productos = [
     precio: 45,
     imagen: "cafetera.png",
     description: "Cafetera Electrica de 6 tazas",
-    categoria: "De Electrodomésticos"
+    categoria: "De Electrodomésticos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   // Del Confi
   {
@@ -656,6 +838,7 @@ const productos = [
     imagen: "chocobiscuit.png",
     description: "18 gr",
     categoria: "Alimentos/Del Confi",
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,]
     
   },
   {
@@ -664,7 +847,8 @@ const productos = [
     precio: 3.20,
     imagen: "bolitas.png",
     description: "bolsa de 500 gr",
-    categoria: "Alimentos/Del Confi"
+    categoria: "Alimentos/Del Confi",
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,]
   },
   {
     id: 71,
@@ -672,7 +856,8 @@ const productos = [
     precio: 3.20,
     imagen: "conito.png",
     description: "Pomo de conitos 595 gr",
-    categoria: "Alimentos/Del Confi"
+    categoria: "Alimentos/Del Confi",
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11]
   },
   {
     id: 72,
@@ -680,7 +865,8 @@ const productos = [
     precio: 3.20,
     imagen: "kidi.png",
     description: "Paquete de 12 uds",
-    categoria: "Alimentos/Del Confi"
+    categoria: "Alimentos/Del Confi",
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
   },
   {
     id: 73,
@@ -688,9 +874,11 @@ const productos = [
     precio: 3.20,
     imagen: "soda.png",
     description: "Paquete de 8 uds",
-    categoria: "Alimentos/Del Confi"
+    categoria: "Alimentos/Del Confi",
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11]
   },
 ];
+ 
 
 // Variables globales y caching de elementos
 let carrito = [];
@@ -706,14 +894,24 @@ function calcularTotalUSD() {
  * RENDERIZAR PRODUCTOS
  * - Muestra el nombre, la categoría y la imagen.
  * - Si tiene descuento, se muestra el precio original TACHADO y el precio nuevo.
+ * - Filtra por municipio seleccionado
  */
 function renderizarProductos(categoria = "todas") {
   if (!productosContainer) return;
+  
+  const municipioSeleccionado = localStorage.getItem('municipioSeleccionado');
   const fragment = document.createDocumentFragment();
-  const filtrados = categoria === "todas"
-    ? productos
+  
+  let filtrados = categoria === "todas" 
+    ? productos 
     : productos.filter(p => p.categoria === categoria);
-
+  
+  // Filtrar por municipio si hay uno seleccionado
+  if (municipioSeleccionado) {
+    filtrados = filtrados.filter(p => 
+      p.municipios && p.municipios.includes(parseInt(municipioSeleccionado)))
+  }
+  
   filtrados.forEach(prod => {
     const div = document.createElement("div");
     div.className = "producto";
@@ -761,17 +959,26 @@ function renderizarProductos(categoria = "todas") {
   productosContainer.appendChild(fragment);
 }
 
-// Renderiza la sección de ofertas
+// Renderiza la sección de ofertas con filtro por municipio
 function renderizarOfertas() {
   const ofertasContainer = document.querySelector(".ofertas-container");
   if (!ofertasContainer) return;
-  const ofertas = productos.filter(p => p.descuento && p.descuento > 0);
+  
+  const municipioSeleccionado = localStorage.getItem('municipioSeleccionado');
+  let ofertas = productos.filter(p => p.descuento && p.descuento > 0);
+  
+  // Filtrar por municipio si hay uno seleccionado
+  if (municipioSeleccionado) {
+    ofertas = ofertas.filter(p => 
+      p.municipios && p.municipios.includes(parseInt(municipioSeleccionado)))
+  }
+  
   const fragment = document.createDocumentFragment();
 
   ofertas.forEach(prod => {
     const div = document.createElement("div");
     div.className = "producto";
-    div.dataset.id = prod.id; // Asigna el id del producto
+    div.dataset.id = prod.id;
     const descuento = prod.descuento;
     const precioOriginal = prod.precio;
     const precioNuevo = precioOriginal * (1 - descuento / 100);
@@ -794,19 +1001,28 @@ function renderizarOfertas() {
   ofertasContainer.appendChild(fragment);
 }
 
+// Renderiza productos recientes con filtro por municipio
 function renderizarProductosRecientes() {
   const productosRecientesContainer = document.querySelector(
     "#productos-recientes .productos-recientes-container"
   );
   if (!productosRecientesContainer) return;
 
-  const productosRecientes = productos.filter((p) => p.reciente === 1);
+  const municipioSeleccionado = localStorage.getItem('municipioSeleccionado');
+  let productosRecientes = productos.filter((p) => p.reciente === 1);
+  
+  // Filtrar por municipio si hay uno seleccionado
+  if (municipioSeleccionado) {
+    productosRecientes = productosRecientes.filter(p => 
+      p.municipios && p.municipios.includes(parseInt(municipioSeleccionado)))
+  }
+  
   const fragment = document.createDocumentFragment();
 
   productosRecientes.forEach((prod) => {
     const div = document.createElement("div");
     div.className = "producto";
-    div.dataset.id = prod.id; // Asigna el id del producto
+    div.dataset.id = prod.id;
     const categoriaSinBarra = prod.categoria.replace(/[^a-zA-Z0-9]/g, "-");
 
     div.innerHTML = `
@@ -823,6 +1039,7 @@ function renderizarProductosRecientes() {
   productosRecientesContainer.innerHTML = "";
   productosRecientesContainer.appendChild(fragment);
 }
+
 // Agrega producto al carrito
 function agregarAlCarrito(id) {
   const producto = productos.find(p => p.id === id);
@@ -861,6 +1078,7 @@ function actualizarContadorCarrito() {
 function guardarCarritoEnLocalStorage() {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
+
 function cargarCarritoDesdeLocalStorage() {
   const guardado = localStorage.getItem("carrito");
   if (guardado) {
@@ -977,13 +1195,13 @@ function enviarPedidoPorWhatsapp() {
   const nota = document.getElementById("nota").value;
   const nombreBeneficiario = document.getElementById("nombre-beneficiario").value;
   const telefonoBeneficiario = document.getElementById("telefono-beneficiario").value;
-  const metodoPago = document.getElementById("metodo-pago").value; // Asegúrate de tener este campo en tu modal
-  const totalUSD = calcularTotalUSD(); // Asumo que tienes esta función
+  const metodoPago = document.getElementById("metodo-pago").value;
+  const totalUSD = calcularTotalUSD();
 
   let totalMensaje;
   let moneda;
   if (metodoPago.indexOf("CUP") !== -1) {
-    totalMensaje = totalUSD * tasaCambio; // Asumo que tienes tasaCambio
+    totalMensaje = totalUSD * tasaCambio;
     moneda = "CUP";
   } else {
     totalMensaje = totalUSD;
@@ -991,19 +1209,19 @@ function enviarPedidoPorWhatsapp() {
   }
   const totalTexto = totalMensaje.toFixed(2) + " " + moneda;
 
-  let mensaje = ` Nuevo Pedido\n\n`;
-  mensaje += ` Datos del Comprador:\n\n`;
+  let mensaje = `Nuevo Pedido\n\n`;
+  mensaje += `Datos del Comprador:\n\n`;
   mensaje += `• Nombre: ${nombreComprador}\n`;
   mensaje += `• Email: ${emailComprador}\n`;
   mensaje += `• Teléfono: ${telefonoComprador}\n\n`;
 
   if (nombreBeneficiario && telefonoBeneficiario) {
-    mensaje += ` Datos del Beneficiario:\n\n`;
+    mensaje += `Datos del Beneficiario:\n\n`;
     mensaje += `• Nombre: ${nombreBeneficiario}\n`;
     mensaje += `• Teléfono: ${telefonoBeneficiario}\n\n`;
   }
 
-  mensaje += ` Información de Envío:\n\n`;
+  mensaje += `Información de Envío:\n\n`;
   mensaje += `• Dirección: ${direccionEntrega}\n`;
   if (nota) {
     mensaje += `• Nota: ${nota}\n`;
@@ -1013,29 +1231,29 @@ function enviarPedidoPorWhatsapp() {
   // Incluir el vendedor si existe
   const vendedor = localStorage.getItem("vendedor");
   if (vendedor) {
-    mensaje += ` Vendedor: ${vendedor}\n\n`;
+    mensaje += `Vendedor: ${vendedor}\n\n`;
   }
 
-  mensaje += ` Información de Pago:\n`;
+  mensaje += `Información de Pago:\n`;
   mensaje += `Total a pagar: ${totalTexto}\n`;
-  mensaje += `Por favor en minutos recibirá la cuenta a transferir realice la transferencia  y envíe el comprobante por este medio.\n\n`;
-  mensaje += ` Productos:\n\n`;
-  carrito.forEach(prod => { // Asumo que tienes carrito y tasaCambio
+  mensaje += `Por favor en minutos recibirá la cuenta a transferir realice la transferencia y envíe el comprobante por este medio.\n\n`;
+  mensaje += `Productos:\n\n`;
+  carrito.forEach(prod => {
     let productTotal = prod.cantidad * prod.precio;
     if (moneda === "CUP") {
       productTotal *= tasaCambio;
     }
     mensaje += `• ${prod.cantidad}x ${prod.nombre} - ${productTotal.toFixed(2)} ${moneda}\n`;
   });
-  mensaje += `\n Total a Pagar: ${totalTexto} de 24 a 48 horas pedido completado, Siempre trataremos q sea en el día`;
+  mensaje += `\nTotal a Pagar: ${totalTexto} de 24 a 48 horas pedido completado, Siempre trataremos q sea en el día`;
 
   try {
     const mensajeCodificado = encodeURIComponent(mensaje);
     const urlWhatsapp = `https://wa.me/5353933247?text=${mensajeCodificado}`;
     window.open(urlWhatsapp, "_blank");
     alert("¡Pedido enviado correctamente! Gracias por su compra.");
-    cerrarModalPedido(); // Asumo que tienes esta función
-    vaciarCarrito(); // Asumo que tienes esta función
+    cerrarModalPedido();
+    vaciarCarrito();
     limpiarFormulario();
   } catch (error) {
     console.error("Error al enviar el pedido:", error);
@@ -1071,9 +1289,7 @@ function cerrarModalPedido() {
   if (modal) modal.style.display = "none";
 }
 
-// ---------------------------
 // Modal para mostrar descripción del producto
-// ---------------------------
 function mostrarDescripcionProducto(producto) {
   const modal = document.getElementById("modal-descripcion");
   if (!modal) return;
@@ -1084,9 +1300,7 @@ function mostrarDescripcionProducto(producto) {
   modal.style.display = "block";
 }
 
-// ---------------------------
 // Event delegation
-// ---------------------------
 document.addEventListener("click", (e) => {
   if (e.target.matches(".btn-agregar")) {
     const id = parseInt(e.target.dataset.id, 10);
@@ -1157,7 +1371,10 @@ function sharePage() {
   }
 }
 
+// Inicialización al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
+  // Mostrar los modales de ubicación en cada carga de página
+  mostrarModalProvincias();
   // Capturar el vendedor desde la URL y guardarlo
   capturarVendedor();
 
@@ -1208,5 +1425,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// Inicializar las secciones
 renderizarOfertas();
-renderizarProductosRecientes(); // Llamar a la función para productos recientes.
+renderizarProductosRecientes();
