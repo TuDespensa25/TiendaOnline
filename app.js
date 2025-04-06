@@ -111,6 +111,7 @@ function mostrarModalMunicipios() {
     ubicaciones.municipioSeleccionado = parseInt(e.target.value);
   });
   
+  
   document.getElementById('confirmar-municipio').addEventListener('click', () => {
     if (ubicaciones.municipioSeleccionado) {
       modal.style.display = 'none';
@@ -118,6 +119,7 @@ function mostrarModalMunicipios() {
       renderizarProductos();
       renderizarOfertas();
       renderizarProductosRecientes();
+      renderizarCombosTemporales(); 
     } else {
       alert('Por favor seleccione un municipio');
     }
@@ -877,8 +879,146 @@ const productos = [
     categoria: "Alimentos/Del Confi",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11]
   },
+  
 ];
- 
+// Combos temporales (justo después de la lista de productos existente)
+const combosTemporales = [
+  /*{
+    id: 1001,
+    nombre: "Combo Adulto Mayor",
+    precio: 34.99,
+    imagen: "combo1.png",
+    description: "Incluye 12 Jugos de 200 ml, 1 Jugo de 1 L, 10 jabones de baño, 3 Gelatinas, 5 Fideos, 6 Malta Morena, 2 leches Condensada",
+    categoria: "Combos Temporales",
+    reciente: 0,
+   /*     descuento: 15,
+    tiempoLimite: 1, // Horas de duración
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+  },*/
+  {
+    id: 1002,
+    nombre: "Combo De Granos",
+    precio: 18.50,
+    imagen: "combo2.png",
+    description: "Incluye 11 Lb de Arroz Brasileño, 3 Lb de Frijol Negro , 2 Lb de frijol Colorados ",
+    categoria: "Combos Temporales",
+    reciente: 1,
+    descuento: 0,
+    tiempoLimite: 72,
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13 ]
+  }
+];
+
+// Agregar al final del array de productos (busca: const productos = [...])
+productos.push(...combosTemporales);
+// Función para renderizar combos temporales
+function renderizarCombosTemporales() {
+  const combosContainer = document.getElementById("combos-temporales-container");
+  if (!combosContainer) return;
+
+  // 🔥 NO filtramos por municipio, solo por categoría
+  const combosFiltrados = productos.filter(p => p.categoria === "Combos Temporales");
+
+  // Ocultar o mostrar sección de combos según si hay resultados
+  const seccionCombos = document.getElementById("combos-temporales");
+  if (!seccionCombos) return;
+
+  if (combosFiltrados.length === 0) {
+    seccionCombos.style.display = "none";
+    return;
+  } else {
+    seccionCombos.style.display = "block";
+  }
+
+  // Renderizar combos
+  const fragment = document.createDocumentFragment();
+
+  combosFiltrados.forEach(combo => {
+    const div = document.createElement("div");
+    div.className = "producto combo-temporal";
+    div.dataset.id = combo.id;
+
+    // Cálculo del precio con o sin descuento
+    const tieneDescuento = combo.descuento && combo.descuento > 0;
+    const precioConDescuento = tieneDescuento
+      ? (combo.precio * (1 - combo.descuento / 100)).toFixed(2)
+      : combo.precio.toFixed(2);
+
+    // Temporizador por combo
+    let fechaLimite;
+    const storageKey = `combo_tiempo_${combo.id}`;
+    const fechaGuardada = localStorage.getItem(storageKey);
+
+    if (fechaGuardada) {
+      fechaLimite = new Date(parseInt(fechaGuardada));
+    } else {
+      fechaLimite = new Date();
+      fechaLimite.setHours(fechaLimite.getHours() + combo.tiempoLimite);
+      localStorage.setItem(storageKey, fechaLimite.getTime());
+    }
+
+    // Estructura HTML del combo
+    div.innerHTML = `
+      <div class="img-container">
+        <img src="images/${combo.imagen}" alt="${combo.nombre}" loading="lazy">
+        ${tieneDescuento ? `<div class="discount-label">-${combo.descuento}%</div>` : ""}
+        <div class="time-label">⏳ Oferta limitada</div>
+      </div>
+      <div class="etiqueta-categoria Combos-Temporales">${combo.categoria}</div>
+      <h3>${combo.nombre}</h3>
+      ${tieneDescuento ? `<p class="precio-original">USD ${combo.precio.toFixed(2)}</p>` : ""}
+      <p class="precio-nuevo">USD ${precioConDescuento}</p>
+      <div class="combo-timer" data-fechalimite="${fechaLimite.getTime()}">
+        <p>Tiempo restante:</p>
+        <div class="timer">
+          <span class="days">00</span>d : 
+          <span class="hours">00</span>h : 
+          <span class="minutes">00</span>m : 
+          <span class="seconds">00</span>s
+        </div>
+      </div>
+      <button data-id="${combo.id}" class="btn-agregar">Agregar al carrito</button>
+    `;
+
+    fragment.appendChild(div);
+  });
+
+  combosContainer.innerHTML = "";
+  combosContainer.appendChild(fragment);
+
+  iniciarContadoresTemporales();
+}
+
+// Función para activar los temporizadores de los combos
+function iniciarContadoresTemporales() {
+  document.querySelectorAll('.combo-timer').forEach(timer => {
+    const fechaLimite = parseInt(timer.dataset.fechalimite);
+    const intervalo = setInterval(() => {
+      const ahora = new Date().getTime();
+      const tiempoRestante = fechaLimite - ahora;
+
+      if (tiempoRestante <= 0) {
+        clearInterval(intervalo);
+        const boton = timer.closest('.combo-temporal')?.querySelector('.btn-agregar');
+        if (boton) boton.disabled = true;
+        timer.innerHTML = `<p style="color:red; font-weight:bold;">⏳ Tiempo agotado</p>`;
+        return;
+      }
+
+      const dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
+
+      timer.querySelector('.days').textContent = dias.toString().padStart(2, '0');
+      timer.querySelector('.hours').textContent = horas.toString().padStart(2, '0');
+      timer.querySelector('.minutes').textContent = minutos.toString().padStart(2, '0');
+      timer.querySelector('.seconds').textContent = segundos.toString().padStart(2, '0');
+    }, 1000);
+  });
+}
+
+
 
 // Variables globales y caching de elementos
 let carrito = [];
@@ -1427,5 +1567,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Inicializar las secciones
+renderizarCombosTemporales(); 
 renderizarOfertas();
 renderizarProductosRecientes();
