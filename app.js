@@ -143,14 +143,16 @@ function capturarVendedor() {
 const productos = [
   // Ejemplo de producto con atributo municipios
   
-  /*{
+  {
     id: 1,
-    nombre: " Cerdo al corte ",
-    precio: 3.80,
-    imagen: "pierna.png",
-    description: "Pierna de cerdo o paleta según disponibilidad x Lb",
-    categoria: "Alimentos/Cárnicos"
-  },*/
+    nombre: " Carne de Res 2da Cat troceada ",
+    precio: 14.40,
+    imagen: "res.png",
+    description: "Bolsa de 1 Kg ",
+    categoria: "Alimentos/Cárnicos",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+  },
   {
     id: 2,
     nombre: "Caja de Pollo",
