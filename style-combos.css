@@ -119,14 +119,7 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Contenedor de combos responsivo */
-.productos-recientes-container {
-    display: flex;
-    flex-wrap: wrap; /* Cambia a wrap para móviles */
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-}
+
 
 /* Estilos de las tarjetas de combos */
 .producto {
