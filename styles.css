@@ -1183,16 +1183,20 @@ footer {
   background-color: #f1f1f1;
   border-radius: 5px;
 }
+/* === CONTENEDOR SCROLL HORIZONTAL === */
 .productos-recientes-container {
   display: flex;
+  flex-wrap: nowrap;
   overflow-x: auto;
   scroll-behavior: smooth;
   gap: 1rem;
   padding: 1rem 0;
-  flex-wrap: nowrap;
   width: 100%;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
+/* === SCROLLBAR ESTILIZADO === */
 .productos-recientes-container::-webkit-scrollbar {
   height: 6px;
 }
@@ -1202,29 +1206,16 @@ footer {
   border-radius: 3px;
 }
 
+/* === TARJETAS DE PRODUCTO === */
 .producto {
   flex: 0 0 auto;
-  width: 160px; /* menor ancho para móviles */
+  scroll-snap-align: start;
+  width: 160px;
 }
 
+/* === VISTA EN PANTALLAS MÁS GRANDES === */
 @media (min-width: 768px) {
   .producto {
     width: 200px;
-  }
-}
-.productos-recientes-container {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 1rem;
-  padding: 1rem 0;
-  flex-wrap: nowrap;
-  width: 100%;
-  justify-content: center; /* 🟢 CENTRA si no hay overflow */
-}
-
-@media (max-width: 768px) {
-  .producto {
-    width: 160px;
   }
 }
