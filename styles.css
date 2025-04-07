@@ -1187,16 +1187,44 @@ footer {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  gap: 16px;
+  gap: 1rem;
   padding: 1rem 0;
   flex-wrap: nowrap;
+  width: 100%;
 }
 
 .productos-recientes-container::-webkit-scrollbar {
-  height: 8px;
+  height: 6px;
 }
 
 .productos-recientes-container::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 4px;
+  background: rgba(100, 100, 100, 0.3);
+  border-radius: 3px;
+}
+
+.producto {
+  flex: 0 0 auto;
+  width: 160px; /* menor ancho para móviles */
+}
+
+@media (min-width: 768px) {
+  .producto {
+    width: 200px;
+  }
+}
+.productos-recientes-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 0;
+  flex-wrap: nowrap;
+  width: 100%;
+  justify-content: center; /* 🟢 CENTRA si no hay overflow */
+}
+
+@media (max-width: 768px) {
+  .producto {
+    width: 160px;
+  }
 }
