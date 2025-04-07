@@ -1183,3 +1183,20 @@ footer {
   background-color: #f1f1f1;
   border-radius: 5px;
 }
+.productos-recientes-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 16px;
+  padding: 1rem 0;
+  flex-wrap: nowrap;
+}
+
+.productos-recientes-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.productos-recientes-container::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}

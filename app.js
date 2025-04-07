@@ -351,7 +351,7 @@ const productos = [
     imagen: "guajira.svg",
     description: "Blister de 6 uds de 500 ml",
     categoria: "Alimentos/Líquidos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3,  12, 13]
   },
   {
     id: 24,
@@ -426,6 +426,16 @@ const productos = [
     categoria: "Alimentos/Líquidos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
+  {
+    id: 76,
+    nombre: "Café Expreso ",
+    precio: 5.5,
+    imagen: "cafenezka.png",
+    description: "Paquete de 250 gr",
+    categoria: "Alimentos/Líquidos",
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ],
+    reciente: 1, 
+  },
   // Alimentos/Otros
   {
     id: 31,
@@ -436,14 +446,16 @@ const productos = [
     categoria: "Alimentos/Otros",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
   },
-  /*{
+  {
     id: 32,
-    nombre: "Pasta de tomate Vima",
-    precio: 5.99,
-    imagen: "vima.svg",
-    description: "Tomates frescos de huerta",
-    categoria: "Alimentos/Otros"
-  },*/
+    nombre: "Pomo de Garbanzos Cocidos",
+    precio: 2.20,
+    imagen: "garbanzos.png",
+    description: "Pomo de 540 gr",
+    categoria: "Alimentos/Otros",
+    reciente: 1, 
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,] 
+  },
   {
     id: 33,
     nombre: "Mayonesa Celorio",
@@ -451,17 +463,19 @@ const productos = [
     imagen: "mayonesa.png",
     description: "Pomo de 450 gr",
     categoria: "Alimentos/Otros",
+    reciente:0,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 34,
+    nombre: "Sazón Completo Nezka ",
+    precio: 4.20,
+    imagen: "sazonmixto.png",
+    description: "Pomo de 250 gr",
+    categoria: "Alimentos/Otros",
     reciente:1,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
   },
-  /*{
-    id: 34,
-    nombre: "Pasta de Bocadito Aldaketa",
-    precio: 5.8,
-    imagen: "bocadito.svg",
-    description: "Pomo de 450 gr",
-    categoria: "Alimentos/Otros"
-  },*/
   {
     id: 35,
     nombre: "Spaguetis",
@@ -543,23 +557,26 @@ const productos = [
     categoria: "Alimentos/Otros",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
- /*{
+ {
     id: 38,
     nombre: "Sopa Intantanea",
-    precio: 1.50,
+    precio: 0.70,
     imagen: "sopa.png",
     description: "Sabor pollo sobre 75 gr",
-    categoria: "Alimentos/Otros"
+    categoria: "Alimentos/Otros",
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,],
+    reciente: 1, 
   },
   {
     id: 44,
-    nombre: "Aceite de girasol",
-    precio: 3.2,
-    imagen: "aceite.png",
+    nombre: "Zumo de Limón ",
+    precio: 2.25,
+    imagen: "zumo.png",
     description: "Botella de 1l",
     categoria: "Alimentos/Otros",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-  },*/
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,],
+    reciente: 1
+  },
   {
     id: 45,
     nombre: "Cartón de huevos",
@@ -578,6 +595,16 @@ const productos = [
     categoria: "Alimentos/Otros",
     reciente:1,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },
+  {
+    id: 74,
+    nombre: "Mayonesa Nezka  ",
+    precio: 3.20,
+    imagen: "mayonezka.png",
+    description: "pomo de 500  gr ",
+    categoria: "Alimentos/Otros",
+    reciente:1,
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, ]
   },
   // Lácteos
   /*{
@@ -837,12 +864,13 @@ const productos = [
   // Del Confi
   {
     id: 69,
-    nombre: "Choco Biscuit",
-    precio: 3.20,
-    imagen: "chocobiscuit.png",
-    description: "18 gr",
+    nombre: "Galletas María 100 gr",
+    precio: 1.25,
+    imagen: "maria.png",
+    description: "100 gr",
     categoria: "Alimentos/Del Confi",
-    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,],
+    reciente: 1, // Marcar como reciente
     
   },
   {
@@ -865,12 +893,21 @@ const productos = [
   },
   {
     id: 72,
-    nombre: "Galletas kidi vai vai",
-    precio: 3.20,
-    imagen: "kidi.png",
-    description: "Paquete de 12 uds",
+    nombre: "Galletas Saltine Nezka",
+    precio: 3.00,
+    imagen: "saltine.png",
+    description: "Cajita de 454 gr",
     categoria: "Alimentos/Del Confi",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 73,
+    nombre: "Galletas Soda",
+    precio: 3.20,
+    imagen: "soda.png",
+    description: "Paquete de 8 uds",
+    categoria: "Alimentos/Del Confi",
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11]
   },
   {
     id: 73,
