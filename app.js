@@ -696,7 +696,7 @@ const productos = [
     description: "Bolsa de 5 lb frescas",
     categoria: "Alimentos/Del Agro",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-    descuento: 40, 
+    descuento: 55,
   },
  /*{
     id: 51,
@@ -922,18 +922,18 @@ const productos = [
 ];
 // Combos temporales (justo después de la lista de productos existente)
 const combosTemporales = [
-  /*{
+  {
     id: 1001,
     nombre: "Combo Adulto Mayor",
     precio: 34.99,
     imagen: "combo1.png",
-    description: "Incluye 12 Jugos de 200 ml, 1 Jugo de 1 L, 10 jabones de baño, 3 Gelatinas, 5 Fideos, 6 Malta Morena, 2 leches Condensada",
+    description: "Incluye 12 Jugos de 200 ml, 10 jabones de baño, 3 Gelatinas, 5 Fideos, 6 Malta, 2 lecshes Condensada",
     categoria: "Combos Temporales",
     reciente: 0,
-   /*     descuento: 15,
+        descuento: 15,
     tiempoLimite: 1, // Horas de duración
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
-  },*/
+  },
   {
     id: 1002,
     nombre: "Combo De Granos",
