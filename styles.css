@@ -1197,3 +1197,67 @@ footer {
     width: 200px;
   }
 }
+/* === ESTILOS PARA COMBOS TEMPORALES === */
+.combo-temporal {
+  position: relative;
+  border: 2px solid #ebe7e1;
+  background-color: #ebe7e1;
+  margin: 10px;
+}
+
+.combo-temporal .time-label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ebe7e1;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  z-index: 2;
+}
+
+.combo-temporal .combo-timer {
+  background: #f8f8f8;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.combo-temporal .combo-timer .timer {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.combo-temporal .combo-timer .timer span {
+  background: #2c8780;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  min-width: 30px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .combo-temporal {
+    width: 90%;
+    margin: 0 auto 20px;
+  }
+}
+/* === Centrar tarjetas de combos === */
+#combos-temporales-container {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  flex-wrap: wrap; /* Permitir múltiples líneas */
+  gap: 20px; /* Espacio entre tarjetas */
+  padding: 20px 0;
+}
+
+/* Asegurar tamaño consistente */
+.combo-temporal {
+  width: 300px; /* Ancho fijo */
+  margin: 0 10px; /* Espacio a los lados */
+}

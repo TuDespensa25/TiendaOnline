@@ -923,7 +923,7 @@ const productos = [
 // Combos temporales (justo después de la lista de productos existente)
 const combosTemporales = [
   {
-    id: 1001,
+    id: 10010,
     nombre: "Combo Adulto Mayor",
     precio: 34.99,
     imagen: "combo1.png",
@@ -935,15 +935,15 @@ const combosTemporales = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
   },
   {
-    id: 1002,
+    id: 10020,
     nombre: "Combo De Granos",
-    precio: 18.50,
+    precio: 16.50,
     imagen: "combo2.png",
     description: "Incluye 11 Lb de Arroz Brasileño, 3 Lb de Frijol Negro , 2 Lb de frijol Colorados ",
     categoria: "Combos Temporales",
     reciente: 1,
     descuento: 0,
-    tiempoLimite: 72,
+    tiempoLimite: 16,
     municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13 ]
   }
 ];
@@ -953,10 +953,15 @@ productos.push(...combosTemporales);
 // Función para renderizar combos temporales
 function renderizarCombosTemporales() {
   const combosContainer = document.getElementById("combos-temporales-container");
-  if (!combosContainer) return;
-
-  // 🔥 NO filtramos por municipio, solo por categoría
-  const combosFiltrados = productos.filter(p => p.categoria === "Combos Temporales");
+  
+  // Obtener municipio seleccionado
+  const municipioSeleccionado = parseInt(localStorage.getItem('municipioSeleccionado'));
+  
+  // Filtrar combos por categoría Y municipio
+  const combosFiltrados = productos.filter(p => 
+    p.categoria === "Combos Temporales" && 
+    p.municipios?.includes(municipioSeleccionado) // <-- ¡Filtro clave!
+  );
 
   // Ocultar o mostrar sección de combos según si hay resultados
   const seccionCombos = document.getElementById("combos-temporales");
@@ -1609,3 +1614,15 @@ document.addEventListener("DOMContentLoaded", () => {
 renderizarCombosTemporales(); 
 renderizarOfertas();
 renderizarProductosRecientes();
+document.addEventListener('DOMContentLoaded', () => {
+  // Verifica si ya hay un municipio guardado en el localStorage.
+  const municipioGuardado = localStorage.getItem('municipioSeleccionado');
+  
+  // Verifica si la página actual es la del carrito (por ejemplo, "cart.html")
+  const isCartPage = window.location.pathname.includes('cart.html');
+  
+  // Si no se encontró un municipio seleccionado y NO estamos en la página del carrito, se muestra el modal.
+  if (!municipioGuardado && !isCartPage) {
+    mostrarModalProvincias();
+  }
+});
