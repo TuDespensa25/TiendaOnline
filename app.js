@@ -162,7 +162,18 @@ const productos = [
     categoria: "Alimentos/Cárnicos",
      reciente: 0,
      descuento: 10,
-     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+  },
+  {
+    id: 75,
+    nombre: "Caja de Pollo",
+    precio: 46,
+    imagen: "caja33lbpollo.png",
+    description: "caja de 33 lb de muslo y contramuslo 3 paquetes de 11 lb",
+    categoria: "Alimentos/Cárnicos",
+     reciente: 1,
+     descuento: 10,
+     municipios: [1, 2, 3, 12, 13]
   },
   {
     id: 3,
@@ -171,7 +182,16 @@ const productos = [
     imagen: "pollopqte.png",
     description: "paquete de 10 lb de muslo y contra muslo",
     categoria: "Alimentos/Cárnicos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 77,
+    nombre: "Paquete de pollo 11 lb ",
+    precio: 14,
+    imagen: "pollopqte.png",
+    description: "paquete de 11 lb de muslo y contra muslo",
+    categoria: "Alimentos/Cárnicos",
+    municipios: [1, 2, 3, 12, 13]
   },
   {
     id: 4,
