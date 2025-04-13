@@ -965,6 +965,18 @@ const combosTemporales = [
     descuento: 0,
     tiempoLimite: 16,
     municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13 ]
+  },
+  {
+    id: 1003,
+    nombre: "Combo Sorpresa",
+    precio: 10,
+    imagen: "combosorpresa.png",
+    description: "Incluye 2 Kg de Arroz Brasileño, 5 Lb de Frijol  Colorados ",
+    categoria: "Combos Temporales",
+    reciente: 1,
+    descuento: 0,
+    tiempoLimite: 24,
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13 ]
   }
 ];
 
