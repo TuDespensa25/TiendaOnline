@@ -971,7 +971,7 @@ const combosTemporales = [
     nombre: "Combo Sorpresa",
     precio: 10,
     imagen: "combosorpresa.png",
-    description: "Incluye 2 Kg de Arroz Brasileño, 5 Lb de Frijol  Colorados ",
+    description: "Incluye 3 Kg de Arroz Brasileño, 5 Lb de Frijol  Colorados ",
     categoria: "Combos Temporales",
     reciente: 1,
     descuento: 0,
