@@ -914,7 +914,7 @@ const productos = [
   {
     id: 72,
     nombre: "Galletas Saltine Nezka",
-    precio: 3.00,
+    precio: 3.50,
     imagen: "saltine.png",
     description: "Cajita de 454 gr",
     categoria: "Alimentos/Del Confi",
@@ -929,16 +929,7 @@ const productos = [
     categoria: "Alimentos/Del Confi",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11]
   },
-  {
-    id: 73,
-    nombre: "Galletas Soda",
-    precio: 3.20,
-    imagen: "soda.png",
-    description: "Paquete de 8 uds",
-    categoria: "Alimentos/Del Confi",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11]
-  },
-  
+ 
 ];
 // Combos temporales (justo después de la lista de productos existente)
 const combosTemporales = [
