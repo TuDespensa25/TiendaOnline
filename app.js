@@ -171,7 +171,7 @@ const productos = [
     imagen: "caja33lbpollo.png",
     description: "caja de 33 lb de muslo y contramuslo 3 paquetes de 11 lb",
     categoria: "Alimentos/Cárnicos",
-     reciente: 1,
+    
      descuento: 10,
      municipios: [1, 2, 3, 12, 13]
   },
@@ -425,7 +425,7 @@ const productos = [
     imagen: "zuko.png",
     description: "Caja de 8 sobres",
     categoria: "Alimentos/Líquidos",
-    reciente:1,
+   
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
@@ -454,9 +454,150 @@ const productos = [
     description: "Paquete de 250 gr",
     categoria: "Alimentos/Líquidos",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ],
-    reciente: 1, 
+    
   },
   // Alimentos/Otros
+  {
+    id: 78,
+    nombre: "Ajo Finamente picado Badia ",
+    precio: 2.60,
+    imagen: "ajobadia.png",
+    description: "Pomo de 8 OZ ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 79,
+    nombre: "Jugo de Limón Badia ",
+    precio: 2.10,
+    imagen: "limonbadia.png",
+    description: "Pomo de 10 OZ ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 80,
+    nombre: "Jugo de Naranja Agria Badia ",
+    precio: 2.60,
+    imagen: "naranjabadia.png",
+    description: "Pomo de 10 OZ ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 81,
+    nombre: "ketchup kurtz ",
+    precio: 2.95,
+    imagen: "ketchupkurtz.png",
+    description: "Pomo de 10 OZ ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 82,
+    nombre: "Chicharos verdes Del Monte ",
+    precio: 1.95,
+    imagen: "chicharodelmonte.png",
+    description: "Bolsa de 16 OZ ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 83,
+    nombre: "Alubias Del Monte ",
+    precio: 2.40,
+    imagen: "alubiasdelmonte.png",
+    description: "Bolsa de 16 OZ ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 84,
+    nombre: "Lentejas Goya ",
+    precio: 2.40,
+    imagen: "lentejasgoya.png",
+    description: "Bolsa de 14 OZ ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 85,
+    nombre: "Garbanzos Goya ",
+    precio: 2.95,
+    imagen: "garbanzosgoya.png",
+    description: "Bolsa de 14 OZ ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 86,
+    nombre: "Mantequilla de Maní",
+    precio: 4.95,
+    imagen: "mantequillamani.png",
+    description: "Pomo de 16 OZ ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 87,
+    nombre: "Botella de Aceite",
+    precio: 3.50,
+    imagen: "aceite.png",
+    description: "Pomo de 1 L ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 88,
+    nombre: "Compota Babe",
+    precio: 0.90,
+    imagen: "compota.png",
+    description: "Pomito de 4 Oz ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 89,
+    nombre: "Vinagre Goya ",
+    precio: 1.95,
+    imagen: "vinagregoya.png",
+    description: " Pomo de 16 Oz ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 90,
+    nombre: "Sazón Tropical Badia ",
+    precio: 3.40,
+    imagen: "tropicalcarnes.png",
+    description: "Cajita de 20 Uds Ideal para carnes  ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+  {
+    id: 91,
+    nombre: "Sazón Tropical Badia.  ",
+    precio: 3.40,
+    imagen: "tropicalarroz.png",
+    description: "Cajita de 20 Uds Ideal para Arroces y Cardos  ",
+    categoria: "Alimentos/Otros",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+  },
+
   {
     id: 31,
     nombre: "pasta de tomate Sabrosísimo",
@@ -473,7 +614,6 @@ const productos = [
     imagen: "garbanzos.png",
     description: "Pomo de 540 gr",
     categoria: "Alimentos/Otros",
-    reciente: 1, 
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,] 
   },
   {
@@ -493,7 +633,7 @@ const productos = [
     imagen: "sazonmixto.png",
     description: "Pomo de 250 gr",
     categoria: "Alimentos/Otros",
-    reciente:1,
+   
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
   },
   {
@@ -585,7 +725,7 @@ const productos = [
     description: "Sabor pollo sobre 75 gr",
     categoria: "Alimentos/Otros",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,],
-    reciente: 1, 
+   
   },
   {
     id: 44,
@@ -595,7 +735,7 @@ const productos = [
     description: "Botella de 1l",
     categoria: "Alimentos/Otros",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,],
-    reciente: 1
+    
   },
   {
     id: 45,
@@ -613,7 +753,7 @@ const productos = [
     imagen: "gelatina.png",
     description: "Bolsa de gelatina 75 gr ",
     categoria: "Alimentos/Otros",
-    reciente:1,
+    
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
@@ -623,7 +763,7 @@ const productos = [
     imagen: "mayonezka.png",
     description: "pomo de 500  gr ",
     categoria: "Alimentos/Otros",
-    reciente:1,
+    
     municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, ]
   },
   // Lácteos
@@ -884,10 +1024,10 @@ const productos = [
   // Del Confi
   {
     id: 69,
-    nombre: "Galletas María 100 gr",
+    nombre: "Galletas María Baduco",
     precio: 1.25,
-    imagen: "maria.png",
-    description: "100 gr",
+    imagen: "mariasbaduco.png",
+    description: "Tubo de 170 gr",
     categoria: "Alimentos/Del Confi",
     municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,],
     reciente: 1, // Marcar como reciente
@@ -927,44 +1067,44 @@ const productos = [
     imagen: "soda.png",
     description: "Paquete de 8 uds",
     categoria: "Alimentos/Del Confi",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11],
   },
  
 ];
 // Combos temporales (justo después de la lista de productos existente)
 const combosTemporales = [
   {
-    id: 10010,
+    id: 10012,
     nombre: "Combo Adulto Mayor",
     precio: 34.99,
     imagen: "combo1.png",
     description: "Incluye 12 Jugos de 200 ml, 10 jabones de baño, 3 Gelatinas, 5 Fideos, 6 Malta, 2 lecshes Condensada",
     categoria: "Combos Temporales",
     reciente: 0,
-        descuento: 15,
-    tiempoLimite: 1, // Horas de duración
+    
+    tiempoLimite: 24, // Horas de duración
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
   },
   {
-    id: 10020,
+    id: 10022,
     nombre: "Combo De Granos",
     precio: 16.50,
     imagen: "combo2.png",
     description: "Incluye 11 Lb de Arroz Brasileño, 3 Lb de Frijol Negro , 2 Lb de frijol Colorados ",
     categoria: "Combos Temporales",
-    reciente: 1,
+    
     descuento: 0,
-    tiempoLimite: 16,
+    tiempoLimite: 24,
     municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13 ]
   },
   {
-    id: 1003,
+    id: 10032,
     nombre: "Combo Sorpresa",
     precio: 10,
     imagen: "combosorpresa.png",
     description: "Incluye 3 Kg de Arroz Brasileño, 5 Lb de Frijol  Colorados ",
     categoria: "Combos Temporales",
-    reciente: 1,
+    
     descuento: 0,
     tiempoLimite: 24,
     municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13 ]
