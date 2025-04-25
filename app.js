@@ -203,6 +203,29 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
   },
+  {
+    id: 92,
+    nombre: "Muslo de pollo ahumado ",
+    precio: 6.60 ,
+    imagen: "polloahumado.png",
+    description: "Bolsa de 3 Lb ",
+    categoria: "Alimentos/Cárnicos",
+    reciente: 1,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+  },
+  {
+    id: 93,
+    nombre: "Muslo de pollo ahumado ",
+    precio: 11 ,
+    imagen: "polloahumado.png",
+    description: "Bolsa de 5 Lb ",
+    categoria: "Alimentos/Cárnicos",
+    reciente  : 1,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+  },
+
   /*{
     id: 5,
     nombre: "Masas de Cerdo",
