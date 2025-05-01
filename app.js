@@ -198,7 +198,7 @@ const productos = [
     nombre: "Lomo de cerdo deshuesado",
     precio: 12,
     imagen: "lomo.png",
-    description: "Lomo de cerdo Importado sellado en bolsa de 4 lb ",
+    description: "Lomo de cerdo Importado sellado en bolsa de 3 lb ",
     categoria: "Alimentos/Cárnicos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 
@@ -206,7 +206,7 @@ const productos = [
   {
     id: 92,
     nombre: "Muslo de pollo ahumado ",
-    precio: 6.60 ,
+    precio: 7 ,
     imagen: "polloahumado.png",
     description: "Bolsa de 3 Lb ",
     categoria: "Alimentos/Cárnicos",
@@ -217,7 +217,7 @@ const productos = [
   {
     id: 93,
     nombre: "Muslo de pollo ahumado ",
-    precio: 11 ,
+    precio: 12 ,
     imagen: "polloahumado.png",
     description: "Bolsa de 5 Lb ",
     categoria: "Alimentos/Cárnicos",
@@ -378,7 +378,7 @@ const productos = [
     categoria: "Alimentos/Líquidos",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
   },
-  {
+  /*{
     id: 22,
     nombre: "Ron Habana Club",
     precio: 7.70,
@@ -386,7 +386,7 @@ const productos = [
     description: "Añejo 3 años 750 ml",
     categoria: "Alimentos/Líquidos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-  },
+  },*/
   {
     id: 23,
     nombre: "Malta Guajira",
@@ -871,7 +871,7 @@ const productos = [
     categoria: "Alimentos/Del Agro",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
-  {
+ /* {
     id: 50,
     nombre: "Papas frescas",
     precio: 8.40,
@@ -881,7 +881,7 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
     descuento: 55,
   },
- /*{
+ {
     id: 51,
     nombre: "Col",
     precio: 1.70,
@@ -988,8 +988,120 @@ const productos = [
     imagen: "ventilador.png",
     description: "Ventilador tipo ciclón Milexus",
     categoria: "De Electrodomésticos",
+    descuento : 5,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
+  {
+    id: 94,
+    nombre: "Cajas de tv Hd",
+    precio: 65,
+    imagen: "cajita.png",
+    description: "Caja descodificadora Hd",
+    categoria: "De Electrodomésticos",
+    descuento : 5,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },
+  {
+    id: 95,
+    nombre: "Olla reina Milexus ",
+    precio: 100,
+    imagen: "reina.png",
+    description: "Olla reina de 6L Milexus",
+    categoria: "De Electrodomésticos",
+    descuento : 20,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },
+  {
+    id: 96,
+    nombre: "Olla Arrocera ",
+    precio: 60 ,
+    imagen: "arrocera.png",
+    description: "Olla arrocera de 1,8 l Milexus",
+    categoria: "De Electrodomésticos",
+    descuento : 18,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },
+  {
+    id: 97,
+    nombre: "Freidora de aire  ",
+    precio: 100 ,
+    imagen: "freidora.png",
+    description: "Olla freidora de aire de 4 l ",
+    categoria: "De Electrodomésticos",
+    descuento : 10,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },
+  {
+    id: 97,
+    nombre: "Fogon de 3 quemadores  ",
+    precio: 70,
+    imagen: "fogon.png",
+    description: "Fogon milexus de 3 quemadores ",
+    categoria: "De Electrodomésticos",
+    descuento : 15,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },
+  {
+    id: 98,
+    nombre: "Ventilador de pared ",
+    precio: 70,
+    imagen: "ventiladorpared.png",
+    description: "Ventilador de 18 pulgadas de pared ",
+    categoria: "De Electrodomésticos",
+    descuento : 15,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },
+  {
+    id: 99,
+    nombre: "Fogon Infrarrojo   ",
+    precio: 100,
+    imagen: "fogoninfra.png",
+    description: "Fogon Infrarrojo 2200 W    ",
+    categoria: "De Electrodomésticos",
+    descuento : 20,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },
+  {
+    id: 103,
+    nombre: "Microwave Premier 20 Litro    ",
+    precio: 160,
+    imagen: "microwave.png",
+    description: "Microwave Premier 20 Litro    ",
+    categoria: "De Electrodomésticos",
+    descuento : 12,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },
+  {
+    id: 104,
+    nombre: "Lavadora automática 8 L   ",
+    precio: 400,
+    imagen: "automatica.png",
+    description: "Lavadora automatica 8 L    ",
+    categoria: "De Electrodomésticos",
+    descuento : 12,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },
+  {
+    id: 105,
+    nombre: "Lavadora semiautomática 7 L   ",
+    precio: 300,
+    imagen: "semiautomatica7.png",
+    description: "Lavadora semiautomatica 7 L    ",
+    categoria: "De Electrodomésticos",
+    descuento : 13,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },
+  {
+    id: 106,
+    nombre: "Lavadora semiautomática 9 L   ",
+    precio: 320,
+    imagen: "semiautomatica7.png",
+    description: "Lavadora semiautomatica 7 L    ",
+    categoria: "De Electrodomésticos",
+    descuento : 12,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  },
+  
   {
     id: 63,
     nombre: "Split milexus",
@@ -997,6 +1109,7 @@ const productos = [
     imagen: "split.png",
     description: "Milexus 1200 btu",
     categoria: "De Electrodomésticos",
+    descuento : 7,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
@@ -1004,8 +1117,9 @@ const productos = [
     nombre: "Frezeer",
     precio: 350,
     imagen: "nevera.png",
-    description: "Milexus 5pies",
+    description: "Milexus 6 pies",
     categoria: "De Electrodomésticos",
+    descuento : 5,     
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   {
@@ -1015,6 +1129,7 @@ const productos = [
     imagen: "32.png",
     description: "Tv inteligente 32 pulgadas",
     categoria: "De Electrodomésticos",
+    descuento : 7,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
   /*{
@@ -1031,6 +1146,7 @@ const productos = [
     nombre: "Batidora Milexus",
     precio: 45,
     imagen: "batidora.png",
+    descuento : 5,
     description: "Batidora 2 en 1 (+ moledor de sazones)",
     categoria: "De Electrodomésticos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
