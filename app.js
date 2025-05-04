@@ -222,7 +222,7 @@ const productos = [
     description: "Bolsa de 5 Lb ",
     categoria: "Alimentos/Cárnicos",
     reciente  : 1,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3,  12, 13]
 
   },
 
@@ -279,7 +279,7 @@ const productos = [
     categoria: "Alimentos/Cárnicos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
-  {
+ /* {
     id: 12,
     nombre: "Jamón Embuchado",
     precio: 12.00,
@@ -287,7 +287,7 @@ const productos = [
     description: "Porción sellada de 3 Lb",
     categoria: "Alimentos/Cárnicos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-  },
+  },*/
   {
     id: 13,
     nombre: "Picadillo de pollo",
@@ -360,7 +360,7 @@ const productos = [
     categoria: "Alimentos/Líquidos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },
-  {
+ /* {
     id: 20,
     nombre: "Vino Acantus",
     precio: 5,
@@ -378,7 +378,7 @@ const productos = [
     categoria: "Alimentos/Líquidos",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
   },
-  /*{
+  {
     id: 22,
     nombre: "Ron Habana Club",
     precio: 7.70,
@@ -1240,7 +1240,7 @@ const combosTemporales = [
     id: 10032,
     nombre: "Combo Sorpresa",
     precio: 10,
-    imagen: "combosorpresa.png",
+    imagen: "combo1madre.png",
     description: "Incluye 3 Kg de Arroz Brasileño, 5 Lb de Frijol  Colorados ",
     categoria: "Combos Temporales",
     

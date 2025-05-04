@@ -211,6 +211,7 @@ section {
 }
 
 /* Cajas informativas */
+/* Cajas informativas */
 .cajas-informativas {
   display: flex;
   justify-content: center;
@@ -225,22 +226,21 @@ section {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   width: 300px;
   text-align: center;
-  background-size: cover;
-  background-position: center;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--color-blanco); /* Añadido: Color de fondo blanco */
 }
 
 .caja h3 {
-  color: var(--color-blanco);
+  color: var(--color-texto); /* Cambiado: Color de texto */
   margin-bottom: 10px;
   position: relative;
   z-index: 2;
 }
 
 .caja p {
-  color: var(--color-blanco);
+  color: var(--color-texto); /* Cambiado: Color de texto */
   font-size: 14px;
   position: relative;
   z-index: 2;
@@ -251,29 +251,38 @@ section {
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.caja:nth-child(1) {
-  background-image: url('images/caja1.png');
+/* Estilos para los iconos */
+.icono {
+  font-size: 3em;           /* Tamaño del icono */
+  color: var(--color-secundario); /* Color del icono */
+  margin-bottom: 10px;      /* Espacio debajo del icono */
 }
 
-.caja:nth-child(2) {
-  background-image: url('images/caja2.jpg');
-}
-
+/* Eliminamos los estilos relacionados con las imágenes de fondo */
+.caja:nth-child(1),
+.caja:nth-child(2),
 .caja:nth-child(3) {
-  background-image: url('images/caja3.png');
+  background-image: none;
 }
 
 .caja::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1;
+  content: none;           /* Eliminamos el pseudo-elemento */
 }
 
+/* Media query para centrar las cajas en vista móvil */
+@media (max-width: 768px) {
+  .cajas-informativas {
+    display: flex;
+    flex-direction: column; /* Apilamos las cajas verticalmente */
+    align-items: center;    /* Centramos horizontalmente las cajas */
+  }
+
+  .caja {
+    width: 100%;             /* Ocupan el 100% del ancho en móvil */
+    max-width: 300px;       /* Ancho máximo para evitar que se estiren demasiado */
+    margin-bottom: 20px;    /* Espacio entre las cajas en vertical */
+  }
+}
 /* Sección Informativa de Servicios */
 #info-servicios {
   padding: 40px 20px;
@@ -654,60 +663,115 @@ section {
         margin-right: 0.1em; /* Ajusta este valor si es necesario */
     }
 }
-
 footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #000000;
-  color: var(--color-blanco);
-}
-.discount-label {
-  background: #f01717;
-  color: #fff;
-  padding: 5px 10px;
-  font-size: 0.9em;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  border-radius: 5px;
-  z-index: 2;
-}
-.boton-flotante-carrito {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #007bff; /* Color de fondo */
-  color: white; /* Color de texto */
-  padding: 10px;
-  border-radius: 50%; /* Forma circular */
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
-}
-.boton-flotante-whatsapp {
-  position: fixed;
-  bottom: 80px; /* Ajusta la posición vertical */
-  right: 20px;
-  background-color: #25d366; /* Color de fondo de WhatsApp */
+  background-color: #1f2937; /* Equivalente de bg-gray-900 */
   color: white;
-  padding: 10px;
-  border-radius: 50%;
-  z-index: 1000;
-}
-.boton--categorias {
-  position: fixed; /* Posición fija en la pantalla */
-  bottom: 20px; /* Margen inferior */
-  right: 20px; /* Margen derecho */
-  background-color: #007bff; /* Color de fondo */
-  color: white; /* Color de texto */
-  padding: 10px; /* Espacio interno */
-  border-radius: 50%; /* Forma circular */
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
-  display: none; /* Oculto inicialmente */
-  opacity: 0.8; /* Opacidad */
-  transition: opacity 0.3s ease; /* Transición suave de opacidad */
+  padding-top: 48px; /* Equivalente de py-12 (ajusta según sea necesario) */
+  padding-bottom: 48px;
 }
 
-.boton-flotante-carrito:hover {
-  opacity: 1; /* Opacidad completa al pasar el ratón */
+.footer-container {
+  max-width: 1024px; /* Equivalente de max-w-6xl (ajusta según sea necesario) */
+  margin-left: auto; /* Equivalente de mx-auto */
+  margin-right: auto;
+  padding-left: 16px; /* Equivalente de px-4 */
+  padding-right: 16px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Equivalente de grid-cols-1 */
+  gap: 32px; /* Equivalente de gap-8 */
+}
+
+/* Media query para pantallas más grandes */
+@media (min-width: 768px) {
+  .footer-grid {
+      grid-template-columns: repeat(4, 1fr); /* Equivalente de md:grid-cols-4 */
+  }
+}
+
+.footer-about h3 {
+  font-size: 1.25rem; /* Equivalente de text-xl */
+  font-weight: 600; /* Equivalente de font-semibold */
+  margin-bottom: 1rem; /* Equivalente de mb-4 */
+}
+
+.text-gray-400 { /* Si no tienes esto definido en otro lugar */
+  color: #9ca3af;
+}
+
+.footer-links h4 {
+  font-size: 1.125rem; /* Equivalente de text-lg */
+  font-weight: 600; /* Equivalente de font-semibold */
+  margin-bottom: 1rem; /* Equivalente de mb-4 */
+}
+
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Equivalente de space-y-2 */
+  list-style-type: none;
+}
+
+.hover\:text-white:hover { /* Escapa el ':' con '\' */
+  color: white;
+}
+
+.footer-contact h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.footer-social h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 1rem; /* Equivalente de space-x-4 */
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.border-t {
+  border-top-width: 1px;
+}
+
+.border-gray-800 {
+  border-color: #27272a;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.footer-bottom {
+  /* Estilos ya cubiertos arriba (border, margin, padding, text-align, color) */
+
 }
 /* Estilos para el modal */
 .modal-content {
@@ -1260,4 +1324,57 @@ footer {
 .combo-temporal {
   width: 300px; /* Ancho fijo */
   margin: 0 10px; /* Espacio a los lados */
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #000000;
+  color: var(--color-blanco);
+}
+
+.footer-bottom {
+  border-top: 1px solid #444; /* Línea fina como separador */
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.footer-links-list a {
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+}
+@media (max-width: 768px) {
+  footer {
+      text-align: left; /* Alinea el texto a la izquierda en pantallas pequeñas */
+  }
+}
+/* Estilos generales del footer */
+footer {
+  text-align: center; /* Centrado por defecto */
+  padding: 20px;
+  background-color: #000000;
+  color: var(--color-blanco);
+  font-size: 16px; /* Aumenta el tamaño de la letra (ajusta según necesites) */
+}
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 20px; /* Aumenta el espacio encima de la línea */
+  margin-top: 20px; /* Aumenta el espacio debajo de la línea */
+  padding-bottom: 20px; /* Aumenta el espacio entre el texto y el final de la página */
+}
+
+.footer-links-list a {
+  text-decoration: none;
+}
+
+/* Media query para vista móvil */
+@media (max-width: 768px) {
+  footer {
+      text-align: left; /* Alinea el texto a la izquierda en pantallas pequeñas */
+      font-size: 14px; /* Opcional: Ajusta el tamaño de la letra en móvil si es necesario */
+  }
+  .footer-bottom {
+      padding-top: 15px; /* Ajusta el espacio en móvil si es necesario */
+      margin-top: 15px;
+      padding-bottom: 15px;
+  }
 }
