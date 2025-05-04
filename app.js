@@ -1212,7 +1212,7 @@ const productos = [
 ];
 // Combos temporales (justo después de la lista de productos existente)
 const combosTemporales = [
-  {
+ /* {
     id: 10012,
     nombre: "Combo Adulto Mayor",
     precio: 34.99,
@@ -1247,7 +1247,7 @@ const combosTemporales = [
     descuento: 0,
     tiempoLimite: 24,
     municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13 ]
-  }
+  }*/
 ];
 
 // Agregar al final del array de productos (busca: const productos = [...])

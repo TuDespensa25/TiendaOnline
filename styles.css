@@ -1346,35 +1346,66 @@ footer {
       text-align: left; /* Alinea el texto a la izquierda en pantallas pequeñas */
   }
 }
-/* Estilos generales del footer */
-footer {
-  text-align: center; /* Centrado por defecto */
-  padding: 20px;
-  background-color: #000000;
-  color: var(--color-blanco);
-  font-size: 16px; /* Aumenta el tamaño de la letra (ajusta según necesites) */
+.boton-flotante-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; /* Tamaño del ícono reducido */
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sutil sombra */
+  transition: all 0.2s ease-in-out; /* Transición suave */
 }
 
-.footer-bottom {
-  border-top: 1px solid #444;
-  padding-top: 20px; /* Aumenta el espacio encima de la línea */
-  margin-top: 20px; /* Aumenta el espacio debajo de la línea */
-  padding-bottom: 20px; /* Aumenta el espacio entre el texto y el final de la página */
+.boton-flotante-carrito {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; /* Tamaño del ícono reducido */
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
 }
 
-.footer-links-list a {
+.boton-flotante-whatsapp:hover,
+.boton-flotante-carrito:hover {
+  transform: scale(1.05); /* Ligeramente más grande al pasar el mouse */
+  opacity: 0.9;
+}
+
+.boton-flotante-whatsapp a,
+.boton-flotante-carrito a {
+  color: white;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
-/* Media query para vista móvil */
-@media (max-width: 768px) {
-  footer {
-      text-align: left; /* Alinea el texto a la izquierda en pantallas pequeñas */
-      font-size: 14px; /* Opcional: Ajusta el tamaño de la letra en móvil si es necesario */
-  }
-  .footer-bottom {
-      padding-top: 15px; /* Ajusta el espacio en móvil si es necesario */
-      margin-top: 15px;
-      padding-bottom: 15px;
-  }
+.boton-flotante-carrito .contador-carrito {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff4081; /* Un rosa llamativo */
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 12px;
 }
