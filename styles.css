@@ -1484,23 +1484,28 @@ footer {
   text-align: center;
 }
 
+/* Estilo general (escritorio y tablet) */
 .banner-btn {
   position: absolute;
-  bottom: 20px; /* Parte inferior */
-  left: 50%;    /* Centrado horizontalmente */
+  bottom: 20px;
+  left: 50%;
   transform: translateX(-50%);
   background-color: #ff6600;
   color: #fff;
-  padding: 24px 48px;
+  padding: 14px 28px;
   border: none;
   border-radius: 8px;
   text-decoration: none;
-  font-size: 1.25rem; /* ← aquí agrandamos la letra */
-  font-weight: bold;  /* opcional: para que se vea más clara y fuerte */
+  font-size: 1.25rem; /* grande en escritorio */
+  font-weight: bold;
   transition: background-color 0.3s ease;
   z-index: 2;
 }
 
-.banner-btn:hover {
-  background-color: #ecb692;
+/* Estilo solo para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .banner-btn {
+    font-size: 1rem; /* más pequeño en móvil */
+    padding: 10px 20px;
+  }
 }
