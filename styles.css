@@ -1474,3 +1474,33 @@ footer {
 .dot.active {
   background-color: #333;
 }
+.banner-slide {
+  position: relative;
+  text-align: center;
+}
+
+.banner-slide {
+  position: relative;
+  text-align: center;
+}
+
+.banner-btn {
+  position: absolute;
+  bottom: 20px; /* Parte inferior */
+  left: 50%;    /* Centrado horizontalmente */
+  transform: translateX(-50%);
+  background-color: #ff6600;
+  color: #fff;
+  padding: 24px 48px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.25rem; /* ← aquí agrandamos la letra */
+  font-weight: bold;  /* opcional: para que se vea más clara y fuerte */
+  transition: background-color 0.3s ease;
+  z-index: 2;
+}
+
+.banner-btn:hover {
+  background-color: #ecb692;
+}
