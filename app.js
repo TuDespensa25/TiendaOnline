@@ -1912,7 +1912,40 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
 // Inicializar las secciones
+let currentSlide = 0;
+const slides = document.querySelectorAll(".banner-slide");
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    dots[i].classList.remove("active");
+    if (i === index) {
+      slide.classList.add("active");
+      dots[i].classList.add("active");
+    }
+  });
+}
+
+function changeSlide(step) {
+  currentSlide = (currentSlide + step + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+function goToSlide(index) {
+  currentSlide = index;
+  showSlide(currentSlide);
+}
+
+setInterval(() => {
+  changeSlide(1);
+}, 10000);
+
+// Inicializar
+showSlide(currentSlide);
+
 renderizarCombosTemporales(); 
 renderizarOfertas();
 renderizarProductosRecientes();
