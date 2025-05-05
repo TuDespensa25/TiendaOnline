@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda Online - TuDespensa.25</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- Font Awesome para iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -17,7 +16,6 @@
       <div class="logo">
         <a href="index.html">
           <!-- Aquí va tu logo si lo tienes -->
-        
         </a>
       </div>
       <nav class="main-nav" id="main-nav">
@@ -38,8 +36,6 @@
       </div>
     </div>
   </header>
-  
-  
   
   <div class="banner-container">
     <div class="banner-slide active">
@@ -70,12 +66,8 @@
       </picture>
       <a href="#productos" class="banner-btn">Comprar Ahora</a>
     </div>
-  </div>
-    <!-- Flechas -->
     <a class="banner-prev" onclick="changeSlide(-1)">❮</a>
     <a class="banner-next" onclick="changeSlide(1)">❯</a>
-  
-    <!-- Indicadores -->
     <div class="banner-indicators">
       <span class="dot active" onclick="goToSlide(0)"></span>
       <span class="dot" onclick="goToSlide(1)"></span>
@@ -84,85 +76,88 @@
     </div>
   </div>
   
-  
-   
-    
-    <section id="sobre-mi">
+  <section id="sobre-mi">
+    <div class="seccion-titulo">
       <h2>Bienvenidos Somos TuDespensa.25</h2>
-      <p>Donde nuestro objetivo es que usted alcance su máxima satisfacción y la de su familia.</p>
-      <div class="cajas-informativas">
-          <div class="caja">
-              <i class="fas fa-certificate icono"></i>  <h3>Calidad Garantizada</h3>
-              <p>Ofrecemos productos de alta calidad con los mejores materiales y fabricación.</p>
-          </div>
-          <div class="caja">
-              <i class="fas fa-shipping-fast icono"></i> <h3>Envíos Rápidos</h3>
-              <p>Entregamos en tiempo récord, asegurando que tu pedido llegue sin demoras.</p>
-          </div>
-          <div class="caja">
-              <i class="fas fa-headset icono"></i>     <h3>Atención Personalizada</h3>
-              <p>Brindamos soporte y atención al cliente para resolver cualquier duda o inquietud.</p>
-          </div>
+    </div>
+    <p>Donde nuestro objetivo es que usted alcance su máxima satisfacción y la de su familia.</p>
+    <div class="cajas-informativas">
+      <div class="caja">
+        <i class="fas fa-certificate icono"></i>
+        <h3>Calidad Garantizada</h3>
+        <p>Ofrecemos productos de alta calidad con los mejores materiales y fabricación.</p>
       </div>
+      <div class="caja">
+        <i class="fas fa-shipping-fast icono"></i>
+        <h3>Envíos Rápidos</h3>
+        <p>Entregamos en tiempo récord, asegurando que tu pedido llegue sin demoras.</p>
+      </div>
+      <div class="caja">
+        <i class="fas fa-headset icono"></i>
+        <h3>Atención Personalizada</h3>
+        <p>Brindamos soporte y atención al cliente para resolver cualquier duda o inquietud.</p>
+      </div>
+    </div>
   </section>
-    <!-- Sección de Combos Temporales -->
-<section id="combos-temporales" class="combos-container">
-  <h2 class="combos-title">Combos Temporales 🎁</h2>
-  <p class="combos-description">Descubre nuestras ofertas especiales por tiempo limitado.</p>
-  <div class="productos-recientes-container" id="combos-temporales-container"></div>
-</section>
 
-    <!--<section id="info-servicios">
-      <h2>Nuestros Servicios</h2>
-      <p>
-        Además de ofrecer productos de calidad, brindamos servicios especializados para satisfacer tus necesidades.
-        Consulta nuestras opciones de consultoría, instalación y mantenimiento.
-      </p>
-    </section>-->
-    
-    <section id="ofertas">
-      <h2>🔥 Ofertas 🔥</h2>
-      <div class="ofertas-container"></div>
-    </section>
-    <section id="productos-recientes">
-      <h2>Productos de Recién incorporación</h2>
-      <div class="productos-recientes-container">
-        </div>
-    </section>
-    
-    <section id="productos">
-      <h2>Nuestros Productos</h2>
-      <div class="filtros">
-        <button class="filtro-btn active" data-categoria="todas">Todas</button>
-        <button class="filtro-btn De-Electrodom-sticos" data-categoria="De Electrodomésticos">De Electrodomésticos</button>
-        <button class="filtro-btn Alimentos-C-rnicos" data-categoria="Alimentos/Cárnicos">Alimentos/Cárnicos</button>
-        <button class="filtro-btn Alimentos-L-cteos" data-categoria="Alimentos/Lácteos">Alimentos/Lácteos</button>
-        <button class="filtro-btn Alimentos-L-quidos" data-categoria="Alimentos/Líquidos">Alimentos/Líquidos</button>
-        <button class="filtro-btn Alimentos-Del-Confi" data-categoria="Alimentos/Del Confi">Alimentos/Del Confi</button>
-        <button class="filtro-btn Alimentos-Del-Agro" data-categoria="Alimentos/Del Agro">Alimentos/Del Agro</button>
-        <button class="filtro-btn Alimentos-Otros" data-categoria="Alimentos/Otros">Alimentos/Otros</button>
-        <button class="filtro-btn Del-Hogar" data-categoria="Del Hogar">Del Hogar</button>
-        <!--<button class="filtro-btn Servicios" data-categoria="Servicios">Servicios</button>-->
-      </div>
-      <div class="productos-container" id="productos-container"></div>
-      <div class="descripcion-flotante"></div>
-    </section>
-  </main>
+  <section id="combos-temporales" class="combos-container">
+    <div class="seccion-titulo">
+      <h2>Combos Temporales </h2>
+    </div>
+    <p class="combos-description">Descubre nuestras ofertas especiales por tiempo limitado.</p>
+    <div class="productos-recientes-container" id="combos-temporales-container"></div>
+  </section>
+
+  <section id="ofertas">
+    <div class="seccion-titulo">
+      <h2>OFERTAS ESPECIALES</h2>
+    </div>
+    <div class="ofertas-container"></div>
+  </section>
   
+  <section id="productos-recientes">
+    <div class="seccion-titulo">
+      <h2>Productos de Recién incorporación</h2>
+    </div>
+    <div class="productos-recientes-container"></div>
+  </section>
+
+  <section id="productos">
+    <div class="seccion-titulo">
+      <h2>Nuestros Productos</h2>
+    </div>
+    <div class="filtros">
+      <button class="filtro-btn active" data-categoria="todas">Todas</button>
+      <button class="filtro-btn De-Electrodom-sticos" data-categoria="De Electrodomésticos">De Electrodomésticos</button>
+      <button class="filtro-btn Alimentos-C-rnicos" data-categoria="Alimentos/Cárnicos">Alimentos/Cárnicos</button>
+      <button class="filtro-btn Alimentos-L-cteos" data-categoria="Alimentos/Lácteos">Alimentos/Lácteos</button>
+      <button class="filtro-btn Alimentos-L-quidos" data-categoria="Alimentos/Líquidos">Alimentos/Líquidos</button>
+      <button class="filtro-btn Alimentos-Del-Confi" data-categoria="Alimentos/Del Confi">Alimentos/Del Confi</button>
+      <button class="filtro-btn Alimentos-Del-Agro" data-categoria="Alimentos/Del Agro">Alimentos/Del Agro</button>
+      <button class="filtro-btn Alimentos-Otros" data-categoria="Alimentos/Otros">Alimentos/Otros</button>
+      <button class="filtro-btn Del-Hogar" data-categoria="Del Hogar">Del Hogar</button>
+    </div>
+    <div class="productos-container" id="productos-container"></div>
+    <div class="descripcion-flotante"></div>
+  </section>
+
   <div class="boton-flotante-whatsapp">
     <a href="https://wa.me/5353933247" target="_blank">
       <i class="fab fa-whatsapp"></i>
     </a>
   </div>
-  
+
   <div class="boton-flotante-carrito">
     <a href="cart.html">
       <i class="fas fa-shopping-cart"></i>
       <span id="contador-carrito-flotante" class="contador-carrito">0</span>
     </a>
   </div>
+
   <section id="testimonios">
-    <h2>Lo que dicen nuestros clientes</h2>
+    <div class="seccion-titulo">
+      <h2>Lo que dicen nuestros clientes</h2>
+    </div>
     <div class="testimonios-container">
       <div class="testimonio">
         <p class="comentario">"Excelente servicio, los productos llegaron en perfecto estado y a tiempo."</p>
@@ -178,59 +173,55 @@
       </div>
     </div>
   </section>
-  
-  
+
   <footer>
     <div class="footer-container">
-        <div class="footer-grid">
-            <div class="footer-about">
-                <h3>TuDespensa.25</h3>
-                <p class="text-gray-400">Tu mercado digital de confianza con los mejores productos y ofertas.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Enlaces Rápidos</h4>
-                <ul class="footer-links-list">
-                    <li><a href="#inicio" class="text-gray-400 hover:text-white">Inicio</a></li>
-                    <li><a href="#sobre-mi" class="text-gray-400 hover:text-white">Sobre Mí</a></li>
-                    <li><a href="#testimonios" class="text-gray-400 hover:text-white">Testimonios</a></li>
-                    <li><a href="#productos" class="text-gray-400 hover:text-white">Productos</a></li>
-                    <li><a href="#ofertas" class="text-gray-400 hover:text-white">Ofertas</a></li>
-                    <li><a href="#productos-recientes" class="text-gray-400 hover:text-white">Nuevo</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>Contacto</h4>
-                <div class="footer-contact-info">
-                    <p><i class="fas fa-phone mr-2"></i> +5353933247</p>
-                   
-                   
-                </div>
-            </div>
-            <div class="footer-social">
-                <h4>Síguenos</h4>
-                <div class="footer-social-icons">
-                    <a href="https://www.facebook.com/tuDespensa.25" target="_blank" class="text-gray-400 hover:text-white text-xl">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://www.instagram.com/tuDespensa.25" target="_blank" class="text-gray-400 hover:text-white text-xl">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://wa.me/5353933247" target="_blank" class="text-gray-400 hover:text-white text-xl">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    
-                </div>
-            </div>
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>TuDespensa.25</h3>
+          <p class="text-gray-400">Tu mercado digital de confianza con los mejores productos y ofertas.</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 TuDespensa.25. Todos los derechos reservados.</p>
+        <div class="footer-links">
+          <h4>Enlaces Rápidos</h4>
+          <ul class="footer-links-list">
+            <li><a href="#inicio" class="text-gray-400 hover:text-white">Inicio</a></li>
+            <li><a href="#sobre-mi" class="text-gray-400 hover:text-white">Sobre Mí</a></li>
+            <li><a href="#testimonios" class="text-gray-400 hover:text-white">Testimonios</a></li>
+            <li><a href="#productos" class="text-gray-400 hover:text-white">Productos</a></li>
+            <li><a href="#ofertas" class="text-gray-400 hover:text-white">Ofertas</a></li>
+            <li><a href="#productos-recientes" class="text-gray-400 hover:text-white">Nuevo</a></li>
+          </ul>
         </div>
+        <div class="footer-contact">
+          <h4>Contacto</h4>
+          <div class="footer-contact-info">
+            <p><i class="fas fa-phone mr-2"></i> +5353933247</p>
+          </div>
+        </div>
+        <div class="footer-social">
+          <h4>Síguenos</h4>
+          <div class="footer-social-icons">
+            <a href="https://www.facebook.com/tuDespensa.25" target="_blank" class="text-gray-400 hover:text-white text-xl">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/tuDespensa.25" target="_blank" class="text-gray-400 hover:text-white text-xl">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/5353933247" target="_blank" class="text-gray-400 hover:text-white text-xl">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 TuDespensa.25. Todos los derechos reservados.</p>
+      </div>
     </div>
-</footer>
-  
+  </footer>
+
   <script src="app.js" defer></script>
   <script src="script.js"></script>
-  <!-- Modal para mostrar la descripción del producto -->
+
   <div id="modal-descripcion" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -238,7 +229,5 @@
       <p class="modal-descripcion"></p>
     </div>
   </div>
-  
-  
 </body>
 </html>

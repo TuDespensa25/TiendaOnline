@@ -309,23 +309,67 @@ section {
 }
 
 
-/* Sección Ofertas */
+/* Estilo sobrio para la sección de ofertas */
 #ofertas {
   text-align: center;
+  padding: 40px 0;
 }
 
-#ofertas h2 {
-  margin-bottom: 25px;
-  font-size: 2.8rem;
-  color: #39e8e8;
+#ofertas .seccion-titulo {
+  margin-bottom: 30px;
+}
+
+#ofertas .seccion-titulo h2 {
+  font-size: 2rem;
+  color: #000000; /* Texto negro */
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0 40px;
   position: relative;
   display: inline-block;
-  animation: brillo 2s ease-in-out infinite;
 }
 
-@keyframes brillo {
-  0%, 100% { text-shadow: 0 0 10px rgba(120, 97, 206, 0.7); }
-  50% { text-shadow: 0 0 20px rgba(255,215,0,0.9), 0 0 30px rgba(255,215,0,0.5); }
+#ofertas .seccion-titulo h2::before,
+#ofertas .seccion-titulo h2::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 80px;
+  height: 1px;
+  background-color: #000000; /* Líneas negras */
+  transform: translateY(-50%);
+}
+
+#ofertas .seccion-titulo h2::before {
+  left: -90px;
+}
+
+#ofertas .seccion-titulo h2::after {
+  right: -90px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  #ofertas .seccion-titulo h2 {
+    font-size: 1.6rem;
+    padding: 0 25px;
+  }
+  
+  #ofertas .seccion-titulo h2::before,
+  #ofertas .seccion-titulo h2::after {
+    width: 40px;
+  }
+  
+  #ofertas .seccion-titulo h2::before {
+    left: -45px;
+  }
+  
+  #ofertas .seccion-titulo h2::after {
+    right: -45px;
+  }
 }
 /* Estilos para el contenedor de productos */
 .productos-container {
