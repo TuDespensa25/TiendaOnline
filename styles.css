@@ -1505,6 +1505,9 @@ footer {
 /* Estilo solo para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
   .banner-btn {
+    left: 10px;
+    bottom: 10px;
+    transform: none; /* quitar centrado */
     font-size: 1rem; /* más pequeño en móvil */
     padding: 8px 16px;
   }
