@@ -1942,6 +1942,10 @@ function goToSlide(index) {
 setInterval(() => {
   changeSlide(1);
 }, 10000);
+function toggleMenu() {
+  const nav = document.getElementById("main-nav");
+  nav.classList.toggle("active");
+}
 
 // Inicializar
 showSlide(currentSlide);

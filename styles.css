@@ -1512,3 +1512,61 @@ footer {
     padding: 8px 16px;
   }
 }
+/* Estilos generales del botón hamburguesa */
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+/* Asegura que el nav no se oculte en escritorio */
+.main-nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para menú oculto */
+.main-nav {
+  display: none;
+}
+
+.main-nav.active {
+  display: block;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background: white;
+  padding: 20px;
+  z-index: 999;
+}
+
+/* En escritorio, mostramos siempre el nav */
+@media screen and (min-width: 1024px) {
+  .main-nav {
+    display: block !important;
+    position: static;
+    background: none;
+    padding: 0;
+  }
+
+  .main-nav ul {
+    flex-direction: row;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
