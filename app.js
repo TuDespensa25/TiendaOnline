@@ -1212,20 +1212,20 @@ const productos = [
 ];
 // Combos temporales (justo después de la lista de productos existente)
 const combosTemporales = [
- /* {
-    id: 10012,
-    nombre: "Combo Adulto Mayor",
-    precio: 34.99,
-    imagen: "combo1.png",
-    description: "Incluye 12 Jugos de 200 ml, 10 jabones de baño, 3 Gelatinas, 5 Fideos, 6 Malta, 2 lecshes Condensada",
+  {
+    id: 20012,
+    nombre: "Combo Para Mamá 1",
+    precio: 41.99,
+    imagen: "combo1m.png",
+    description: "Incluye 2 Bottelas de 1 L de aceite, 800 gr de Pasta de  Tomate, 5 spaguetis, 1 Garbanzo Goya, Bolsa de 5 lb de Frijol Negro,1 Mayonesa Celorio, Bolsa de 1 kg de Leche en Polvo, 2 Latas de Leche Condensada ",
     categoria: "Combos Temporales",
     reciente: 0,
     
-    tiempoLimite: 24, // Horas de duración
+    tiempoLimite: 72, // Horas de duración
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
   },
   {
-    id: 10022,
+    id: 20022,
     nombre: "Combo De Granos",
     precio: 16.50,
     imagen: "combo2.png",
@@ -1233,21 +1233,107 @@ const combosTemporales = [
     categoria: "Combos Temporales",
     
     descuento: 0,
-    tiempoLimite: 24,
+    tiempoLimite: 72,
     municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13 ]
   },
   {
-    id: 10032,
-    nombre: "Combo Sorpresa",
-    precio: 10,
-    imagen: "combo1madre.png",
-    description: "Incluye 3 Kg de Arroz Brasileño, 5 Lb de Frijol  Colorados ",
+    id: 20032,
+    nombre: "Combo Para Mamá 2",
+    precio: 17.50,
+    imagen: "combo2m.png",
+    description: "Incluye Caja de 4 Lt de Helado, 2 Latas de leche condensada, 6 Maltas Morena,  ",
     categoria: "Combos Temporales",
     
     descuento: 0,
-    tiempoLimite: 24,
-    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13 ]
-  }*/
+    tiempoLimite: 72,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+  },
+  {
+    id: 20042,
+    nombre: "Combo Para Mamá 3",
+    precio: 21,
+    imagen: "combo3m.png",
+    description: "Incluye Galletas saladitas (6 paquetes), 6 Latas de jugo Multifrutas, 1 Lata de leche condensada, 6 Malta Morenas, 1 paquete de 50 Bombones.   ",
+    categoria: "Combos Temporales",
+    
+    descuento: 0,
+    tiempoLimite: 72,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+  },
+  {
+    id: 20052,
+    nombre: "Combo Para Mamá 4",
+    precio: 34.50,
+    imagen: "combo4m.png",
+    description: "Incluye 1 Paquete de pollo de 10 lb, 1 paquete de pechuga de 2 kg, 2 paquetes de salchichas, 2 paquetes de hamburguesas de 5 unidades.   ",
+    categoria: "Combos Temporales",
+    
+    descuento: 0,
+    tiempoLimite: 72,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+  },
+  {
+    id: 20062,
+    nombre: "Combo Para Mamá 5",
+    precio: 20,
+    imagen: "combo5m.png",
+    description: "Incluye 6 compotas, 6 latas de jugo multifrutas, 1 mantequilla de maní, 2 Tubos de galleta María, 3 Papitas Classic Mixtas.   ",
+    categoria: "Combos Temporales",
+    
+    descuento: 0,
+    tiempoLimite: 72,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+  },
+  {
+    id: 20072,
+    nombre: "Combo Para Mamá 6",
+    precio: 17.99,
+    imagen: "combo6m.png",
+    description: "Incluye 1 Pomo de Ajo triturado badia, 1 zumo de limón badia , 1 zumo de naranja badia, 2 botellas de aceite de 1 L, caja de 20 sazones Tropical.   ",
+    categoria: "Combos Temporales",
+    
+    descuento: 0,
+    tiempoLimite: 72,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+  },
+  {
+    id: 20082,
+    nombre: "Combo Para Mamá 7",
+    precio: 20.99,
+    imagen: "combo7m.png",
+    description: "Incluye 5 paquetes de spahgetti, 1 lata de 800 gr de pasta de tomate, 1 pomo de queso parmesano, 1 mayonesa celorio de 500 gr  ",
+    categoria: "Combos Temporales",
+    
+    descuento: 0,
+    tiempoLimite: 72,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+  },
+  {
+    id: 20092,
+    nombre: "Combo Para Mamá 8",
+    precio: 9.20,
+    imagen: "combo8m.png",
+    description: "Incluye 1 paquete de chicharos verde de 16 oz, 1 paquete de alubias de 16 oz, 1 paquete de frijol negro de 1 kg, 1 paquete de garbanzos de 16 oz, 1 bolsa de 1kg de frijol colorado  ",
+    categoria: "Combos Temporales",
+    
+    descuento: 0,
+    tiempoLimite: 72,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+  },
+  {
+    id: 20102,
+    nombre: "Combo Para Mamá 9",
+    precio: 9.20,
+    imagen: "combo9m.png",
+    description: "Incluye 1 paquete galletas marias (bolsa de 12 paqueticos, 6 Jugos de pera de 200 ml, 6 compotas, 3 papitas clasicc) ",
+    categoria: "Combos Temporales",
+    
+    descuento: 0,
+    tiempoLimite: 72,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+  },
+
+
 ];
 
 // Agregar al final del array de productos (busca: const productos = [...])
@@ -1964,4 +2050,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!municipioGuardado && !isCartPage) {
     mostrarModalProvincias();
   }
+});
+document.querySelector(".close-button").addEventListener("click", () => {
+  document.querySelector(".product-details-container").classList.remove("show");
 });
