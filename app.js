@@ -29,7 +29,26 @@ const ubicaciones = {
         "Consolación": 13,
       }
     },
-  },
+    "La Habana": {
+  id: 3,
+  municipios: {
+    "Playa": 14,
+    "La Lisa": 15,
+    "Marianao": 16,
+    "Boyeros": 17,
+    "Cerro": 18,
+    "Plaza de la Revolución": 19,
+    "Centro Habana": 20,
+    "La Habana Vieja": 21,
+    "Diez de Octubre": 22,
+    "Arroyo Naranjo": 23,
+    "San Miguel del Padrón": 24,
+    "Habana del Este": 25,
+    "Guanabacoa": 26,
+    "Regla": 27
+  }
+},
+},
   provinciaSeleccionada: null,
   municipioSeleccionado: null
 };
@@ -151,7 +170,7 @@ const productos = [
     description: "Bolsa de 1 Kg ",
     categoria: "Alimentos/Cárnicos",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ]
   },
   {
     id: 2,
@@ -162,7 +181,9 @@ const productos = [
     categoria: "Alimentos/Cárnicos",
      reciente: 0,
      descuento: 10,
-     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, 
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+     ]
   },
   {
     id: 75,
@@ -173,7 +194,9 @@ const productos = [
     categoria: "Alimentos/Cárnicos",
     
      descuento: 10,
-     municipios: [1, 2, 3, 12, 13]
+     municipios: [1, 2, 3, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+     ]
   },
   {
     id: 3,
@@ -182,7 +205,9 @@ const productos = [
     imagen: "pollopqte.png",
     description: "paquete de 10 lb de muslo y contra muslo",
     categoria: "Alimentos/Cárnicos",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 77,
@@ -191,18 +216,22 @@ const productos = [
     imagen: "pollopqte.png",
     description: "paquete de 11 lb de muslo y contra muslo",
     categoria: "Alimentos/Cárnicos",
-    municipios: [1, 2, 3, 12, 13]
+    municipios: [1, 2, 3, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
-  {
-    id: 4,
-    nombre: "Lomo de cerdo deshuesado",
-    precio: 12,
-    imagen: "lomo.png",
-    description: "Lomo de cerdo Importado sellado en bolsa de 3 lb ",
-    categoria: "Alimentos/Cárnicos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-
-  },
+{
+  id: 4,
+  nombre: "Lomo de cerdo deshuesado",
+  precio: 12,
+  imagen: "lomo.png",
+  description: "Lomo de cerdo Importado sellado en bolsa de 3 lb",
+  categoria: "Alimentos/Cárnicos",
+  municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, // Artemisa
+    12, 13,                           // Pinar del Río
+    14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 // La Habana
+  ]
+},
   {
     id: 92,
     nombre: "Muslo de pollo ahumado ",
@@ -211,7 +240,7 @@ const productos = [
     description: "Bolsa de 3 Lb ",
     categoria: "Alimentos/Cárnicos",
     reciente: 1,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
 
   },
   {
@@ -222,7 +251,9 @@ const productos = [
     description: "Bolsa de 5 Lb ",
     categoria: "Alimentos/Cárnicos",
     reciente  : 1,
-    municipios: [1, 2, 3,  12, 13]
+    municipios: [1, 2, 3,  12, 13, 
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
 
   },
 
@@ -249,7 +280,9 @@ const productos = [
     imagen: "vicky.png",
     description: "Porción de 3  lb sellado al vacio ",
     categoria: "Alimentos/Cárnicos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
  /* {
     id: 9,
@@ -277,7 +310,9 @@ const productos = [
     imagen: "pechuga.png",
     description: "Paquete de 2 kg",
     categoria: "Alimentos/Cárnicos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
  /* {
     id: 12,
@@ -295,7 +330,9 @@ const productos = [
     imagen: "picadillo.png",
     description: "unidad de 400 gr",
     categoria: "Alimentos/Cárnicos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 14,
@@ -304,7 +341,9 @@ const productos = [
     imagen: "perritos.png",
     description: "paquete de 12 unidades",
     categoria: "Alimentos/Cárnicos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   /*{
     id: 15,
@@ -321,7 +360,9 @@ const productos = [
     imagen: "atun.png",
     description: "Lata de 1 Kg en aceite",
     categoria: "Alimentos/Cárnicos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 101,
@@ -330,7 +371,7 @@ const productos = [
     imagen: "hamburguesas.png",
     description: "Bolsa de 5 Hamburguesas de 90 gr cada una", 
     categoria: "Alimentos/Cárnicos",
-    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
   },
   // Alimentos/Líquidos
   {
@@ -340,7 +381,9 @@ const productos = [
     imagen: "cristal.png",
     description: "Caja de 24 uds",
     categoria: "Alimentos/Líquidos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 18,
@@ -349,7 +392,9 @@ const productos = [
     imagen: "bucanero.png",
     description: "Caja de 24 uds",
     categoria: "Alimentos/Líquidos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 19,
@@ -358,7 +403,9 @@ const productos = [
     imagen: "timber.png",
     description: "Caja de 24 uds",
     categoria: "Alimentos/Líquidos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
  /* {
     id: 20,
@@ -394,7 +441,9 @@ const productos = [
     imagen: "guajira.svg",
     description: "Blister de 6 uds de 500 ml",
     categoria: "Alimentos/Líquidos",
-    municipios: [1, 2, 3,  12, 13]
+    municipios: [1, 2, 3,  12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 24,
@@ -403,7 +452,9 @@ const productos = [
     imagen: "200ml.png",
     description: "Caja de 24 uds de 200 ml",
     categoria: "Alimentos/Líquidos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 25,
@@ -412,7 +463,9 @@ const productos = [
     imagen: "naranja.png",
     description: "Jugo La estancia Sabor Naranja 1 L",
     categoria: "Alimentos/Líquidos",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 26,
@@ -421,7 +474,9 @@ const productos = [
     imagen: "multifrutas.png",
     description: "Blister de 6 uds 330 ml Multifrutas de lata",
     categoria: "Alimentos/Líquidos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 27,
@@ -430,7 +485,9 @@ const productos = [
     imagen: "morena.png",
     description: "Caja de 24 uds",
     categoria: "Alimentos/Líquidos",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 28,
@@ -439,7 +496,9 @@ const productos = [
     imagen: "refrescolata.png",
     description: "Lata 330 ml",
     categoria: "Alimentos/Líquidos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 202,
@@ -449,7 +508,9 @@ const productos = [
     description: "Caja de 8 sobres",
     categoria: "Alimentos/Líquidos",
    
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 29,
@@ -458,7 +519,9 @@ const productos = [
     imagen: "1.5lt.png",
     description: "Pomo de 2 Lt",
     categoria: "Alimentos/Líquidos",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11],
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ],
   },
   {
     id: 30,
@@ -467,7 +530,9 @@ const productos = [
     imagen: "aroma.png",
     description: "Paquete de 250 gr",
     categoria: "Alimentos/Líquidos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 76,
@@ -476,7 +541,9 @@ const productos = [
     imagen: "cafenezka.png",
     description: "Paquete de 250 gr",
     categoria: "Alimentos/Líquidos",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ],
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, 
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ],
     
   },
   // Alimentos/Otros
@@ -488,7 +555,9 @@ const productos = [
     description: "Pomo de 8 OZ ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 79,
@@ -498,7 +567,9 @@ const productos = [
     description: "Pomo de 10 OZ ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 80,
@@ -508,7 +579,9 @@ const productos = [
     description: "Pomo de 10 OZ ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 81,
@@ -518,7 +591,9 @@ const productos = [
     description: "Pomo de 10 OZ ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 82,
@@ -528,7 +603,9 @@ const productos = [
     description: "Bolsa de 16 OZ ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 83,
@@ -538,7 +615,9 @@ const productos = [
     description: "Bolsa de 16 OZ ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 84,
@@ -548,7 +627,9 @@ const productos = [
     description: "Bolsa de 14 OZ ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 85,
@@ -558,7 +639,9 @@ const productos = [
     description: "Bolsa de 14 OZ ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 86,
@@ -568,7 +651,9 @@ const productos = [
     description: "Pomo de 16 OZ ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 87,
@@ -578,7 +663,9 @@ const productos = [
     description: "Pomo de 1 L ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 88,
@@ -588,7 +675,9 @@ const productos = [
     description: "Pomito de 4 Oz ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 89,
@@ -598,7 +687,9 @@ const productos = [
     description: " Pomo de 16 Oz ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 90,
@@ -608,7 +699,9 @@ const productos = [
     description: "Cajita de 20 Uds Ideal para carnes  ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 91,
@@ -618,7 +711,9 @@ const productos = [
     description: "Cajita de 20 Uds Ideal para Arroces y Cardos  ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
 
   {
@@ -628,7 +723,9 @@ const productos = [
     imagen: "800gr.png",
     description: "Pasta doble concentrado 800 gr",
     categoria: "Alimentos/Otros",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 32,
@@ -637,7 +734,9 @@ const productos = [
     imagen: "garbanzos.png",
     description: "Pomo de 540 gr",
     categoria: "Alimentos/Otros",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,] 
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ] 
   },
   {
     id: 33,
@@ -647,7 +746,9 @@ const productos = [
     description: "Pomo de 450 gr",
     categoria: "Alimentos/Otros",
     reciente:0,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 34,
@@ -657,7 +758,9 @@ const productos = [
     description: "Pomo de 250 gr",
     categoria: "Alimentos/Otros",
    
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 35,
@@ -666,7 +769,9 @@ const productos = [
     imagen: "spaguetis.png",
     description: "Bolsa de 500 gr",
     categoria: "Alimentos/Otros",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 36,
@@ -675,7 +780,9 @@ const productos = [
     imagen: "codito.png",
     description: "Bolsa de 500 gr",
     categoria: "Alimentos/Otros",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 37,
@@ -684,8 +791,9 @@ const productos = [
     imagen: "azucar1kg.png",
     description: "bolsa de 1 kg",
     categoria: "Alimentos/Otros",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-  },
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+    },
   {
     id: 38,
     nombre: "Frijol Negro ",
@@ -693,7 +801,9 @@ const productos = [
     imagen: "frijol5lb.png",
     description: "bolsa de 5 Lb",
     categoria: "Alimentos/Otros",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 39,
@@ -702,7 +812,9 @@ const productos = [
     imagen: "frijol1kg.png",
     description: "bolsa de 1 kg",
     categoria: "Alimentos/Otros",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 40,
@@ -711,7 +823,9 @@ const productos = [
     imagen: "colorados5lb.png",
     description: "bolsa de 5 Lb",
     categoria: "Alimentos/Otros",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 41,
@@ -720,7 +834,9 @@ const productos = [
     imagen: "sal.png",
     description: "bolsa de 1 Lb",
     categoria: "Alimentos/Otros",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 42,
@@ -729,7 +845,9 @@ const productos = [
     imagen: "arroz1kg.png",
     description: "bolsa de 1 kg",
     categoria: "Alimentos/Otros",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 43,
@@ -738,7 +856,9 @@ const productos = [
     imagen: "fideos.png",
     description: "bolsa de 500 gr",
     categoria: "Alimentos/Otros",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
  {
     id: 38,
@@ -747,7 +867,9 @@ const productos = [
     imagen: "sopa.png",
     description: "Sabor pollo sobre 75 gr",
     categoria: "Alimentos/Otros",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,],
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ],
    
   },
   {
@@ -757,7 +879,9 @@ const productos = [
     imagen: "zumo.png",
     description: "Botella de 1l",
     categoria: "Alimentos/Otros",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,],
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ],
     
   },
   {
@@ -767,7 +891,9 @@ const productos = [
     imagen: "huevo.png",
     description: "30 uds frescos 100 % orgánicos",
     categoria: "Alimentos/Otros",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 201,
@@ -777,7 +903,9 @@ const productos = [
     description: "Bolsa de gelatina 75 gr ",
     categoria: "Alimentos/Otros",
     
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 74,
@@ -787,7 +915,9 @@ const productos = [
     description: "pomo de 500  gr ",
     categoria: "Alimentos/Otros",
     
-    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, ]
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, 
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   // Lácteos
   /*{
@@ -804,7 +934,10 @@ const productos = [
     precio: 15,
     imagen: "yogurt.png",
     description: "Cubeta de 4L",
-    categoria: "Alimentos/Lácteos"
+    categoria: "Alimentos/Lácteos",
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, 
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
  /* {
     id: 43,
@@ -822,7 +955,9 @@ const productos = [
     description: "Caja de 4L",
     categoria: "Alimentos/Lácteos",
     descuento: 10,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 100,
@@ -831,7 +966,9 @@ const productos = [
     imagen: "lechepolvo.png",
     description: "Bolsa de 1 kg",
     categoria: "Alimentos/Lácteos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 46,
@@ -840,7 +977,9 @@ const productos = [
     imagen: "condensada.png",
     description: "Lata con abre fácil",
     categoria: "Alimentos/Lácteos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
  
   // Del Agro
@@ -851,7 +990,9 @@ const productos = [
     imagen: "ajo.png",
     description: "Bolsa de 10 cabezas",
     categoria: "Alimentos/Del Agro",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 48,
@@ -860,7 +1001,9 @@ const productos = [
     imagen: "malanga.png",
     description: "bolsa de 5 lb",
     categoria: "Alimentos/Del Agro",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 49,
@@ -869,7 +1012,9 @@ const productos = [
     imagen: "cebolla.png",
     description: "bolsa de 2.5 lb aproximadamente ",
     categoria: "Alimentos/Del Agro",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
  /* {
     id: 50,
@@ -905,7 +1050,9 @@ const productos = [
     imagen: "frazada.png",
     description: "2 unidad",
     categoria: "Del Hogar",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 54,
@@ -914,7 +1061,9 @@ const productos = [
     imagen: "4en1.png",
     description: "Pomo de 1 L",
     categoria: "Del Hogar",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 55,
@@ -923,7 +1072,9 @@ const productos = [
     imagen: "detergente.png",
     description: "bolsa de 500 gr",
     categoria: "Del Hogar",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 56,
@@ -932,7 +1083,9 @@ const productos = [
     imagen: "jabon.png",
     description: "por unidades",
     categoria: "Del Hogar",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ],
     descuento : 30, 
   },
   {
@@ -942,7 +1095,9 @@ const productos = [
     imagen: "papel.png",
     description: "bolsa con 4 unidad sellada",
     categoria: "Del Hogar",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 58,
@@ -951,7 +1106,9 @@ const productos = [
     imagen: "perlas.png",
     description: "frasco de 200 gr",
     categoria: "Del Hogar",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 59,
@@ -960,7 +1117,9 @@ const productos = [
     imagen: "suavizante.png",
     description: "Pomo de 1 lt",
     categoria: "Del Hogar",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 60,
@@ -969,7 +1128,9 @@ const productos = [
     imagen: "toallas.png",
     description: "Paquete de 120 udst",
     categoria: "Del Hogar",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 61,
@@ -978,7 +1139,9 @@ const productos = [
     imagen: "pastillas.png",
     description: "4 uds",
     categoria: "Del Hogar",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   // De Electrodomésticos
   {
@@ -989,7 +1152,9 @@ const productos = [
     description: "Ventilador tipo ciclón Milexus",
     categoria: "De Electrodomésticos",
     descuento : 5,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 94,
@@ -999,7 +1164,9 @@ const productos = [
     description: "Caja descodificadora Hd",
     categoria: "De Electrodomésticos",
     descuento : 5,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 95,
@@ -1009,7 +1176,9 @@ const productos = [
     description: "Olla reina de 6L Milexus",
     categoria: "De Electrodomésticos",
     descuento : 20,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 96,
@@ -1019,7 +1188,9 @@ const productos = [
     description: "Olla arrocera de 1,8 l Milexus",
     categoria: "De Electrodomésticos",
     descuento : 18,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 97,
@@ -1029,7 +1200,9 @@ const productos = [
     description: "Olla freidora de aire de 4 l ",
     categoria: "De Electrodomésticos",
     descuento : 10,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 97,
@@ -1039,7 +1212,9 @@ const productos = [
     description: "Fogon milexus de 3 quemadores ",
     categoria: "De Electrodomésticos",
     descuento : 15,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 98,
@@ -1049,7 +1224,9 @@ const productos = [
     description: "Ventilador de 18 pulgadas de pared ",
     categoria: "De Electrodomésticos",
     descuento : 15,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 99,
@@ -1059,7 +1236,9 @@ const productos = [
     description: "Fogon Infrarrojo 2200 W    ",
     categoria: "De Electrodomésticos",
     descuento : 20,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 103,
@@ -1069,7 +1248,9 @@ const productos = [
     description: "Microwave Premier 20 Litro    ",
     categoria: "De Electrodomésticos",
     descuento : 12,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 104,
@@ -1079,7 +1260,9 @@ const productos = [
     description: "Lavadora automatica 8 L    ",
     categoria: "De Electrodomésticos",
     descuento : 12,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 105,
@@ -1089,7 +1272,9 @@ const productos = [
     description: "Lavadora semiautomatica 7 L    ",
     categoria: "De Electrodomésticos",
     descuento : 13,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 106,
@@ -1099,7 +1284,9 @@ const productos = [
     description: "Lavadora semiautomatica 7 L    ",
     categoria: "De Electrodomésticos",
     descuento : 12,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   
   {
@@ -1110,7 +1297,9 @@ const productos = [
     description: "Milexus 1200 btu",
     categoria: "De Electrodomésticos",
     descuento : 7,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 64,
@@ -1120,7 +1309,9 @@ const productos = [
     description: "Milexus 6 pies",
     categoria: "De Electrodomésticos",
     descuento : 5,     
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 65,
@@ -1130,7 +1321,9 @@ const productos = [
     description: "Tv inteligente 32 pulgadas",
     categoria: "De Electrodomésticos",
     descuento : 7,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   /*{
     id: 66,
@@ -1149,7 +1342,9 @@ const productos = [
     descuento : 5,
     description: "Batidora 2 en 1 (+ moledor de sazones)",
     categoria: "De Electrodomésticos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 68,
@@ -1158,7 +1353,9 @@ const productos = [
     imagen: "cafetera.png",
     description: "Cafetera Electrica de 6 tazas",
     categoria: "De Electrodomésticos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   // Del Confi
   {
@@ -1168,7 +1365,7 @@ const productos = [
     imagen: "mariasbaduco.png",
     description: "Tubo de 170 gr",
     categoria: "Alimentos/Del Confi",
-    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,],
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
     reciente: 1, // Marcar como reciente
     
   },
@@ -1179,7 +1376,9 @@ const productos = [
     imagen: "bolitas.png",
     description: "bolsa de 500 gr",
     categoria: "Alimentos/Del Confi",
-    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 71,
@@ -1188,7 +1387,9 @@ const productos = [
     imagen: "conito.png",
     description: "Pomo de conitos 595 gr",
     categoria: "Alimentos/Del Confi",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 72,
@@ -1197,7 +1398,9 @@ const productos = [
     imagen: "saltine.png",
     description: "Cajita de 454 gr",
     categoria: "Alimentos/Del Confi",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 73,
@@ -1206,10 +1409,12 @@ const productos = [
     imagen: "soda.png",
     description: "Paquete de 8 uds",
     categoria: "Alimentos/Del Confi",
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11],
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ],
   },
  
-];
+]; 
 // Combos temporales (justo después de la lista de productos existente)
 const combosTemporales = [
   {
@@ -1222,7 +1427,9 @@ const combosTemporales = [
     reciente: 0,
     
     tiempoLimite: 72, // Horas de duración
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+     ]
   },
   {
     id: 20022,
@@ -1234,7 +1441,9 @@ const combosTemporales = [
     
     descuento: 0,
     tiempoLimite: 72,
-    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13 ]
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+     ]
   },
   {
     id: 20032,
@@ -1246,7 +1455,7 @@ const combosTemporales = [
     
     descuento: 0,
     tiempoLimite: 72,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ]
   },
   {
     id: 20042,
@@ -1258,7 +1467,9 @@ const combosTemporales = [
     
     descuento: 0,
     tiempoLimite: 72,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, 
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
   },
   {
     id: 20052,
@@ -1270,7 +1481,9 @@ const combosTemporales = [
     
     descuento: 0,
     tiempoLimite: 72,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+     ]
   },
   {
     id: 20062,
@@ -1282,7 +1495,9 @@ const combosTemporales = [
     
     descuento: 0,
     tiempoLimite: 72,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+     ]
   },
   {
     id: 20072,
@@ -1294,7 +1509,9 @@ const combosTemporales = [
     
     descuento: 0,
     tiempoLimite: 72,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+     ]
   },
   {
     id: 20082,
@@ -1306,7 +1523,9 @@ const combosTemporales = [
     
     descuento: 0,
     tiempoLimite: 72,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+     ]
   },
   {
     id: 20092,
@@ -1318,19 +1537,23 @@ const combosTemporales = [
     
     descuento: 0,
     tiempoLimite: 72,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+     ]
   },
   {
     id: 20102,
     nombre: "Combo Para Mamá 9",
-    precio: 9.20,
+    precio: 13.99,
     imagen: "combo9m.png",
     description: "Incluye 1 paquete galletas marias (bolsa de 12 paqueticos, 6 Jugos de pera de 200 ml, 6 compotas, 3 papitas clasicc) ",
     categoria: "Combos Temporales",
     
     descuento: 0,
     tiempoLimite: 72,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+     ]
   },
 
 
