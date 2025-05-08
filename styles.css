@@ -1209,10 +1209,13 @@ footer {
 
 .producto img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
+  height: auto;               /* ← Altura se ajusta automáticamente */
+  aspect-ratio: 1 / 1;        /* ← Fuerza que conserve proporción cuadrada */
+  object-fit: contain;        /* ← Muestra la imagen completa sin recortarla */
   border-radius: 8px;
+  background-color: #f4f4f4;  /* ← Para fondo neutro si hay espacio sobrante */
 }
+
 
 .producto h3 {
   font-size: 1.2em;
