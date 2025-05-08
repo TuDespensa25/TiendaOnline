@@ -392,7 +392,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 250px; /* Ancho fijo para cada producto */
+  width: 300px; /* Ancho fijo para cada producto */
   height: 400px; /* Altura fija para cada producto */
   flex: 0 0 auto; /* Evita que los productos se estiren */
   margin: 0 10px; /* Espacio entre productos */
