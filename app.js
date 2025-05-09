@@ -929,7 +929,7 @@ const productos = [
     categoria: "Alimentos/Lácteos"
   },*/
   {
-    id: 42,
+    id:102 ,
     nombre: "Yogurt Probiótico",
     precio: 15,
     imagen: "yogurt.png",
