@@ -37,31 +37,55 @@
     </div>
   </header>
   
-  <div class="banner-container">
-    <div class="banner-slide active">
-      <picture>
-        <source media="(max-width: 768px)" srcset="images/banner12m.png">
-        <img src="images/banner12.png" alt="Banner 1">
-      </picture>
-      <a href="#productos" class="banner-btn">Comprar Ahora</a>
-    </div>
-    <div class="banner-slide">
-      
-      <picture>
-        <source media="(max-width: 768px)" srcset="images/banner4m.png">
-        <img src="images/banner4.png" alt="Banner 4">
-      </picture>
-      <a href="#productos" class="banner-btn">Comprar Ahora</a>
-    </div>
-    <a class="banner-prev" onclick="changeSlide(-1)">❮</a>
-    <a class="banner-next" onclick="changeSlide(1)">❯</a>
-    <div class="banner-indicators">
-      <span class="dot active" onclick="goToSlide(0)"></span>
-      <span class="dot" onclick="goToSlide(1)"></span>
-      <span class="dot" onclick="goToSlide(2)"></span>
-      <span class="dot" onclick="goToSlide(3)"></span>
-    </div>
+ <div class="banner-container">
+  <!-- Banner 1 -->
+  <div class="banner-slide active">
+    <picture>
+      <source media="(max-width: 768px)" srcset="images/banner12m.png">
+      <img src="images/banner12.png" alt="Banner 1">
+    </picture>
+    <a href="#productos" class="banner-btn">Comprar Ahora</a>
   </div>
+
+  <!-- Banner 2 -->
+  <div class="banner-slide">
+    <picture>
+      <source media="(max-width: 768px)" srcset="images/banner4m.png">
+      <img src="images/banner4.png" alt="Banner 2">
+    </picture>
+    <a href="#productos" class="banner-btn">Ver Productos</a>
+  </div>
+
+  <!-- Banner 3 -->
+  <div class="banner-slide">
+    <picture>
+      <source media="(max-width: 768px)" srcset="images/banner3m.png">
+      <img src="images/banner3.png" alt="Banner 3">
+    </picture>
+    <a href="#ofertas" class="banner-btn">Ver Ofertas</a>
+  </div>
+
+  <!-- Banner 4 -->
+  <div class="banner-slide">
+    <picture>
+      <source media="(max-width: 768px)" srcset="images/banner6m.png">
+      <img src="images/banner6.png" alt="Banner 4">
+    </picture>
+    <a href="#productos" class="banner-btn">Explorar </a>
+  </div>
+
+  <!-- Flechas -->
+  <a class="banner-prev" onclick="changeSlide(-1)">❮</a>
+  <a class="banner-next" onclick="changeSlide(1)">❯</a>
+
+  <!-- Indicadores -->
+  <div class="banner-indicators">
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+    <span class="dot" onclick="goToSlide(3)"></span>
+  </div>
+</div>
   
   <section id="sobre-mi">
     <div class="seccion-titulo">
