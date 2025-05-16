@@ -84,7 +84,10 @@ function mostrarModalProvincias() {
   });
   
   document.getElementById('confirmar-provincia').addEventListener('click', () => {
-    if (ubicaciones.provinciaSeleccionada) {
+  const seleccion = document.getElementById('select-provincia').value;
+  if (seleccion) {
+    ubicaciones.provinciaSeleccionada = seleccion;
+
       modal.style.display = 'none';
       mostrarModalMunicipios();
     } else {
@@ -97,21 +100,20 @@ function mostrarModalProvincias() {
   });
 }
 
-// Función para mostrar el modal de selección de municipio
 function mostrarModalMunicipios() {
   const modal = document.createElement('div');
   modal.id = 'modal-municipios';
   modal.className = 'modal';
   modal.style.display = 'block';
-  
+
   const provincia = ubicaciones.provinciaSeleccionada;
   let options = '<option value="">Seleccione un municipio</option>';
-  
+
   for (const municipio in ubicaciones.provincias[provincia].municipios) {
     const idMunicipio = ubicaciones.provincias[provincia].municipios[municipio];
     options += `<option value="${idMunicipio}">${municipio}</option>`;
   }
-  
+
   modal.innerHTML = `
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -122,30 +124,26 @@ function mostrarModalMunicipios() {
       <button id="confirmar-municipio" class="btn-confirmar">Confirmar</button>
     </div>
   `;
-  
+
   document.body.appendChild(modal);
-  
-  // Eventos para el modal de municipios
-  document.getElementById('select-municipio').addEventListener('change', (e) => {
-    ubicaciones.municipioSeleccionado = parseInt(e.target.value);
+
+  modal.querySelector('.close').addEventListener('click', () => {
+    modal.style.display = 'none';
   });
-  
-  
+
   document.getElementById('confirmar-municipio').addEventListener('click', () => {
-    if (ubicaciones.municipioSeleccionado) {
+    const seleccion = parseInt(document.getElementById('select-municipio').value);
+    if (seleccion) {
+      ubicaciones.municipioSeleccionado = seleccion;
       modal.style.display = 'none';
-      localStorage.setItem('municipioSeleccionado', ubicaciones.municipioSeleccionado);
+      localStorage.setItem('municipioSeleccionado', seleccion);
       renderizarProductos();
       renderizarOfertas();
       renderizarProductosRecientes();
-      renderizarCombosTemporales(); 
+      renderizarCombosTemporales();
     } else {
       alert('Por favor seleccione un municipio');
     }
-  });
-  
-  modal.querySelector('.close').addEventListener('click', () => {
-    modal.style.display = 'none';
   });
 }
 
