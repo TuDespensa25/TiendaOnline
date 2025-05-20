@@ -1443,7 +1443,7 @@ const combosTemporales = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
   },
-  {
+  /*{
     id: 20032,
     nombre: "Combo Para Mamá 2",
     precio: 17.50,
@@ -1552,7 +1552,7 @@ const combosTemporales = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
-  },
+  },*/
 
 
 ];
@@ -2266,6 +2266,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Verifica si la página actual es la del carrito (por ejemplo, "cart.html")
   const isCartPage = window.location.pathname.includes('cart.html');
+  
   
   // Si no se encontró un municipio seleccionado y NO estamos en la página del carrito, se muestra el modal.
   if (!municipioGuardado && !isCartPage) {
