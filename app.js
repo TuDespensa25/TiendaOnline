@@ -230,7 +230,7 @@ const productos = [
     14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 // La Habana
   ]
 },
-  {
+ /* {
     id: 92,
     nombre: "Muslo de pollo ahumado ",
     precio: 7 ,
@@ -255,7 +255,7 @@ const productos = [
 
   },
 
-  /*{
+  {
     id: 5,
     nombre: "Masas de Cerdo",
     precio: 19,
@@ -304,7 +304,7 @@ const productos = [
   {
     id: 11,
     nombre: "Pechuga de pollo",
-    precio: 18,
+    precio: 16,
     imagen: "pechuga.png",
     description: "Paquete de 2 kg",
     categoria: "Alimentos/Cárnicos",
@@ -397,7 +397,7 @@ const productos = [
   {
     id: 19,
     nombre: "Cerveza Economica",
-    precio: 20,
+    precio: 16,
     imagen: "timber.png",
     description: "Caja de 24 uds",
     categoria: "Alimentos/Líquidos",
@@ -641,7 +641,7 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+  /*{
     id: 86,
     nombre: "Mantequilla de Maní",
     precio: 4.95,
@@ -664,7 +664,7 @@ const productos = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   {
     id: 88,
     nombre: "Compota Babe",
@@ -885,7 +885,7 @@ const productos = [
   {
     id: 45,
     nombre: "Cartón de huevos",
-    precio: 8.80,
+    precio: 10.20,
     imagen: "huevo.png",
     description: "30 uds frescos 100 % orgánicos",
     categoria: "Alimentos/Otros",
@@ -1066,7 +1066,7 @@ const productos = [
   {
     id: 55,
     nombre: "Detergente polvo Multiuso",
-    precio: 2.4,
+    precio: 1.4,
     imagen: "detergente.png",
     description: "bolsa de 500 gr",
     categoria: "Del Hogar",
@@ -1415,7 +1415,7 @@ const productos = [
 ]; 
 // Combos temporales (justo después de la lista de productos existente)
 const combosTemporales = [
-  {
+  /*{
     id: 20012,
     nombre: "Combo Para Mamá 1",
     precio: 41.99,
@@ -1428,9 +1428,9 @@ const combosTemporales = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
-  },
+  },*/
   {
-    id: 20022,
+    id: 30022,
     nombre: "Combo De Granos",
     precio: 16.50,
     imagen: "combo2.png",
@@ -1443,7 +1443,7 @@ const combosTemporales = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
   },
-  /*{
+ /* {
     id: 20032,
     nombre: "Combo Para Mamá 2",
     precio: 17.50,
