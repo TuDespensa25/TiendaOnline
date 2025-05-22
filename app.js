@@ -490,10 +490,23 @@ const productos = [
   {
     id: 28,
     nombre: "Refresco",
-    precio: 0.75,
-    imagen: "refrescolata.png",
+    precio: 0.55,
+    imagen: "cintracola.png",
     description: "Lata 330 ml",
     categoria: "Alimentos/Líquidos",
+    reciente: 1,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+  {
+    id: 108,
+    nombre: "Refresco",
+    precio: 0.55,
+    imagen: "cintranaranja.png",
+    description: "Lata 330 ml",
+    categoria: "Alimentos/Líquidos",
+    reciente: 1,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -738,12 +751,24 @@ const productos = [
   },
   {
     id: 33,
-    nombre: "Mayonesa Celorio",
-    precio: 6.50,
-    imagen: "mayonesa.png",
-    description: "Pomo de 450 gr",
+    nombre: "Mayonesa Saude",
+    precio: 3.00,
+    imagen: "mayonesasaude.png",
+    description: "Pomo de 500 gr",
     categoria: "Alimentos/Otros",
-    reciente:0,
+    reciente:1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+    {
+    id: 109,
+    nombre: "Pomo de Aceitunas",
+    precio: 3.00,
+    imagen: "aceituna290gr.png",
+    description: "Pomo de 290 gr",
+    categoria: "Alimentos/Otros",
+    reciente:1,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1066,9 +1091,9 @@ const productos = [
   {
     id: 55,
     nombre: "Detergente polvo Multiuso",
-    precio: 1.4,
+    precio: 2.6,
     imagen: "detergente.png",
-    description: "bolsa de 500 gr",
+    description: "bolsa de 1 Kg ",
     categoria: "Del Hogar",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -1362,6 +1387,28 @@ const productos = [
     precio: 1.25,
     imagen: "mariasbaduco.png",
     description: "Tubo de 170 gr",
+    categoria: "Alimentos/Del Confi",
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    reciente: 1, // Marcar como reciente
+    
+  },
+   {
+    id: 110,
+    nombre: "Galletas Snack Crackers",
+    precio: 2.50,
+    imagen: "snackcrackers.png",
+    description: "Caja de 3 paquetes 189 gr",
+    categoria: "Alimentos/Del Confi",
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    reciente: 1, // Marcar como reciente
+    
+  },
+  {
+    id: 110,
+    nombre: "Donas de Fresa ",
+    precio: 7.50,
+    imagen: "Donutfresa.png",
+    description: "Caja de 24 unidades ",
     categoria: "Alimentos/Del Confi",
     municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
     reciente: 1, // Marcar como reciente
