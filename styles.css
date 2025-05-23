@@ -1646,3 +1646,10 @@ footer {
 .product-details-container.show {
   display: flex;
 }
+html {
+  scroll-behavior: smooth;
+}
+.producto:target {
+  outline: 2px solid #ff6600;
+  box-shadow: 0 0 10px #ff6600;
+}

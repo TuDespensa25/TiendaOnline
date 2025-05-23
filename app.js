@@ -739,6 +739,18 @@ const productos = [
     ]
   },
   {
+    id: 112,
+    nombre: "Pure de Tomate Sara",
+    precio: 1.65,
+    imagen: "puresara.png",
+    description: "Pure de Tomate 400 gr",
+    categoria: "Alimentos/Otros",
+    reciente : 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+  {
     id: 32,
     nombre: "Pomo de Garbanzos Cocidos",
     precio: 2.20,
@@ -1404,7 +1416,7 @@ const productos = [
     
   },
   {
-    id: 110,
+    id: 111,
     nombre: "Donas de Fresa ",
     precio: 7.50,
     imagen: "Donutfresa.png",
@@ -1755,6 +1767,7 @@ function renderizarProductos(categoria = "todas") {
   filtrados.forEach(prod => {
     const div = document.createElement("div");
     div.className = "producto";
+    div.id = `producto-${prod.id}`;
     div.dataset.id = prod.id;
     div.dataset.categoria = prod.categoria;
     const categoriaSinBarra = prod.categoria.replace(/[^a-zA-Z0-9]/g, '-');
@@ -2323,3 +2336,4 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelector(".close-button").addEventListener("click", () => {
   document.querySelector(".product-details-container").classList.remove("show");
 });
+
