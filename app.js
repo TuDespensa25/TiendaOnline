@@ -966,7 +966,7 @@ const productos = [
   {
     id:102 ,
     nombre: "Yogurt Probiótico",
-    precio: 15,
+    precio: 13.5,
     imagen: "yogurt.png",
     description: "Cubeta de 4L",
     categoria: "Alimentos/Lácteos",
@@ -2146,12 +2146,34 @@ function cerrarModalPedido() {
 function mostrarDescripcionProducto(producto) {
   const modal = document.getElementById("modal-descripcion");
   if (!modal) return;
+
+  const modalImagen = modal.querySelector("#modal-imagen");
   const modalNombre = modal.querySelector(".modal-nombre");
   const modalDescripcion = modal.querySelector(".modal-descripcion");
+  const botonAgregar = modal.querySelector("#btn-add-modal");
+
+  modalImagen.src = `images/${producto.imagen}`;
+  modalImagen.alt = producto.nombre;
   modalNombre.textContent = producto.nombre;
   modalDescripcion.textContent = producto.description;
+
+  botonAgregar.dataset.id = producto.id;
+
   modal.style.display = "block";
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const botonAgregar = document.getElementById("btn-add-modal");
+  if (botonAgregar) {
+    botonAgregar.addEventListener("click", () => {
+      const id = parseInt(botonAgregar.dataset.id, 10);
+      agregarAlCarrito(id);
+
+      // Cerrar modal después de añadir
+      const modal = document.getElementById("modal-descripcion");
+      if (modal) modal.style.display = "none";
+    });
+  }
+});
 
 // Event delegation
 document.addEventListener("click", (e) => {
@@ -2226,6 +2248,20 @@ function sharePage() {
 
 // Inicialización al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
+  const botonAgregar = document.getElementById("btn-add-modal");
+  if (botonAgregar) {
+    botonAgregar.addEventListener("click", () => {
+      const id = parseInt(botonAgregar.dataset.id, 10);
+      agregarAlCarrito(id);
+
+      // Cierra el modal
+      const modal = document.getElementById("modal-descripcion");
+      if (modal) modal.style.display = "none";
+    });
+  }
+});
+
   // Mostrar los modales de ubicación en cada carga de página
   mostrarModalProvincias();
   // Capturar el vendedor desde la URL y guardarlo

@@ -50,8 +50,8 @@
   <!-- Banner 2 -->
   <div class="banner-slide">
     <picture>
-      <source media="(max-width: 768px)" srcset="images/banner4m.png">
-      <img src="images/banner4.png" alt="Banner 2">
+      <source media="(max-width: 768px)" srcset="images/banner14m.png">
+      <img src="images/banner14.png" alt="Banner 2">
     </picture>
     <a href="#productos" class="banner-btn">Ver Productos</a>
   </div>
@@ -59,8 +59,8 @@
   <!-- Banner 3 -->
   <div class="banner-slide">
     <picture>
-      <source media="(max-width: 768px)" srcset="images/banner3m.png">
-      <img src="images/banner3.png" alt="Banner 3">
+      <source media="(max-width: 768px)" srcset="images/banner15m.png">
+      <img src="images/banner15.png" alt="Banner 3">
     </picture>
     <a href="#ofertas" class="banner-btn">Ver Ofertas</a>
   </div>
@@ -68,8 +68,8 @@
   <!-- Banner 4 -->
   <div class="banner-slide">
     <picture>
-      <source media="(max-width: 768px)" srcset="images/banner6m.png">
-      <img src="images/banner6.png" alt="Banner 4">
+      <source media="(max-width: 768px)" srcset="images/banner16m.png">
+      <img src="images/banner16.png" alt="Banner 4">
     </picture>
     <a href="#productos" class="banner-btn">Explorar </a>
   </div>
@@ -233,13 +233,16 @@
   <script src="app.js" defer></script>
   
 
-  <div id="modal-descripcion" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3 class="modal-nombre"></h3>
-      <p class="modal-descripcion"></p>
-    </div>
+<!-- Modal para mostrar información del producto -->
+<div id="modal-descripcion" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="modal-imagen" src="" alt="Imagen del producto" style="max-width: 100%; border-radius: 10px; margin-bottom: 10px;">
+    <h3 class="modal-nombre"></h3>
+    <p class="modal-descripcion"></p>
+    <button id="btn-add-modal" class="btn-add-to-cart">Añadir al carrito</button>
   </div>
-  
+</div>
+
 </body>
 </html>
