@@ -1659,3 +1659,21 @@ html {
   outline: 2px solid #ff6600;
   box-shadow: 0 0 10px #ff6600;
 }
+body {
+  margin-top: 130px; /* ajusta este número si tu header es más alto */
+}
+.site-header,
+.main-header {
+  overflow: visible;
+}
+@media (max-width: 768px) {
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    will-change: transform;
+    transform: translateZ(0); /* fuerza a usar GPU y evita parpadeo */
+    backface-visibility: hidden;
+  }
+}
