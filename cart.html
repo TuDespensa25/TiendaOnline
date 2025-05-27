@@ -7,34 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <style>
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.4);
-    }
-    .modal-content {
-      background-color: #fff;
-      margin: 10% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 80%;
-      max-width: 500px;
-      border-radius: 4px;
-    }
-    .cerrar-modal {
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-  </style>
+  
 </head>
 <body>
   <header class="site-header">
@@ -152,6 +125,260 @@
   
   
   <script src="app.js" defer></script>
+  <script>
+// Objeto para gestionar el carrito
+const carritoManager = {
+  carrito: [],
   
+  init() {
+    this.cargarCarrito();
+    this.setupEventListeners();
+    this.renderizarCarrito();
+  },
+  
+  cargarCarrito() {
+    const carritoGuardado = localStorage.getItem('carrito');
+    this.carrito = carritoGuardado ? JSON.parse(carritoGuardado) : [];
+    this.actualizarContador();
+  },
+  
+  guardarCarrito() {
+    localStorage.setItem('carrito', JSON.stringify(this.carrito));
+    this.actualizarContador();
+  },
+  
+  cambiarCantidad(id, delta) {
+    const item = this.carrito.find(item => item.id === id);
+    if (!item) return;
+    
+    item.cantidad += delta;
+    
+    if (item.cantidad < 1) {
+      this.eliminarProducto(id);
+    } else {
+      this.guardarCarrito();
+    }
+    
+    this.renderizarCarrito();
+  },
+  
+  eliminarProducto(id) {
+    this.carrito = this.carrito.filter(item => item.id !== id);
+    this.guardarCarrito();
+    this.renderizarCarrito();
+  },
+  
+  renderizarCarrito() {
+    const container = document.getElementById('items-carrito');
+    const totalElem = document.getElementById('total-pedido');
+    
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    if (this.carrito.length === 0) {
+      container.innerHTML = `
+        <div class="carrito-vacio">
+          <i class="fas fa-shopping-cart"></i>
+          <p>Tu carrito está vacío</p>
+        </div>
+      `;
+      if (totalElem) totalElem.textContent = "USD 0.00";
+      return;
+    }
+    
+    let total = 0;
+    
+    this.carrito.forEach(item => {
+      const itemElement = document.createElement('div');
+      itemElement.className = 'item-carrito';
+      itemElement.innerHTML = `
+        <img src="images/${item.imagen}" alt="${item.nombre}">
+        <div class="item-info">
+          <h4>${item.nombre}</h4>
+          <p>USD ${item.precio.toFixed(2)} x ${item.cantidad}</p>
+          <p class="subtotal">Subtotal: USD ${(item.precio * item.cantidad).toFixed(2)}</p>
+        </div>
+        <div class="contador-cantidad">
+          <button class="btn-cantidad" data-action="decrease" data-id="${item.id}">-</button>
+          <span class="cantidad">${item.cantidad}</span>
+          <button class="btn-cantidad" data-action="increase" data-id="${item.id}">+</button>
+        </div>
+        <button class="eliminar-item" data-id="${item.id}">
+          <i class="fas fa-trash"></i>
+        </button>
+      `;
+      container.appendChild(itemElement);
+      
+      total += item.precio * item.cantidad;
+    });
+    
+    if (totalElem) {
+      totalElem.textContent = `USD ${total.toFixed(2)}`;
+    }
+  },
+  
+  actualizarContador() {
+    const total = this.carrito.reduce((sum, item) => sum + item.cantidad, 0);
+    const contador = document.getElementById('contador-carrito');
+    if (contador) contador.textContent = total;
+  },
+  
+  setupEventListeners() {
+    // Event delegation para toda la página
+    document.addEventListener('click', (e) => {
+      // Botones de cantidad
+      if (e.target.closest('.btn-cantidad')) {
+        const button = e.target.closest('.btn-cantidad');
+        const id = parseInt(button.dataset.id);
+        const action = button.dataset.action;
+        
+        if (action === 'increase') {
+          this.cambiarCantidad(id, 1);
+        } else if (action === 'decrease') {
+          this.cambiarCantidad(id, -1);
+        }
+        return;
+      }
+      
+      // Botones de eliminar
+      if (e.target.closest('.eliminar-item')) {
+        const button = e.target.closest('.eliminar-item');
+        const id = parseInt(button.dataset.id);
+        this.eliminarProducto(id);
+        return;
+      }
+      
+      // Botón de procesar pedido
+      if (e.target.closest('#pedir-whatsapp')) {
+        e.preventDefault();
+        document.getElementById('modal-pedido').style.display = 'block';
+        return;
+      }
+      
+      // Botón de seguir comprando
+      if (e.target.closest('#seguir-comprando')) {
+        window.location.href = 'index.html';
+        return;
+      }
+      
+      // Cerrar modal
+      if (e.target.closest('.cerrar-modal') || e.target === document.getElementById('modal-pedido')) {
+        document.getElementById('modal-pedido').style.display = 'none';
+        return;
+      }
+    });
+    
+    // Formulario de pedido
+    document.getElementById('formulario-pedido')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      this.procesarPedido();
+    });
+  },
+  
+procesarPedido() {
+  // Validación de campos obligatorios
+  const nombreComprador = document.getElementById('nombre-comprador').value;
+  const emailComprador = document.getElementById('email-comprador').value;
+  const telefonoComprador = document.getElementById('telefono-comprador').value;
+  const direccionEntrega = document.getElementById('direccion-entrega').value;
+  
+  if (!nombreComprador || !emailComprador || !telefonoComprador || !direccionEntrega) {
+    alert('Por favor, complete todos los campos obligatorios.');
+    return;
+  }
+
+  // Validación de teléfono
+  if (!/^\d{8,10}$/.test(telefonoComprador)) {
+    alert('El número de teléfono no es válido. Debe tener 8 a 10 dígitos.');
+    return;
+  }
+
+  // Validación de email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailComprador)) {
+    alert('El correo electrónico no es válido.');
+    return;
+  }
+
+  // Obtener otros datos del formulario
+  const nota = document.getElementById('nota').value;
+  const nombreBeneficiario = document.getElementById('nombre-beneficiario').value;
+  const telefonoBeneficiario = document.getElementById('telefono-beneficiario').value;
+  const metodoPago = document.getElementById('metodo-pago').value;
+  const totalUSD = this.carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+
+  // Construir mensaje en el formato solicitado
+  let mensaje = `Nuevo Pedido\n\n`;
+  mensaje += `Datos del Comprador:\n\n`;
+  mensaje += `• Nombre: ${nombreComprador}\n`;
+  mensaje += `• Email: ${emailComprador}\n`;
+  mensaje += `• Teléfono: ${telefonoComprador}\n\n`;
+
+  if (nombreBeneficiario && telefonoBeneficiario) {
+    mensaje += `Datos del Beneficiario:\n\n`;
+    mensaje += `• Nombre: ${nombreBeneficiario}\n`;
+    mensaje += `• Teléfono: ${telefonoBeneficiario}\n\n`;
+  }
+
+  mensaje += `Información de Envío:\n\n`;
+  mensaje += `• Dirección: ${direccionEntrega}\n`;
+  if (nota) {
+    mensaje += `• Nota: ${nota}\n`;
+  }
+  mensaje += `• Método de Pago: ${metodoPago}\n\n`;
+
+  // Incluir vendedor si existe
+  const vendedor = localStorage.getItem('vendedor');
+  if (vendedor) {
+    mensaje += `Vendedor: ${vendedor}\n\n`;
+  }
+
+  mensaje += `Información de Pago:\n`;
+  mensaje += `Total a pagar: ${totalUSD.toFixed(2)} USD\n`;
+  mensaje += `Por favor en minutos recibirá la cuenta a transferir realice la transferencia y envíe el comprobante por este medio.\n\n`;
+  mensaje += `Productos:\n\n`;
+  
+  this.carrito.forEach(prod => {
+    mensaje += `• ${prod.cantidad}x ${prod.nombre} - ${(prod.precio * prod.cantidad).toFixed(2)} USD\n`;
+  });
+
+  mensaje += `\nTotal a Pagar: ${totalUSD.toFixed(2)} USD de 24 a 48 horas pedido completado, Siempre trataremos q sea en el día`;
+
+  try {
+    // Abrir WhatsApp con el mensaje
+    const urlWhatsapp = `https://wa.me/5353933247?text=${encodeURIComponent(mensaje)}`;
+    window.open(urlWhatsapp, '_blank');
+    
+    // Mostrar confirmación
+    alert('¡Pedido enviado correctamente! Gracias por su compra.');
+    
+    // Limpiar y cerrar
+    this.limpiarYCerrar();
+  } catch (error) {
+    console.error('Error al enviar el pedido:', error);
+    alert('Hubo un error al procesar su pedido. Por favor, intente de nuevo.');
+  }
+},
+
+limpiarYCerrar() {
+  // Limpiar carrito
+  this.carrito = [];
+  this.guardarCarrito();
+  this.renderizarCarrito();
+  
+  // Cerrar modal
+  document.getElementById('modal-pedido').style.display = 'none';
+  
+  // Limpiar formulario
+  document.getElementById('formulario-pedido').reset();
+}
+};
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+  carritoManager.init();
+});
+</script>
 </body>
 </html>

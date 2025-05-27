@@ -53,99 +53,205 @@ const ubicaciones = {
   municipioSeleccionado: null
 };
 
-// Función para mostrar el modal de selección de provincia
-function mostrarModalProvincias() {
+// Función unificada para mostrar el modal de ubicación
+function mostrarModalUbicacion() {
   const modal = document.createElement('div');
-  modal.id = 'modal-provincias';
+  modal.id = 'modal-ubicacion';
   modal.className = 'modal';
-  modal.style.display = 'block';
-  
-  let options = '<option value="">Seleccione una provincia</option>';
-  for (const provincia in ubicaciones.provincias) {
-    options += `<option value="${provincia}">${provincia}</option>`;
-  }
   
   modal.innerHTML = `
-    <div class="modal-content">
+    <div class="modal-content ubicacion-modal">
       <span class="close">&times;</span>
-      <h3>Seleccione su provincia</h3>
-      <select id="select-provincia" class="form-select">
-        ${options}
-      </select>
-      <button id="confirmar-provincia" class="btn-confirmar">Confirmar</button>
+      <div id="paso-provincia" class="paso-activo">
+        <h3>Seleccione su provincia</h3>
+        <select id="select-provincia" class="form-select">
+          <option value="">Seleccione una provincia</option>
+          ${Object.keys(ubicaciones.provincias).map(provincia => 
+            `<option value="${provincia}" ${ubicaciones.provinciaSeleccionada === provincia ? 'selected' : ''}>${provincia}</option>`
+          ).join('')}
+        </select>
+      </div>
+      <div id="paso-municipio" class="paso-oculto">
+        <h3>Seleccione su municipio en <span id="nombre-provincia"></span></h3>
+        <select id="select-municipio" class="form-select">
+          <option value="">Seleccione un municipio</option>
+        </select>
+      </div>
+      <div class="botones-ubicacion">
+        <button id="btn-atras" class="btn-ubicacion oculto">Atrás</button>
+        <button id="btn-siguiente" class="btn-ubicacion" ${!ubicaciones.provinciaSeleccionada ? 'disabled' : ''}>Siguiente</button>
+        <button id="btn-confirmar" class="btn-ubicacion oculto">Confirmar</button>
+      </div>
     </div>
   `;
   
   document.body.appendChild(modal);
+  modal.style.display = 'block';
   
-  // Eventos para el modal de provincias
-  document.getElementById('select-provincia').addEventListener('change', (e) => {
-    ubicaciones.provinciaSeleccionada = e.target.value;
+  // Configurar eventos
+  const selectProvincia = modal.querySelector('#select-provincia');
+  const selectMunicipio = modal.querySelector('#select-municipio');
+  const btnSiguiente = modal.querySelector('#btn-siguiente');
+  const btnAtras = modal.querySelector('#btn-atras');
+  const btnConfirmar = modal.querySelector('#btn-confirmar');
+  
+  // Si ya hay provincia seleccionada, cargar municipios
+  if (ubicaciones.provinciaSeleccionada) {
+    cargarMunicipios(ubicaciones.provinciaSeleccionada);
+  }
+  
+  selectProvincia.addEventListener('change', function() {
+    ubicaciones.provinciaSeleccionada = this.value;
+    btnSiguiente.disabled = !this.value;
   });
   
-  document.getElementById('confirmar-provincia').addEventListener('click', () => {
-  const seleccion = document.getElementById('select-provincia').value;
-  if (seleccion) {
-    ubicaciones.provinciaSeleccionada = seleccion;
-
-      modal.style.display = 'none';
-      mostrarModalMunicipios();
-    } else {
+  btnSiguiente.addEventListener('click', function() {
+    if (!ubicaciones.provinciaSeleccionada) {
       alert('Por favor seleccione una provincia');
+      return;
+    }
+    
+    cargarMunicipios(ubicaciones.provinciaSeleccionada);
+    
+    // Mostrar paso municipio
+    document.getElementById('paso-provincia').classList.remove('paso-activo');
+    document.getElementById('paso-provincia').classList.add('paso-oculto');
+    document.getElementById('paso-municipio').classList.remove('paso-oculto');
+    document.getElementById('paso-municipio').classList.add('paso-activo');
+    document.getElementById('nombre-provincia').textContent = ubicaciones.provinciaSeleccionada;
+    
+    // Actualizar botones
+    btnSiguiente.classList.add('oculto');
+    btnAtras.classList.remove('oculto');
+    btnConfirmar.classList.remove('oculto');
+    
+    // Seleccionar municipio si ya estaba guardado
+    if (ubicaciones.municipioSeleccionado) {
+      selectMunicipio.value = ubicaciones.municipioSeleccionado;
     }
   });
   
-  modal.querySelector('.close').addEventListener('click', () => {
-    modal.style.display = 'none';
+  btnAtras.addEventListener('click', function() {
+    // Volver a paso provincia
+    document.getElementById('paso-municipio').classList.remove('paso-activo');
+    document.getElementById('paso-municipio').classList.add('paso-oculto');
+    document.getElementById('paso-provincia').classList.remove('paso-oculto');
+    document.getElementById('paso-provincia').classList.add('paso-activo');
+    
+    // Actualizar botones
+    btnSiguiente.classList.remove('oculto');
+    btnAtras.classList.add('oculto');
+    btnConfirmar.classList.add('oculto');
   });
-}
-
-function mostrarModalMunicipios() {
-  const modal = document.createElement('div');
-  modal.id = 'modal-municipios';
-  modal.className = 'modal';
-  modal.style.display = 'block';
-
-  const provincia = ubicaciones.provinciaSeleccionada;
-  let options = '<option value="">Seleccione un municipio</option>';
-
-  for (const municipio in ubicaciones.provincias[provincia].municipios) {
-    const idMunicipio = ubicaciones.provincias[provincia].municipios[municipio];
-    options += `<option value="${idMunicipio}">${municipio}</option>`;
-  }
-
-  modal.innerHTML = `
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h3>Seleccione su municipio en ${provincia}</h3>
-      <select id="select-municipio" class="form-select">
-        ${options}
-      </select>
-      <button id="confirmar-municipio" class="btn-confirmar">Confirmar</button>
-    </div>
-  `;
-
-  document.body.appendChild(modal);
-
-  modal.querySelector('.close').addEventListener('click', () => {
-    modal.style.display = 'none';
-  });
-
-  document.getElementById('confirmar-municipio').addEventListener('click', () => {
-    const seleccion = parseInt(document.getElementById('select-municipio').value);
-    if (seleccion) {
-      ubicaciones.municipioSeleccionado = seleccion;
-      modal.style.display = 'none';
-      localStorage.setItem('municipioSeleccionado', seleccion);
-      renderizarProductos();
-      renderizarOfertas();
-      renderizarProductosRecientes();
-      renderizarCombosTemporales();
-    } else {
+  
+  btnConfirmar.addEventListener('click', function() {
+    const municipioSeleccionado = parseInt(selectMunicipio.value);
+    if (!municipioSeleccionado) {
       alert('Por favor seleccione un municipio');
+      return;
     }
+    
+    guardarUbicacion(ubicaciones.provinciaSeleccionada, municipioSeleccionado);
+    modal.style.display = 'none';
+    modal.remove();
   });
+  
+  modal.querySelector('.close').addEventListener('click', function() {
+    modal.style.display = 'none';
+    modal.remove();
+  });
+  
+  function cargarMunicipios(provincia) {
+    const municipios = ubicaciones.provincias[provincia].municipios;
+    
+    selectMunicipio.innerHTML = '<option value="">Seleccione un municipio</option>' +
+      Object.keys(municipios).map(municipio => 
+        `<option value="${municipios[municipio]}" ${ubicaciones.municipioSeleccionado === municipios[municipio] ? 'selected' : ''}>${municipio}</option>`
+      ).join('');
+  }
 }
+
+function guardarUbicacion(provincia, municipioId) {
+  ubicaciones.provinciaSeleccionada = provincia;
+  ubicaciones.municipioSeleccionado = municipioId;
+  localStorage.setItem('municipioSeleccionado', municipioId);
+  
+  // Actualizar el botón en el header
+  const nombreMunicipio = obtenerNombreMunicipio(municipioId);
+  const ubicacionBtn = document.getElementById('ubicacion-actual');
+  if (ubicacionBtn) {
+    ubicacionBtn.textContent = `${provincia}, ${nombreMunicipio}`;
+  }
+  
+  // Recargar productos
+  renderizarProductos();
+  renderizarOfertas();
+  renderizarProductosRecientes();
+  renderizarCombosTemporales();
+}
+
+function obtenerNombreMunicipio(id) {
+  for (const provincia in ubicaciones.provincias) {
+    for (const municipio in ubicaciones.provincias[provincia].municipios) {
+      if (ubicaciones.provincias[provincia].municipios[municipio] === id) {
+        return municipio;
+      }
+    }
+  }
+  return '';
+}
+
+function cargarUbicacionGuardada() {
+  const municipioGuardado = localStorage.getItem('municipioSeleccionado');
+  if (!municipioGuardado) return false;
+  
+  // Buscar la provincia correspondiente al municipio
+  for (const provincia in ubicaciones.provincias) {
+    for (const municipio in ubicaciones.provincias[provincia].municipios) {
+      if (ubicaciones.provincias[provincia].municipios[municipio] == municipioGuardado) {
+        ubicaciones.provinciaSeleccionada = provincia;
+        ubicaciones.municipioSeleccionado = parseInt(municipioGuardado);
+        
+        // Actualizar el botón en el header
+        const ubicacionBtn = document.getElementById('ubicacion-actual');
+        if (ubicacionBtn) {
+          ubicacionBtn.textContent = `${provincia}, ${municipio}`;
+        }
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+// Modificación del DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+  // Verificar si estamos en la página del carrito
+  const isCartPage = window.location.pathname.includes("cart.html");
+  
+  // Cargar ubicación guardada (si existe)
+  const tieneUbicacion = cargarUbicacionGuardada();
+  
+  // Mostrar modal solo si no hay ubicación guardada Y no estamos en el carrito
+  if (!tieneUbicacion && !isCartPage) {
+    mostrarModalUbicacion();
+  }
+  
+  // Configurar botón para cambiar ubicación
+  document.getElementById('cambiar-ubicacion')?.addEventListener('click', mostrarModalUbicacion);
+  
+  // Resto de tu inicialización...
+  cargarCarritoDesdeLocalStorage();
+  
+  if (productosContainer) {
+    renderizarProductos();
+    // ... (código existente de filtros)
+  }
+  
+  renderizarCombosTemporales();
+  renderizarOfertas();
+  renderizarProductosRecientes();
+});
 
 // Función para capturar el parámetro 'ref' (vendedor) de la URL y almacenarlo
 function capturarVendedor() {
@@ -1952,46 +2058,63 @@ function cargarCarritoDesdeLocalStorage() {
   }
 }
 
-// Renderiza el carrito en cart.html
 function renderizarCarrito() {
   const itemsCarrito = document.getElementById("items-carrito");
+  const totalElem = document.getElementById("total-pedido");
+  
   if (!itemsCarrito) return;
+
   itemsCarrito.innerHTML = "";
+  
   if (carrito.length === 0) {
-    itemsCarrito.innerHTML = "<p>El carrito está vacío.</p>";
-    const totalElem = document.getElementById("total-pedido");
+    itemsCarrito.innerHTML = `
+      <div class="carrito-vacio">
+        <i class="fas fa-shopping-cart"></i>
+        <p>Tu carrito está vacío</p>
+        <a href="index.html" class="btn-seguir-comprando">Seguir comprando</a>
+      </div>
+    `;
     if (totalElem) totalElem.textContent = "USD 0.00";
     return;
   }
-  const totalUSD = calcularTotalUSD();
+
+  const fragment = document.createDocumentFragment();
+  
   carrito.forEach(prod => {
     const div = document.createElement("div");
     div.className = "item-carrito";
     div.innerHTML = `
-      <img src="images/${prod.imagen}" alt="${prod.nombre}">
+      <img src="images/${prod.imagen}" alt="${prod.nombre}" onerror="this.src='images/placeholder.png'">
       <div class="item-info">
-          <h4>${prod.nombre}</h4>
-          <p>USD ${prod.precio.toFixed(2)} x ${prod.cantidad}</p>
+        <h4>${prod.nombre}</h4>
+        <p>USD ${prod.precio.toFixed(2)} x ${prod.cantidad}</p>
+        <p class="subtotal">Subtotal: USD ${(prod.precio * prod.cantidad).toFixed(2)}</p>
       </div>
       <div class="contador-cantidad">
-          <button class="btn-cambiar" data-id="${prod.id}" data-delta="-1">-</button>
-          <input type="text" value="${prod.cantidad}" disabled>
-          <button class="btn-cambiar" data-id="${prod.id}" data-delta="1">+</button>
+        <button class="btn-cambiar" data-id="${prod.id}" data-delta="-1">-</button>
+        <span class="cantidad">${prod.cantidad}</span>
+        <button class="btn-cambiar" data-id="${prod.id}" data-delta="1">+</button>
       </div>
-      <button class="eliminar-item" data-id="${prod.id}">🗑️</button>
+      <button class="eliminar-item" data-id="${prod.id}">
+        <i class="fas fa-trash"></i>
+      </button>
     `;
-    itemsCarrito.appendChild(div);
+    fragment.appendChild(div);
   });
-  const totalElem = document.getElementById("total-pedido");
-  let totalTexto;
-  const metodoSelect = document.getElementById("metodo-pago");
-  if (metodoSelect && metodoSelect.value.indexOf("CUP") !== -1) {
-    const totalCUP = totalUSD * tasaCambio;
-    totalTexto = 'CUP ' + totalCUP.toFixed(2);
-  } else {
-    totalTexto = 'USD ' + totalUSD.toFixed(2);
+
+  itemsCarrito.appendChild(fragment);
+  
+  // Calcular total según método de pago
+  const metodoPago = document.getElementById("metodo-pago")?.value || "USD";
+  const totalUSD = carrito.reduce((acc, prod) => acc + (prod.precio * prod.cantidad), 0);
+  
+  if (totalElem) {
+    if (metodoPago.includes("CUP")) {
+      totalElem.textContent = `CUP ${(totalUSD * tasaCambio).toFixed(2)}`;
+    } else {
+      totalElem.textContent = `USD ${totalUSD.toFixed(2)}`;
+    }
   }
-  if (totalElem) totalElem.textContent = totalTexto;
 }
 
 // Cambia la cantidad de un producto en el carrito
@@ -2384,4 +2507,13 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelector(".close-button").addEventListener("click", () => {
   document.querySelector(".product-details-container").classList.remove("show");
 });
+const url = new URL(window.location.href);
+const hash = url.hash;
 
+if (hash.startsWith("#producto-")) {
+  const id = parseInt(hash.replace("#producto-", ""));
+  const producto = productos.find((p) => p.id === id);
+  if (producto) {
+    setTimeout(() => mostrarDescripcionProducto(producto), 500); // espera que cargue
+  }
+}
