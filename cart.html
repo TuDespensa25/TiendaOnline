@@ -124,16 +124,18 @@
   </div>
   
   
-  <script src="app.js" defer></script>
+  
   <script>
-// Objeto para gestionar el carrito
+// Objeto para gestionar el carrito (versión mejorada)
 const carritoManager = {
   carrito: [],
+  tasaCambio: 340.0, // Tasa USD a CUP
   
   init() {
     this.cargarCarrito();
     this.setupEventListeners();
     this.renderizarCarrito();
+    this.capturarVendedor(); // Añadido para capturar el vendedor
   },
   
   cargarCarrito() {
@@ -145,6 +147,14 @@ const carritoManager = {
   guardarCarrito() {
     localStorage.setItem('carrito', JSON.stringify(this.carrito));
     this.actualizarContador();
+  },
+  
+  capturarVendedor() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get("ref");
+    if (ref) {
+      localStorage.setItem("vendedor", ref);
+    }
   },
   
   cambiarCantidad(id, delta) {
@@ -184,8 +194,17 @@ const carritoManager = {
         </div>
       `;
       if (totalElem) totalElem.textContent = "USD 0.00";
+      
+      // Deshabilitar botón de procesar pedido si el carrito está vacío
+      const btnProcesar = document.getElementById('pedir-whatsapp');
+      if (btnProcesar) btnProcesar.disabled = true;
+      
       return;
     }
+    
+    // Habilitar botón de procesar pedido si hay productos
+    const btnProcesar = document.getElementById('pedir-whatsapp');
+    if (btnProcesar) btnProcesar.disabled = false;
     
     let total = 0;
     
@@ -224,6 +243,120 @@ const carritoManager = {
     if (contador) contador.textContent = total;
   },
   
+  validarFormulario() {
+    const nombreComprador = document.getElementById('nombre-comprador').value;
+    const emailComprador = document.getElementById('email-comprador').value;
+    const telefonoComprador = document.getElementById('telefono-comprador').value;
+    const direccionEntrega = document.getElementById('direccion-entrega').value;
+    
+    if (!nombreComprador || !emailComprador || !telefonoComprador || !direccionEntrega) {
+      alert('Por favor, complete todos los campos obligatorios.');
+      return false;
+    }
+
+    if (!/^\d{8,10}$/.test(telefonoComprador)) {
+      alert('El número de teléfono no es válido. Debe tener 8 a 10 dígitos.');
+      return false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailComprador)) {
+      alert('El correo electrónico no es válido.');
+      return false;
+    }
+
+    return true;
+  },
+  
+  procesarPedido() {
+    // Validar que el carrito no esté vacío
+    if (this.carrito.length === 0) {
+      alert('No puedes procesar un pedido vacío. Agrega productos al carrito primero.');
+      return;
+    }
+    
+    // Validación de campos obligatorios
+    if (!this.validarFormulario()) {
+      return;
+    }
+
+    // Obtener datos del formulario
+    const nombreComprador = document.getElementById('nombre-comprador').value;
+    const emailComprador = document.getElementById('email-comprador').value;
+    const telefonoComprador = document.getElementById('telefono-comprador').value;
+    const direccionEntrega = document.getElementById('direccion-entrega').value;
+    const nota = document.getElementById('nota').value;
+    const nombreBeneficiario = document.getElementById('nombre-beneficiario').value;
+    const telefonoBeneficiario = document.getElementById('telefono-beneficiario').value;
+    const metodoPago = document.getElementById('metodo-pago').value;
+    const totalUSD = this.carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+
+    // Construir mensaje
+    let mensaje = `Nuevo Pedido\n\n`;
+    mensaje += `Datos del Comprador:\n\n`;
+    mensaje += `• Nombre: ${nombreComprador}\n`;
+    mensaje += `• Email: ${emailComprador}\n`;
+    mensaje += `• Teléfono: ${telefonoComprador}\n\n`;
+
+    if (nombreBeneficiario && telefonoBeneficiario) {
+      mensaje += `Datos del Beneficiario:\n\n`;
+      mensaje += `• Nombre: ${nombreBeneficiario}\n`;
+      mensaje += `• Teléfono: ${telefonoBeneficiario}\n\n`;
+    }
+
+    mensaje += `Información de Envío:\n\n`;
+    mensaje += `• Dirección: ${direccionEntrega}\n`;
+    if (nota) {
+      mensaje += `• Nota: ${nota}\n`;
+    }
+    mensaje += `• Método de Pago: ${metodoPago}\n\n`;
+
+    // Incluir vendedor si existe
+    const vendedor = localStorage.getItem('vendedor');
+    if (vendedor) {
+      mensaje += `Vendedor: ${vendedor}\n\n`;
+    }
+
+    mensaje += `Información de Pago:\n`;
+    mensaje += `Total a pagar: ${totalUSD.toFixed(2)} USD\n`;
+    mensaje += `Por favor en minutos recibirá la cuenta a transferir realice la transferencia y envíe el comprobante por este medio.\n\n`;
+    mensaje += `Productos:\n\n`;
+    
+    this.carrito.forEach(prod => {
+      mensaje += `• ${prod.cantidad}x ${prod.nombre} - ${(prod.precio * prod.cantidad).toFixed(2)} USD\n`;
+    });
+
+    mensaje += `\nTotal a Pagar: ${totalUSD.toFixed(2)} USD de 24 a 48 horas pedido completado, Siempre trataremos q sea en el día`;
+
+    try {
+      // Abrir WhatsApp con el mensaje
+      const urlWhatsapp = `https://wa.me/5353933247?text=${encodeURIComponent(mensaje)}`;
+      window.open(urlWhatsapp, '_blank');
+      
+      // Mostrar confirmación
+      alert('¡Pedido enviado correctamente! Gracias por su compra.');
+      
+      // Limpiar y cerrar
+      this.limpiarYCerrar();
+    } catch (error) {
+      console.error('Error al enviar el pedido:', error);
+      alert('Hubo un error al procesar su pedido. Por favor, intente de nuevo.');
+    }
+  },
+
+  limpiarYCerrar() {
+    // Limpiar carrito
+    this.carrito = [];
+    this.guardarCarrito();
+    this.renderizarCarrito();
+    
+    // Cerrar modal
+    document.getElementById('modal-pedido').style.display = 'none';
+    
+    // Limpiar formulario
+    document.getElementById('formulario-pedido').reset();
+  },
+  
   setupEventListeners() {
     // Event delegation para toda la página
     document.addEventListener('click', (e) => {
@@ -252,6 +385,11 @@ const carritoManager = {
       // Botón de procesar pedido
       if (e.target.closest('#pedir-whatsapp')) {
         e.preventDefault();
+        // Validar que el carrito no esté vacío
+        if (this.carrito.length === 0) {
+          alert('No puedes procesar un pedido vacío. Agrega productos al carrito primero.');
+          return;
+        }
         document.getElementById('modal-pedido').style.display = 'block';
         return;
       }
@@ -274,105 +412,7 @@ const carritoManager = {
       e.preventDefault();
       this.procesarPedido();
     });
-  },
-  
-procesarPedido() {
-  // Validación de campos obligatorios
-  const nombreComprador = document.getElementById('nombre-comprador').value;
-  const emailComprador = document.getElementById('email-comprador').value;
-  const telefonoComprador = document.getElementById('telefono-comprador').value;
-  const direccionEntrega = document.getElementById('direccion-entrega').value;
-  
-  if (!nombreComprador || !emailComprador || !telefonoComprador || !direccionEntrega) {
-    alert('Por favor, complete todos los campos obligatorios.');
-    return;
   }
-
-  // Validación de teléfono
-  if (!/^\d{8,10}$/.test(telefonoComprador)) {
-    alert('El número de teléfono no es válido. Debe tener 8 a 10 dígitos.');
-    return;
-  }
-
-  // Validación de email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(emailComprador)) {
-    alert('El correo electrónico no es válido.');
-    return;
-  }
-
-  // Obtener otros datos del formulario
-  const nota = document.getElementById('nota').value;
-  const nombreBeneficiario = document.getElementById('nombre-beneficiario').value;
-  const telefonoBeneficiario = document.getElementById('telefono-beneficiario').value;
-  const metodoPago = document.getElementById('metodo-pago').value;
-  const totalUSD = this.carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
-
-  // Construir mensaje en el formato solicitado
-  let mensaje = `Nuevo Pedido\n\n`;
-  mensaje += `Datos del Comprador:\n\n`;
-  mensaje += `• Nombre: ${nombreComprador}\n`;
-  mensaje += `• Email: ${emailComprador}\n`;
-  mensaje += `• Teléfono: ${telefonoComprador}\n\n`;
-
-  if (nombreBeneficiario && telefonoBeneficiario) {
-    mensaje += `Datos del Beneficiario:\n\n`;
-    mensaje += `• Nombre: ${nombreBeneficiario}\n`;
-    mensaje += `• Teléfono: ${telefonoBeneficiario}\n\n`;
-  }
-
-  mensaje += `Información de Envío:\n\n`;
-  mensaje += `• Dirección: ${direccionEntrega}\n`;
-  if (nota) {
-    mensaje += `• Nota: ${nota}\n`;
-  }
-  mensaje += `• Método de Pago: ${metodoPago}\n\n`;
-
-  // Incluir vendedor si existe
-  const vendedor = localStorage.getItem('vendedor');
-  if (vendedor) {
-    mensaje += `Vendedor: ${vendedor}\n\n`;
-  }
-
-  mensaje += `Información de Pago:\n`;
-  mensaje += `Total a pagar: ${totalUSD.toFixed(2)} USD\n`;
-  mensaje += `Por favor en minutos recibirá la cuenta a transferir realice la transferencia y envíe el comprobante por este medio.\n\n`;
-  mensaje += `Productos:\n\n`;
-  
-  this.carrito.forEach(prod => {
-    mensaje += `• ${prod.cantidad}x ${prod.nombre} - ${(prod.precio * prod.cantidad).toFixed(2)} USD\n`;
-  });
-
-  mensaje += `\nTotal a Pagar: ${totalUSD.toFixed(2)} USD de 24 a 48 horas pedido completado, Siempre trataremos q sea en el día`;
-
-  try {
-    // Abrir WhatsApp con el mensaje
-    const urlWhatsapp = `https://wa.me/5353933247?text=${encodeURIComponent(mensaje)}`;
-    window.open(urlWhatsapp, '_blank');
-    
-    // Mostrar confirmación
-    alert('¡Pedido enviado correctamente! Gracias por su compra.');
-    
-    // Limpiar y cerrar
-    this.limpiarYCerrar();
-  } catch (error) {
-    console.error('Error al enviar el pedido:', error);
-    alert('Hubo un error al procesar su pedido. Por favor, intente de nuevo.');
-  }
-},
-
-limpiarYCerrar() {
-  // Limpiar carrito
-  this.carrito = [];
-  this.guardarCarrito();
-  this.renderizarCarrito();
-  
-  // Cerrar modal
-  document.getElementById('modal-pedido').style.display = 'none';
-  
-  // Limpiar formulario
-  document.getElementById('formulario-pedido').reset();
-}
 };
 
 // Inicializar cuando el DOM esté listo
