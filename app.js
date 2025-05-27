@@ -750,6 +750,18 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
+   {
+    id: 113,
+    nombre: "Pure de Papas Deshidratadas",
+    precio: 6.40,
+    imagen: "purepapa.png",
+    description: "Pure de Papas 390 gr para 18 porciones ",
+    categoria: "Alimentos/Otros",
+    reciente : 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
   {
     id: 32,
     nombre: "Pomo de Garbanzos Cocidos",
@@ -1502,19 +1514,19 @@ const combosTemporales = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
   },
- /* {
-    id: 20032,
-    nombre: "Combo Para Mamá 2",
+ {
+    id: 20033,
+    nombre: "Combo Fresa 🍓 ",
     precio: 17.50,
-    imagen: "combo2m.png",
-    description: "Incluye Caja de 4 Lt de Helado, 2 Latas de leche condensada, 6 Maltas Morena,  ",
+    imagen: "comboyogurt.png",
+    description: "Incluye Caja de 24 donas de fresa, 1 cubeta de 4 L de yogurt probiótico de Fresa  ",
     categoria: "Combos Temporales",
     
     descuento: 0,
     tiempoLimite: 72,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ]
   },
-  {
+ /*  {
     id: 20042,
     nombre: "Combo Para Mamá 3",
     precio: 21,
