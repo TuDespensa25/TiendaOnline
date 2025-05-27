@@ -1517,7 +1517,7 @@ const combosTemporales = [
  {
     id: 20033,
     nombre: "Combo Fresa 🍓 ",
-    precio: 17.50,
+    precio: 18.50,
     imagen: "comboyogurt.png",
     description: "Incluye Caja de 24 donas de fresa, 1 cubeta de 4 L de yogurt probiótico de Fresa  ",
     categoria: "Combos Temporales",
