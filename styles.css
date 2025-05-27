@@ -38,8 +38,14 @@ body {
 }
 /* Header y Footer */
 .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  background-color: #fff; /* fondo blanco para que no sea transparente */
+  z-index: 1000;
   border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* sombra sutil opcional */
 }
 
 /* Top-bar: fondo claro, iconos alineados a la derecha */
