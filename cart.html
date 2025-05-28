@@ -133,9 +133,9 @@ const carritoManager = {
   
   init() {
     this.cargarCarrito();
+    this.capturarVendedor(); // Añadido para capturar el vendedor
     this.setupEventListeners();
     this.renderizarCarrito();
-    this.capturarVendedor(); // Añadido para capturar el vendedor
   },
   
   cargarCarrito() {
@@ -313,9 +313,13 @@ const carritoManager = {
 
     // Incluir vendedor si existe
     const vendedor = localStorage.getItem('vendedor');
-    if (vendedor) {
-      mensaje += `Vendedor: ${vendedor}\n\n`;
-    }
+  if (vendedor) {
+    mensaje += `Vendedor: ${vendedor}\n\n`;
+    console.log(`Pedido asociado al vendedor: ${vendedor}`);
+  } else {
+    console.log('Pedido sin vendedor asociado');
+  }
+
 
     mensaje += `Información de Pago:\n`;
     mensaje += `Total a pagar: ${totalUSD.toFixed(2)} USD\n`;
