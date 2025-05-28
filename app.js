@@ -1358,9 +1358,9 @@ const productos = [
     ]
   },
   {
-    id: 97,
+    id: 114,
     nombre: "Fogon de 3 quemadores  ",
-    precio: 70,
+    precio: 75,
     imagen: "fogon.png",
     description: "Fogon milexus de 3 quemadores ",
     categoria: "De Electrodomésticos",
@@ -1372,7 +1372,7 @@ const productos = [
   {
     id: 98,
     nombre: "Ventilador de pared ",
-    precio: 70,
+    precio: 75,
     imagen: "ventiladorpared.png",
     description: "Ventilador de 18 pulgadas de pared ",
     categoria: "De Electrodomésticos",
@@ -1535,9 +1535,9 @@ const productos = [
   },
   {
     id: 111,
-    nombre: "Donas de Fresa ",
+    nombre: "Donas de Fresa 🍓 ",
     precio: 7.50,
-    imagen: "Donutfresa.png",
+    imagen: "donutfresa.png",
     description: "Caja de 24 unidades ",
     categoria: "Alimentos/Del Confi",
     municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
