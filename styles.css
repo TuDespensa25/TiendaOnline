@@ -1660,7 +1660,7 @@ html {
   box-shadow: 0 0 10px #ff6600;
 }
 body {
-  margin-top: 130px; /* ajusta este número si tu header es más alto */
+  margin-top: 0px; /* ajusta este número si tu header es más alto */
 }
 .site-header,
 .main-header {
