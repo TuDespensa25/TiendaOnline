@@ -42,10 +42,7 @@ const ubicaciones = {
     "La Habana Vieja": 21,
     "Diez de Octubre": 22,
     "Arroyo Naranjo": 23,
-    "San Miguel del Padrón": 24,
-    "Habana del Este": 25,
-    "Guanabacoa": 26,
-    "Regla": 27
+  
   }
 },
 },
@@ -1605,7 +1602,7 @@ const combosTemporales = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
-  },*/
+  },
   {
     id: 30022,
     nombre: "Combo De Granos",
@@ -1619,7 +1616,7 @@ const combosTemporales = [
     municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
-  },
+  },*/
  {
     id: 20033,
     nombre: "Combo Fresa 🍓 ",
