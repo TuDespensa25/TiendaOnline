@@ -1582,7 +1582,7 @@ const productos = [
    {
     id: 121,
     nombre: "Bombom Truffle de Chocolate",
-    precio: 2.60,
+    precio: 8.60,
     imagen: "trufle.png",
     description: "Bolsa de 35 uds  ",
     categoria: "Alimentos/Del Confi",
