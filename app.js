@@ -270,7 +270,7 @@ const productos = [
     imagen: "res.png",
     description: "Bolsa de 1 Kg ",
     categoria: "Alimentos/Cárnicos",
-    reciente: 1,
+    reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ]
   },
   {
@@ -597,7 +597,7 @@ const productos = [
     imagen: "cintracola.png",
     description: "Lata 330 ml",
     categoria: "Alimentos/Líquidos",
-    reciente: 1,
+    reciente: 0,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -668,20 +668,21 @@ const productos = [
     imagen: "ajobadia.png",
     description: "Pomo de 8 OZ ",
     categoria: "Alimentos/Otros",
-    reciente: 1,
+    reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
+
   {
-    id: 79,
-    nombre: "Jugo de Limón Badia ",
-    precio: 2.10,
-    imagen: "limonbadia.png",
-    description: "Pomo de 10 OZ ",
+    id: 127,
+    nombre: "Maíz dulce en granos  ",
+    precio: 1.70,
+    imagen: "maizdulce.png",
+    description: "lata de 445 gr ",
     categoria: "Alimentos/Otros",
     reciente: 1,
-    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
@@ -692,7 +693,7 @@ const productos = [
     imagen: "naranjabadia.png",
     description: "Pomo de 10 OZ ",
     categoria: "Alimentos/Otros",
-    reciente: 1,
+    reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -704,7 +705,7 @@ const productos = [
     imagen: "ketchupkurtz.png",
     description: "Pomo de 10 OZ ",
     categoria: "Alimentos/Otros",
-    reciente: 1,
+    reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -716,7 +717,7 @@ const productos = [
     imagen: "chicharodelmonte.png",
     description: "Bolsa de 16 OZ ",
     categoria: "Alimentos/Otros",
-    reciente: 1,
+    reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -728,7 +729,7 @@ const productos = [
     imagen: "alubiasdelmonte.png",
     description: "Bolsa de 16 OZ ",
     categoria: "Alimentos/Otros",
-    reciente: 1,
+    reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -740,7 +741,7 @@ const productos = [
     imagen: "lentejasgoya.png",
     description: "Bolsa de 14 OZ ",
     categoria: "Alimentos/Otros",
-    reciente: 1,
+    reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -752,7 +753,7 @@ const productos = [
     imagen: "garbanzosgoya.png",
     description: "Bolsa de 14 OZ ",
     categoria: "Alimentos/Otros",
-    reciente: 1,
+    reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -788,7 +789,7 @@ const productos = [
     imagen: "compota.png",
     description: "Pomito de 4 Oz ",
     categoria: "Alimentos/Otros",
-    reciente: 1,
+    reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -812,7 +813,7 @@ const productos = [
     imagen: "tropicalcarnes.png",
     description: "Cajita de 20 Uds Ideal para carnes  ",
     categoria: "Alimentos/Otros",
-    reciente: 1,
+    reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -824,7 +825,7 @@ const productos = [
     imagen: "tropicalarroz.png",
     description: "Cajita de 20 Uds Ideal para Arroces y Cardos  ",
     categoria: "Alimentos/Otros",
-    reciente: 1,
+    reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -847,6 +848,18 @@ const productos = [
     precio: 1.65,
     imagen: "puresara.png",
     description: "Pure de Tomate 400 gr",
+    categoria: "Alimentos/Otros",
+    reciente : 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+   {
+    id: 115,
+    nombre: "Tomate Frito Apis",
+    precio:2.2 ,
+    imagen: "tomatefrito.png",
+    description: "Caja de  400 gr",
     categoria: "Alimentos/Otros",
     reciente : 1,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
@@ -1205,16 +1218,30 @@ const productos = [
     ]
   },
   {
-    id: 54,
-    nombre: "Detergente para ropa",
-    precio: 5.2,
-    imagen: "4en1.png",
-    description: "Pomo de 1 L",
+    id: 116,
+    nombre: "Detergente Liquido Lavaloza",
+    precio: 2.60,
+    imagen: "lavaloza.png",
+    description: "Pomo de 500 ml",
     categoria: "Del Hogar",
+    reciente: 1,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
+    {
+    id: 117,
+    nombre: "Detergente Liquido STB",
+    precio: 3.20,
+    imagen: "stbliquido.png",
+    description: "Bolsa de 1 L",
+    categoria: "Del Hogar",
+    reciente: 1,
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+
   {
     id: 55,
     nombre: "Detergente polvo Multiuso",
@@ -1516,6 +1543,116 @@ const productos = [
     description: "Tubo de 170 gr",
     categoria: "Alimentos/Del Confi",
     municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    reciente: 1, // Marcar como reciente
+    
+  },
+   {
+    id: 118,
+    nombre: "Galletas Samyeli",
+    precio: 0.90,
+    imagen: "samyeli.png",
+    description: "Tubo de 150 gr",
+    categoria: "Alimentos/Del Confi",
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    reciente: 1, // Marcar como reciente
+    
+  },
+   {
+    id: 119,
+    nombre: "Donut Brawo de Caramelo",
+    precio: 0.50,
+    imagen: "donutbravo.png",
+    description: "paquetico de 40 gr ",
+    categoria: "Alimentos/Del Confi",
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    reciente: 1, // Marcar como reciente
+    
+  },
+   {
+    id: 120,
+    nombre: "Galletas Maxi 2000",
+    precio: 2.60,
+    imagen: "maxis2000.png",
+    description: "paquete  de 500 gr ",
+    categoria: "Alimentos/Del Confi",
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    reciente: 1, // Marcar como reciente
+    
+  },
+   {
+    id: 121,
+    nombre: "Bombom Truffle de Chocolate",
+    precio: 2.60,
+    imagen: "trufle.png",
+    description: "Bolsa de 35 uds  ",
+    categoria: "Alimentos/Del Confi",
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    reciente: 1, // Marcar como reciente
+    
+  },
+  {
+    id: 122,
+    nombre: "Galletas black out",
+    precio: 2.20,
+    imagen: "blackout.png",
+    description: "Bolsa de 4 paquetes  ",
+    categoria: "Alimentos/Del Confi",
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    reciente: 1, // Marcar como reciente
+    
+  },
+  {
+    id: 123,
+    nombre: "Papas Fritas Sabrosísimo",
+    precio: 2.20,
+    imagen: "papasfritas.png",
+    description: "tubo de 140 gr  ",
+    categoria: "Alimentos/Del Confi",
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    reciente: 1, // Marcar como reciente
+    
+  },
+  {
+    id: 124,
+    nombre: "Schoco cake",
+    precio: 0.55,
+    imagen: "schoco.png",
+    description: "donut de 40 gr  ",
+    categoria: "Alimentos/Del Confi",
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    reciente: 1, // Marcar como reciente
+    
+  },
+  {
+    id: 124,
+    nombre: "Galletas Kremali",
+    precio: 1.11,
+    imagen: "kremali.png",
+    description: "paquete de 70 gr ",
+    categoria: "Alimentos/Del Confi",
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    reciente: 1, // Marcar como reciente
+    
+  },
+   {
+    id: 125,
+    nombre: "Waffer de Vainilla, fresa y chocolate",
+    precio: 1.50,
+    imagen: "waferfresa.png",
+    description: "paquete de 140 gr ",
+    categoria: "Alimentos/Del Confi",
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
+    reciente: 1, // Marcar como reciente
+    
+  },
+   {
+    id: 126,
+    nombre: "Caja de sorbeticos  de Vainilla",
+    precio: 7.50,
+    imagen: "sorbetico.png",
+    description: "Caja de 12 paquetes de 40  gr ",
+    categoria: "Alimentos/Del Confi",
+    municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
     reciente: 1, // Marcar como reciente
     
   },
