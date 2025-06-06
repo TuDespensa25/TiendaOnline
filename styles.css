@@ -116,6 +116,7 @@ body {
   position: relative;
   text-align: center;
   overflow: hidden;
+  
 }
 
 .banner img {
@@ -1853,4 +1854,17 @@ body {
   color: white;
   text-decoration: none;
   border-radius: 4px;
+}
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: white; /* Asegúrate de tener fondo */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.banner-container {
+  margin-top: 50px; /* Ajusta al alto real del header */
 }
