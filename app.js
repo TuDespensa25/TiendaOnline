@@ -1624,7 +1624,7 @@ const productos = [
     
   },
   {
-    id: 124,
+    id: 128,
     nombre: "Galletas Kremali",
     precio: 1.11,
     imagen: "kremali.png",
