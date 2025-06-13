@@ -1755,7 +1755,7 @@ const combosTemporales = [
      ]
   },*/
  {
-    id: 20033,
+    id: 20034,
     nombre: "Combo Fresa 🍓 ",
     precio: 18.50,
     imagen: "comboyogurt.png",
