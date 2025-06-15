@@ -289,7 +289,7 @@ const productos = [
   {
     id: 75,
     nombre: "Caja de Pollo",
-    precio: 46,
+    precio: 49,
     imagen: "caja33lbpollo.png",
     description: "caja de 33 lb de muslo y contramuslo 3 paquetes de 11 lb",
     categoria: "Alimentos/Cárnicos",
@@ -482,6 +482,18 @@ const productos = [
     imagen: "cristal.png",
     description: "Caja de 24 uds",
     categoria: "Alimentos/Líquidos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+  {
+    id: 129,
+    nombre: "Whisky Old Star",
+    precio: 5.80,
+    imagen: "old.png",
+    description: "Botella de 1 Lts",
+    categoria: "Alimentos/Líquidos",
+    reciente:1,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
