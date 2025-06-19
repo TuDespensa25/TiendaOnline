@@ -273,7 +273,7 @@ const productos = [
     reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ]
   },
-  {
+  /*{
     id: 2,
     nombre: "Caja de Pollo",
     precio: 52,
@@ -320,7 +320,7 @@ const productos = [
     municipios: [1, 2, 3, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
 {
   id: 4,
   nombre: "Lomo de cerdo deshuesado",
@@ -1767,7 +1767,7 @@ const combosTemporales = [
      ]
   },*/
  {
-    id: 20034,
+    id: 20035,
     nombre: "Combo Fresa 🍓 ",
     precio: 18.50,
     imagen: "comboyogurt.png",
