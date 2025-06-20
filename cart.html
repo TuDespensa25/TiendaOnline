@@ -324,13 +324,13 @@ if (hoy <= fechaLimite) {
     mensaje += `• Método de Pago: ${metodoPago}\n\n`;
 
     // Incluir vendedor si existe
-    const vendedor = localStorage.getItem('vendedor');
-  if (vendedor) {
-    mensaje += `Vendedor: ${vendedor}\n\n`;
-    console.log(`Pedido asociado al vendedor: ${vendedor}`);
-  } else {
-    console.log('Pedido sin vendedor asociado');
-  }
+   const vendedor = obtenerVendedorDesdeURL();
+if (vendedor) {
+  mensaje += `Vendedor: ${vendedor}\n\n`;
+} else {
+  mensaje += `Vendedor: No especificado\n\n`;
+}
+
 
 
     mensaje += `Información de Pago:\n`;
