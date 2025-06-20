@@ -250,7 +250,14 @@ document.addEventListener("DOMContentLoaded", () => {
   renderizarProductosRecientes();
 });
 
-
+// Función para capturar el parámetro 'ref' (vendedor) de la URL y almacenarlo
+function capturarVendedor() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const ref = urlParams.get("ref");
+  if (ref) {
+    localStorage.setItem("vendedor", ref);
+  }
+}
 
 // Lista de productos (solo un ejemplo, añade el resto de tus productos siguiendo este formato)
 const productos = [
