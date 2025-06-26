@@ -396,7 +396,7 @@ const productos = [
   {
     id: 10,
     nombre: "Lomo Ahumado",
-    precio: 8,
+    precio: 10.20,
     imagen: "ahumado1.png",
     description: "bandeja sellada al vacio de 1.2 lb lasqueado",
     categoria: "Alimentos/Cárnicos",
@@ -1792,12 +1792,12 @@ const combosTemporales = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-   /*{
-    id: 20052,
-    nombre: "Combo Para Mamá 4",
-    precio: 34.50,
+   {
+    id: 20053,
+    nombre: "Combo Granos Plus",
+    precio: 70,
     imagen: "combo4m.png",
-    description: "Incluye 1 Paquete de pollo de 10 lb, 1 paquete de pechuga de 2 kg, 2 paquetes de salchichas, 2 paquetes de hamburguesas de 5 unidades.   ",
+    description: "Incluye 50 lb de Arroz Brasileño, 10 lb de Frijol Negro, 8 lb de Azúcar Blanca.   ",
     categoria: "Combos Temporales",
     
     descuento: 0,
@@ -1806,7 +1806,7 @@ const combosTemporales = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
   },
-  {
+  /*{
     id: 20062,
     nombre: "Combo Para Mamá 5",
     precio: 20,
