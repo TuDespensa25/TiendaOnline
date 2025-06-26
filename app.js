@@ -332,7 +332,7 @@ const productos = [
     14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 // La Habana
   ]
 },
- /* {
+  {
     id: 92,
     nombre: "Muslo de pollo ahumado ",
     precio: 7 ,
@@ -340,7 +340,7 @@ const productos = [
     description: "Bolsa de 3 Lb ",
     categoria: "Alimentos/Cárnicos",
     reciente: 1,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
 
   },
   {
@@ -351,13 +351,11 @@ const productos = [
     description: "Bolsa de 5 Lb ",
     categoria: "Alimentos/Cárnicos",
     reciente  : 1,
-    municipios: [1, 2, 3,  12, 13, 
-      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
-    ]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
 
   },
 
-  {
+  /*{
     id: 5,
     nombre: "Masas de Cerdo",
     precio: 19,
@@ -384,25 +382,27 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
- /* {
+  {
     id: 9,
     nombre: "Lomo ahumado",
     precio: 12,
     imagen: "ahumado.png",
-    description: "porcionado y sellado en 2 lb ",
+    description: "porcionado y sellado en 2.2 lb ",
     categoria: "Alimentos/Cárnicos",
     descuento:10,
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
     
   },
-  /*{
+  {
     id: 10,
     nombre: "Lomo Ahumado",
     precio: 8,
-    imagen: "ahumado.svg",
+    imagen: "ahumado1.png",
     description: "bandeja sellada al vacio de 1.2 lb lasqueado",
-    categoria: "Alimentos/Cárnicos"
-  },*/                                                                                                          
+    categoria: "Alimentos/Cárnicos",
+    reciente  : 1,
+     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+  },                                                                                                          
   {
     id: 11,
     nombre: "Pechuga de pollo",
@@ -414,15 +414,16 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
- /* {
+  {
     id: 12,
-    nombre: "Jamón Embuchado",
-    precio: 12.00,
-    imagen: "embuchado.png",
-    description: "Porción sellada de 3 Lb",
+    nombre: "Humaré",
+    precio: 1.4,
+    imagen: "humaré.png",
+    description: "Porcion sellada al vacio de tocino + costilla ahumada",
     categoria: "Alimentos/Cárnicos",
-    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-  },*/
+    reciente  : 1, 
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+  },
   {
     id: 13,
     nombre: "Picadillo de pollo",
@@ -1612,7 +1613,7 @@ const productos = [
     reciente: 1, // Marcar como reciente
     
   },
-  {
+  /*{
     id: 123,
     nombre: "Papas Fritas Sabrosísimo",
     precio: 2.20,
@@ -1622,7 +1623,7 @@ const productos = [
     municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
     reciente: 1, // Marcar como reciente
     
-  },
+  },*/
   {
     id: 124,
     nombre: "Schoco cake",
@@ -1750,13 +1751,13 @@ const combosTemporales = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
-  },
+  },*/
   {
-    id: 30022,
+    id: 30024,
     nombre: "Combo De Granos",
     precio: 16.50,
     imagen: "combo2.png",
-    description: "Incluye 11 Lb de Arroz Brasileño, 3 Lb de Frijol Negro , 2 Lb de frijol Colorados ",
+    description: "Incluye 11 Lb de Arroz Brasileño, 5 Lb de Frijol Negro .",
     categoria: "Combos Temporales",
     
     descuento: 0,
@@ -1764,9 +1765,9 @@ const combosTemporales = [
     municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
-  },*/
+  },
  {
-    id: 20035,
+    id: 20036,
     nombre: "Combo Fresa 🍓 ",
     precio: 18.50,
     imagen: "comboyogurt.png",
@@ -1777,12 +1778,12 @@ const combosTemporales = [
     tiempoLimite: 72,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ]
   },
- /*  {
-    id: 20042,
-    nombre: "Combo Para Mamá 3",
-    precio: 21,
-    imagen: "combo3m.png",
-    description: "Incluye Galletas saladitas (6 paquetes), 6 Latas de jugo Multifrutas, 1 Lata de leche condensada, 6 Malta Morenas, 1 paquete de 50 Bombones.   ",
+  {
+    id: 20043,
+    nombre: "Combo Apis+ Pollo",
+    precio: 8.50,
+    imagen: "polloapis.png",
+    description: "Incluye 1 bolsa sellada al vacío de 3lb de pollo ahumado + 1 Tomate frito Español Apis   ",
     categoria: "Combos Temporales",
     
     descuento: 0,
@@ -1791,7 +1792,7 @@ const combosTemporales = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+   /*{
     id: 20052,
     nombre: "Combo Para Mamá 4",
     precio: 34.50,
