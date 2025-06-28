@@ -1753,7 +1753,7 @@ const combosTemporales = [
      ]
   },*/
   {
-    id: 30024,
+    id: 30025,
     nombre: "Combo De Granos",
     precio: 16.50,
     imagen: "combo2.png",
@@ -1767,7 +1767,7 @@ const combosTemporales = [
      ]
   },
  {
-    id: 20036,
+    id: 20037,
     nombre: "Combo Fresa 🍓 ",
     precio: 18.50,
     imagen: "comboyogurt.png",
@@ -1779,7 +1779,7 @@ const combosTemporales = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ]
   },
   {
-    id: 20043,
+    id: 20044,
     nombre: "Combo Apis+ Pollo",
     precio: 8.50,
     imagen: "polloapis.png",
@@ -1793,7 +1793,7 @@ const combosTemporales = [
     ]
   },
    {
-    id: 20053,
+    id: 20054,
     nombre: "Combo Granos Plus",
     precio: 70,
     imagen: "combo4m.png",
