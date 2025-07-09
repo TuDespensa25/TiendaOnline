@@ -1,6 +1,7 @@
 "use strict";
 
 // Tasa de cambio: 1 USD equivale a 340.0 CUP (ajusta según necesites)
+
 const tasaCambio = 340.0;
 
 // Ubicaciones disponibles
