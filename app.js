@@ -383,7 +383,7 @@ const productos = [
     id: 5,
     nombre: "Masas de Cerdo",
     precio: 7.40,
-    imagen: "masas.svg",
+    imagen: "masas.png",
     description: "Bandeja de masas de cerdo  sellada al vacio de 2 lb",
     categoria: "Alimentos/Cárnicos",
      reciente  : 1,
@@ -394,7 +394,7 @@ const productos = [
     id: 6,
     nombre: "Bistec de cerdo",
     precio: 8.5,
-    imagen: "bistec.svg",
+    imagen: "bistec.png",
     description: "Bandeja de bistec sellada al vacio 2 lb",
     categoria: "Alimentos/Cárnicos",
      reciente  : 1,
@@ -1783,7 +1783,7 @@ const combosTemporales = [
      ]
   },*/
   {
-    id: 30025,
+    id: 30026,
     nombre: "Combo De Granos",
     precio: 16.50,
     imagen: "combo2.png",
@@ -1797,7 +1797,7 @@ const combosTemporales = [
      ]
   },
  {
-    id: 20037,
+    id: 20038,
     nombre: "Combo Fresa 🍓 ",
     precio: 18.50,
     imagen: "comboyogurt.png",
@@ -1808,7 +1808,7 @@ const combosTemporales = [
     tiempoLimite: 72,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ]
   },
-  {
+  /*{
     id: 20044,
     nombre: "Combo Apis+ Pollo",
     precio: 8.50,
@@ -1821,9 +1821,9 @@ const combosTemporales = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, 
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
    {
-    id: 20054,
+    id: 20055,
     nombre: "Combo Granos Plus",
     precio: 70,
     imagen: "combo4m.png",
