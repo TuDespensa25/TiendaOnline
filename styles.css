@@ -1868,3 +1868,60 @@ body {
 .banner-container {
   margin-top: 50px; /* Ajusta al alto real del header */
 }
+.no-results {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  color: #666;
+  grid-column: 1 / -1;
+}
+/* Estilo para el input de búsqueda */
+#busqueda-productos.form-control {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: border-color 0.3s ease;
+}
+
+#busqueda-productos.form-control::placeholder {
+  color: #999;
+}
+
+#busqueda-productos.form-control:focus {
+  border-color: #160279;
+  box-shadow: 0 0 6px rgba(22, 2, 121, 0.3);
+}
+/* Estilos para la sección de resultados */
+#resultados-busqueda-container {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.titulo-resultados {
+  color: #333;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Estilo para cuando no hay resultados */
+.no-results {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  color: #666;
+}

@@ -50,6 +50,29 @@ const ubicaciones = {
   provinciaSeleccionada: null,
   municipioSeleccionado: null
 };
+// Funciones para la búsqueda
+function toggleResultadosContainer(mostrar) {
+  const container = document.getElementById('resultados-busqueda-container');
+  if (mostrar) {
+    container.classList.remove('hidden');
+  } else {
+    container.classList.add('hidden');
+  }
+}
+
+function scrollToResults() {
+  const resultadosContainer = document.getElementById('resultados-busqueda-container');
+  if (resultadosContainer) {
+    resultadosContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function filtrarProductosPorNombre(textoBusqueda) {
+  const textoMinuscula = textoBusqueda.toLowerCase();
+  return productos.filter(producto =>
+    producto.nombre.toLowerCase().includes(textoMinuscula)
+  );
+}
 
 // Función unificada para mostrar el modal de ubicación
 function mostrarModalUbicacion() {
@@ -333,7 +356,7 @@ const productos = [
     14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 // La Habana
   ]
 },
-  {
+ /* {
     id: 92,
     nombre: "Muslo de pollo ahumado ",
     precio: 7 ,
@@ -354,24 +377,30 @@ const productos = [
     reciente  : 1,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
 
-  },
+  },*/
 
-  /*{
+  {
     id: 5,
     nombre: "Masas de Cerdo",
-    precio: 19,
+    precio: 7.40,
     imagen: "masas.svg",
-    description: "bolsa sellada al vacio de 4lb",
-    categoria: "Alimentos/Cárnicos"
+    description: "Bandeja de masas de cerdo  sellada al vacio de 2 lb",
+    categoria: "Alimentos/Cárnicos",
+     reciente  : 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+
   },
   {
     id: 6,
     nombre: "Bistec de cerdo",
-    precio: 10.5,
+    precio: 8.5,
     imagen: "bistec.svg",
-    description: "Bandeja de bistec sellada al vacio 2.2 lb",
-    categoria: "Alimentos/Cárnicos"
-  },*/
+    description: "Bandeja de bistec sellada al vacio 2 lb",
+    categoria: "Alimentos/Cárnicos",
+     reciente  : 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+
+  },
   {
     id: 8,
     nombre: "Jamon vicky",
@@ -383,7 +412,7 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+ /* {
     id: 9,
     nombre: "Lomo ahumado",
     precio: 12,
@@ -403,7 +432,7 @@ const productos = [
     categoria: "Alimentos/Cárnicos",
     reciente  : 1,
      municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
-  },                                                                                                          
+  },  */                                                                                                        
   {
     id: 11,
     nombre: "Pechuga de pollo",
@@ -1268,7 +1297,7 @@ const productos = [
   },
   {
     id: 56,
-    nombre: "Jabon De Olor",
+    nombre: "Jabón De Olor",
     precio: 1.2,
     imagen: "jabon.png",
     description: "por unidades",
@@ -1880,6 +1909,195 @@ const combosTemporales = [
 
 
 ];
+// Mover esta función fuera de renderizarProductos para que sea accesible globalmente
+function filtrarProductosPorNombre(textoBusqueda) {
+  const textoMinuscula = textoBusqueda.toLowerCase();
+  return productos.filter(producto =>
+    producto.nombre.toLowerCase().includes(textoMinuscula)
+  );
+}
+
+// Función para manejar la búsqueda y mostrar resultados
+function buscarYMostrarProductos() {
+  const textoBusqueda = document.getElementById('busqueda-productos').value;
+  const productosFiltrados = filtrarProductosPorNombre(textoBusqueda);
+  
+  // Renderizar los productos filtrados
+  if (productosFiltrados.length === 0) {
+    productosContainer.innerHTML = '<p class="no-results">No se encontraron productos que coincidan con tu búsqueda.</p>';
+  } else {
+    renderizarListaProductos(productosFiltrados);
+  }
+}
+
+// Función modificada para renderizar una lista dada de productos
+function renderizarListaProductos(listaProductos) {
+  const fragment = document.createDocumentFragment();
+  
+  listaProductos.forEach(prod => {
+    const div = document.createElement("div");
+    div.className = "producto";
+    div.id = `producto-${prod.id}`;
+    div.dataset.id = prod.id;
+    div.dataset.categoria = prod.categoria;
+    const categoriaSinBarra = prod.categoria.replace(/[^a-zA-Z0-9]/g, '-');
+
+    if (prod.categoria === "Servicios") {
+      div.innerHTML = `
+        <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
+        <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+        <h3>${prod.nombre}</h3>
+        <a href="https://wa.me/5353933247?text=${encodeURIComponent("Me interesa una cotización para " + prod.nombre)}" 
+           target="_blank" class="btn-cotizacion">Cotización del Servicio</a>
+      `;
+    } else {
+      if (prod.descuento && prod.descuento > 0) {
+        const descuento = prod.descuento;
+        const precioOriginal = prod.precio;
+        const precioNuevo = precioOriginal * (1 - descuento / 100);
+        div.innerHTML = `
+          <div class="img-container">
+              <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+              <div class="discount-label">Descuento ${descuento}%</div>
+          </div>
+          <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
+          <h3>${prod.nombre}</h3>
+          <p class="precio-original">USD ${precioOriginal.toFixed(2)}</p>
+          <p class="precio-nuevo">USD ${precioNuevo.toFixed(2)}</p>
+          <button data-id="${prod.id}" class="btn-agregar">Agregar al carrito</button>
+        `;
+      } else {
+        div.innerHTML = `
+          <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
+          <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+          <h3>${prod.nombre}</h3>
+          <p class="precio-nuevo">USD ${prod.precio.toFixed(2)}</p>
+          <button data-id="${prod.id}" class="btn-agregar">Agregar al carrito</button>
+        `;
+      }
+    }
+    fragment.appendChild(div);
+  });
+  
+  productosContainer.innerHTML = "";
+  productosContainer.appendChild(fragment);
+}
+
+function renderizarListaProductos(listaProductos, contenedor = productosContainer) {
+  const fragment = document.createDocumentFragment();
+  
+  listaProductos.forEach(prod => {
+    const div = document.createElement("div");
+    div.className = "producto";
+    div.id = `producto-${prod.id}`;
+    div.dataset.id = prod.id;
+    div.dataset.categoria = prod.categoria;
+    const categoriaSinBarra = prod.categoria.replace(/[^a-zA-Z0-9]/g, '-');
+
+    if (prod.categoria === "Servicios") {
+      div.innerHTML = `
+        <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
+        <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+        <h3>${prod.nombre}</h3>
+        <a href="https://wa.me/5353933247?text=${encodeURIComponent("Me interesa una cotización para " + prod.nombre)}" 
+           target="_blank" class="btn-cotizacion">Cotización del Servicio</a>
+      `;
+    } else {
+      if (prod.descuento && prod.descuento > 0) {
+        const descuento = prod.descuento;
+        const precioOriginal = prod.precio;
+        const precioNuevo = precioOriginal * (1 - descuento / 100);
+        div.innerHTML = `
+          <div class="img-container">
+              <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+              <div class="discount-label">Descuento ${descuento}%</div>
+          </div>
+          <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
+          <h3>${prod.nombre}</h3>
+          <p class="precio-original">USD ${precioOriginal.toFixed(2)}</p>
+          <p class="precio-nuevo">USD ${precioNuevo.toFixed(2)}</p>
+          <button data-id="${prod.id}" class="btn-agregar">Agregar al carrito</button>
+        `;
+      } else {
+        div.innerHTML = `
+          <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
+          <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+          <h3>${prod.nombre}</h3>
+          <p class="precio-nuevo">USD ${prod.precio.toFixed(2)}</p>
+          <button data-id="${prod.id}" class="btn-agregar">Agregar al carrito</button>
+        `;
+      }
+    }
+    fragment.appendChild(div);
+  });
+  
+  contenedor.innerHTML = "";
+  contenedor.appendChild(fragment);
+}
+
+function renderizarProductos(categoria = "todas") {
+  if (!productosContainer) return;
+  
+  const municipioSeleccionado = localStorage.getItem('municipioSeleccionado');
+  
+  let filtrados = categoria === "todas" 
+    ? productos 
+    : productos.filter(p => p.categoria === categoria);
+  
+  if (municipioSeleccionado) {
+    filtrados = filtrados.filter(p => 
+      p.municipios && p.municipios.includes(parseInt(municipioSeleccionado)))
+  }
+  
+  renderizarListaProductos(filtrados);
+}
+function buscarYMostrarProductos() {
+  const textoBusqueda = document.getElementById('busqueda-productos').value.trim();
+  const resultadosContainer = document.getElementById('resultados-busqueda');
+  
+  if (textoBusqueda === '') {
+    toggleResultadosContainer(false);
+    return;
+  }
+
+  const productosFiltrados = filtrarProductosPorNombre(textoBusqueda);
+  
+  if (productosFiltrados.length === 0) {
+    resultadosContainer.innerHTML = '<p class="no-results">No se encontraron productos que coincidan con tu búsqueda.</p>';
+    toggleResultadosContainer(true);
+    scrollToResults();
+    return;
+  }
+
+  renderizarListaProductos(productosFiltrados, resultadosContainer);
+  toggleResultadosContainer(true);
+  scrollToResults();
+}
+
+// En el DOMContentLoaded, agregar el event listener para la búsqueda
+document.addEventListener("DOMContentLoaded", () => {
+  // ... código existente ...
+  
+ 
+    // Configurar el evento de búsqueda
+  const searchInput = document.getElementById('busqueda-productos');
+  if (searchInput) {
+    let timeout;
+    searchInput.addEventListener('input', () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(buscarYMostrarProductos, 300);
+    });
+    
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        clearTimeout(timeout);
+        buscarYMostrarProductos();
+      }
+    });
+  }
+  
+  // ... resto del código existente ...
+});
 
 // Agregar al final del array de productos (busca: const productos = [...])
 productos.push(...combosTemporales);
