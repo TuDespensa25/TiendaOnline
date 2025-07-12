@@ -300,6 +300,25 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Configurar botón para cambiar ubicación
   document.getElementById('cambiar-ubicacion')?.addEventListener('click', mostrarModalUbicacion);
+  // ========== [CODIGO NUEVO - PEGA ESTO] ========== //
+// Configurar menú de categorías
+const categories = document.querySelectorAll('.category');
+if (categories.length > 0) {
+  categories.forEach(category => {
+    category.addEventListener('click', () => {
+      // Remover clase 'active' de todas las categorías
+      categories.forEach(c => c.classList.remove('active'));
+      // Añadir clase 'active' a la categoría clickeada
+      category.classList.add('active');
+      // Filtrar productos
+      renderizarProductos(category.dataset.category);
+    });
+  });
+  
+  // Mostrar todos los productos al inicio
+  renderizarProductos("todas");
+}
+// ========== [FIN DE CODIGO NUEVO] ========== //
   
   // Resto de tu inicialización...
   cargarCarritoDesdeLocalStorage();

@@ -146,24 +146,59 @@
     <div class="productos-recientes-container"></div>
   </section>
 
-  <section id="productos">
-    <div class="seccion-titulo">
-      <h2>Nuestros Productos</h2>
+  <!-- Reemplaza la sección de productos actual con esta estructura -->
+<section id="productos">
+  <div class="seccion-titulo">
+    <h2>Nuestros Productos</h2>
+  </div>
+  
+  <div class="menu-container">
+    <!-- Barra lateral de categorías -->
+    <div class="menu-categories">
+      <div class="category active" data-category="todas">
+        <i class="fas fa-home"></i>
+        <span>Todas</span>
+      </div>
+      <div class="category" data-category="De Electrodomésticos">
+        <i class="fas fa-plug"></i>
+        <span>Electrodomésticos</span>
+      </div>
+      <div class="category" data-category="Alimentos/Cárnicos">
+        <i class="fas fa-drumstick-bite"></i>
+        <span>Cárnicos</span>
+      </div>
+      <div class="category" data-category="Alimentos/Lácteos">
+        <i class="fas fa-cheese"></i>
+        <span>Lácteos</span>
+      </div>
+      <div class="category" data-category="Alimentos/Líquidos">
+        <i class="fas fa-wine-bottle"></i>
+        <span>Bebidas</span>
+      </div>
+      <div class="category" data-category="Alimentos/Del Confi">
+        <i class="fas fa-cookie"></i>
+        <span>Confitería</span>
+      </div>
+      <div class="category" data-category="Alimentos/Del Agro">
+        <i class="fas fa-carrot"></i>
+        <span>Del Agro</span>
+      </div>
+      <div class="category" data-category="Alimentos/Otros">
+        <i class="fas fa-shopping-basket"></i>
+        <span>Alimentos</span>
+      </div>
+      <div class="category" data-category="Del Hogar">
+        <i class="fas fa-home"></i>
+        <span>Hogar</span>
+      </div>
     </div>
-    <div class="filtros">
-      <button class="filtro-btn active" data-categoria="todas">Todas</button>
-      <button class="filtro-btn De-Electrodom-sticos" data-categoria="De Electrodomésticos">De Electrodomésticos</button>
-      <button class="filtro-btn Alimentos-C-rnicos" data-categoria="Alimentos/Cárnicos">Alimentos/Cárnicos</button>
-      <button class="filtro-btn Alimentos-L-cteos" data-categoria="Alimentos/Lácteos">Alimentos/Lácteos</button>
-      <button class="filtro-btn Alimentos-L-quidos" data-categoria="Alimentos/Líquidos">Alimentos/Líquidos</button>
-      <button class="filtro-btn Alimentos-Del-Confi" data-categoria="Alimentos/Del Confi">Alimentos/Del Confi</button>
-      <button class="filtro-btn Alimentos-Del-Agro" data-categoria="Alimentos/Del Agro">Alimentos/Del Agro</button>
-      <button class="filtro-btn Alimentos-Otros" data-categoria="Alimentos/Otros">Alimentos/Otros</button>
-      <button class="filtro-btn Del-Hogar" data-categoria="Del Hogar">Del Hogar</button>
+    
+    <!-- Contenido principal del menú -->
+    <div class="menu-content">
+      <div class="productos-container" id="productos-container"></div>
     </div>
-    <div class="productos-container" id="productos-container"></div>
-    <div class="descripcion-flotante"></div>
-  </section>
+  </div>
+</section>
 
   <div class="boton-flotante-whatsapp">
     <a href="https://wa.me/5353933247" target="_blank">
