@@ -198,17 +198,17 @@ function mostrarModalUbicacion() {
     btnConfirmar.classList.add('oculto');
   });
   
-  btnConfirmar.addEventListener('click', function() {
-    const municipioSeleccionado = parseInt(selectMunicipio.value);
-    if (!municipioSeleccionado) {
-      alert('Por favor seleccione un municipio');
-      return;
-    }
-    
-    guardarUbicacion(ubicaciones.provinciaSeleccionada, municipioSeleccionado);
-    modal.style.display = 'none';
-    modal.remove();
-  });
+  // En la función mostrarModalUbicacion(), donde se configura btnConfirmar:
+btnConfirmar.addEventListener('click', function() {
+  const municipioSeleccionado = parseInt(selectMunicipio.value);
+  if (!municipioSeleccionado) {
+    alert('Por favor seleccione un municipio');
+    return;
+  }
+  
+  guardarUbicacion(ubicaciones.provinciaSeleccionada, municipioSeleccionado);
+  // No necesitamos cerrar el modal aquí porque ya lo hace guardarUbicacion()
+});
   
   modal.querySelector('.close').addEventListener('click', function() {
     modal.style.display = 'none';
@@ -230,6 +230,13 @@ function guardarUbicacion(provincia, municipioId) {
   ubicaciones.municipioSeleccionado = municipioId;
   localStorage.setItem('municipioSeleccionado', municipioId);
   
+  // Cerrar y eliminar el modal
+  const modal = document.getElementById('modal-ubicacion');
+  if (modal) {
+    modal.style.display = 'none';
+    modal.remove(); // Eliminar el modal del DOM
+  }
+  
   // Actualizar el botón en el header
   const nombreMunicipio = obtenerNombreMunicipio(municipioId);
   const ubicacionBtn = document.getElementById('ubicacion-actual');
@@ -241,7 +248,7 @@ function guardarUbicacion(provincia, municipioId) {
   renderizarProductos();
   renderizarOfertas();
   renderizarProductosRecientes();
-  renderizarCombosTemporales();
+  renderizarCombosOferta();
 }
 
 function obtenerNombreMunicipio(id) {
@@ -302,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ... (código existente de filtros)
   }
   
-  renderizarCombosTemporales();
+  renderizarCombosOferta();
   renderizarOfertas();
   renderizarProductosRecientes();
 });
@@ -1800,7 +1807,7 @@ const productos = [
  
 ]; 
 // Combos temporales (justo después de la lista de productos existente)
-const combosTemporales = [
+const combosOferta = [
   /*{
     id: 20012,
     nombre: "Combo Para Mamá 1",
@@ -1821,10 +1828,10 @@ const combosTemporales = [
     precio: 16.50,
     imagen: "combo2.png",
     description: "Incluye 11 Lb de Arroz Brasileño, 5 Lb de Frijol Negro .",
-    categoria: "Combos Temporales",
+    categoria: "Combos en oferta",
     
     descuento: 0,
-    tiempoLimite: 72,
+   
     municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
@@ -1835,10 +1842,10 @@ const combosTemporales = [
     precio: 18.50,
     imagen: "comboyogurt.png",
     description: "Incluye Caja de 24 donas de fresa, 1 cubeta de 4 L de yogurt probiótico de Fresa  ",
-    categoria: "Combos Temporales",
+    categoria: "Combos en oferta",
     
     descuento: 0,
-    tiempoLimite: 72,
+    
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ]
   },
   /*{
@@ -1861,10 +1868,10 @@ const combosTemporales = [
     precio: 70,
     imagen: "combo4m.png",
     description: "Incluye 50 lb de Arroz Brasileño, 10 lb de Frijol Negro, 8 lb de Azúcar Blanca.   ",
-    categoria: "Combos Temporales",
+    categoria: "Combos en oferta",
     
     descuento: 0,
-    tiempoLimite: 72,
+    
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
@@ -1875,7 +1882,7 @@ const combosTemporales = [
     precio: 20,
     imagen: "combo5m.png",
     description: "Incluye 6 compotas, 6 latas de jugo multifrutas, 1 mantequilla de maní, 2 Tubos de galleta María, 3 Papitas Classic Mixtas.   ",
-    categoria: "Combos Temporales",
+    categoria: "Combos en oferta",
     
     descuento: 0,
     tiempoLimite: 72,
@@ -2132,36 +2139,31 @@ document.addEventListener("DOMContentLoaded", () => {
   // ... resto del código existente ...
 });
 
-// Agregar al final del array de productos (busca: const productos = [...])
-productos.push(...combosTemporales);
-// Función para renderizar combos temporales
-function renderizarCombosTemporales() {
-  const combosContainer = document.getElementById("combos-temporales-container");
+function renderizarCombosOferta() {
+  const combosContainer = document.getElementById("combos-Oferta-container");
+  if (!combosContainer) return;
   
   // Obtener municipio seleccionado
   const municipioSeleccionado = parseInt(localStorage.getItem('municipioSeleccionado'));
   
   // Filtrar combos por categoría Y municipio
   const combosFiltrados = productos.filter(p => 
-    p.categoria === "Combos Temporales" && 
+    (p.categoria === "Combos en oferta" || p.categoria === "Combos Temporales") && 
     p.municipios?.includes(municipioSeleccionado)
   );
 
-  // Ocultar o mostrar sección de combos según si hay resultados
+  // Obtener sección de combos
   const seccionCombos = document.getElementById("combos-temporales");
   if (!seccionCombos) return;
 
-  if (combosFiltrados.length === 0) {
-    seccionCombos.style.display = "none";
-    return;
-  } else {
-    seccionCombos.style.display = "block";
-  }
+  // Mostrar u ocultar según si hay combos
+  seccionCombos.style.display = combosFiltrados.length > 0 ? "block" : "none";
+  if (combosFiltrados.length === 0) return;
 
-  // Limpiar el contenedor primero
+  // Limpiar el contenedor
   combosContainer.innerHTML = '';
 
-  // Crear contenedor interno para los combos
+  // Crear contenedor interno
   const innerContainer = document.createElement('div');
   innerContainer.className = 'combos-inner-container';
   
@@ -2177,39 +2179,16 @@ function renderizarCombosTemporales() {
       ? (combo.precio * (1 - combo.descuento / 100)).toFixed(2)
       : combo.precio.toFixed(2);
 
-    // Temporizador por combo
-    let fechaLimite;
-    const storageKey = `combo_tiempo_${combo.id}`;
-    const fechaGuardada = localStorage.getItem(storageKey);
-
-    if (fechaGuardada) {
-      fechaLimite = new Date(parseInt(fechaGuardada));
-    } else {
-      fechaLimite = new Date();
-      fechaLimite.setHours(fechaLimite.getHours() + combo.tiempoLimite);
-      localStorage.setItem(storageKey, fechaLimite.getTime());
-    }
-
-    // Estructura HTML del combo
+    // Estructura HTML del combo (sin temporizador)
     comboDiv.innerHTML = `
       <div class="img-container">
         <img src="images/${combo.imagen}" alt="${combo.nombre}" loading="lazy">
         ${tieneDescuento ? `<div class="discount-label">-${combo.descuento}%</div>` : ""}
-        <div class="time-label">⏳ Oferta limitada</div>
       </div>
       <div class="etiqueta-categoria Combos-Temporales">${combo.categoria}</div>
       <h3>${combo.nombre}</h3>
       ${tieneDescuento ? `<p class="precio-original">USD ${combo.precio.toFixed(2)}</p>` : ""}
       <p class="precio-nuevo">USD ${precioConDescuento}</p>
-      <div class="combo-timer" data-fechalimite="${fechaLimite.getTime()}">
-        <p>Tiempo restante:</p>
-        <div class="timer">
-          <span class="days">00</span>d : 
-          <span class="hours">00</span>h : 
-          <span class="minutes">00</span>m : 
-          <span class="seconds">00</span>s
-        </div>
-      </div>
       <button data-id="${combo.id}" class="btn-agregar">Agregar al carrito</button>
     `;
 
@@ -2217,8 +2196,9 @@ function renderizarCombosTemporales() {
   });
 
   combosContainer.appendChild(innerContainer);
-  iniciarContadoresTemporales();
 }
+
+  
 
 
 // Variables globales y caching de elementos
@@ -2859,7 +2839,7 @@ function toggleMenu() {
 // Inicializar
 showSlide(currentSlide);
 
-renderizarCombosTemporales(); 
+renderizarCombosOferta(); 
 renderizarOfertas();
 renderizarProductosRecientes();
 document.addEventListener('DOMContentLoaded', () => {

@@ -1316,14 +1316,14 @@ footer {
   }
 }
 /* === ESTILOS PARA COMBOS TEMPORALES === */
-.combo-temporal {
+.combo-Oferta {
   position: relative;
   border: 2px solid #ebe7e1;
   background-color: #ebe7e1;
   margin: 10px;
 }
 
-.combo-temporal .time-label {
+.combo-Oferta .time-label {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -1335,7 +1335,7 @@ footer {
   z-index: 2;
 }
 
-.combo-temporal .combo-timer {
+.combo-Oferta .combo-timer {
   background: #f8f8f8;
   padding: 10px;
   border-radius: 8px;
@@ -1343,14 +1343,14 @@ footer {
   text-align: center;
 }
 
-.combo-temporal .combo-timer .timer {
+.combo-Oferta .combo-timer .timer {
   display: flex;
   justify-content: center;
   gap: 8px;
   margin-top: 10px;
 }
 
-.combo-temporal .combo-timer .timer span {
+.combo-Oferta .combo-timer .timer span {
   background: #2c8780;
   color: white;
   padding: 4px 8px;
@@ -1360,7 +1360,7 @@ footer {
 
 /* Responsive para móviles */
 @media (max-width: 768px) {
-  .combo-temporal {
+  .combo-Oferta {
     width: 90%;
     margin: 0 auto 20px;
   }
@@ -1375,7 +1375,7 @@ footer {
 }
 
 /* Asegurar tamaño consistente */
-.combo-temporal {
+.combo-Oferta {
   width: 300px; /* Ancho fijo */
   margin: 0 10px; /* Espacio a los lados */
 }
@@ -2029,7 +2029,7 @@ html, body {
 }
 
 /* Estilos para cada combo temporal */
-.combo-temporal {
+.combo-Oferta {
   flex: 0 0 auto;
   width: 85%;
   max-width: 300px;
@@ -2070,7 +2070,7 @@ html, body {
 }
 
 /* Estilo de cada combo individual */
-.combo-temporal {
+.combo-Oferta {
   display: inline-block;
   width: 280px;
   min-width: 280px;
@@ -2085,7 +2085,7 @@ html, body {
 
 /* Estilos para móviles */
 @media (max-width: 768px) {
-  .combo-temporal {
+  .combo-Oferta {
     width: 85vw;
     min-width: 85vw;
   }
