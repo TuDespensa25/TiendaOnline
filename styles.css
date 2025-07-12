@@ -1948,3 +1948,65 @@ body {
     z-index: 20;
   }
 }
+/* Optimización para visualización completa en móviles */
+@media (max-width: 768px) {
+  html, body {
+    width: 100% !important;
+    height: 100% !important;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  body {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .banner-container {
+    margin-top: 60px; /* Ajusta según altura de tu header */
+  }
+  
+  /* Asegura que todo el contenido sea visible */
+  main {
+    padding-bottom: 20px;
+    min-height: calc(100vh - 120px); /* Ajusta según tu footer */
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+@media (max-width: 768px) {
+  .banner-slide img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 50vh;
+    object-fit: cover;
+  }
+  
+  .banner-container {
+    margin-top: 60px; /* Igual que la altura del header */
+  }
+}

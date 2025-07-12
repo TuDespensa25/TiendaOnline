@@ -1,5 +1,38 @@
 "use strict";
+// Forzar visualización completa en móviles
+function setMobileViewport() {
+  if (window.innerWidth <= 768) {
+    const viewport = document.querySelector('meta[name="viewport"]');
+    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    
+    // Ajustar altura inicial
+    document.documentElement.style.height = '100%';
+    document.body.style.height = '100%';
+    document.body.style.overflow = 'auto';
+    
+    // Ajustar para iOS
+    window.addEventListener('orientationchange', function() {
+      setTimeout(function() {
+        window.scrollTo(0, 0);
+      }, 100);
+    });
+  }
+}
+// Evitar que el teclado distorsione la vista
+window.addEventListener('resize', function() {
+  if (window.innerWidth <= 768) {
+    const activeElement = document.activeElement;
+    if (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA') {
+      setTimeout(function() {
+        activeElement.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      }, 300);
+    }
+  }
+});
 
+// Llamar al cargar y al cambiar tamaño
+document.addEventListener('DOMContentLoaded', setMobileViewport);
+window.addEventListener('resize', setMobileViewport);
 // Tasa de cambio: 1 USD equivale a 340.0 CUP (ajusta según necesites)
 
 const tasaCambio = 340.0;
