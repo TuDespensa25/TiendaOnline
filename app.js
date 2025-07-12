@@ -2144,7 +2144,7 @@ function renderizarCombosTemporales() {
   // Filtrar combos por categoría Y municipio
   const combosFiltrados = productos.filter(p => 
     p.categoria === "Combos Temporales" && 
-    p.municipios?.includes(municipioSeleccionado) // <-- ¡Filtro clave!
+    p.municipios?.includes(municipioSeleccionado)
   );
 
   // Ocultar o mostrar sección de combos según si hay resultados
@@ -2158,13 +2158,18 @@ function renderizarCombosTemporales() {
     seccionCombos.style.display = "block";
   }
 
-  // Renderizar combos
-  const fragment = document.createDocumentFragment();
+  // Limpiar el contenedor primero
+  combosContainer.innerHTML = '';
 
+  // Crear contenedor interno para los combos
+  const innerContainer = document.createElement('div');
+  innerContainer.className = 'combos-inner-container';
+  
+  // Renderizar cada combo
   combosFiltrados.forEach(combo => {
-    const div = document.createElement("div");
-    div.className = "producto combo-temporal";
-    div.dataset.id = combo.id;
+    const comboDiv = document.createElement("div");
+    comboDiv.className = "producto combo-temporal";
+    comboDiv.dataset.id = combo.id;
 
     // Cálculo del precio con o sin descuento
     const tieneDescuento = combo.descuento && combo.descuento > 0;
@@ -2186,7 +2191,7 @@ function renderizarCombosTemporales() {
     }
 
     // Estructura HTML del combo
-    div.innerHTML = `
+    comboDiv.innerHTML = `
       <div class="img-container">
         <img src="images/${combo.imagen}" alt="${combo.nombre}" loading="lazy">
         ${tieneDescuento ? `<div class="discount-label">-${combo.descuento}%</div>` : ""}
@@ -2208,44 +2213,12 @@ function renderizarCombosTemporales() {
       <button data-id="${combo.id}" class="btn-agregar">Agregar al carrito</button>
     `;
 
-    fragment.appendChild(div);
+    innerContainer.appendChild(comboDiv);
   });
 
-  combosContainer.innerHTML = "";
-  combosContainer.appendChild(fragment);
-
+  combosContainer.appendChild(innerContainer);
   iniciarContadoresTemporales();
 }
-
-// Función para activar los temporizadores de los combos
-function iniciarContadoresTemporales() {
-  document.querySelectorAll('.combo-timer').forEach(timer => {
-    const fechaLimite = parseInt(timer.dataset.fechalimite);
-    const intervalo = setInterval(() => {
-      const ahora = new Date().getTime();
-      const tiempoRestante = fechaLimite - ahora;
-
-      if (tiempoRestante <= 0) {
-        clearInterval(intervalo);
-        const boton = timer.closest('.combo-temporal')?.querySelector('.btn-agregar');
-        if (boton) boton.disabled = true;
-        timer.innerHTML = `<p style="color:red; font-weight:bold;">⏳ Tiempo agotado</p>`;
-        return;
-      }
-
-      const dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
-      const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
-
-      timer.querySelector('.days').textContent = dias.toString().padStart(2, '0');
-      timer.querySelector('.hours').textContent = horas.toString().padStart(2, '0');
-      timer.querySelector('.minutes').textContent = minutos.toString().padStart(2, '0');
-      timer.querySelector('.seconds').textContent = segundos.toString().padStart(2, '0');
-    }, 1000);
-  });
-}
-
 
 
 // Variables globales y caching de elementos
