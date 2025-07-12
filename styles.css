@@ -1898,30 +1898,53 @@ body {
   border-color: #160279;
   box-shadow: 0 0 6px rgba(22, 2, 121, 0.3);
 }
-/* Estilos para la sección de resultados */
+/* Estilos para resultados de búsqueda */
 #resultados-busqueda-container {
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #f9f9f9;
+  margin: 20px 0;
+  padding: 20px;
+  background: #f8f9fa;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .titulo-resultados {
-  color: #333;
+  color: #2c3e50;
   margin-bottom: 15px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ecf0f1;
 }
 
 .hidden {
   display: none;
 }
 
-/* Estilo para cuando no hay resultados */
 .no-results {
   text-align: center;
   padding: 20px;
-  font-size: 1.2em;
-  color: #666;
+  color: #7f8c8d;
+  font-size: 1.1em;
+}
+/* Estilos específicos para móvil */
+@media (max-width: 768px) {
+  #resultados-busqueda-container {
+    margin: 15px 0;
+    padding: 15px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .titulo-resultados {
+    font-size: 1.2rem;
+  }
+
+  /* Ajuste para el header fijo */
+  body.has-search-results {
+    padding-top: 60px;
+  }
+
+  /* Asegura que el input de búsqueda sea visible */
+  #busqueda-productos {
+    position: relative;
+    z-index: 20;
+  }
 }
