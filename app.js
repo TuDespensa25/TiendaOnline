@@ -549,7 +549,7 @@ const productos = [
     precio: 13,
     imagen: "atun.png",
     description: "Lata de 1 Kg en aceite",
-    categoria: "Alimentos/Cárnicos",
+    categoria: "Enlatados y conservas",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -581,7 +581,7 @@ const productos = [
     precio: 5.80,
     imagen: "old.png",
     description: "Botella de 1 Lts",
-    categoria: "Alimentos/Líquidos",
+    categoria: "Licoreria",
     reciente:1,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -615,7 +615,7 @@ const productos = [
     precio: 5,
     imagen: "acantus.png",
     description: "Botella de vino rosado, tinto o Blanco",
-    categoria: "Alimentos/Líquidos",
+    categoria: "Licoreria",
     municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, ]
   },
   {
@@ -624,7 +624,7 @@ const productos = [
     precio: 10,
     imagen: "espumoso.png",
     description: "botella de vino espumoso Varons d Valls 750 ml",
-    categoria: "Alimentos/Líquidos",
+    categoria: "Licoreria",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ]
   },
   {
@@ -633,14 +633,14 @@ const productos = [
     precio: 7.70,
     imagen: "3años.png",
     description: "Añejo 3 años 750 ml",
-    categoria: "Alimentos/Líquidos",
+    categoria: "Licoreria",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
   },*/
   {
     id: 23,
     nombre: "Malta Guajira",
     precio: 6.50,
-    imagen: "guajira.svg",
+    imagen: "guajira.png",
     description: "Blister de 6 uds de 500 ml",
     categoria: "Alimentos/Líquidos",
     municipios: [1, 2, 3,  12, 13,
@@ -768,7 +768,7 @@ const productos = [
     precio: 2.60,
     imagen: "ajobadia.png",
     description: "Pomo de 8 OZ ",
-    categoria: "Alimentos/Otros",
+    categoria: "Aderezo y condimentos",
     reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -781,7 +781,7 @@ const productos = [
     precio: 1.70,
     imagen: "maizdulce.png",
     description: "lata de 445 gr ",
-    categoria: "Alimentos/Otros",
+    categoria: "Enlatados y conservas",
     reciente: 1,
     municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -793,7 +793,7 @@ const productos = [
     precio: 2.60,
     imagen: "naranjabadia.png",
     description: "Pomo de 10 OZ ",
-    categoria: "Alimentos/Otros",
+    categoria: "Aderezo y condimentos",
     reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -805,7 +805,7 @@ const productos = [
     precio: 2.95,
     imagen: "ketchupkurtz.png",
     description: "Pomo de 10 OZ ",
-    categoria: "Alimentos/Otros",
+    categoria: "Aderezo y condimentos",
     reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -817,7 +817,7 @@ const productos = [
     precio: 1.95,
     imagen: "chicharodelmonte.png",
     description: "Bolsa de 16 OZ ",
-    categoria: "Alimentos/Otros",
+    categoria: "Granos",
     reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -829,7 +829,7 @@ const productos = [
     precio: 2.40,
     imagen: "alubiasdelmonte.png",
     description: "Bolsa de 16 OZ ",
-    categoria: "Alimentos/Otros",
+    categoria: "Granos",
     reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -841,7 +841,7 @@ const productos = [
     precio: 2.40,
     imagen: "lentejasgoya.png",
     description: "Bolsa de 14 OZ ",
-    categoria: "Alimentos/Otros",
+    categoria: "Granos",
     reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -853,7 +853,7 @@ const productos = [
     precio: 2.95,
     imagen: "garbanzosgoya.png",
     description: "Bolsa de 14 OZ ",
-    categoria: "Alimentos/Otros",
+    categoria: "Granos",
     reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -870,26 +870,26 @@ const productos = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   {
     id: 87,
     nombre: "Botella de Aceite",
-    precio: 3.50,
+    precio: 3.20,
     imagen: "aceite.png",
-    description: "Pomo de 1 L ",
-    categoria: "Alimentos/Otros",
+    description: "Botella  de 1 L ",
+    categoria: "Aderezo y condimentos",
     reciente: 1,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },*/
+  },
   {
     id: 88,
     nombre: "Compota Babe",
     precio: 0.90,
     imagen: "compota.png",
     description: "Pomito de 4 Oz ",
-    categoria: "Alimentos/Otros",
+    categoria: "Enlatados y conservas",
     reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -901,7 +901,7 @@ const productos = [
     precio: 1.95,
     imagen: "vinagregoya.png",
     description: " Pomo de 16 Oz ",
-    categoria: "Alimentos/Otros",
+    categoria: "Aderezo y condimentos",
     reciente: 1,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -913,7 +913,7 @@ const productos = [
     precio: 3.40,
     imagen: "tropicalcarnes.png",
     description: "Cajita de 20 Uds Ideal para carnes  ",
-    categoria: "Alimentos/Otros",
+    categoria: "Aderezo y condimentos",
     reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -925,7 +925,7 @@ const productos = [
     precio: 3.40,
     imagen: "tropicalarroz.png",
     description: "Cajita de 20 Uds Ideal para Arroces y Cardos  ",
-    categoria: "Alimentos/Otros",
+    categoria: "Aderezo y condimentos",
     reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -938,7 +938,7 @@ const productos = [
     precio: 3.50,
     imagen: "800gr.png",
     description: "Pasta doble concentrado 800 gr",
-    categoria: "Alimentos/Otros",
+    categoria: "Enlatados y conservas",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -949,7 +949,7 @@ const productos = [
     precio: 1.65,
     imagen: "puresara.png",
     description: "Pure de Tomate 400 gr",
-    categoria: "Alimentos/Otros",
+    categoria: "Enlatados y conservas",
     reciente : 1,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -961,7 +961,7 @@ const productos = [
     precio:2.2 ,
     imagen: "tomatefrito.png",
     description: "Caja de  400 gr",
-    categoria: "Alimentos/Otros",
+    categoria: "Enlatados y conservas",
     reciente : 1,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -973,7 +973,7 @@ const productos = [
     precio: 6.40,
     imagen: "purepapa.png",
     description: "Pure de Papas 390 gr para 18 porciones ",
-    categoria: "Alimentos/Otros",
+    categoria: "Productos mixtos",
     reciente : 1,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -985,12 +985,12 @@ const productos = [
     precio: 2.20,
     imagen: "garbanzos.png",
     description: "Pomo de 540 gr",
-    categoria: "Alimentos/Otros",
+    categoria: "Enlatados y conservas",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ] 
   },
-  {
+  /*{
     id: 33,
     nombre: "Mayonesa Saude",
     precio: 3.00,
@@ -1001,14 +1001,14 @@ const productos = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
     {
     id: 109,
     nombre: "Pomo de Aceitunas",
     precio: 3.00,
     imagen: "aceituna290gr.png",
     description: "Pomo de 290 gr",
-    categoria: "Alimentos/Otros",
+    categoria: "Enlatados y conservas",
     reciente:1,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -1020,7 +1020,7 @@ const productos = [
     precio: 4.20,
     imagen: "sazonmixto.png",
     description: "Pomo de 250 gr",
-    categoria: "Alimentos/Otros",
+    categoria: "Aderezo y condimentos",
    
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -1032,7 +1032,7 @@ const productos = [
     precio: 1.55,
     imagen: "spaguetis.png",
     description: "Bolsa de 500 gr",
-    categoria: "Alimentos/Otros",
+    categoria: "Productos mixtos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1043,7 +1043,7 @@ const productos = [
     precio: 1.55,
     imagen: "codito.png",
     description: "Bolsa de 500 gr",
-    categoria: "Alimentos/Otros",
+    categoria: "Productos mixtos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1054,7 +1054,7 @@ const productos = [
     precio: 2,
     imagen: "azucar1kg.png",
     description: "bolsa de 1 kg",
-    categoria: "Alimentos/Otros",
+    categoria: "Granos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
     },
@@ -1064,7 +1064,7 @@ const productos = [
     precio: 8,
     imagen: "frijol5lb.png",
     description: "bolsa de 5 Lb",
-    categoria: "Alimentos/Otros",
+    categoria: "Granos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1075,7 +1075,7 @@ const productos = [
     precio: 3.2,
     imagen: "frijol1kg.png",
     description: "bolsa de 1 kg",
-    categoria: "Alimentos/Otros",
+    categoria: "Granos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1086,7 +1086,7 @@ const productos = [
     precio: 8,
     imagen: "colorados5lb.png",
     description: "bolsa de 5 Lb",
-    categoria: "Alimentos/Otros",
+    categoria: "Granos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1094,10 +1094,10 @@ const productos = [
   {
     id: 41,
     nombre: "Sal Iodada ",
-    precio: 0.5,
+    precio: 1.20,
     imagen: "sal.png",
-    description: "bolsa de 1 Lb",
-    categoria: "Alimentos/Otros",
+    description: "bolsa de 1 kg",
+    categoria: "Granos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1108,7 +1108,7 @@ const productos = [
     precio: 2.2,
     imagen: "arroz1kg.png",
     description: "bolsa de 1 kg",
-    categoria: "Alimentos/Otros",
+    categoria: "Granos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1119,7 +1119,7 @@ const productos = [
     precio: 1.80,
     imagen: "fideos.png",
     description: "bolsa de 500 gr",
-    categoria: "Alimentos/Otros",
+    categoria: "Productos mixtos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1130,7 +1130,7 @@ const productos = [
     precio: 0.70,
     imagen: "sopa.png",
     description: "Sabor pollo sobre 75 gr",
-    categoria: "Alimentos/Otros",
+    categoria: "Productos mixtos",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ],
@@ -1142,7 +1142,7 @@ const productos = [
     precio: 2.25,
     imagen: "zumo.png",
     description: "Botella de 1l",
-    categoria: "Alimentos/Otros",
+    categoria: "Aderezo y condimentos",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ],
@@ -1154,7 +1154,7 @@ const productos = [
     precio: 10.20,
     imagen: "huevo.png",
     description: "30 uds frescos 100 % orgánicos",
-    categoria: "Alimentos/Otros",
+    categoria: "Productos mixtos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1165,13 +1165,13 @@ const productos = [
     precio: 1.10,
     imagen: "gelatina.png",
     description: "Bolsa de gelatina 75 gr ",
-    categoria: "Alimentos/Otros",
+    categoria: "Alimentos/Del Confi",
     
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+  /*{
     id: 74,
     nombre: "Mayonesa Nezka  ",
     precio: 3.20,
@@ -1184,7 +1184,7 @@ const productos = [
     ]
   },
   // Lácteos
-  /*{
+  {
     id: 41,
     nombre: "Queso Gouda",
     precio: 13.5,
@@ -1724,7 +1724,7 @@ const productos = [
     reciente: 1, // Marcar como reciente
     
   },
-  {
+ /* {
     id: 128,
     nombre: "Galletas Kremali",
     precio: 1.11,
@@ -1734,7 +1734,7 @@ const productos = [
     municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
     reciente: 1, // Marcar como reciente
     
-  },
+  },*/
    {
     id: 125,
     nombre: "Waffer de Vainilla, fresa y chocolate",
