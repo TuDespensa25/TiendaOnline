@@ -548,7 +548,7 @@ const productos = [
   {
     id: 131,
     nombre: "Salchichas GuiBon ",
-    precio: 1.90,
+    precio: 10.90,
     imagen: "60uds.png",
     description: "paquete de 60 unidades (3 Kg)",
     categoria: "Alimentos/Cárnicos",
