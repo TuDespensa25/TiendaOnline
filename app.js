@@ -514,6 +514,16 @@ const productos = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
   },
   {
+    id: 134,
+    nombre: "Mortadela de pollo Seara",
+    precio: 2.30,
+    imagen: "mortadela.png",
+    description: "Tubo de 500 gr",
+    categoria: "Alimentos/Cárnicos",
+    reciente  : 1, 
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+  },
+  {
     id: 13,
     nombre: "Picadillo de pollo",
     precio: 2.40,
@@ -530,6 +540,39 @@ const productos = [
     precio: 1.90,
     imagen: "perritos.png",
     description: "paquete de 12 unidades",
+    categoria: "Alimentos/Cárnicos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+  {
+    id: 131,
+    nombre: "Salchichas GuiBon ",
+    precio: 1.90,
+    imagen: "60uds.png",
+    description: "paquete de 60 unidades (3 Kg)",
+    categoria: "Alimentos/Cárnicos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+  {
+    id: 132,
+    nombre: "Higado de Pollo ",
+    precio: 3.40,
+    imagen: "higado.png",
+    description: "paquete de 1 Kg",
+    categoria: "Alimentos/Cárnicos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+  {
+    id: 133,
+    nombre: "pierna de Cerdo ",
+    precio: 55,
+    imagen: "pierna.png",
+    description: "pierna entre 17 y 20 lb",
     categoria: "Alimentos/Cárnicos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -741,8 +784,8 @@ const productos = [
   {
     id: 30,
     nombre: "Café",
-    precio: 5.5,
-    imagen: "aroma.png",
+    precio: 5.9,
+    imagen: "cafearoma.png",
     description: "Paquete de 250 gr",
     categoria: "Alimentos/Líquidos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
@@ -752,9 +795,21 @@ const productos = [
   {
     id: 76,
     nombre: "Café Expreso ",
-    precio: 5.5,
+    precio: 5.6,
     imagen: "cafenezka.png",
     description: "Paquete de 250 gr",
+    categoria: "Alimentos/Líquidos",
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, 
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ],
+    
+  },
+  {
+    id: 130,
+    nombre: "Café La Llave ",
+    precio: 6.9,
+    imagen: "lallave.png",
+    description: "Paquete de 283 gr",
     categoria: "Alimentos/Líquidos",
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, 
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -1203,14 +1258,28 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
- /* {
+  {
+    id:135 ,
+    nombre: "Yogurt de Vasito De Fresa",
+    precio: 2.65,
+    imagen: "yoqo.png",
+    description: "Pack de 4 Vasitos de 125 gr",
+    categoria: "Alimentos/Lácteos",
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, 
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+  {
     id: 43,
-    nombre: "Queso Crema",
-    precio: 4.20,
-    imagen: "crema.png",
-    description: "Pote de 300 gr",
-    categoria: "Alimentos/Lácteos"
-  },*/
+    nombre: "Queso Gouda Aleman",
+    precio: 13.50,
+    imagen: "gouda.png",
+    description: "Porción de 1 Kg sellado al vacio",
+    categoria: "Alimentos/Lácteos",
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, 
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
   {
     id: 404,
     nombre: "Helado",
@@ -1226,7 +1295,7 @@ const productos = [
   {
     id: 100,
     nombre: "Leche en Polvo",
-    precio: 10,
+    precio: 8.50,
     imagen: "lechepolvo.png",
     description: "Bolsa de 1 kg",
     categoria: "Alimentos/Lácteos",
