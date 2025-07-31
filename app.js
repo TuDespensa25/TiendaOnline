@@ -355,7 +355,7 @@ const productos = [
     reciente: 0,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 ]
   },
-  /*{
+  {
     id: 2,
     nombre: "Caja de Pollo",
     precio: 52,
@@ -368,7 +368,7 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
   },
-  {
+  /*{
     id: 75,
     nombre: "Caja de Pollo",
     precio: 49,
@@ -380,7 +380,7 @@ const productos = [
      municipios: [1, 2, 3, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
      ]
-  },
+  },*/
   {
     id: 3,
     nombre: "Paquete de pollo 10 lb ",
@@ -392,7 +392,7 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+  /*{
     id: 77,
     nombre: "Paquete de pollo 11 lb ",
     precio: 14,
@@ -1130,6 +1130,17 @@ const productos = [
     precio: 3.2,
     imagen: "frijol1kg.png",
     description: "bolsa de 1 kg",
+    categoria: "Granos",
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+  {
+    id: 136,
+    nombre: "Frijol Negro ",
+    precio: 1.80,
+    imagen: "frijol1kg.png",
+    description: "bolsa de 500 gr",
     categoria: "Granos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
