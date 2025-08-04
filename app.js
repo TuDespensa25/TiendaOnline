@@ -63,22 +63,7 @@ const ubicaciones = {
         "Consolación": 13,
       }
     },
-    "La Habana": {
-  id: 3,
-  municipios: {
-    "Playa": 14,
-    "La Lisa": 15,
-    "Marianao": 16,
-    "Boyeros": 17,
-    "Cerro": 18,
-    "Plaza de la Revolución": 19,
-    "Centro Habana": 20,
-    "La Habana Vieja": 21,
-    "Diez de Octubre": 22,
-    "Arroyo Naranjo": 23,
-  
-  }
-},
+   
 },
   provinciaSeleccionada: null,
   municipioSeleccionado: null
