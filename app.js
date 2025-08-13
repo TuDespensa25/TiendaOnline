@@ -582,15 +582,16 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
- /* {
+  {
     id: 101,
-    nombre: "Hamburguesas Mixtas",
-    precio: 2.3,
-    imagen: "hamburguesas.png",
-    description: "Bolsa de 5 Hamburguesas de 90 gr cada una", 
-    categoria: "Alimentos/Cárnicos",
+    nombre: "Combo Mixto 1 ",
+    precio: 18.50,
+    imagen: "combopolloaceiterefresco.png",
+    description: "Bolsa de 10 lb de pollo, 2 pomos de 500 ml de aceite de girasol, 1 pomo de 1,5 L de Refresco de Naranja", 
+    categoria: "Combos Variados",
+    reciente: 1, 
     municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
-  },*/
+  },
   // Alimentos/Líquidos
   {
     id: 17,
@@ -917,6 +918,18 @@ const productos = [
     precio: 3.20,
     imagen: "aceite.png",
     description: "Botella  de 1 L ",
+    categoria: "Aderezo y condimentos",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+  {
+    id: 147,
+    nombre: "Botella de Aceite",
+    precio: 1.60,
+    imagen: "aceite500.png",
+    description: "Botella  de 500 ml ",
     categoria: "Aderezo y condimentos",
     reciente: 1,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
@@ -1292,7 +1305,7 @@ const productos = [
     id: 100,
     nombre: "Leche en Polvo",
     precio: 8.50,
-    imagen: "lechepolvo.png",
+    imagen: "lechepolvomu.png",
     description: "Bolsa de 1 kg",
     categoria: "Alimentos/Lácteos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
