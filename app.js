@@ -698,6 +698,18 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
+   {
+    id: 149,
+    nombre: "Jugo Goliat",
+    precio: 1.95,
+    imagen: "peragoliat.png",
+    description: "Jugo Goliat 1  L",
+    categoria: "Alimentos/Líquidos",
+    reciente: 1,
+    municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
   {
     id: 26,
     nombre: "Jugo",
@@ -1246,16 +1258,17 @@ const productos = [
     municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, 
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   // Lácteos
   {
     id: 41,
-    nombre: "Queso Gouda",
-    precio: 13.5,
-    imagen: "queso.png",
-    description: "Porción de 1 kg sellado",
+    nombre: "Queso Parmesano",
+    precio:6.20,
+    imagen: "quesoparmesano.png",
+    description: "Pomo de 8 Oz",
+    reciente: 1,
     categoria: "Alimentos/Lácteos"
-  },*/
+  },
   {
     id:102 ,
     nombre: "Yogurt Probiótico",
