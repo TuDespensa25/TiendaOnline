@@ -1602,9 +1602,9 @@ const productos = [
     nombre: "Fogon Infrarrojo   ",
     precio: 100,
     imagen: "fogoninfra.png",
-    description: "Fogon Infrarrojo 2200 W    ",
+    description: "Fogon Infrarrojo 1300 W    ",
     categoria: "De Electrodomésticos",
-    descuento : 20,
+    descuento : 35,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1636,16 +1636,16 @@ const productos = [
   {
     id: 105,
     nombre: "Lavadora semiautomática 7 L   ",
-    precio: 300,
+    precio: 320,
     imagen: "semiautomatica7.png",
     description: "Lavadora semiautomatica 7 L    ",
     categoria: "De Electrodomésticos",
-    descuento : 13,
+    descuento : 31,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+  /*{
     id: 106,
     nombre: "Lavadora semiautomática 9 L   ",
     precio: 320,
@@ -1656,7 +1656,7 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   
   {
     id: 63,
@@ -1673,11 +1673,23 @@ const productos = [
   {
     id: 64,
     nombre: "Frezeer",
-    precio: 350,
-    imagen: "nevera.png",
+    precio: 349,
+    imagen: "freezer6p.png",
     description: "Milexus 6 pies",
     categoria: "De Electrodomésticos",
-    descuento : 5,     
+    descuento : 14,     
+    municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+  {
+    id: 150,
+    nombre: "Frezeer",
+    precio: 319,
+    imagen: "freezer4p.png",
+    description: "Milexus 4.2 pies",
+    categoria: "De Electrodomésticos",
+    descuento : 12,     
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1708,8 +1720,8 @@ const productos = [
     nombre: "Batidora Milexus",
     precio: 45,
     imagen: "batidora.png",
-    descuento : 5,
-    description: "Batidora 2 en 1 (+ moledor de sazones)",
+    descuento : 11,
+    description: "Batidora 1.5 Lt vaso de cristal",
     categoria: "De Electrodomésticos",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
