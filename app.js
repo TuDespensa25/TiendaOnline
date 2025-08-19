@@ -1055,18 +1055,18 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ] 
   },
-  /*{
+  {
     id: 33,
-    nombre: "Mayonesa Saude",
-    precio: 3.00,
-    imagen: "mayonesasaude.png",
+    nombre: "Mayonesa Celorio",
+    precio: 4.20,
+    imagen: "mayonesa.png",
     description: "Pomo de 500 gr",
     categoria: "Alimentos/Otros",
     reciente:1,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },*/
+  },
     {
     id: 109,
     nombre: "Pomo de Aceitunas",
@@ -1238,10 +1238,11 @@ const productos = [
   {
     id: 201,
     nombre: "Gelatina ",
-    precio: 1.10,
+    precio: 1.1,
     imagen: "gelatina.png",
     description: "Bolsa de gelatina 75 gr ",
     categoria: "Alimentos/Del Confi",
+    descuento: 20,
     
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -1448,9 +1449,9 @@ const productos = [
   {
     id: 56,
     nombre: "Jabón De Olor",
-    precio: 1.2,
+    precio: 0.9,
     imagen: "jabon.png",
-    description: "por unidades",
+    description: "por unidades de 100 gr",
     categoria: "Del Hogar",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -1609,7 +1610,7 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+  /*{
     id: 103,
     nombre: "Microwave Premier 20 Litro    ",
     precio: 160,
@@ -1620,7 +1621,7 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   {
     id: 104,
     nombre: "Lavadora automática 8 L   ",
@@ -1635,7 +1636,7 @@ const productos = [
   },
   {
     id: 105,
-    nombre: "Lavadora semiautomática 7 L   ",
+    nombre: "Lavadora Semiautomática Milexus 7 L   ",
     precio: 320,
     imagen: "semiautomatica7.png",
     description: "Lavadora semiautomatica 7 L    ",
