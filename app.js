@@ -1288,7 +1288,7 @@ const productos = [
     id:151 ,
     nombre: "Yogurt Probiótico",
     precio: 3.1,
-    imagen: "yogurt.png",
+    imagen: "yogurt1l.png",
     description: "Pomo de 1L",
     categoria: "Alimentos/Lácteos",
     recientes:1,
@@ -1300,8 +1300,8 @@ const productos = [
     id:152 ,
     nombre: "Yogurt Probiótico",
     precio: 0.6,
-    imagen: "yogurt.png",
-    description: "VAsito de 180 ml",
+    imagen: "yogurtvasito.png",
+    description: "Vasito de 180 ml",
     categoria: "Alimentos/Lácteos",
     recientes:1,
     municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, 
@@ -1844,7 +1844,7 @@ const productos = [
     reciente: 1, // Marcar como reciente
     
   },*/
-  {
+/*  {
     id: 124,
     nombre: "Schoco cake",
     precio: 0.55,
@@ -1855,7 +1855,7 @@ const productos = [
     reciente: 1, // Marcar como reciente
     
   },
- /* {
+  {
     id: 128,
     nombre: "Galletas Kremali",
     precio: 1.11,
