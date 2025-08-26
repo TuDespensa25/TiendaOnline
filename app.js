@@ -395,12 +395,13 @@ const productos = [
   imagen: "lomo.png",
   description: "Lomo de cerdo Importado sellado en bolsa de 3 lb",
   categoria: "Alimentos/Cárnicos",
+  descuento: 5,
   municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, // Artemisa
     12, 13,                           // Pinar del Río
     14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27 // La Habana
   ]
 },
- /* {
+  {
     id: 92,
     nombre: "Muslo de pollo ahumado ",
     precio: 7 ,
@@ -421,7 +422,7 @@ const productos = [
     reciente  : 1,
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
 
-  },*/
+  },
 
   {
     id: 5,
@@ -445,7 +446,7 @@ const productos = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
 
   },
-  {
+  /*{
     id: 8,
     nombre: "Jamon vicky",
     precio: 9.20,
@@ -455,8 +456,8 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
- /* {
+  },*/
+  {
     id: 9,
     nombre: "Lomo ahumado",
     precio: 12,
@@ -467,7 +468,7 @@ const productos = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
     
   },
-  {
+  /*{
     id: 10,
     nombre: "Lomo Ahumado",
     precio: 10.20,
@@ -488,7 +489,7 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+  /*{
     id: 12,
     nombre: "Humaré",
     precio: 1.4,
@@ -497,7 +498,7 @@ const productos = [
     categoria: "Alimentos/Cárnicos",
     reciente  : 1, 
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11, ,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
-  },
+  },*/
   {
     id: 134,
     nombre: "Mortadela de pollo Seara",
@@ -515,6 +516,7 @@ const productos = [
     imagen: "picadillo.png",
     description: "unidad de 400 gr",
     categoria: "Alimentos/Cárnicos",
+    descuento : 20,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -544,7 +546,7 @@ const productos = [
   {
     id: 132,
     nombre: "Higado de Pollo ",
-    precio: 3.40,
+    precio: 3.10,
     imagen: "higado.png",
     description: "paquete de 1 Kg",
     categoria: "Alimentos/Cárnicos",
@@ -570,7 +572,7 @@ const productos = [
     imagen: "vela.svg",
     description: "x lb porcion sellada segun pedido del cliente",
     categoria: "Alimentos/Cárnicos"
-  },*/
+  },
   {
     id: 16,
     nombre: "Atún",
@@ -581,7 +583,7 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   {
     id: 101,
     nombre: "Combo Mixto 1 ",
@@ -616,7 +618,7 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+  /*{
     id: 18,
     nombre: "Cerveza Bucanero",
     precio: 22,
@@ -626,7 +628,7 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   {
     id: 19,
     nombre: "Cerveza Economica",
@@ -687,7 +689,7 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+  /*{
     id: 25,
     nombre: "Jugo",
     precio: 1.60,
@@ -697,7 +699,7 @@ const productos = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
    {
     id: 149,
     nombre: "Jugo Goliat",
@@ -728,6 +730,7 @@ const productos = [
     imagen: "morena.png",
     description: "Caja de 24 uds",
     categoria: "Alimentos/Líquidos",
+    descuento: 10, 
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1008,7 +1011,7 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+  /*{
     id: 112,
     nombre: "Pure de Tomate Sara",
     precio: 1.65,
@@ -1019,7 +1022,7 @@ const productos = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
    {
     id: 115,
     nombre: "Tomate Frito Apis",
@@ -1032,7 +1035,7 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-   {
+   /*{
     id: 113,
     nombre: "Pure de Papas Deshidratadas",
     precio: 6.40,
@@ -1054,7 +1057,7 @@ const productos = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ] 
-  },
+  },*/
   {
     id: 33,
     nombre: "Mayonesa Celorio",
@@ -1212,7 +1215,7 @@ const productos = [
     ],
    
   },
-  {
+  /*{
     id: 44,
     nombre: "Zumo de Limón ",
     precio: 2.25,
@@ -1223,11 +1226,11 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ],
     
-  },
+  },*/
   {
     id: 45,
     nombre: "Cartón de huevos",
-    precio: 10.20,
+    precio: 9.40,
     imagen: "huevo.png",
     description: "30 uds frescos 100 % orgánicos",
     categoria: "Productos mixtos",
@@ -1281,7 +1284,31 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+   {
+    id:151 ,
+    nombre: "Yogurt Probiótico",
+    precio: 3.1,
+    imagen: "yogurt.png",
+    description: "Pomo de 1L",
+    categoria: "Alimentos/Lácteos",
+    recientes:1,
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, 
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+   {
+    id:152 ,
+    nombre: "Yogurt Probiótico",
+    precio: 0.6,
+    imagen: "yogurt.png",
+    description: "VAsito de 180 ml",
+    categoria: "Alimentos/Lácteos",
+    recientes:1,
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, 
+      14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+    ]
+  },
+/*  {
     id:135 ,
     nombre: "Yogurt de Vasito De Fresa",
     precio: 2.65,
@@ -1302,13 +1329,13 @@ const productos = [
     municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, 
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   {
     id: 404,
     nombre: "Helado",
     precio: 12,
     imagen: "helado.png",
-    description: "Caja de 4L",
+    description: "Cubeta de 3L",
     categoria: "Alimentos/Lácteos",
     descuento: 10,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
@@ -1404,7 +1431,7 @@ const productos = [
     nombre: "Frazada de limpiar suelo",
     precio: 2.4,
     imagen: "frazada.png",
-    description: "2 unidad",
+    description: "2 unidades",
     categoria: "Del Hogar",
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
@@ -1502,7 +1529,7 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+  /*{
     id: 61,
     nombre: "Pastillas de inodoro",
     precio: 2.40,
@@ -1512,9 +1539,9 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   // De Electrodomésticos
-  {
+  /*{
     id: 62,
     nombre: "Ventilador de pedestal",
     precio: 60,
@@ -1525,7 +1552,7 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   {
     id: 94,
     nombre: "Cajas de tv Hd",
@@ -1585,9 +1612,9 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },/*  
   {
-    id: 98,
+  id: 98,
     nombre: "Ventilador de pared ",
     precio: 75,
     imagen: "ventiladorpared.png",
@@ -1597,7 +1624,7 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   {
     id: 99,
     nombre: "Fogon Infrarrojo   ",
@@ -1621,7 +1648,7 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },*/
+  },
   {
     id: 104,
     nombre: "Lavadora automática 8 L   ",
@@ -1633,7 +1660,7 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   {
     id: 105,
     nombre: "Lavadora Semiautomática Milexus 7 L   ",
@@ -1666,7 +1693,7 @@ const productos = [
     imagen: "split.png",
     description: "Milexus 1200 btu",
     categoria: "De Electrodomésticos",
-    descuento : 7,
+    descuento : 15,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
@@ -1728,7 +1755,7 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+  /*{
     id: 68,
     nombre: "Cefetera Milexus",
     precio: 45,
@@ -1738,7 +1765,7 @@ const productos = [
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   // Del Confi
   {
     id: 69,
@@ -1751,7 +1778,7 @@ const productos = [
     reciente: 1, // Marcar como reciente
     
   },
-   {
+  /* {
     id: 118,
     nombre: "Galletas Samyeli",
     precio: 0.90,
@@ -1783,7 +1810,7 @@ const productos = [
     municipios: [1,2,3, 4, 5, 6, 7, 8, 9, 10, 11,12,13,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27],
     reciente: 1, // Marcar como reciente
     
-  },
+  },*/
    {
     id: 121,
     nombre: "Bombom Truffle de Chocolate",
@@ -1883,7 +1910,7 @@ const productos = [
     reciente: 1, // Marcar como reciente
     
   },
-  {
+/*  {
     id: 70,
     nombre: "Bolita de chocolate",
     precio: 3.20,
@@ -1904,7 +1931,7 @@ const productos = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
   {
     id: 72,
     nombre: "Galletas Saltine Nezka",
@@ -1916,7 +1943,7 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  {
+  /*{
     id: 73,
     nombre: "Galletas Soda",
     precio: 3.20,
@@ -1926,7 +1953,7 @@ const productos = [
     municipios: [ 4, 5, 6, 7, 8, 9, 10, 11,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ],
-  },
+  },*/
  
 ]; 
 // Combos temporales (justo después de la lista de productos existente)
