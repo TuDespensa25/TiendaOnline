@@ -602,7 +602,7 @@ const productos = [
     description: "Combo especial 1 kg de leche en polvo 1 L de yogurt probiótico de fresa, 500 g de espaguetis, 1 lata de garbanzo con chorizo, 30 huevos y 1 paquete de café Expreso",
     categoria: "Combos Variados",
     reciente: 1, 
-    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+    municipios: [, 4,  7, 9, 10, 11,]
   },
   // Alimentos/Líquidos
   {
