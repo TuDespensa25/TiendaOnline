@@ -594,6 +594,16 @@ const productos = [
     reciente: 1, 
     municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
   },
+   {
+    id: 153,
+    nombre: "Combo Mixto 2 ",
+    precio: 30.99,
+    imagen: "mixto2.png",
+    description: "Combo especial 1 kg de leche en polvo 1 L de yogurt probiótico de fresa, 500 g de espaguetis, 1 lata de garbanzo con chorizo, 30 huevos y 1 paquete de café Expreso",
+    categoria: "Combos Variados",
+    reciente: 1, 
+    municipios: [, 4, 5, 6, 7, 8, 9, 10, 11,14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+  },
   // Alimentos/Líquidos
   {
     id: 17,
@@ -1273,7 +1283,7 @@ const productos = [
     reciente: 1,
     categoria: "Alimentos/Lácteos"
   },
-  {
+  /*{
     id:102 ,
     nombre: "Yogurt Probiótico",
     precio: 13.5,
@@ -1283,7 +1293,7 @@ const productos = [
     municipios: [, 4, 5, 6, 7, 8, 9, 10, 11, 
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },
+  },*/
    {
     id:151 ,
     nombre: "Yogurt Probiótico",
