@@ -604,6 +604,16 @@ const productos = [
     reciente: 1, 
     municipios: [, 4,  7, 9, 10, 11,]
   },
+  {
+    id: 154,
+    nombre: "Combo Mixto 3 ",
+    precio: 24.99,
+    imagen: "mixto3.png",
+    description: "Combo especial 1 kg de Leche en polvo, 2 bolsas de Hamburguesas mixtas (5 uds c/u), 2 pomos de Aceite de girasol 500 ml, 2 unidades de Picadillo de pollo 400 g, 2 paquetes de Salchichas (10 uds c/u), 1 lata de Leche condensada, 1 paquete de Galletas María Bauducco, 2 cajitas de Gelatina.",
+    categoria: "Combos Variados",
+    reciente: 1, 
+    municipios: [, 4,  7, 9, 10, 11,]
+  },
   // Alimentos/Líquidos
   {
     id: 17,
