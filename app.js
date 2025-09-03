@@ -1775,17 +1775,19 @@ const productos = [
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
   },
-  /*{
+  {
     id: 68,
-    nombre: "Cefetera Milexus",
-    precio: 45,
-    imagen: "cafetera.png",
-    description: "Cafetera Electrica de 6 tazas",
+    nombre: "Generador Eléctrico de Gasolina",
+    precio: 800,
+    imagen: "tota.png",
+    description: "Generador Eléctrico de Gasolina de 3000 w, salida de 220v y 110 v Voltaje 110-220V (50/60Hz), motor de 7.0 HP OHV TOTAL, sistema AVR para voltaje estable y panel de control súper fácil de usar. ⛽ Gran tanque de combustible con filtro, encendido por cuerda y breaker de seguridad para máxima protección. 🛠 Incluye interruptor automático AC y sistema de enfriamiento.",
     categoria: "De Electrodomésticos",
+    reciente : 1,
+    descuento : 12 ,
     municipios: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
       14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
     ]
-  },*/
+  },
   // Del Confi
   {
     id: 69,
