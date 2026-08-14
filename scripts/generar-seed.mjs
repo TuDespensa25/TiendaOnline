@@ -97,7 +97,8 @@ async function main() {
   L.push("");
 
   L.push("-- categorias -------------------------------------------------------");
-  L.push("insert into categorias (nombre, orden) overriding system value values");
+  // Sin "overriding system value": no insertamos id, lo genera la tabla.
+  L.push("insert into categorias (nombre, orden) values");
   L.push(categorias.map((c, i) => `  (${sql(c)}, ${i + 1})`).join(",\n") + ";");
   L.push("");
 
@@ -127,17 +128,26 @@ async function main() {
   L.push("");
 
   L.push("-- en que municipio se vende cada producto ---------------------------");
+  // Una linea por producto con su lista de municipios, en vez de una linea por
+  // pareja: son las mismas filas al final, pero el archivo baja de 1593 lineas
+  // a 155 y deja de ser un pegado enorme en el editor de Supabase.
   const filas = [];
+  let parejas = 0;
   for (const p of productos) {
     const vivos = p.municipios.filter((id) => {
       if (!idsVivos.has(id)) { idsMuertos.add(id); return false; }
       return true;
     });
-    if (vivos.length === 0) sinMunicipio.push(p.nombre);
-    for (const id of vivos) filas.push(`  (${p.id}, ${id})`);
+    if (vivos.length === 0) { sinMunicipio.push(p.nombre); continue; }
+    parejas += vivos.length;
+    filas.push(`  (${p.id}, '{${vivos.join(",")}}'::smallint[])`);
   }
-  L.push("insert into producto_municipios (producto_id, municipio_id) values");
-  L.push(filas.join(",\n") + ";");
+  L.push("insert into producto_municipios (producto_id, municipio_id)");
+  L.push("select p.id, m.id");
+  L.push("from (values");
+  L.push(filas.join(",\n"));
+  L.push(") as p(id, municipios)");
+  L.push("cross join lateral unnest(p.municipios) as m(id);");
   L.push("");
   L.push("commit;");
   L.push("");
@@ -166,7 +176,7 @@ async function main() {
   console.log(`  categorias:  ${categorias.length}`);
   console.log(`  municipios:  ${municipios.length}`);
   console.log(`  productos:   ${productos.length}`);
-  console.log(`  disponibilidad: ${filas.length} filas`);
+  console.log(`  disponibilidad: ${parejas} parejas en ${filas.length} lineas`);
   if (idsMuertos.size)
     console.log(`  ids de municipio inexistentes descartados: ${[...idsMuertos].sort((a, b) => a - b).join(", ")}`);
   if (sinImagen.length) console.log(`  SIN imagen (${sinImagen.length}): ${sinImagen.join(", ")}`);
