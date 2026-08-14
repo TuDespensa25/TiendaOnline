@@ -33,24 +33,24 @@ function leerProductos(fuente) {
   return objetos
     .map((o) => {
       const campo = (re) => (o.match(re) || [])[1];
-      const nombre = campo(/nombre:\s*"((?:[^"\\]|\\.)*)"/);
+      const nombre = campo(/nombre\s*:\s*"((?:[^"\\]|\\.)*)"/);
       if (!nombre) return null;
 
       const municipios = (() => {
-        const m = o.match(/municipios:\s*\[([^\]]*)\]/);
+        const m = o.match(/municipios\s*:\s*\[([^\]]*)\]/);
         return m ? [...new Set(m[1].match(/\d+/g) || [])].map(Number) : [];
       })();
 
       return {
-        id: Number(campo(/\bid:\s*(\d+)/)),
+        id: Number(campo(/\bid\s*:\s*(\d+)/)),
         nombre: nombre.trim(),
-        precio: Number(campo(/precio:\s*([\d.]+)/) ?? 0),
-        imagen: campo(/imagen:\s*"([^"]*)"/) || null,
-        descripcion: (campo(/description:\s*"((?:[^"\\]|\\.)*)"/) || "").trim(),
-        categoria: (campo(/categoria:\s*"([^"]*)"/) || "Sin categoria").trim(),
-        descuento: Number(campo(/descuento:\s*([\d.]+)/) ?? 0),
-        reciente: Number(campo(/\breciente:\s*(\d+)/) ?? 0) === 1,
-        tiempoLimite: campo(/tiempoLimite:\s*(\d+)/) ? Number(campo(/tiempoLimite:\s*(\d+)/)) : null,
+        precio: Number(campo(/precio\s*:\s*([\d.]+)/) ?? 0),
+        imagen: campo(/imagen\s*:\s*"([^"]*)"/) || null,
+        descripcion: (campo(/description\s*:\s*"((?:[^"\\]|\\.)*)"/) || "").trim(),
+        categoria: (campo(/categoria\s*:\s*"([^"]*)"/) || "Sin categoria").trim(),
+        descuento: Number(campo(/descuento\s*:\s*([\d.]+)/) ?? 0),
+        reciente: Number(campo(/\breciente\s*:\s*(\d+)/) ?? 0) === 1,
+        tiempoLimite: campo(/tiempoLimite\s*:\s*(\d+)/) ? Number(campo(/tiempoLimite\s*:\s*(\d+)/)) : null,
         municipios,
       };
     })
@@ -62,7 +62,7 @@ function leerMunicipios(fuente) {
   const ini = fuente.indexOf("provincias: {");
   const bloque = fuente.slice(ini, fuente.indexOf("provinciaSeleccionada"));
   const salida = [];
-  const reProv = /"([^"]+)":\s*\{\s*id:\s*\d+,\s*municipios:\s*\{([^}]*)\}/g;
+  const reProv = /"([^"]+)":\s*\{\s*id\s*:\s*\d+,\s*municipios\s*:\s*\{([^}]*)\}/g;
   let m;
   while ((m = reProv.exec(bloque))) {
     const provincia = m[1];
@@ -172,6 +172,37 @@ async function escribirPartes({ categorias, municipios, productos, mapa, porProd
       "select count(*) as filas_de_disponibilidad from producto_municipios;",
     ].join("\n"),
   ]);
+
+  // Correccion para una base que ya tiene los productos cargados. Agrupada
+  // por valor para que quepa de sobra en un pegado.
+  const porDescuento = new Map();
+  const recientes = [];
+  productos.forEach(function (p) {
+    if (p.descuento > 0) porDescuento.set(p.descuento, [...(porDescuento.get(p.descuento) || []), p.id]);
+    if (p.reciente) recientes.push(p.id);
+  });
+
+  const corr = [
+    "-- Pone los descuentos y el marcador 'reciente' al dia desde app.js.",
+    "-- Solo hace falta si los productos ya estaban insertados.",
+    "",
+    "begin;",
+    "",
+    "-- Se parte de cero para que quitar un descuento en app.js tambien lo quite aqui.",
+    "update productos set descuento_pct = 0, reciente = false;",
+    "",
+  ];
+  [...porDescuento.entries()]
+    .sort((a, b) => b[0] - a[0])
+    .forEach(([pct, ids]) => {
+      corr.push(`update productos set descuento_pct = ${pct} where id in (${ids.join(", ")});`);
+    });
+  corr.push("");
+  corr.push(`update productos set reciente = true where id in (${recientes.join(", ")});`);
+  corr.push("", "commit;", "");
+  corr.push("select count(*) filter (where descuento_pct > 0) as con_descuento,");
+  corr.push("       count(*) filter (where reciente) as recientes from productos;");
+  partes.push(["parte-7-descuentos-al-dia.sql", corr.join("\n")]);
 
   const dir = join(RAIZ, "supabase", "por-partes");
   await mkdir(dir, { recursive: true });

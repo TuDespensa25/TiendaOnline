@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu pedido — TuDespensa25</title>
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../estilos/tokens.css">
+  <link rel="stylesheet" href="../estilos/tienda.css">
+</head>
+<body class="con-pie">
+
+<header class="cabecera">
+  <a class="cabecera__volver" href="index.html" aria-label="Volver a la tienda">
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="24" height="24">
+      <path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20z"/>
+    </svg>
+  </a>
+  <h1 class="td-titulo cabecera__titulo">Tu pedido</h1>
+</header>
+
+<main class="pedido">
+  <div id="lineas" class="lineas"></div>
+
+  <p class="vacio" id="vacio" hidden>
+    Tu carrito está vacío. <a href="index.html">Ver productos</a>
+  </p>
+
+  <section class="bloque" id="bloque-entrega" hidden>
+    <h2 class="td-titulo bloque__titulo">Entrega</h2>
+
+    <label class="campo">
+      <span class="campo__etiqueta">Provincia</span>
+      <select class="td-campo" id="provincia"></select>
+    </label>
+
+    <label class="campo">
+      <span class="campo__etiqueta">Municipio</span>
+      <select class="td-campo" id="municipio"></select>
+    </label>
+
+    <label class="campo">
+      <span class="campo__etiqueta">Nombre de quien recibe</span>
+      <input class="td-campo" id="nombre" type="text" placeholder="Ej. Juan Pérez" autocomplete="name">
+    </label>
+
+    <label class="campo">
+      <span class="campo__etiqueta">Teléfono en Cuba</span>
+      <input class="td-campo" id="telefono" type="tel" placeholder="+53" autocomplete="tel">
+    </label>
+  </section>
+
+  <section class="bloque resumen" id="resumen" hidden>
+    <div class="resumen__fila">
+      <span>Productos</span>
+      <span id="subtotal" class="resumen__cifra"></span>
+    </div>
+    <div class="resumen__fila resumen__fila--ahorro" id="fila-ahorro" hidden>
+      <span>Ahorro total</span>
+      <span id="ahorro" class="resumen__cifra"></span>
+    </div>
+    <div class="resumen__fila resumen__fila--total">
+      <span>Total</span>
+      <span>
+        <span class="td-precio" id="total"></span>
+        <span class="td-precio-cup" id="total-cup"></span>
+      </span>
+    </div>
+  </section>
+</main>
+
+<div class="pie" id="pie" hidden>
+  <button class="td-boton td-boton--whatsapp pie__boton" id="enviar">
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22">
+      <path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.7 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.8-.8-3.2-1.3-5.2-4.6-5.4-4.8-.2-.2-1.3-1.7-1.3-3.3s.8-2.3 1.1-2.6c.3-.3.6-.4.8-.4h.6c.2 0 .5 0 .7.5l.9 2.2c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.1-.2.3-.1.5.1.2.6 1.2 1.5 1.9 1.1.9 1.9 1.2 2.2 1.3.2.1.4.1.5-.1l.8-.9c.2-.2.4-.2.6-.1l2.1 1c.2.1.4.2.5.3.1.2.1.6-.1 1.3Z"/>
+    </svg>
+    <span id="enviar-texto">Enviar pedido por WhatsApp</span>
+  </button>
+  <p class="pie__nota">Te confirmamos disponibilidad y forma de pago por mensaje</p>
+</div>
+
+<script src="../utils/config.js"></script>
+<script src="../utils/imagenes.js"></script>
+<script src="../utils/datos.js"></script>
+<script src="../utils/carrito.js"></script>
+<script src="pedido.js"></script>
+</body>
+</html>

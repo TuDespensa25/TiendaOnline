@@ -1,14 +1,14 @@
 begin;
 
 insert into productos (id, nombre, descripcion, categoria_id, precio_usd, descuento_pct, imagen_id, reciente) values
-  (106, 'Lavadora semiautomática 9 L', 'Lavadora semiautomatica 7 L', (select id from categorias where nombre = 'De Electrodomésticos'), 320.00, 0.00, 'tudespensa25/productos/semiautomatica7', false),
-  (63, 'Split milexus', 'Milexus 1200 btu', (select id from categorias where nombre = 'De Electrodomésticos'), 380.00, 0.00, 'tudespensa25/productos/split', false),
-  (64, 'Frezeer', 'Milexus 6 pies', (select id from categorias where nombre = 'De Electrodomésticos'), 349.00, 0.00, 'tudespensa25/productos/freezer6p', false),
-  (150, 'Frezeer', 'Milexus 4.2 pies', (select id from categorias where nombre = 'De Electrodomésticos'), 319.00, 0.00, 'tudespensa25/productos/freezer4p', false),
-  (65, 'Tv de 32', 'Tv inteligente 32 pulgadas', (select id from categorias where nombre = 'De Electrodomésticos'), 260.00, 0.00, 'tudespensa25/productos/32', false),
+  (106, 'Lavadora semiautomática 9 L', 'Lavadora semiautomatica 7 L', (select id from categorias where nombre = 'De Electrodomésticos'), 320.00, 12.00, 'tudespensa25/productos/semiautomatica7', false),
+  (63, 'Split milexus', 'Milexus 1200 btu', (select id from categorias where nombre = 'De Electrodomésticos'), 380.00, 15.00, 'tudespensa25/productos/split', false),
+  (64, 'Frezeer', 'Milexus 6 pies', (select id from categorias where nombre = 'De Electrodomésticos'), 349.00, 14.00, 'tudespensa25/productos/freezer6p', false),
+  (150, 'Frezeer', 'Milexus 4.2 pies', (select id from categorias where nombre = 'De Electrodomésticos'), 319.00, 12.00, 'tudespensa25/productos/freezer4p', false),
+  (65, 'Tv de 32', 'Tv inteligente 32 pulgadas', (select id from categorias where nombre = 'De Electrodomésticos'), 260.00, 7.00, 'tudespensa25/productos/32', false),
   (66, 'Tv de 55', 'Tv inteligente Milexus 55 pulgadas', (select id from categorias where nombre = 'De Electrodomésticos'), 450.00, 0.00, 'tudespensa25/productos/55', false),
-  (67, 'Batidora Milexus', 'Batidora 1.5 Lt vaso de cristal', (select id from categorias where nombre = 'De Electrodomésticos'), 45.00, 0.00, 'tudespensa25/productos/batidora', false),
-  (68, 'Generador Eléctrico de Gasolina', 'Generador Eléctrico de Gasolina de 3000 w, salida de 220v y 110 v Voltaje 110-220V (50/60Hz), motor de 7.0 HP OHV TOTAL, sistema AVR para voltaje estable y panel de control súper fácil de usar. ⛽ Gran tanque de combustible con filtro, encendido por cuerda y breaker de seguridad para máxima protección. 🛠 Incluye interruptor automático AC y sistema de enfriamiento.', (select id from categorias where nombre = 'De Electrodomésticos'), 800.00, 0.00, 'tudespensa25/productos/tota', false),
+  (67, 'Batidora Milexus', 'Batidora 1.5 Lt vaso de cristal', (select id from categorias where nombre = 'De Electrodomésticos'), 45.00, 11.00, 'tudespensa25/productos/batidora', false),
+  (68, 'Generador Eléctrico de Gasolina', 'Generador Eléctrico de Gasolina de 3000 w, salida de 220v y 110 v Voltaje 110-220V (50/60Hz), motor de 7.0 HP OHV TOTAL, sistema AVR para voltaje estable y panel de control súper fácil de usar. ⛽ Gran tanque de combustible con filtro, encendido por cuerda y breaker de seguridad para máxima protección. 🛠 Incluye interruptor automático AC y sistema de enfriamiento.', (select id from categorias where nombre = 'De Electrodomésticos'), 800.00, 12.00, 'tudespensa25/productos/tota', true),
   (69, 'Galletas María Baduco', 'Tubo de 170 gr', (select id from categorias where nombre = 'Alimentos/Del Confi'), 1.25, 0.00, 'tudespensa25/productos/mariasbaduco', true),
   (118, 'Galletas Samyeli', 'Tubo de 150 gr', (select id from categorias where nombre = 'Alimentos/Del Confi'), 0.90, 0.00, 'tudespensa25/productos/samyeli', true),
   (119, 'Donut Brawo de Caramelo', 'paquetico de 40 gr', (select id from categorias where nombre = 'Alimentos/Del Confi'), 0.50, 0.00, 'tudespensa25/productos/donutbravo', true),

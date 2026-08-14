@@ -306,3 +306,150 @@ svg { fill: currentColor; flex: none; }
   animation: latido 1.2s ease-in-out infinite;
 }
 @keyframes latido { 50% { opacity: 0.55; } }
+
+/* --- carrito -------------------------------------------------------- */
+
+/* El pie fijo mide unos 113px. Se deja holgura y se suma la barra inferior
+   del movil, que el pie tambien se suma a si mismo: sin eso, en un iPhone
+   con indicador de inicio el boton acabaria tapando el total. */
+body.con-pie { padding-bottom: calc(150px + env(safe-area-inset-bottom)); }
+
+.cabecera__volver {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tactil);
+  height: var(--tactil);
+  color: var(--marca);
+  flex: none;
+}
+.cabecera__titulo { margin: 0; font-size: var(--t-seccion); }
+
+.pedido { padding: var(--e-sm) var(--margen); }
+
+.lineas { display: flex; flex-direction: column; gap: var(--e-sm); }
+
+.linea {
+  display: flex;
+  gap: var(--e-sm);
+  padding: var(--e-sm);
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+.linea__foto {
+  width: 64px;
+  height: 64px;
+  flex: none;
+  object-fit: cover;
+  border-radius: var(--radio);
+  background: var(--hundido);
+}
+
+.linea__datos { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.linea__nombre { margin: 0; font-size: var(--t-etiqueta); font-weight: 600; }
+.linea__unitario { font-size: 12px; color: var(--texto-suave); }
+
+.linea__derecha {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--e-xs);
+}
+.linea__subtotal { font-size: 1rem; }
+
+.linea__quitar {
+  border: 0;
+  background: none;
+  padding: 4px;
+  color: var(--texto-suave);
+  font: inherit;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.contador {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: var(--e-xs);
+  width: fit-content;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+.contador__btn {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: var(--tarjeta-suave);
+  color: var(--marca);
+  font: inherit;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.contador__btn:hover { background: var(--tarjeta-media); }
+.contador__n { min-width: 36px; text-align: center; font-weight: 600; }
+
+.bloque {
+  margin-top: var(--e-md);
+  padding: var(--e-sm);
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+.bloque__titulo { margin: 0 0 var(--e-sm); font-size: 1rem; }
+
+.campo { display: block; margin-bottom: var(--e-sm); }
+.campo__etiqueta {
+  display: block;
+  margin-bottom: var(--e-xs);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.resumen__fila {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--e-sm);
+  padding: 6px 0;
+  font-size: var(--t-etiqueta);
+}
+.resumen__cifra { font-variant-numeric: tabular-nums; }
+.resumen__fila--ahorro { color: var(--ahorro); font-weight: 600; }
+.resumen__fila--total {
+  margin-top: var(--e-xs);
+  padding-top: var(--e-sm);
+  border-top: 1px solid var(--borde);
+  font-size: var(--t-cuerpo);
+  font-weight: 600;
+}
+.resumen__fila--total > span:last-child { text-align: right; }
+.resumen__fila--total .td-precio-cup { display: block; font-weight: 400; }
+
+/* Fijo abajo. El total NO va aqui dentro: en el diseno de Stitch el boton
+   tapaba la cifra y se leia "USD 84.9" cortado. */
+.pie {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--e-sm) var(--margen) calc(var(--e-sm) + env(safe-area-inset-bottom));
+  background: var(--fondo);
+  border-top: 1px solid var(--borde);
+}
+.pie__boton { width: 100%; }
+.pie__nota {
+  margin: var(--e-xs) 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--texto-suave);
+}

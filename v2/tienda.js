@@ -121,8 +121,7 @@
   }
 
   function contador() {
-    var carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
-    var n = carrito.reduce(function (a, i) { return a + i.cantidad; }, 0);
+    var n = carrito.unidades();
     var el = $("contador-carrito");
     el.textContent = n;
     el.hidden = n === 0;
@@ -167,12 +166,7 @@
   $("rejilla").addEventListener("click", function (e) {
     var b = e.target.closest(".producto__agregar");
     if (!b) return;
-    var id = Number(b.dataset.id);
-    var carrito = JSON.parse(localStorage.getItem("carrito") || "[]");
-    var linea = carrito.filter(function (i) { return i.id === id; })[0];
-    if (linea) linea.cantidad++;
-    else carrito.push({ id: id, cantidad: 1 });
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    carrito.agregar(Number(b.dataset.id));
     contador();
     b.textContent = "Agregado";
     setTimeout(function () { b.textContent = "Agregar"; }, 900);
@@ -192,6 +186,7 @@
 
   // --- arranque ---
 
+  guardarRef();
   contador();
   cargarMunicipios()
     .then(function (m) { estado.municipios = m; pintarMunicipios(); })
