@@ -1,0 +1,192 @@
+/* TuDespensa25 — sistema de diseno.
+ *
+ * Traducido del export de Stitch ("Mercado Calido"), con dos diferencias:
+ * los nombres son los del negocio y no los de Material 3, y no hay Tailwind:
+ * el resto del proyecto es CSS plano y esto tiene que convivir con el.
+ *
+ * La regla que mas facil se rompe y mas cara sale: el NARANJA es solo para
+ * botones de accion. Si aparece en iconos, bordes o etiquetas deja de
+ * significar "pulsa aqui" y el cliente tiene que buscar el boton de comprar.
+ */
+
+:root {
+  /* --- marca ------------------------------------------------------ */
+  --marca:            #8c2f04;  /* terracota: cabecera, titulos, precios */
+  --marca-oscura:     #671f00;  /* hover y estados presionados */
+  --marca-suave:      #ffdbcf;  /* fondos de realce en tono marca */
+
+  /* --- accion ----------------------------------------------------- */
+  --accion:           #d97230;  /* SOLO botones de comprar */
+  --accion-oscura:    #c3672b;
+  /* Texto OSCURO sobre el naranja, no blanco. El blanco daba 3,28:1 y el
+     minimo son 4,5. Oscurecer el naranja lo habria acercado demasiado al
+     terracota de la marca; con texto oscuro sube a 5,24:1 y el boton
+     conserva la vibracion que lo hace destacar. */
+  --sobre-accion:     #231914;
+
+  /* --- superficies ------------------------------------------------ */
+  --fondo:            #fff8f6;  /* fondo de la app, hueso calido */
+  --tarjeta:          #ffffff;  /* lo que se levanta del fondo */
+  --tarjeta-suave:    #fff1eb;
+  --tarjeta-media:    #feeae1;
+  --hundido:          #f2dfd6;
+
+  /* --- texto ------------------------------------------------------ */
+  --texto:            #231914;  /* marron muy oscuro, nunca negro puro */
+  --texto-suave:      #57423b;
+  --borde:            #dec0b7;
+  --borde-fuerte:     #8a7269;
+
+  /* --- semanticos ------------------------------------------------- */
+  --ahorro:           #2f6b4f;  /* descuentos y ahorros */
+  --ahorro-fondo:     #b1f0cd;
+  --alerta:           #ba1a1a;  /* agotado, errores */
+  --alerta-fondo:     #ffdad6;
+  --whatsapp:         #25632f;  /* unica excepcion al naranja */
+
+  /* --- tipografia ------------------------------------------------- */
+  /* Archivo Narrow para titulos: imita el rotulo pintado a mano de un
+     puesto de mercado. Inter para todo lo demas, que se lee mejor. */
+  --f-titulo: "Archivo Narrow", "Arial Narrow", system-ui, sans-serif;
+  --f-texto:  Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --t-display:  2.5rem;   /* 40px */
+  --t-titulo:   1.75rem;  /* 28px */
+  --t-seccion:  1.25rem;  /* 20px */
+  --t-precio:   1.5rem;   /* 24px */
+  --t-cuerpo:   1rem;     /* 16px */
+  --t-etiqueta: 0.875rem; /* 14px */
+
+  /* --- ritmo ------------------------------------------------------ */
+  /* Base de 8px. Todo el espaciado sale de aqui. */
+  --e-xs: 4px;
+  --e-sm: 12px;
+  --e-md: 24px;
+  --e-lg: 48px;
+  --e-xl: 64px;
+  --margen: 16px;
+
+  /* Radio de 4px en todo: cuadrado suavizado, solido, nada "techy". */
+  --radio: 4px;
+  --radio-grande: 8px;
+
+  /* Minimo de zona tactil. Mucha gente compra de pie y con prisa. */
+  --tactil: 48px;
+}
+
+/* El display baja en movil para que no parta en lineas raras. */
+@media (max-width: 480px) {
+  :root { --t-display: 2rem; }
+}
+
+/* ------------------------------------------------------------------
+   Piezas base. Solo lo que se repite en todas las pantallas.
+   ------------------------------------------------------------------ */
+
+.td-titulo {
+  font-family: var(--f-titulo);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  color: var(--marca);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* El precio es lo primero que se mira despues de la foto. */
+.td-precio {
+  font-family: var(--f-texto);
+  font-size: var(--t-precio);
+  font-weight: 600;
+  color: var(--marca);
+  font-variant-numeric: tabular-nums;
+}
+
+.td-precio-antes {
+  font-size: var(--t-etiqueta);
+  color: var(--texto-suave);
+  text-decoration: line-through;
+  font-variant-numeric: tabular-nums;
+}
+
+/* El equivalente en pesos: quien paga mira el dolar, quien recibe el peso. */
+.td-precio-cup {
+  font-size: var(--t-etiqueta);
+  color: var(--texto-suave);
+  font-variant-numeric: tabular-nums;
+}
+
+.td-boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-xs);
+  min-height: var(--tactil);
+  padding: 0 var(--e-md);
+  border: 0;
+  border-radius: var(--radio);
+  background: var(--accion);
+  color: var(--sobre-accion);
+  font-family: var(--f-texto);
+  font-size: var(--t-cuerpo);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+.td-boton:hover { background: var(--accion-oscura); }
+.td-boton:focus-visible {
+  outline: 3px solid var(--marca);
+  outline-offset: 2px;
+}
+
+.td-boton--whatsapp { background: var(--whatsapp); color: #fff; }
+.td-boton--whatsapp:hover { background: #1d4f25; }
+
+/* Secundario: sin relleno, para no competir con el de comprar. */
+.td-boton--suave {
+  background: transparent;
+  color: var(--marca);
+  border: 1px solid var(--borde);
+}
+.td-boton--suave:hover { background: var(--tarjeta-suave); }
+
+.td-tarjeta {
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+
+.td-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--e-xs) 8px;
+  border-radius: var(--radio);
+  font-family: var(--f-texto);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--ahorro);
+}
+.td-chip--agotado { background: var(--alerta); }
+
+.td-campo {
+  width: 100%;
+  min-height: var(--tactil);
+  padding: 0 var(--e-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--tarjeta);
+  color: var(--texto);
+  font-family: var(--f-texto);
+  font-size: var(--t-cuerpo);
+}
+.td-campo:focus {
+  outline: 2px solid var(--marca);
+  outline-offset: -2px;
+}
+
+/* Quien haya pedido menos movimiento, que no lo tenga. */
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
