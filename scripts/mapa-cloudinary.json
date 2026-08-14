@@ -1,0 +1,974 @@
+{
+  "1.5lt.webp": {
+    "publicId": "tudespensa25/productos/1-5lt",
+    "bytes": 4780,
+    "ancho": 500,
+    "alto": 500
+  },
+  "200ml.webp": {
+    "publicId": "tudespensa25/productos/200ml",
+    "bytes": 15036,
+    "ancho": 500,
+    "alto": 500
+  },
+  "32.webp": {
+    "publicId": "tudespensa25/productos/32",
+    "bytes": 11894,
+    "ancho": 500,
+    "alto": 500
+  },
+  "3años.webp": {
+    "publicId": "tudespensa25/productos/3anos",
+    "bytes": 7266,
+    "ancho": 500,
+    "alto": 500
+  },
+  "4.webp": {
+    "publicId": "tudespensa25/productos/4",
+    "bytes": 34338,
+    "ancho": 1000,
+    "alto": 1000
+  },
+  "55.webp": {
+    "publicId": "tudespensa25/productos/55",
+    "bytes": 9596,
+    "ancho": 500,
+    "alto": 500
+  },
+  "60uds.webp": {
+    "publicId": "tudespensa25/productos/60uds",
+    "bytes": 27146,
+    "ancho": 500,
+    "alto": 500
+  },
+  "800gr.webp": {
+    "publicId": "tudespensa25/productos/800gr",
+    "bytes": 15526,
+    "ancho": 500,
+    "alto": 500
+  },
+  "acantus.webp": {
+    "publicId": "tudespensa25/productos/acantus",
+    "bytes": 3538,
+    "ancho": 500,
+    "alto": 500
+  },
+  "aceite.webp": {
+    "publicId": "tudespensa25/productos/aceite",
+    "bytes": 24662,
+    "ancho": 1000,
+    "alto": 1000
+  },
+  "aceite500.webp": {
+    "publicId": "tudespensa25/productos/aceite500",
+    "bytes": 7800,
+    "ancho": 500,
+    "alto": 500
+  },
+  "aceituna290gr.webp": {
+    "publicId": "tudespensa25/productos/aceituna290gr",
+    "bytes": 12606,
+    "ancho": 500,
+    "alto": 500
+  },
+  "ahumado.webp": {
+    "publicId": "tudespensa25/productos/ahumado",
+    "bytes": 11970,
+    "ancho": 500,
+    "alto": 500
+  },
+  "ahumado1.webp": {
+    "publicId": "tudespensa25/productos/ahumado1",
+    "bytes": 10476,
+    "ancho": 500,
+    "alto": 500
+  },
+  "ajo.webp": {
+    "publicId": "tudespensa25/productos/ajo",
+    "bytes": 6014,
+    "ancho": 500,
+    "alto": 500
+  },
+  "ajobadia.webp": {
+    "publicId": "tudespensa25/productos/ajobadia",
+    "bytes": 10144,
+    "ancho": 500,
+    "alto": 500
+  },
+  "alubiasdelmonte.webp": {
+    "publicId": "tudespensa25/productos/alubiasdelmonte",
+    "bytes": 16214,
+    "ancho": 500,
+    "alto": 500
+  },
+  "aroma.webp": {
+    "publicId": "tudespensa25/productos/aroma",
+    "bytes": 10662,
+    "ancho": 500,
+    "alto": 500
+  },
+  "arrocera.webp": {
+    "publicId": "tudespensa25/productos/arrocera",
+    "bytes": 5624,
+    "ancho": 500,
+    "alto": 500
+  },
+  "arroz.webp": {
+    "publicId": "tudespensa25/productos/arroz",
+    "bytes": 12426,
+    "ancho": 500,
+    "alto": 500
+  },
+  "arroz1kg.webp": {
+    "publicId": "tudespensa25/productos/arroz1kg",
+    "bytes": 31232,
+    "ancho": 1000,
+    "alto": 1000
+  },
+  "atun.webp": {
+    "publicId": "tudespensa25/productos/atun",
+    "bytes": 12448,
+    "ancho": 500,
+    "alto": 500
+  },
+  "automatica.webp": {
+    "publicId": "tudespensa25/productos/automatica",
+    "bytes": 4804,
+    "ancho": 500,
+    "alto": 500
+  },
+  "azucar1kg.webp": {
+    "publicId": "tudespensa25/productos/azucar1kg",
+    "bytes": 6270,
+    "ancho": 500,
+    "alto": 500
+  },
+  "banner14.webp": {
+    "publicId": "tudespensa25/productos/banner14",
+    "bytes": 27330,
+    "ancho": 1000,
+    "alto": 313
+  },
+  "banner14m.webp": {
+    "publicId": "tudespensa25/productos/banner14m",
+    "bytes": 53062,
+    "ancho": 720,
+    "alto": 800
+  },
+  "banner15.webp": {
+    "publicId": "tudespensa25/productos/banner15",
+    "bytes": 29860,
+    "ancho": 1000,
+    "alto": 313
+  },
+  "banner15m.webp": {
+    "publicId": "tudespensa25/productos/banner15m",
+    "bytes": 40342,
+    "ancho": 720,
+    "alto": 800
+  },
+  "banner16.webp": {
+    "publicId": "tudespensa25/productos/banner16",
+    "bytes": 39422,
+    "ancho": 1000,
+    "alto": 313
+  },
+  "banner16m.webp": {
+    "publicId": "tudespensa25/productos/banner16m",
+    "bytes": 61256,
+    "ancho": 720,
+    "alto": 800
+  },
+  "banner17.m.webp": {
+    "publicId": "tudespensa25/productos/banner17-m",
+    "bytes": 52420,
+    "ancho": 720,
+    "alto": 800
+  },
+  "banner17.webp": {
+    "publicId": "tudespensa25/productos/banner17",
+    "bytes": 29918,
+    "ancho": 1000,
+    "alto": 313
+  },
+  "batidora.webp": {
+    "publicId": "tudespensa25/productos/batidora",
+    "bytes": 6980,
+    "ancho": 500,
+    "alto": 500
+  },
+  "bistec.webp": {
+    "publicId": "tudespensa25/productos/bistec",
+    "bytes": 9694,
+    "ancho": 500,
+    "alto": 500
+  },
+  "blackout.webp": {
+    "publicId": "tudespensa25/productos/blackout",
+    "bytes": 18490,
+    "ancho": 500,
+    "alto": 500
+  },
+  "bolitas.webp": {
+    "publicId": "tudespensa25/productos/bolitas",
+    "bytes": 12742,
+    "ancho": 500,
+    "alto": 500
+  },
+  "boniato.webp": {
+    "publicId": "tudespensa25/productos/boniato",
+    "bytes": 6182,
+    "ancho": 382,
+    "alto": 330
+  },
+  "bucanero.webp": {
+    "publicId": "tudespensa25/productos/bucanero",
+    "bytes": 19900,
+    "ancho": 500,
+    "alto": 500
+  },
+  "cafearoma.webp": {
+    "publicId": "tudespensa25/productos/cafearoma",
+    "bytes": 14832,
+    "ancho": 500,
+    "alto": 500
+  },
+  "cafenezka.webp": {
+    "publicId": "tudespensa25/productos/cafenezka",
+    "bytes": 13408,
+    "ancho": 500,
+    "alto": 500
+  },
+  "caja33lbpollo.webp": {
+    "publicId": "tudespensa25/productos/caja33lbpollo",
+    "bytes": 12062,
+    "ancho": 500,
+    "alto": 500
+  },
+  "cajita.webp": {
+    "publicId": "tudespensa25/productos/cajita",
+    "bytes": 7266,
+    "ancho": 500,
+    "alto": 500
+  },
+  "cebolla.webp": {
+    "publicId": "tudespensa25/productos/cebolla",
+    "bytes": 11368,
+    "ancho": 500,
+    "alto": 500
+  },
+  "chicharodelmonte.webp": {
+    "publicId": "tudespensa25/productos/chicharodelmonte",
+    "bytes": 20152,
+    "ancho": 500,
+    "alto": 500
+  },
+  "cintracola.webp": {
+    "publicId": "tudespensa25/productos/cintracola",
+    "bytes": 15976,
+    "ancho": 500,
+    "alto": 500
+  },
+  "cintranaranja.webp": {
+    "publicId": "tudespensa25/productos/cintranaranja",
+    "bytes": 15156,
+    "ancho": 500,
+    "alto": 500
+  },
+  "codito.webp": {
+    "publicId": "tudespensa25/productos/codito",
+    "bytes": 14086,
+    "ancho": 500,
+    "alto": 500
+  },
+  "colorados5lb.webp": {
+    "publicId": "tudespensa25/productos/colorados5lb",
+    "bytes": 17586,
+    "ancho": 500,
+    "alto": 500
+  },
+  "combo1m.webp": {
+    "publicId": "tudespensa25/productos/combo1m",
+    "bytes": 35790,
+    "ancho": 500,
+    "alto": 500
+  },
+  "combo2.webp": {
+    "publicId": "tudespensa25/productos/combo2",
+    "bytes": 23776,
+    "ancho": 500,
+    "alto": 500
+  },
+  "combo4m.webp": {
+    "publicId": "tudespensa25/productos/combo4m",
+    "bytes": 34860,
+    "ancho": 500,
+    "alto": 500
+  },
+  "combo5m.webp": {
+    "publicId": "tudespensa25/productos/combo5m",
+    "bytes": 30590,
+    "ancho": 500,
+    "alto": 500
+  },
+  "combo6m.webp": {
+    "publicId": "tudespensa25/productos/combo6m",
+    "bytes": 33012,
+    "ancho": 500,
+    "alto": 500
+  },
+  "combo7m.webp": {
+    "publicId": "tudespensa25/productos/combo7m",
+    "bytes": 26328,
+    "ancho": 500,
+    "alto": 500
+  },
+  "combo8m.webp": {
+    "publicId": "tudespensa25/productos/combo8m",
+    "bytes": 30822,
+    "ancho": 500,
+    "alto": 500
+  },
+  "combo9m.webp": {
+    "publicId": "tudespensa25/productos/combo9m",
+    "bytes": 30168,
+    "ancho": 500,
+    "alto": 500
+  },
+  "combopolloaceiterefresco.webp": {
+    "publicId": "tudespensa25/productos/combopolloaceiterefresco",
+    "bytes": 19390,
+    "ancho": 500,
+    "alto": 500
+  },
+  "comboyogurt.webp": {
+    "publicId": "tudespensa25/productos/comboyogurt",
+    "bytes": 13448,
+    "ancho": 500,
+    "alto": 500
+  },
+  "compota.webp": {
+    "publicId": "tudespensa25/productos/compota",
+    "bytes": 19188,
+    "ancho": 500,
+    "alto": 500
+  },
+  "condensada.webp": {
+    "publicId": "tudespensa25/productos/condensada",
+    "bytes": 20942,
+    "ancho": 500,
+    "alto": 500
+  },
+  "conito.webp": {
+    "publicId": "tudespensa25/productos/conito",
+    "bytes": 12702,
+    "ancho": 500,
+    "alto": 500
+  },
+  "cristal.webp": {
+    "publicId": "tudespensa25/productos/cristal",
+    "bytes": 20234,
+    "ancho": 500,
+    "alto": 500
+  },
+  "detergente.webp": {
+    "publicId": "tudespensa25/productos/detergente",
+    "bytes": 14942,
+    "ancho": 500,
+    "alto": 500
+  },
+  "donutbravo.webp": {
+    "publicId": "tudespensa25/productos/donutbravo",
+    "bytes": 16058,
+    "ancho": 500,
+    "alto": 500
+  },
+  "donutfresa.webp": {
+    "publicId": "tudespensa25/productos/donutfresa",
+    "bytes": 9082,
+    "ancho": 500,
+    "alto": 500
+  },
+  "espumoso.webp": {
+    "publicId": "tudespensa25/productos/espumoso",
+    "bytes": 4986,
+    "ancho": 500,
+    "alto": 500
+  },
+  "fideos.webp": {
+    "publicId": "tudespensa25/productos/fideos",
+    "bytes": 18648,
+    "ancho": 500,
+    "alto": 500
+  },
+  "fogon.webp": {
+    "publicId": "tudespensa25/productos/fogon",
+    "bytes": 12514,
+    "ancho": 500,
+    "alto": 500
+  },
+  "fogoninfra.webp": {
+    "publicId": "tudespensa25/productos/fogoninfra",
+    "bytes": 7142,
+    "ancho": 500,
+    "alto": 500
+  },
+  "frazada.webp": {
+    "publicId": "tudespensa25/productos/frazada",
+    "bytes": 6708,
+    "ancho": 500,
+    "alto": 500
+  },
+  "freezer4p.webp": {
+    "publicId": "tudespensa25/productos/freezer4p",
+    "bytes": 7828,
+    "ancho": 500,
+    "alto": 500
+  },
+  "freezer6p.webp": {
+    "publicId": "tudespensa25/productos/freezer6p",
+    "bytes": 6944,
+    "ancho": 500,
+    "alto": 500
+  },
+  "freidora.webp": {
+    "publicId": "tudespensa25/productos/freidora",
+    "bytes": 4706,
+    "ancho": 500,
+    "alto": 500
+  },
+  "frijol1kg.webp": {
+    "publicId": "tudespensa25/productos/frijol1kg",
+    "bytes": 15460,
+    "ancho": 500,
+    "alto": 500
+  },
+  "frijol5lb.webp": {
+    "publicId": "tudespensa25/productos/frijol5lb",
+    "bytes": 24326,
+    "ancho": 500,
+    "alto": 500
+  },
+  "garbanzos.webp": {
+    "publicId": "tudespensa25/productos/garbanzos",
+    "bytes": 11840,
+    "ancho": 500,
+    "alto": 500
+  },
+  "garbanzosgoya.webp": {
+    "publicId": "tudespensa25/productos/garbanzosgoya",
+    "bytes": 18322,
+    "ancho": 500,
+    "alto": 500
+  },
+  "gelatina.webp": {
+    "publicId": "tudespensa25/productos/gelatina",
+    "bytes": 12604,
+    "ancho": 500,
+    "alto": 500
+  },
+  "gouda.webp": {
+    "publicId": "tudespensa25/productos/gouda",
+    "bytes": 6116,
+    "ancho": 500,
+    "alto": 500
+  },
+  "guajira.webp": {
+    "publicId": "tudespensa25/productos/guajira",
+    "bytes": 35818,
+    "ancho": 427,
+    "alto": 266
+  },
+  "helado.webp": {
+    "publicId": "tudespensa25/productos/helado",
+    "bytes": 11348,
+    "ancho": 500,
+    "alto": 500
+  },
+  "higado.webp": {
+    "publicId": "tudespensa25/productos/higado",
+    "bytes": 15454,
+    "ancho": 500,
+    "alto": 500
+  },
+  "huevo.webp": {
+    "publicId": "tudespensa25/productos/huevo",
+    "bytes": 12530,
+    "ancho": 500,
+    "alto": 500
+  },
+  "humaré.webp": {
+    "publicId": "tudespensa25/productos/humare",
+    "bytes": 13236,
+    "ancho": 500,
+    "alto": 500
+  },
+  "jabon.webp": {
+    "publicId": "tudespensa25/productos/jabon",
+    "bytes": 17912,
+    "ancho": 500,
+    "alto": 500
+  },
+  "ketchupkurtz.webp": {
+    "publicId": "tudespensa25/productos/ketchupkurtz",
+    "bytes": 8106,
+    "ancho": 500,
+    "alto": 500
+  },
+  "kremali.webp": {
+    "publicId": "tudespensa25/productos/kremali",
+    "bytes": 12802,
+    "ancho": 500,
+    "alto": 500
+  },
+  "lallave.webp": {
+    "publicId": "tudespensa25/productos/lallave",
+    "bytes": 22238,
+    "ancho": 500,
+    "alto": 500
+  },
+  "lavaloza.webp": {
+    "publicId": "tudespensa25/productos/lavaloza",
+    "bytes": 7878,
+    "ancho": 500,
+    "alto": 500
+  },
+  "lechepolvomu.webp": {
+    "publicId": "tudespensa25/productos/lechepolvomu",
+    "bytes": 11426,
+    "ancho": 500,
+    "alto": 500
+  },
+  "lentejasgoya.webp": {
+    "publicId": "tudespensa25/productos/lentejasgoya",
+    "bytes": 21844,
+    "ancho": 500,
+    "alto": 500
+  },
+  "lomo.webp": {
+    "publicId": "tudespensa25/productos/lomo",
+    "bytes": 7456,
+    "ancho": 500,
+    "alto": 500
+  },
+  "maizdulce.webp": {
+    "publicId": "tudespensa25/productos/maizdulce",
+    "bytes": 10200,
+    "ancho": 500,
+    "alto": 500
+  },
+  "malanga.webp": {
+    "publicId": "tudespensa25/productos/malanga",
+    "bytes": 27380,
+    "ancho": 1000,
+    "alto": 1000
+  },
+  "mantequillamani.webp": {
+    "publicId": "tudespensa25/productos/mantequillamani",
+    "bytes": 12214,
+    "ancho": 500,
+    "alto": 500
+  },
+  "mariasbaduco.webp": {
+    "publicId": "tudespensa25/productos/mariasbaduco",
+    "bytes": 6068,
+    "ancho": 500,
+    "alto": 500
+  },
+  "masas.webp": {
+    "publicId": "tudespensa25/productos/masas",
+    "bytes": 10384,
+    "ancho": 500,
+    "alto": 500
+  },
+  "maxis2000.webp": {
+    "publicId": "tudespensa25/productos/maxis2000",
+    "bytes": 9078,
+    "ancho": 500,
+    "alto": 500
+  },
+  "mayonesa.webp": {
+    "publicId": "tudespensa25/productos/mayonesa",
+    "bytes": 8314,
+    "ancho": 500,
+    "alto": 500
+  },
+  "mayonezka.webp": {
+    "publicId": "tudespensa25/productos/mayonezka",
+    "bytes": 10460,
+    "ancho": 500,
+    "alto": 500
+  },
+  "microwave.webp": {
+    "publicId": "tudespensa25/productos/microwave",
+    "bytes": 7124,
+    "ancho": 500,
+    "alto": 500
+  },
+  "mixto2.webp": {
+    "publicId": "tudespensa25/productos/mixto2",
+    "bytes": 34540,
+    "ancho": 500,
+    "alto": 500
+  },
+  "mixto3.webp": {
+    "publicId": "tudespensa25/productos/mixto3",
+    "bytes": 63182,
+    "ancho": 1000,
+    "alto": 1000
+  },
+  "morena.webp": {
+    "publicId": "tudespensa25/productos/morena",
+    "bytes": 19764,
+    "ancho": 500,
+    "alto": 500
+  },
+  "mortadela.webp": {
+    "publicId": "tudespensa25/productos/mortadela",
+    "bytes": 11612,
+    "ancho": 500,
+    "alto": 500
+  },
+  "multifrutas.webp": {
+    "publicId": "tudespensa25/productos/multifrutas",
+    "bytes": 17194,
+    "ancho": 500,
+    "alto": 500
+  },
+  "naranja.webp": {
+    "publicId": "tudespensa25/productos/naranja",
+    "bytes": 10040,
+    "ancho": 500,
+    "alto": 500
+  },
+  "naranjabadia.webp": {
+    "publicId": "tudespensa25/productos/naranjabadia",
+    "bytes": 8222,
+    "ancho": 500,
+    "alto": 500
+  },
+  "old.webp": {
+    "publicId": "tudespensa25/productos/old",
+    "bytes": 6006,
+    "ancho": 500,
+    "alto": 500
+  },
+  "papas.webp": {
+    "publicId": "tudespensa25/productos/papas",
+    "bytes": 10630,
+    "ancho": 500,
+    "alto": 500
+  },
+  "papasfritas.webp": {
+    "publicId": "tudespensa25/productos/papasfritas",
+    "bytes": 7906,
+    "ancho": 500,
+    "alto": 500
+  },
+  "papel.webp": {
+    "publicId": "tudespensa25/productos/papel",
+    "bytes": 16528,
+    "ancho": 500,
+    "alto": 500
+  },
+  "pastillas.webp": {
+    "publicId": "tudespensa25/productos/pastillas",
+    "bytes": 16504,
+    "ancho": 500,
+    "alto": 500
+  },
+  "pechuga.webp": {
+    "publicId": "tudespensa25/productos/pechuga",
+    "bytes": 14294,
+    "ancho": 500,
+    "alto": 500
+  },
+  "peragoliat.webp": {
+    "publicId": "tudespensa25/productos/peragoliat",
+    "bytes": 12000,
+    "ancho": 500,
+    "alto": 500
+  },
+  "perlas.webp": {
+    "publicId": "tudespensa25/productos/perlas",
+    "bytes": 6392,
+    "ancho": 500,
+    "alto": 500
+  },
+  "perritos.webp": {
+    "publicId": "tudespensa25/productos/perritos",
+    "bytes": 12592,
+    "ancho": 500,
+    "alto": 500
+  },
+  "picadillo.webp": {
+    "publicId": "tudespensa25/productos/picadillo",
+    "bytes": 11364,
+    "ancho": 500,
+    "alto": 500
+  },
+  "pierna.webp": {
+    "publicId": "tudespensa25/productos/pierna",
+    "bytes": 8694,
+    "ancho": 500,
+    "alto": 500
+  },
+  "placeholder.webp": {
+    "publicId": "tudespensa25/productos/placeholder",
+    "bytes": 28272,
+    "ancho": 400,
+    "alto": 400
+  },
+  "polloahumado.webp": {
+    "publicId": "tudespensa25/productos/polloahumado",
+    "bytes": 10878,
+    "ancho": 500,
+    "alto": 500
+  },
+  "polloapis.webp": {
+    "publicId": "tudespensa25/productos/polloapis",
+    "bytes": 21164,
+    "ancho": 500,
+    "alto": 500
+  },
+  "pollocaja.webp": {
+    "publicId": "tudespensa25/productos/pollocaja",
+    "bytes": 9168,
+    "ancho": 500,
+    "alto": 500
+  },
+  "pollopqte.webp": {
+    "publicId": "tudespensa25/productos/pollopqte",
+    "bytes": 15754,
+    "ancho": 500,
+    "alto": 500
+  },
+  "purepapa.webp": {
+    "publicId": "tudespensa25/productos/purepapa",
+    "bytes": 15616,
+    "ancho": 500,
+    "alto": 500
+  },
+  "puresara.webp": {
+    "publicId": "tudespensa25/productos/puresara",
+    "bytes": 14312,
+    "ancho": 500,
+    "alto": 500
+  },
+  "quesoparmesano.webp": {
+    "publicId": "tudespensa25/productos/quesoparmesano",
+    "bytes": 9106,
+    "ancho": 500,
+    "alto": 500
+  },
+  "reina.webp": {
+    "publicId": "tudespensa25/productos/reina",
+    "bytes": 8980,
+    "ancho": 500,
+    "alto": 500
+  },
+  "res.webp": {
+    "publicId": "tudespensa25/productos/res",
+    "bytes": 15476,
+    "ancho": 500,
+    "alto": 500
+  },
+  "sal.webp": {
+    "publicId": "tudespensa25/productos/sal",
+    "bytes": 8130,
+    "ancho": 500,
+    "alto": 500
+  },
+  "saltine.webp": {
+    "publicId": "tudespensa25/productos/saltine",
+    "bytes": 24582,
+    "ancho": 500,
+    "alto": 500
+  },
+  "samyeli.webp": {
+    "publicId": "tudespensa25/productos/samyeli",
+    "bytes": 10934,
+    "ancho": 500,
+    "alto": 500
+  },
+  "sazonmixto.webp": {
+    "publicId": "tudespensa25/productos/sazonmixto",
+    "bytes": 9572,
+    "ancho": 500,
+    "alto": 500
+  },
+  "schoco.webp": {
+    "publicId": "tudespensa25/productos/schoco",
+    "bytes": 12634,
+    "ancho": 500,
+    "alto": 500
+  },
+  "semiautomatica7.webp": {
+    "publicId": "tudespensa25/productos/semiautomatica7",
+    "bytes": 5568,
+    "ancho": 500,
+    "alto": 500
+  },
+  "servicios.webp": {
+    "publicId": "tudespensa25/productos/servicios",
+    "bytes": 27424,
+    "ancho": 1000,
+    "alto": 154
+  },
+  "snackcrackers.webp": {
+    "publicId": "tudespensa25/productos/snackcrackers",
+    "bytes": 15960,
+    "ancho": 500,
+    "alto": 500
+  },
+  "soda.webp": {
+    "publicId": "tudespensa25/productos/soda",
+    "bytes": 14840,
+    "ancho": 500,
+    "alto": 500
+  },
+  "sopa.webp": {
+    "publicId": "tudespensa25/productos/sopa",
+    "bytes": 19210,
+    "ancho": 500,
+    "alto": 500
+  },
+  "sorbetico.webp": {
+    "publicId": "tudespensa25/productos/sorbetico",
+    "bytes": 23196,
+    "ancho": 500,
+    "alto": 500
+  },
+  "spaguetis.webp": {
+    "publicId": "tudespensa25/productos/spaguetis",
+    "bytes": 11504,
+    "ancho": 500,
+    "alto": 500
+  },
+  "split.webp": {
+    "publicId": "tudespensa25/productos/split",
+    "bytes": 16986,
+    "ancho": 500,
+    "alto": 500
+  },
+  "stbliquido.webp": {
+    "publicId": "tudespensa25/productos/stbliquido",
+    "bytes": 13114,
+    "ancho": 500,
+    "alto": 500
+  },
+  "suavizante.webp": {
+    "publicId": "tudespensa25/productos/suavizante",
+    "bytes": 6400,
+    "ancho": 500,
+    "alto": 500
+  },
+  "timber.webp": {
+    "publicId": "tudespensa25/productos/timber",
+    "bytes": 13464,
+    "ancho": 500,
+    "alto": 500
+  },
+  "toallas.webp": {
+    "publicId": "tudespensa25/productos/toallas",
+    "bytes": 9054,
+    "ancho": 500,
+    "alto": 500
+  },
+  "tomatefrito.webp": {
+    "publicId": "tudespensa25/productos/tomatefrito",
+    "bytes": 17776,
+    "ancho": 500,
+    "alto": 500
+  },
+  "tota.webp": {
+    "publicId": "tudespensa25/productos/tota",
+    "bytes": 25022,
+    "ancho": 500,
+    "alto": 500
+  },
+  "tropicalarroz.webp": {
+    "publicId": "tudespensa25/productos/tropicalarroz",
+    "bytes": 68168,
+    "ancho": 1000,
+    "alto": 1000
+  },
+  "tropicalcarnes.webp": {
+    "publicId": "tudespensa25/productos/tropicalcarnes",
+    "bytes": 74120,
+    "ancho": 1000,
+    "alto": 1000
+  },
+  "trufle.webp": {
+    "publicId": "tudespensa25/productos/trufle",
+    "bytes": 17732,
+    "ancho": 500,
+    "alto": 500
+  },
+  "ventilador.webp": {
+    "publicId": "tudespensa25/productos/ventilador",
+    "bytes": 8892,
+    "ancho": 500,
+    "alto": 500
+  },
+  "ventiladorpared.webp": {
+    "publicId": "tudespensa25/productos/ventiladorpared",
+    "bytes": 33238,
+    "ancho": 500,
+    "alto": 500
+  },
+  "vicky.webp": {
+    "publicId": "tudespensa25/productos/vicky",
+    "bytes": 10050,
+    "ancho": 500,
+    "alto": 500
+  },
+  "vinagregoya.webp": {
+    "publicId": "tudespensa25/productos/vinagregoya",
+    "bytes": 9042,
+    "ancho": 500,
+    "alto": 500
+  },
+  "waferfresa.webp": {
+    "publicId": "tudespensa25/productos/waferfresa",
+    "bytes": 18664,
+    "ancho": 500,
+    "alto": 500
+  },
+  "yogurt.webp": {
+    "publicId": "tudespensa25/productos/yogurt",
+    "bytes": 8120,
+    "ancho": 500,
+    "alto": 500
+  },
+  "yogurt1l.webp": {
+    "publicId": "tudespensa25/productos/yogurt1l",
+    "bytes": 6372,
+    "ancho": 500,
+    "alto": 500
+  },
+  "yogurtvasito.webp": {
+    "publicId": "tudespensa25/productos/yogurtvasito",
+    "bytes": 16360,
+    "ancho": 500,
+    "alto": 500
+  },
+  "yoqo.webp": {
+    "publicId": "tudespensa25/productos/yoqo",
+    "bytes": 41024,
+    "ancho": 500,
+    "alto": 500
+  },
+  "zuko.webp": {
+    "publicId": "tudespensa25/productos/zuko",
+    "bytes": 16534,
+    "ancho": 500,
+    "alto": 500
+  },
+  "zumo.webp": {
+    "publicId": "tudespensa25/productos/zumo",
+    "bytes": 7290,
+    "ancho": 500,
+    "alto": 500
+  }
+}

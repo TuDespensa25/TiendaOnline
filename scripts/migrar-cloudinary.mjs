@@ -47,6 +47,11 @@ export function publicIdDe(archivo) {
     .replace(/^-+|-+$/g, "");
 }
 
+/** public_id con la ruta incluida: tudespensa25/productos/pollocaja */
+export function idCompleto(archivo, carpeta = CARPETA) {
+  return `${carpeta}/${publicIdDe(archivo)}`;
+}
+
 /** Dos archivos distintos no pueden acabar con el mismo public_id. */
 export function colisiones(archivos) {
   const porId = new Map();
@@ -62,8 +67,13 @@ async function subirUna(archivo) {
   const form = new FormData();
   form.append("file", new Blob([datos]), archivo);
   form.append("upload_preset", PRESET);
-  form.append("folder", CARPETA);
-  form.append("public_id", publicIdDe(archivo));
+  // La ruta va DENTRO del public_id, no en "folder". En cuentas con carpetas
+  // dinamicas, "folder" solo coloca el asset en el panel y deja el public_id
+  // pelado, asi que dos imagenes de proyectos distintos podrian chocar en la
+  // raiz. Metiendo la ruta en el id funciona igual en los dos modos.
+  form.append("public_id", idCompleto(archivo));
+  // Ademas del id, esto lo coloca en su carpeta dentro del panel de Cloudinary.
+  form.append("asset_folder", CARPETA);
   form.append("tags", "tudespensa25,producto");
 
   const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD}/image/upload`, {
@@ -98,7 +108,7 @@ async function main() {
   if (!SUBIR) {
     console.log("ENSAYO. No se ha subido nada. Anade --subir para hacerlo de verdad.");
     console.log("public_id que se crearian:");
-    archivos.slice(0, 5).forEach((f) => console.log(`  ${f}  ->  ${CARPETA}/${publicIdDe(f)}`));
+    archivos.slice(0, 5).forEach((f) => console.log(`  ${f}  ->  ${idCompleto(f)}`));
     if (archivos.length > 5) console.log(`  ...y ${archivos.length - 5} mas`);
     return;
   }
@@ -115,7 +125,7 @@ async function main() {
       const avisos = [];
       // Si el preset trae "Disallow public ID" activado, el public_id vuelve
       // con un nombre aleatorio y el mapa deja de ser predecible.
-      if (r.public_id !== `${CARPETA}/${publicIdDe(archivo)}`) avisos.push("public_id CAMBIADO por el preset");
+      if (r.public_id !== idCompleto(archivo)) avisos.push("public_id CAMBIADO por el preset");
       // Sin firma, Cloudinary no sobrescribe nunca: si el id ya existia te
       // devuelve el asset viejo como si todo hubiera ido bien. El tamano lo delata.
       if (r.bytes !== local) { avisos.push(`YA EXISTIA, no se ha reemplazado (${r.bytes}B en la nube vs ${local}B local)`); yaExistian++; }
@@ -152,6 +162,7 @@ function autoComprobacion() {
     const real = publicIdDe(entrada);
     if (real !== esperado) throw new Error(`publicIdDe(${entrada}) dio ${real}, esperaba ${esperado}`);
   }
+  if (idCompleto("pollocaja.webp", "x/y") !== "x/y/pollocaja") throw new Error("idCompleto mal");
   if (colisiones(["a.webp", "A.png", "b.webp"]).length !== 1) {
     throw new Error("no detecto la colision a/A");
   }
