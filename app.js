@@ -1224,7 +1224,7 @@ const productos = [
     ]
   },
  {
-    id: 38,
+    id: 401,
     nombre: "Sopa Intantanea",
     precio: 0.70,
     imagen: "sopa.webp",
@@ -1285,7 +1285,7 @@ const productos = [
   },*/
   // Lácteos
   {
-    id: 41,
+    id: 402,
     nombre: "Queso Parmesano",
     precio:6.20,
     imagen: "quesoparmesano.webp",
@@ -1340,7 +1340,7 @@ const productos = [
     ]
   },
   {
-    id: 43,
+    id: 403,
     nombre: "Queso Gouda Aleman",
     precio: 13.50,
     imagen: "gouda.webp",
