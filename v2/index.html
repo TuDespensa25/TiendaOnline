@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Sin maximum-scale ni user-scalable: el cliente tiene que poder ampliar
+       la foto para leer el gramaje. El export de Stitch los traia puestos. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TuDespensa25 — Comida y productos del hogar a domicilio</title>
+  <meta name="description" content="Compra alimentos, cárnicos, granos, enlatados y productos del hogar con entrega a domicilio en Artemisa y Pinar del Río.">
+
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../estilos/tokens.css">
+  <link rel="stylesheet" href="../estilos/tienda.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <img class="cabecera__logo" src="../favicon.png" alt="TuDespensa25" width="40" height="40">
+
+  <button class="cabecera__lugar" id="btn-lugar" type="button">
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18">
+      <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/>
+    </svg>
+    <span id="lugar-actual">Elige tu municipio</span>
+  </button>
+
+  <a class="cabecera__carrito" href="#" aria-label="Ver el carrito">
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="24" height="24">
+      <path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6.2 6h14.4l-2.3 8.3a2 2 0 0 1-1.9 1.4H8.6a2 2 0 0 1-1.9-1.4L4.1 3.7H1.5v-2h4.1L6.2 6Z"/>
+    </svg>
+    <span class="cabecera__contador" id="contador-carrito" hidden>0</span>
+  </a>
+</header>
+
+<main>
+  <div class="buscador">
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
+      <path d="M10 2a8 8 0 1 0 4.9 14.3l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0 0 10 2Zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"/>
+    </svg>
+    <input id="buscar" class="buscador__campo" type="search" placeholder="Buscar productos..." autocomplete="off">
+  </div>
+
+  <nav class="categorias" id="categorias" aria-label="Categorías"></nav>
+
+  <section class="seccion">
+    <div class="seccion__titulo">
+      <h2 class="td-titulo" id="titulo-lista">Ofertas especiales</h2>
+      <span class="seccion__cuenta" id="cuenta"></span>
+    </div>
+    <div class="rejilla" id="rejilla" aria-live="polite"></div>
+    <p class="vacio" id="vacio" hidden></p>
+  </section>
+</main>
+
+<!-- Selector de municipio -->
+<dialog class="hoja" id="hoja-lugar">
+  <form method="dialog" class="hoja__cuerpo">
+    <h2 class="td-titulo hoja__titulo">¿Dónde entregamos?</h2>
+    <p class="hoja__nota">Algunos productos solo se venden en ciertos municipios.</p>
+    <div class="hoja__lista" id="lista-municipios"></div>
+    <button class="td-boton td-boton--suave hoja__cerrar" value="cancelar">Cerrar</button>
+  </form>
+</dialog>
+
+<script src="../utils/config.js"></script>
+<script src="../utils/imagenes.js"></script>
+<script src="../utils/datos.js"></script>
+<script src="tienda.js"></script>
+</body>
+</html>

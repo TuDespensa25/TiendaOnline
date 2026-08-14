@@ -1,0 +1,308 @@
+/* Pantalla de catalogo. Depende de tokens.css. */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--f-texto);
+  font-size: var(--t-cuerpo);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: var(--e-lg);
+}
+
+svg { fill: currentColor; flex: none; }
+
+/* --- cabecera ------------------------------------------------------ */
+
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: var(--e-sm);
+  padding: 8px var(--margen);
+  background: var(--fondo);
+  border-bottom: 1px solid var(--borde);
+}
+
+.cabecera__logo { border-radius: 50%; background: #fff; flex: none; }
+
+/* Ocupa el hueco libre: es el control que mas se usa despues del buscador. */
+.cabecera__lugar {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-xs);
+  height: var(--tactil);
+  padding: 0 var(--e-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--tarjeta-suave);
+  color: var(--texto);
+  font: inherit;
+  font-size: var(--t-etiqueta);
+  font-weight: 600;
+  cursor: pointer;
+}
+.cabecera__lugar span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cabecera__carrito {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tactil);
+  height: var(--tactil);
+  color: var(--marca);
+  flex: none;
+}
+
+.cabecera__contador {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--alerta);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+}
+
+/* --- buscador ------------------------------------------------------ */
+
+.buscador {
+  display: flex;
+  align-items: center;
+  gap: var(--e-xs);
+  margin: var(--e-sm) var(--margen);
+  padding: 0 var(--e-sm);
+  height: var(--tactil);
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  color: var(--texto-suave);
+}
+.buscador:focus-within { outline: 2px solid var(--marca); outline-offset: -1px; }
+
+.buscador__campo {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--texto);
+}
+.buscador__campo:focus { outline: none; }
+
+/* --- categorias ---------------------------------------------------- */
+
+/* Fila compacta que se desliza. Stitch las dibujo como tarjetas con icono de
+   90px de alto: en un movil de 375px eso empuja los productos fuera de la
+   primera pantalla, que es justo lo que hay que evitar. */
+.categorias {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: var(--e-xs) var(--margen) var(--e-sm);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.categorias::-webkit-scrollbar { display: none; }
+
+.categoria {
+  flex: none;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  background: var(--tarjeta);
+  color: var(--texto-suave);
+  font: inherit;
+  font-size: var(--t-etiqueta);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.categoria[aria-pressed="true"] {
+  background: var(--marca);
+  border-color: var(--marca);
+  color: #fff;
+}
+
+/* --- seccion ------------------------------------------------------- */
+
+.seccion { padding: 0 var(--margen); }
+
+.seccion__titulo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--e-sm);
+  margin: var(--e-sm) 0;
+}
+.seccion__titulo h2 { margin: 0; font-size: var(--t-seccion); }
+.seccion__cuenta { font-size: var(--t-etiqueta); color: var(--texto-suave); }
+
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--e-sm);
+}
+@media (min-width: 700px) {
+  .rejilla { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
+}
+
+.vacio {
+  padding: var(--e-lg) 0;
+  text-align: center;
+  color: var(--texto-suave);
+}
+
+/* --- tarjeta de producto ------------------------------------------- */
+
+.producto {
+  display: flex;
+  flex-direction: column;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+}
+
+.producto__foto {
+  position: relative;
+  aspect-ratio: 1;
+  background: var(--hundido);
+}
+.producto__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.producto__descuento {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 7px;
+  border-radius: var(--radio);
+  background: var(--ahorro);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.producto__datos {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--e-sm);
+  flex: 1;
+}
+
+.producto__categoria {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+/* Dos lineas fijas: si una tarjeta crece, rompe la fila entera. */
+.producto__nombre {
+  margin: 0;
+  font-size: var(--t-etiqueta);
+  font-weight: 500;
+  color: var(--texto);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.6em;
+}
+
+.producto__precios { margin-top: var(--e-xs); }
+.producto__precio { font-size: 1.25rem; }
+.producto__agregar { width: 100%; margin-top: var(--e-sm); }
+
+/* --- hoja de municipios -------------------------------------------- */
+
+.hoja {
+  border: 0;
+  border-radius: var(--radio-grande) var(--radio-grande) 0 0;
+  padding: 0;
+  width: min(520px, 100%);
+  margin: auto auto 0;
+  background: var(--fondo);
+  color: var(--texto);
+}
+.hoja::backdrop { background: rgba(35, 25, 20, 0.5); }
+
+.hoja__cuerpo { padding: var(--e-md) var(--margen) var(--e-md); }
+.hoja__titulo { margin: 0 0 var(--e-xs); font-size: var(--t-seccion); }
+.hoja__nota { margin: 0 0 var(--e-sm); font-size: var(--t-etiqueta); color: var(--texto-suave); }
+
+.hoja__lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-xs);
+  max-height: 50vh;
+  overflow-y: auto;
+  margin-bottom: var(--e-sm);
+}
+
+.hoja__provincia {
+  margin: var(--e-sm) 0 var(--e-xs);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+.municipio {
+  display: flex;
+  align-items: center;
+  min-height: var(--tactil);
+  padding: 0 var(--e-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--tarjeta);
+  color: var(--texto);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.municipio[aria-pressed="true"] {
+  border-color: var(--marca);
+  background: var(--marca-suave);
+  font-weight: 600;
+}
+
+.hoja__cerrar { width: 100%; }
+
+/* --- carga --------------------------------------------------------- */
+
+.esqueleto {
+  aspect-ratio: 1;
+  border-radius: var(--radio);
+  background: var(--hundido);
+  animation: latido 1.2s ease-in-out infinite;
+}
+@keyframes latido { 50% { opacity: 0.55; } }

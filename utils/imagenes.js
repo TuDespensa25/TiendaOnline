@@ -36,15 +36,34 @@
            "/image/upload/f_auto,q_auto,w_" + w + ",c_limit/" + publicId;
   }
 
+  /**
+   * Version cuadrada para las tarjetas del catalogo.
+   * 148 de las 150 fotos de producto ya son cuadradas, asi que para esas esto
+   * no hace nada. Las dos que no lo son (Boniato y Malta Guajira) se
+   * recortaban por los lados con object-fit: cover; con c_pad Cloudinary
+   * rellena hasta el cuadrado y b_auto elige el color del borde de la propia
+   * foto, asi que el relleno no se nota.
+   */
+  function urlCuadrada(publicId, lado) {
+    var cloud = cloudName();
+    if (!publicId || !cloud) return PLACEHOLDER;
+    if (/^https?:\/\//.test(publicId)) return publicId;
+
+    var l = lado || ANCHO.tarjeta;
+    return "https://res.cloudinary.com/" + cloud +
+           "/image/upload/f_auto,q_auto,w_" + l + ",h_" + l + ",c_pad,b_auto/" + publicId;
+  }
+
   // Deja que el navegador elija segun la densidad de pantalla.
   function srcSetImagen(publicId, ancho) {
     if (!publicId || !cloudName() || /^https?:\/\//.test(publicId)) return "";
     var w = ancho || ANCHO.tarjeta;
-    return urlImagen(publicId, w) + " 1x, " + urlImagen(publicId, w * 2) + " 2x";
+    return urlCuadrada(publicId, w) + " 1x, " + urlCuadrada(publicId, w * 2) + " 2x";
   }
 
   window.ANCHO_IMAGEN = ANCHO;
   window.urlImagen = urlImagen;
+  window.urlCuadrada = urlCuadrada;
   window.srcSetImagen = srcSetImagen;
 
   // Auto-comprobacion: se ejecuta sola con ?test-imagenes en la URL.
@@ -61,7 +80,9 @@
     ok(urlImagen(null) === PLACEHOLDER, "sin id deberia caer en el placeholder");
     ok(urlImagen("") === PLACEHOLDER, "vacio deberia caer en el placeholder");
     ok(urlImagen("https://otro.com/a.jpg") === "https://otro.com/a.jpg", "una URL entera se deja pasar");
-    ok(srcSetImagen("x").indexOf("w_800,c_limit") !== -1, "el 2x deberia pedir el doble de ancho");
+    ok(urlCuadrada("x", 400).indexOf("w_400,h_400,c_pad,b_auto") !== -1, "la cuadrada deberia rellenar hasta el cuadrado");
+    ok(urlCuadrada(null) === PLACEHOLDER, "cuadrada sin id deberia caer en el placeholder");
+    ok(srcSetImagen("x").indexOf("w_800,h_800") !== -1, "el 2x deberia pedir el doble de lado");
     ok(srcSetImagen("https://otro.com/a.jpg") === "", "una URL entera no lleva srcset");
 
     window.CLOUDINARY_CLOUD_NAME = previo;
