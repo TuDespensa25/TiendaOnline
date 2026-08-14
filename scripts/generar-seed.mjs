@@ -81,6 +81,47 @@ function filaProducto(p, mapa) {
     `${p.precio.toFixed(2)}, ${p.descuento.toFixed(2)}, ${sql(imagen)}, ${p.reciente})`;
 }
 
+/**
+ * La disponibilidad, agrupada por patron en vez de producto a producto.
+ * Los 151 productos solo usan 4 combinaciones de municipios, asi que salen
+ * 4 sentencias en lugar de 151 lineas — y ademas se lee la regla real:
+ * este grupo se vende en toda la zona, este otro solo en estos municipios.
+ */
+export function disponibilidadAgrupada(porProducto, totalMunicipios) {
+  const grupos = new Map();
+  for (const { id, municipios } of porProducto) {
+    const clave = [...municipios].sort((a, b) => a - b).join(",");
+    grupos.set(clave, [...(grupos.get(clave) || []), id]);
+  }
+
+  const envolver = (nums, porLinea = 18) => {
+    const lineas = [];
+    for (let i = 0; i < nums.length; i += porLinea) {
+      lineas.push("    " + nums.slice(i, i + porLinea).join(", "));
+    }
+    return lineas.join(",\n");
+  };
+
+  const salida = [];
+  // Los grupos grandes primero, que es como se lee mejor.
+  for (const [clave, ids] of [...grupos].sort((a, b) => b[1].length - a[1].length)) {
+    const munis = clave.split(",").map(Number);
+    const todos = munis.length === totalMunicipios;
+
+    salida.push(
+      `-- ${ids.length} productos ` +
+        (todos ? "que se venden en toda la zona de reparto" : `solo en los municipios ${munis.join(", ")}`)
+    );
+    salida.push("insert into producto_municipios (producto_id, municipio_id)");
+    salida.push("select p.id, m.id from productos p cross join municipios m");
+    salida.push("where p.id in (");
+    salida.push(envolver(ids.sort((a, b) => a - b)));
+    salida.push(todos ? "  );" : `  ) and m.id in (${munis.join(", ")});`);
+    salida.push("");
+  }
+  return salida.join("\n");
+}
+
 const CABECERA_PRODUCTOS =
   "insert into productos (id, nombre, descripcion, categoria_id, precio_usd, descuento_pct, imagen_id, reciente) values";
 
@@ -89,7 +130,7 @@ const CABECERA_PRODUCTOS =
  * Un pegado que se corta a media lista da "syntax error at end of input",
  * asi que ninguna parte pasa de unos 12 KB.
  */
-async function escribirPartes({ categorias, municipios, productos, mapa, filas }) {
+async function escribirPartes({ categorias, municipios, productos, mapa, porProducto }) {
   const TROZO = 40;
   const partes = [];
 
@@ -123,14 +164,12 @@ async function escribirPartes({ categorias, municipios, productos, mapa, filas }
     [
       "begin;",
       "",
-      "insert into producto_municipios (producto_id, municipio_id)",
-      "select p.id, m.id",
-      "from (values",
-      filas.join(",\n"),
-      ") as p(id, municipios)",
-      "cross join lateral unnest(p.municipios) as m(id);",
-      "",
+      disponibilidadAgrupada(porProducto, municipios.length),
       "commit;",
+      "",
+      "-- Si el editor anade un LIMIT automatico, que caiga en esta consulta",
+      "-- y no en los insert de arriba. Debe devolver 1593.",
+      "select count(*) as filas_de_disponibilidad from producto_municipios;",
     ].join("\n"),
   ]);
 
@@ -202,6 +241,7 @@ async function main() {
   // pareja: son las mismas filas al final, pero el archivo baja de 1593 lineas
   // a 155 y deja de ser un pegado enorme en el editor de Supabase.
   const filas = [];
+  const porProducto = [];
   let parejas = 0;
   for (const p of productos) {
     const vivos = p.municipios.filter((id) => {
@@ -211,6 +251,7 @@ async function main() {
     if (vivos.length === 0) { sinMunicipio.push(p.nombre); continue; }
     parejas += vivos.length;
     filas.push(`  (${p.id}, '{${vivos.join(",")}}'::smallint[])`);
+    porProducto.push({ id: p.id, municipios: vivos });
   }
   L.push("insert into producto_municipios (producto_id, municipio_id)");
   L.push("select p.id, m.id");
@@ -241,7 +282,7 @@ async function main() {
 
   await mkdir(join(RAIZ, "supabase"), { recursive: true });
   await writeFile(SALIDA, L.join("\n"), "utf8");
-  await escribirPartes({ categorias, municipios, productos, mapa, filas });
+  await escribirPartes({ categorias, municipios, productos, mapa, porProducto });
 
   console.log(`escrito supabase/02-datos.sql`);
   console.log(`  categorias:  ${categorias.length}`);
