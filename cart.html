@@ -433,7 +433,7 @@ const carritoManager = {
       const itemElement = document.createElement('div');
       itemElement.className = 'item-carrito';
       itemElement.innerHTML = `
-        <img src="images/${item.imagen}" alt="${item.nombre}">
+        <img src="images/${item.imagen}" alt="${item.nombre}" loading="lazy" onerror="this.src='images/placeholder.webp'">
         <div class="item-info">
           <h4>${item.nombre}</h4>
           <p>USD ${item.precio.toFixed(2)} x ${item.cantidad}</p>
