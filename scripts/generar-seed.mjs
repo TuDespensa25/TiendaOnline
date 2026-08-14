@@ -73,6 +73,76 @@ function leerMunicipios(fuente) {
   return salida;
 }
 
+/** Fila SQL de un producto. */
+function filaProducto(p, mapa) {
+  const imagen = p.imagen && mapa[p.imagen] ? mapa[p.imagen].publicId : null;
+  return `  (${p.id}, ${sql(p.nombre)}, ${sql(p.descripcion)}, ` +
+    `(select id from categorias where nombre = ${sql(p.categoria)}), ` +
+    `${p.precio.toFixed(2)}, ${p.descuento.toFixed(2)}, ${sql(imagen)}, ${p.reciente})`;
+}
+
+const CABECERA_PRODUCTOS =
+  "insert into productos (id, nombre, descripcion, categoria_id, precio_usd, descuento_pct, imagen_id, reciente) values";
+
+/**
+ * Ademas del archivo entero, escribe el mismo contenido troceado.
+ * Un pegado que se corta a media lista da "syntax error at end of input",
+ * asi que ninguna parte pasa de unos 12 KB.
+ */
+async function escribirPartes({ categorias, municipios, productos, mapa, filas }) {
+  const TROZO = 40;
+  const partes = [];
+
+  partes.push([
+    "parte-1-categorias-y-municipios.sql",
+    [
+      "begin;",
+      "",
+      "insert into categorias (nombre, orden) values",
+      categorias.map((c, i) => `  (${sql(c)}, ${i + 1})`).join(",\n") + ";",
+      "",
+      "insert into municipios (id, provincia, nombre) values",
+      municipios.map((m) => `  (${m.id}, ${sql(m.provincia)}, ${sql(m.nombre)})`).join(",\n") + ";",
+      "",
+      "commit;",
+    ].join("\n"),
+  ]);
+
+  for (let i = 0; i < productos.length; i += TROZO) {
+    const lote = productos.slice(i, i + TROZO);
+    const n = partes.length + 1;
+    partes.push([
+      `parte-${n}-productos-${i + 1}-a-${i + lote.length}.sql`,
+      ["begin;", "", CABECERA_PRODUCTOS,
+       lote.map((p) => filaProducto(p, mapa)).join(",\n") + ";", "", "commit;"].join("\n"),
+    ]);
+  }
+
+  partes.push([
+    `parte-${partes.length + 1}-disponibilidad.sql`,
+    [
+      "begin;",
+      "",
+      "insert into producto_municipios (producto_id, municipio_id)",
+      "select p.id, m.id",
+      "from (values",
+      filas.join(",\n"),
+      ") as p(id, municipios)",
+      "cross join lateral unnest(p.municipios) as m(id);",
+      "",
+      "commit;",
+    ].join("\n"),
+  ]);
+
+  const dir = join(RAIZ, "supabase", "por-partes");
+  await mkdir(dir, { recursive: true });
+  console.log(`\nsupabase/por-partes/  (ejecutar en orden):`);
+  for (const [nombre, contenido] of partes) {
+    await writeFile(join(dir, nombre), contenido, "utf8");
+    console.log(`  ${nombre.padEnd(38)} ${(contenido.length / 1024).toFixed(1)} KB`);
+  }
+}
+
 async function main() {
   const fuente = await readFile(join(RAIZ, "app.js"), "utf8");
   const mapa = JSON.parse(await readFile(join(RAIZ, "scripts", "mapa-cloudinary.json"), "utf8"));
@@ -171,6 +241,7 @@ async function main() {
 
   await mkdir(join(RAIZ, "supabase"), { recursive: true });
   await writeFile(SALIDA, L.join("\n"), "utf8");
+  await escribirPartes({ categorias, municipios, productos, mapa, filas });
 
   console.log(`escrito supabase/02-datos.sql`);
   console.log(`  categorias:  ${categorias.length}`);
