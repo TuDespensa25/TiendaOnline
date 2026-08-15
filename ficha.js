@@ -38,7 +38,7 @@
     var img = $("foto");
     img.src = urlCuadrada(producto.imagen_id, ANCHO_IMAGEN.modal);
     img.alt = producto.nombre;
-    img.onerror = function () { img.onerror = null; img.src = "../images/placeholder.webp"; };
+    img.onerror = function () { img.onerror = null; img.src = "images/placeholder.webp"; };
 
     $("categoria").textContent = nombreCorto(producto.categorias && producto.categorias.nombre);
     $("nombre").textContent = producto.nombre;

@@ -63,7 +63,7 @@
         '<article class="linea">' +
           '<img class="linea__foto" src="' + escapar(urlCuadrada(l.producto.imagen_id, 200)) + '"' +
                ' alt="" loading="lazy" width="64" height="64"' +
-               ' onerror="this.onerror=null;this.src=\'../images/placeholder.webp\'">' +
+               ' onerror="this.onerror=null;this.src=\'images/placeholder.webp\'">' +
           '<div class="linea__datos">' +
             '<h2 class="linea__nombre">' + escapar(l.producto.nombre) + '</h2>' +
             '<span class="linea__unitario">USD ' + l.unitario.toFixed(2) + ' c/u</span>' +

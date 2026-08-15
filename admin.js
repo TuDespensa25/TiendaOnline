@@ -69,7 +69,7 @@
       '<article class="admin__fila' + (p.visible ? "" : " admin__fila--oculto") + '" data-id="' + p.id + '">' +
         '<img class="admin__foto" src="' + escapar(urlCuadrada(p.imagen_id, 120)) + '" alt=""' +
              ' loading="lazy" width="48" height="48"' +
-             ' onerror="this.onerror=null;this.src=\'../images/placeholder.webp\'">' +
+             ' onerror="this.onerror=null;this.src=\'images/placeholder.webp\'">' +
         '<div class="admin__datos">' +
           '<span class="admin__nombre">' + escapar(p.nombre) + '</span>' +
           '<span class="admin__categoria">' + escapar((p.categorias && p.categorias.nombre) || "sin categoría") + '</span>' +

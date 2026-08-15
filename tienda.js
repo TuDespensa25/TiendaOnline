@@ -41,7 +41,7 @@
           '<img src="' + escapar(foto) + '"' +
                (srcset ? ' srcset="' + escapar(srcset) + '"' : "") +
                ' alt="' + escapar(p.nombre) + '" loading="lazy" width="400" height="400"' +
-               ' onerror="this.onerror=null;this.removeAttribute(\'srcset\');this.src=\'../images/placeholder.webp\'">' +
+               ' onerror="this.onerror=null;this.removeAttribute(\'srcset\');this.src=\'images/placeholder.webp\'">' +
           (hayDescuento
             ? '<span class="producto__descuento">-' + Math.round(p.descuento_pct) + '%</span>'
             : "") +

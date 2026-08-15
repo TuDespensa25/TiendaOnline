@@ -2157,7 +2157,7 @@ function renderizarListaProductos(listaProductos) {
     if (prod.categoria === "Servicios") {
       div.innerHTML = `
         <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
-        <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+        <img src="../images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
         <h3>${prod.nombre}</h3>
         <a href="https://wa.me/5353933247?text=${encodeURIComponent("Me interesa una cotización para " + prod.nombre)}" 
            target="_blank" class="btn-cotizacion">Cotización del Servicio</a>
@@ -2169,7 +2169,7 @@ function renderizarListaProductos(listaProductos) {
         const precioNuevo = precioOriginal * (1 - descuento / 100);
         div.innerHTML = `
           <div class="img-container">
-              <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+              <img src="../images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
               <div class="discount-label">Descuento ${descuento}%</div>
           </div>
           <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
@@ -2181,7 +2181,7 @@ function renderizarListaProductos(listaProductos) {
       } else {
         div.innerHTML = `
           <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
-          <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+          <img src="../images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
           <h3>${prod.nombre}</h3>
           <p class="precio-nuevo">USD ${prod.precio.toFixed(2)}</p>
           <button data-id="${prod.id}" class="btn-agregar">Agregar al carrito</button>
@@ -2209,7 +2209,7 @@ function renderizarListaProductos(listaProductos, contenedor = productosContaine
     if (prod.categoria === "Servicios") {
       div.innerHTML = `
         <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
-        <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+        <img src="../images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
         <h3>${prod.nombre}</h3>
         <a href="https://wa.me/5353933247?text=${encodeURIComponent("Me interesa una cotización para " + prod.nombre)}" 
            target="_blank" class="btn-cotizacion">Cotización del Servicio</a>
@@ -2221,7 +2221,7 @@ function renderizarListaProductos(listaProductos, contenedor = productosContaine
         const precioNuevo = precioOriginal * (1 - descuento / 100);
         div.innerHTML = `
           <div class="img-container">
-              <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+              <img src="../images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
               <div class="discount-label">Descuento ${descuento}%</div>
           </div>
           <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
@@ -2233,7 +2233,7 @@ function renderizarListaProductos(listaProductos, contenedor = productosContaine
       } else {
         div.innerHTML = `
           <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
-          <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+          <img src="../images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
           <h3>${prod.nombre}</h3>
           <p class="precio-nuevo">USD ${prod.precio.toFixed(2)}</p>
           <button data-id="${prod.id}" class="btn-agregar">Agregar al carrito</button>
@@ -2354,7 +2354,7 @@ function renderizarCombosOferta() {
     // Estructura HTML del combo (sin temporizador)
     comboDiv.innerHTML = `
       <div class="img-container">
-        <img src="images/${combo.imagen}" alt="${combo.nombre}" loading="lazy">
+        <img src="../images/${combo.imagen}" alt="${combo.nombre}" loading="lazy">
         ${tieneDescuento ? `<div class="discount-label">-${combo.descuento}%</div>` : ""}
       </div>
       <div class="etiqueta-categoria Combos-Temporales">${combo.categoria}</div>
@@ -2416,7 +2416,7 @@ function renderizarProductos(categoria = "todas") {
     if (prod.categoria === "Servicios") {
       div.innerHTML = `
         <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
-        <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+        <img src="../images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
         <h3>${prod.nombre}</h3>
         <a href="https://wa.me/5353933247?text=${encodeURIComponent("Me interesa una cotización para " + prod.nombre)}" 
            target="_blank" class="btn-cotizacion">Cotización del Servicio</a>
@@ -2428,7 +2428,7 @@ function renderizarProductos(categoria = "todas") {
         const precioNuevo = precioOriginal * (1 - descuento / 100);
         div.innerHTML = `
           <div class="img-container">
-              <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+              <img src="../images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
               <div class="discount-label">Descuento ${descuento}%</div>
           </div>
           <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
@@ -2440,7 +2440,7 @@ function renderizarProductos(categoria = "todas") {
       } else {
         div.innerHTML = `
           <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
-          <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+          <img src="../images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
           <h3>${prod.nombre}</h3>
           <p class="precio-nuevo">USD ${prod.precio.toFixed(2)}</p>
           <button data-id="${prod.id}" class="btn-agregar">Agregar al carrito</button>
@@ -2480,7 +2480,7 @@ function renderizarOfertas() {
 
     div.innerHTML = `
       <div class="img-container">
-          <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+          <img src="../images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
           <div class="discount-label">Descuento ${descuento}%</div>
       </div>
       <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
@@ -2521,7 +2521,7 @@ function renderizarProductosRecientes() {
 
     div.innerHTML = `
       <div class="img-container">
-        <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
+        <img src="../images/${prod.imagen}" alt="${prod.nombre}" loading="lazy">
       </div>
       <div class="etiqueta-categoria ${categoriaSinBarra}">${prod.categoria}</div>
       <h3>${prod.nombre}</h3>
@@ -2607,7 +2607,7 @@ function renderizarCarrito() {
     const div = document.createElement("div");
     div.className = "item-carrito";
     div.innerHTML = `
-      <img src="images/${prod.imagen}" alt="${prod.nombre}" loading="lazy" onerror="this.src='images/placeholder.webp'">
+      <img src="../images/${prod.imagen}" alt="${prod.nombre}" loading="lazy" onerror="this.src='../images/placeholder.webp'">
       <div class="item-info">
         <h4>${prod.nombre}</h4>
         <p>USD ${prod.precio.toFixed(2)} x ${prod.cantidad}</p>
