@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Sin bloquear el zoom: aqui es donde el cliente amplia la foto para
+       leer el gramaje del paquete. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto — TuDespensa25</title>
+
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://res.cloudinary.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../estilos/tokens.css">
+  <link rel="stylesheet" href="../estilos/tienda.css">
+</head>
+<body class="con-pie">
+
+<header class="cabecera">
+  <a class="cabecera__volver" href="index.html" aria-label="Volver a la tienda">
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="24" height="24">
+      <path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20z"/>
+    </svg>
+  </a>
+  <span class="ficha__migas" id="migas"></span>
+  <a class="cabecera__carrito" href="carrito.html" aria-label="Ver el carrito">
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="24" height="24">
+      <path d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6.2 6h14.4l-2.3 8.3a2 2 0 0 1-1.9 1.4H8.6a2 2 0 0 1-1.9-1.4L4.1 3.7H1.5v-2h4.1L6.2 6Z"/>
+    </svg>
+    <span class="cabecera__contador" id="contador-carrito" hidden>0</span>
+  </a>
+</header>
+
+<main id="ficha" hidden>
+  <div class="ficha__foto">
+    <img id="foto" alt="" width="1000" height="1000">
+    <span class="producto__descuento" id="chip-descuento" hidden></span>
+  </div>
+
+  <div class="ficha__cuerpo">
+    <span class="producto__categoria" id="categoria"></span>
+    <h1 class="td-titulo ficha__nombre" id="nombre"></h1>
+
+    <span class="ficha__ahorro" id="ahorro" hidden></span>
+
+    <div class="ficha__precios">
+      <span class="td-precio-antes" id="precio-antes" hidden></span>
+      <span class="td-precio ficha__precio" id="precio"></span>
+      <span class="td-precio-cup" id="precio-cup"></span>
+    </div>
+
+    <p class="ficha__descripcion" id="descripcion"></p>
+
+    <div class="ficha__cantidad">
+      <span class="campo__etiqueta">Cantidad</span>
+      <div class="contador">
+        <button class="contador__btn" id="menos" type="button" aria-label="Quitar uno">−</button>
+        <span class="contador__n" id="cantidad">1</span>
+        <button class="contador__btn" id="mas" type="button" aria-label="Añadir uno">+</button>
+      </div>
+    </div>
+
+    <p class="ficha__entrega" id="entrega"></p>
+  </div>
+</main>
+
+<p class="vacio" id="cargando">Cargando...</p>
+
+<div class="pie" id="pie" hidden>
+  <button class="td-boton pie__boton" id="agregar">Agregar al carrito</button>
+</div>
+
+<script src="../utils/config.js"></script>
+<script src="../utils/imagenes.js"></script>
+<script src="../utils/datos.js"></script>
+<script src="../utils/carrito.js"></script>
+<script src="ficha.js"></script>
+</body>
+</html>

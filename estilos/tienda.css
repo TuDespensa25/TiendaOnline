@@ -453,3 +453,87 @@ body.con-pie { padding-bottom: calc(150px + env(safe-area-inset-bottom)); }
   font-size: 12px;
   color: var(--texto-suave);
 }
+
+/* --- ficha de producto ---------------------------------------------- */
+
+.ficha__migas {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ficha__foto {
+  position: relative;
+  aspect-ratio: 1;
+  background: var(--hundido);
+}
+.ficha__foto img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.ficha__foto .producto__descuento { top: var(--e-sm); left: var(--e-sm); font-size: 14px; padding: 4px 9px; }
+
+.ficha__cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-xs);
+  padding: var(--e-md) var(--margen);
+}
+
+.ficha__nombre { margin: 0; font-size: var(--t-titulo); }
+
+.ficha__ahorro {
+  align-self: flex-start;
+  margin-top: var(--e-xs);
+  padding: 4px 9px;
+  border-radius: var(--radio);
+  background: var(--ahorro);
+  color: #fff;
+  font-size: var(--t-etiqueta);
+  font-weight: 600;
+}
+
+.ficha__precios {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--e-sm);
+  margin-top: var(--e-sm);
+}
+.ficha__precio { font-size: 2rem; }
+.ficha__precios .td-precio-cup { flex-basis: 100%; }
+
+.ficha__descripcion {
+  margin: var(--e-sm) 0 0;
+  color: var(--texto-suave);
+  max-width: 60ch;
+}
+
+.ficha__cantidad {
+  margin-top: var(--e-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-xs);
+}
+.ficha__cantidad .contador { margin-top: 0; }
+
+.ficha__entrega {
+  margin: var(--e-md) 0 0;
+  padding: var(--e-sm);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--tarjeta-suave);
+  font-size: var(--t-etiqueta);
+  color: var(--texto-suave);
+}
+
+/* La tarjeta entera lleva a la ficha; el boton de agregar no. */
+.producto__enlace {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}

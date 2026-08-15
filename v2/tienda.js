@@ -36,6 +36,7 @@
 
     return '' +
       '<article class="producto">' +
+        '<a class="producto__enlace" href="producto.html?id=' + p.id + '">' +
         '<div class="producto__foto">' +
           '<img src="' + escapar(foto) + '"' +
                (srcset ? ' srcset="' + escapar(srcset) + '"' : "") +
@@ -48,6 +49,7 @@
         '<div class="producto__datos">' +
           '<span class="producto__categoria">' + escapar(nombreCorto(p.categorias && p.categorias.nombre)) + '</span>' +
           '<h3 class="producto__nombre">' + escapar(p.nombre) + '</h3>' +
+          '</a>' +
           '<div class="producto__precios">' +
             (hayDescuento
               ? '<div class="td-precio-antes">USD ' + Number(p.precio_usd).toFixed(2) + '</div>'
