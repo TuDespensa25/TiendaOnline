@@ -55,6 +55,7 @@
       <input id="buscar-admin" class="buscador__campo" type="search" placeholder="Buscar producto..." autocomplete="off">
     </div>
     <span class="admin__cuenta" id="cuenta-admin"></span>
+    <button class="td-boton admin__nuevo" id="btn-nuevo" type="button">+ Nuevo</button>
   </div>
 
   <div class="admin__lista" id="lista-admin" aria-live="polite"></div>
@@ -108,6 +109,16 @@
         <input type="checkbox" id="e-visible">
         <span>Visible en la tienda</span>
       </label>
+
+      <span class="campo__etiqueta">Se vende en</span>
+      <p class="ayuda">Si no marcas ninguno, el producto no le aparece a nadie.</p>
+      <div class="municipios-lista" id="e-municipios"></div>
+      <div class="municipios-atajos">
+        <button class="atajo" type="button" id="todos-municipios">Marcar todos</button>
+        <button class="atajo" type="button" id="ningun-municipio">Desmarcar todos</button>
+      </div>
+
+      <button class="borrar" type="button" id="borrar">Borrar este producto</button>
     </div>
 
     <div class="cajon__pie">

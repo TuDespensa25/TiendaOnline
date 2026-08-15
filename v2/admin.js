@@ -12,7 +12,9 @@
 
   var productos = [];
   var categorias = [];
+  var municipios = [];
   var editando = null;
+  var creando = false;    // true cuando el cajon esta creando, no editando
   var fotoNueva = null;   // public_id recien subido, aun sin guardar
 
   var $ = function (id) { return document.getElementById(id); };
@@ -98,9 +100,11 @@
               "precio_usd,descuento_pct,imagen_id,visible,categoria_id,categorias(nombre)&order=nombre",
               { headers: await sesion.cabeceras() }).then(function (r) { return r.json(); }),
         cargarCategorias(),
+        cargarMunicipios(),
       ]);
       productos = res[0];
       categorias = res[1];
+      municipios = res[2];
       $("e-categoria").innerHTML = categorias.map(function (c) {
         return '<option value="' + c.id + '">' + escapar(c.nombre) + "</option>";
       }).join("");
@@ -120,7 +124,31 @@
 
   // --- editar ---
 
-  function abrir(id) {
+  function pintarMunicipios(marcados) {
+    var elegidos = marcados || [];
+    var html = "";
+    var provincia = null;
+    municipios.forEach(function (m) {
+      if (m.provincia !== provincia) {
+        provincia = m.provincia;
+        html += '<div class="hoja__provincia">' + escapar(provincia) + "</div>";
+      }
+      html += '<label class="municipio-check">' +
+                '<input type="checkbox" value="' + m.id + '"' +
+                (elegidos.indexOf(m.id) !== -1 ? " checked" : "") + ">" +
+                "<span>" + escapar(m.nombre) + "</span>" +
+              "</label>";
+    });
+    $("e-municipios").innerHTML = html;
+  }
+
+  function municipiosMarcados() {
+    return [].slice.call($("e-municipios").querySelectorAll("input:checked"))
+             .map(function (i) { return Number(i.value); });
+  }
+
+  async function abrir(id) {
+    creando = false;
     editando = productos.filter(function (p) { return p.id === id; })[0];
     if (!editando) return;
     fotoNueva = null;
@@ -138,10 +166,51 @@
     img.hidden = false;
     $("soltar-texto").textContent = "Toca para cambiar la foto";
     $("error-guardar").hidden = true;
+    $("borrar").hidden = false;
 
+    pintarMunicipios([]);
+    recalcular();
+    $("cajon").showModal();
+
+    // La disponibilidad se pide aparte para no cargarla de los 155 a la vez.
+    try {
+      var res = await fetch(window.SUPABASE_URL +
+        "/rest/v1/producto_municipios?select=municipio_id&producto_id=eq." + id,
+        { headers: await sesion.cabeceras() });
+      pintarMunicipios((await res.json()).map(function (r) { return r.municipio_id; }));
+    } catch (e) { console.error(e); }
+  }
+
+  function abrirNuevo() {
+    creando = true;
+    editando = { id: null };
+    fotoNueva = null;
+
+    $("cajon-titulo").textContent = "Nuevo producto";
+    $("e-nombre").value = "";
+    $("e-descripcion").value = "";
+    $("e-categoria").selectedIndex = 0;
+    $("e-precio").value = "";
+    $("e-descuento").value = "0";
+    $("e-visible").checked = true;
+
+    $("vista-previa").hidden = true;
+    $("soltar-texto").textContent = "Toca para elegir una foto del teléfono";
+    $("error-guardar").hidden = true;
+    $("borrar").hidden = true;
+
+    // Por defecto se vende en toda la zona: es lo mas comun y quitar es mas
+    // rapido que marcar trece casillas.
+    pintarMunicipios(municipios.map(function (m) { return m.id; }));
     recalcular();
     $("cajon").showModal();
   }
+
+  $("btn-nuevo").addEventListener("click", abrirNuevo);
+  $("todos-municipios").addEventListener("click", function () {
+    pintarMunicipios(municipios.map(function (m) { return m.id; }));
+  });
+  $("ningun-municipio").addEventListener("click", function () { pintarMunicipios([]); });
 
   function recalcular() {
     var precio = Number($("e-precio").value) || 0;
@@ -185,7 +254,8 @@
    * un 200 y parecerian que funciono.
    */
   async function subirFoto(archivo, producto) {
-    var base = String(producto.id) + "-" + Date.now();
+    // Un producto nuevo aun no tiene id, asi que se nombra "nuevo-<hora>".
+    var base = (producto && producto.id ? String(producto.id) : "nuevo") + "-" + Date.now();
     var form = new FormData();
     form.append("file", archivo);
     form.append("upload_preset", window.CLOUDINARY_UPLOAD_PRESET);
@@ -223,18 +293,30 @@
 
     try {
       if (!cambios.nombre) throw new Error("El producto necesita un nombre.");
+      if (!cambios.categoria_id) throw new Error("Elige una categoría.");
+      if (creando && !cambios.precio_usd) throw new Error("Pon un precio.");
 
-      var res = await fetch(window.SUPABASE_URL + "/rest/v1/productos?id=eq." + editando.id, {
-        method: "PATCH",
-        headers: Object.assign(await sesion.cabeceras(), { Prefer: "return=representation" }),
-        body: JSON.stringify(cambios),
-      });
+      var cab = await sesion.cabeceras();
+      var res = await fetch(
+        window.SUPABASE_URL + "/rest/v1/productos" + (creando ? "" : "?id=eq." + editando.id),
+        {
+          method: creando ? "POST" : "PATCH",
+          headers: Object.assign(cab, { Prefer: "return=representation" }),
+          body: JSON.stringify(cambios),
+        }
+      );
       var datos = await res.json();
       if (!res.ok) throw new Error(datos.message || "no se pudo guardar");
       if (!datos.length) throw new Error("La base no dejó guardar. ¿Tu usuario es administrador?");
 
-      Object.assign(editando, datos[0]);
-      editando.categorias = categorias.filter(function (c) { return c.id === cambios.categoria_id; })[0] || null;
+      var guardado = datos[0];
+      await guardarMunicipios(guardado.id, municipiosMarcados());
+
+      guardado.categorias = categorias.filter(function (c) { return c.id === cambios.categoria_id; })[0] || null;
+      if (creando) productos.push(guardado);
+      else Object.assign(editando, guardado);
+
+      productos.sort(function (a, b) { return a.nombre.localeCompare(b.nombre); });
       pintar();
       $("cajon").close();
     } catch (e) {
@@ -243,6 +325,62 @@
     } finally {
       boton.disabled = false;
       boton.textContent = "Guardar";
+    }
+  });
+
+  /**
+   * Deja la disponibilidad exactamente como la dejo el usuario.
+   * Borra y vuelve a insertar en vez de calcular la diferencia: son trece
+   * filas como mucho, y asi no hay estados a medias si algo falla.
+   */
+  async function guardarMunicipios(productoId, ids) {
+    var cab = await sesion.cabeceras();
+    var base = window.SUPABASE_URL + "/rest/v1/producto_municipios";
+
+    var borrado = await fetch(base + "?producto_id=eq." + productoId, { method: "DELETE", headers: cab });
+    if (!borrado.ok) throw new Error("no se pudo actualizar la disponibilidad");
+
+    if (!ids.length) return;
+    var puesto = await fetch(base, {
+      method: "POST",
+      headers: cab,
+      body: JSON.stringify(ids.map(function (m) {
+        return { producto_id: productoId, municipio_id: m };
+      })),
+    });
+    if (!puesto.ok) throw new Error("no se pudo guardar en qué municipios se vende");
+  }
+
+  // --- borrar ---
+
+  $("borrar").addEventListener("click", async function () {
+    if (!editando || creando) return;
+    var nombre = editando.nombre;
+    if (!confirm('¿Borrar "' + nombre + '"?\n\nLos pedidos que ya lo incluyen no cambian: ' +
+                 'guardan copia del nombre y del precio.\n\nSi solo quieres que deje de ' +
+                 'venderse, cierra esto y desmarca "Visible en la tienda".')) return;
+
+    var boton = $("borrar");
+    boton.disabled = true;
+    boton.textContent = "Borrando...";
+    try {
+      var res = await fetch(window.SUPABASE_URL + "/rest/v1/productos?id=eq." + editando.id, {
+        method: "DELETE",
+        headers: Object.assign(await sesion.cabeceras(), { Prefer: "return=representation" }),
+      });
+      var datos = await res.json();
+      if (!res.ok) throw new Error(datos.message || "no se pudo borrar");
+      if (!datos.length) throw new Error("La base no dejó borrar. ¿Tu usuario es administrador?");
+
+      productos = productos.filter(function (p) { return p.id !== editando.id; });
+      pintar();
+      $("cajon").close();
+    } catch (e) {
+      $("error-guardar").textContent = e.message;
+      $("error-guardar").hidden = false;
+    } finally {
+      boton.disabled = false;
+      boton.textContent = "Borrar este producto";
     }
   });
 
