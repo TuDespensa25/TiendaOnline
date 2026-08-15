@@ -8,7 +8,9 @@
   "use strict";
 
   var TASA = 340;
-  var WHATSAPP = "5352000000"; // TODO: numero real del negocio
+  // +53 53933247 -> wa.me lo quiere sin el mas y sin espacios: 53 (Cuba) +
+  // los 8 digitos del movil.
+  var WHATSAPP = "5353933247";
 
   var catalogo = {};   // id -> producto
   var municipios = [];
@@ -175,6 +177,21 @@
       enviando = false;
     }
   }
+
+  // Gancho de prueba: arma lo que se enviaria, sin enviarlo.
+  window.testPedido = function () {
+    var lineas = detalle();
+    var t = totales(lineas);
+    return {
+      numeroDestino: WHATSAPP,
+      total: t.total,
+      ahorro: t.ahorro,
+      items: lineas.map(function (l) { return { producto_id: l.id, cantidad: l.cantidad }; }),
+      mensaje: mensajeWhatsApp(lineas, t, 1234),
+      url: "https://wa.me/" + WHATSAPP + "?text=" +
+           encodeURIComponent(mensajeWhatsApp(lineas, t, 1234)),
+    };
+  };
 
   // --- eventos ---
 
