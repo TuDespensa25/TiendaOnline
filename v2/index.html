@@ -40,6 +40,12 @@
 </header>
 
 <main>
+
+  <div class="banners" id="banners" aria-label="Ofertas destacadas">
+    <div class="banners__pista" id="banners-pista"></div>
+    <div class="banners__puntos" id="banners-puntos"></div>
+  </div>
+
   <div class="buscador">
     <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
       <path d="M10 2a8 8 0 1 0 4.9 14.3l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0 0 10 2Zm0 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"/>
@@ -49,9 +55,25 @@
 
   <nav class="categorias" id="categorias" aria-label="Categorías"></nav>
 
-  <section class="seccion">
+
+  <section class="seccion" id="sec-combos" hidden>
+    <div class="seccion__titulo"><h2 class="td-titulo">Combos</h2></div>
+    <div class="carrusel" id="combos"></div>
+  </section>
+
+  <section class="seccion" id="sec-ofertas" hidden>
+    <div class="seccion__titulo"><h2 class="td-titulo">Ofertas especiales</h2></div>
+    <div class="carrusel" id="ofertas"></div>
+  </section>
+
+  <section class="seccion" id="sec-nuevos" hidden>
+    <div class="seccion__titulo"><h2 class="td-titulo">Recién llegados</h2></div>
+    <div class="carrusel" id="nuevos"></div>
+  </section>
+
+  <section class="seccion" id="sec-todos">
     <div class="seccion__titulo">
-      <h2 class="td-titulo" id="titulo-lista">Ofertas especiales</h2>
+      <h2 class="td-titulo" id="titulo-lista">Todos los productos</h2>
       <span class="seccion__cuenta" id="cuenta"></span>
     </div>
     <div class="rejilla" id="rejilla" aria-live="polite"></div>

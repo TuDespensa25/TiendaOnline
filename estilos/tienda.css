@@ -537,3 +537,70 @@ body.con-pie { padding-bottom: calc(150px + env(safe-area-inset-bottom)); }
   color: inherit;
   text-decoration: none;
 }
+
+/* --- banners -------------------------------------------------------- */
+
+.banners { position: relative; margin: var(--e-sm) 0 var(--e-xs); }
+
+/* Deslizar con el dedo y anclar en cada anuncio. Sin temporizador: un
+   carrusel que se mueve solo mientras alguien lee es una molestia, y aqui
+   ademas gasta datos moviles en imagenes que no ha pedido. */
+.banners__pista {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.banners__pista::-webkit-scrollbar { display: none; }
+
+.banner {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: block;
+}
+.banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: var(--hundido);
+}
+
+.banners__puntos {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: var(--e-sm) 0 0;
+}
+.punto {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--borde);
+  cursor: pointer;
+}
+.punto[aria-current="true"] { background: var(--marca); width: 22px; border-radius: 4px; }
+
+/* --- carruseles de seccion ------------------------------------------ */
+
+/* Fila que se desliza: deja ver que hay mas sin ocupar toda la pantalla,
+   que es lo que hace la rejilla de abajo. */
+.carrusel {
+  display: flex;
+  gap: var(--e-sm);
+  overflow-x: auto;
+  padding-bottom: var(--e-xs);
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.carrusel::-webkit-scrollbar { display: none; }
+.carrusel .producto {
+  flex: 0 0 minmax(150px, 46%);
+  width: 46%;
+  min-width: 150px;
+  max-width: 210px;
+  scroll-snap-align: start;
+}

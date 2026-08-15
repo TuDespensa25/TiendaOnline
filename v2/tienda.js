@@ -71,8 +71,40 @@
     });
   }
 
+  var ES_COMBO = { "Combos Temporales": 1, "Combos en oferta": 1, "Combos Variados": 1 };
+
+  function esCombo(p) {
+    return !!(p.categorias && ES_COMBO[p.categorias.nombre]);
+  }
+
+  function pintarCarrusel(id, lista) {
+    var seccion = $("sec-" + id);
+    seccion.hidden = lista.length === 0;
+    if (lista.length) $(id).innerHTML = lista.map(tarjeta).join("");
+  }
+
   function pintar() {
     var lista = visibles();
+    // Las secciones destacadas solo tienen sentido en la vista completa: si
+    // el cliente ya filtro o busco, estorban y esconden lo que pidio.
+    var filtrando = !!estado.categoria || !!estado.busca.trim();
+
+    if (filtrando) {
+      ["combos", "ofertas", "nuevos"].forEach(function (s) { $("sec-" + s).hidden = true; });
+      $("titulo-lista").textContent = estado.categoria
+        ? nombreCorto(estado.categoria)
+        : "Resultados";
+    } else {
+      pintarCarrusel("combos", lista.filter(esCombo));
+      pintarCarrusel("ofertas", lista.filter(function (p) {
+        return Number(p.descuento_pct) > 0 && !esCombo(p);
+      }));
+      pintarCarrusel("nuevos", lista.filter(function (p) {
+        return p.reciente && Number(p.descuento_pct) === 0 && !esCombo(p);
+      }));
+      $("titulo-lista").textContent = "Todos los productos";
+    }
+
     $("rejilla").innerHTML = lista.map(tarjeta).join("");
     $("cuenta").textContent = lista.length + (lista.length === 1 ? " producto" : " productos");
 
@@ -83,6 +115,43 @@
         ? "No hay productos que coincidan en tu municipio."
         : "No hay productos que coincidan.";
     }
+  }
+
+  // --- banners ---
+
+  // Cada numero es una campana distinta, con su version ancha y su version
+  // vertical. La tienda vieja las cruzaba: ensenaba banner17 en escritorio y
+  // banner16m en movil, que son anuncios diferentes.
+  var BANNERS = [
+    { id: "banner17", movil: "banner17-m", alt: "Ofertas especiales en ahumados" },
+    { id: "banner14", movil: "banner14m", alt: "Ofertas especiales" },
+    { id: "banner15", movil: "banner15m", alt: "Ofertas especiales" },
+    { id: "banner16", movil: "banner16m", alt: "Frijoles colorados gratis por compras de 60 USD o más" },
+  ];
+
+  function pintarBanners() {
+    var base = "tudespensa25/productos/";
+    $("banners-pista").innerHTML = BANNERS.map(function (b, i) {
+      return '<a class="banner" href="#sec-ofertas">' +
+               "<picture>" +
+                 '<source media="(max-width: 700px)" srcset="' +
+                   escapar(urlImagen(base + b.movil, 800)) + '">' +
+                 '<img src="' + escapar(urlImagen(base + b.id, 1000)) + '"' +
+                      ' alt="' + escapar(b.alt) + '"' +
+                      (i === 0 ? ' fetchpriority="high"' : ' loading="lazy"') + ">" +
+               "</picture>" +
+             "</a>";
+    }).join("");
+
+    $("banners-puntos").innerHTML = BANNERS.map(function (b, i) {
+      return '<button class="punto" data-i="' + i + '" aria-label="Ver anuncio ' + (i + 1) + '"' +
+             (i === 0 ? ' aria-current="true"' : "") + "></button>";
+    }).join("");
+  }
+
+  function moverBanner(i) {
+    var pista = $("banners-pista");
+    pista.scrollTo({ left: i * pista.clientWidth, behavior: "smooth" });
   }
 
   function pintarCategorias() {
@@ -186,10 +255,27 @@
     cargar();
   });
 
+  $("banners-puntos").addEventListener("click", function (e) {
+    var b = e.target.closest(".punto");
+    if (b) moverBanner(Number(b.dataset.i));
+  });
+
+  // El punto activo se saca de donde esta la pista, no de un temporizador:
+  // asi sigue al dedo cuando el cliente desliza a mano.
+  $("banners-pista").addEventListener("scroll", function () {
+    var pista = $("banners-pista");
+    var i = Math.round(pista.scrollLeft / pista.clientWidth);
+    [].forEach.call($("banners-puntos").children, function (p, j) {
+      if (j === i) p.setAttribute("aria-current", "true");
+      else p.removeAttribute("aria-current");
+    });
+  }, { passive: true });
+
   // --- arranque ---
 
   guardarRef();
   contador();
+  pintarBanners();
   cargarMunicipios()
     .then(function (m) { estado.municipios = m; pintarMunicipios(); })
     .catch(function (e) { console.error(e); });
